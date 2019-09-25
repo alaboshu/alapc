@@ -1,0 +1,113 @@
+.mall-edit {
+  .el-button {
+    margin-top: 10px;
+  }
+
+  .category-box {
+    padding: 15px;
+
+    .choose-category {
+      display: flex;
+      align-items: center;
+
+      .category-list {
+        width: 230px;
+        height: 300px;
+        border: 1px solid #e5e5e5;
+        overflow-y: auto;
+
+        .category-list_input {
+          width: 100%;
+          padding: 3px;
+
+          input {
+            outline: none;
+            width: 100%;
+            height: 25px;
+            line-height: 25px;
+            padding: 0px 10px;
+            border: 1px solid #d9e5f6;
+          }
+        }
+
+        .category-list_ul {
+          .category-list_li {
+            display: flex;
+            align-items: center;
+            padding: 5px 15px;
+            cursor: pointer;
+
+            .list-list-title {
+              flex: 1;
+              font-size: 12px;
+            }
+
+            .list-list-icon {
+              font-size: 12px;
+            }
+
+            &:hover {
+              background-color: #dff1fb;
+            }
+          }
+        }
+      }
+    }
+
+    .prompt-dialog {
+      display: flex;
+      align-items: center;
+      height: 35px;
+      line-height: 35px;
+      border: 1px solid #fedbab;
+      background-color: #fffaf2;
+      margin: 10px 0px;
+      padding: 0px 25px;
+
+      .dialog-left {
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .dialog-right {
+        font-size: 12px;
+
+        .right-text {
+          margin: 0px 5px;
+        }
+
+        .foot-edit {
+          font-size: 11px;
+          color: #00c5dc;
+          border-radius: 3px;
+          padding: 5px 10px;
+          cursor: pointer;
+
+          &.edit {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+
+    .prompt-foot {
+      width: 100%;
+
+      .foot-but {
+        display: inline-block;
+        font-size: 12px;
+        background-color: #4096e7;
+        border-radius: 3px;
+        color: #ffffff;
+        padding: 10px 15px;
+        margin: 0 auto;
+        cursor: pointer;
+      }
+
+      .categoryadd {
+        margin-left: 10px;
+        background-color: #34bfa3;
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+.zk-product-top {
+  width: 100%;
+  height: 40px;
+  background-color: #2e2e2e;
+
+  .top-nav {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .top-nav_left {
+      display: flex;
+      align-items: center;
+
+      .friendly-reminder {
+        color: #d5d5d5;
+        font-size: 13px;
+        font-weight: 500;
+        font-family: '微软雅黑';
+
+        .friendly-reminder_span {
+          color: #c81332;
+          font-size: 13px;
+          margin-left: 5px;
+        }
+      }
+
+      .log-words {
+        margin-left: 20px;
+
+        .log-information {
+          display: flex;
+          align-items: center;
+
+          .information_img {
+            width: 25px;
+            height: 25px;
+            border-radius: 25px;
+            border: 1px solid #ffffff;
+            background-color: #ffffff;
+          }
+
+          .information_title {
+            font-size: 13px;
+            color: #ffffff;
+            margin-left: 8px;
+          }
+
+          .information_exit {
+            color: #ffffff;
+            font-size: 12px;
+            margin-left: 15px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .log-words_color {
+      display: inline-block;
+      padding: 0px 8px;
+      color: #d5d5d5;
+      position: relative;
+      font-family: '微软雅黑';
+      font-weight: 500;
+      font-size: 13px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .top-nav_right {
+      .log-words_color {
+        padding: 0px 6px;
+      }
+    }
+
+    .words-after {
+      cursor: pointer;
+    }
+
+    .words-after::after {
+      content: "";
+      position: absolute;
+      top: 4px;
+      right: 0px;
+      height: 12px;
+      border-right: 2px solid #d5d5d5;
+    }
+  }
+}

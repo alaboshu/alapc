@@ -1,0 +1,88 @@
+.edit-base {
+    .base-dialong {
+        .el-dialog {
+            height: 60vh;
+            border-radius: 3px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            .el-dialog__header {
+                background-color: #ffffff;
+                border-bottom: 1px solid #f0f0f0;
+                .el-dialog__title {
+                    color: #333333;
+                    font-size: 14px;
+                }
+                .el-dialog__headerbtn {
+                    .el-dialog__close {
+                        color: #333333 !important;
+                    }
+                }
+            }
+            .el-dialog__body {
+                flex: 1;
+                min-height: 0;
+                overflow: auto;
+            }
+            .base-dialong_conter {
+                .el-radio-group {
+                    display: block;
+                    padding: 6px 15px;
+                    .el-radio {
+                        width: 100%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                    .el-radio__label {
+                        font-size: 13px;
+                        color: #868e96;
+                    }
+                }
+                .radio-group_box {
+                    .is-checked {
+                        .el-radio__inner {
+                            background: #20c997;
+                        }
+                    }
+                    .el-radio__inner {
+                        border: 1px solid #20c997;
+                    }
+                }
+                .radio-group_box:nth-child(2n) {
+                    .is-checked {
+                        .el-radio__inner {
+                            background: #6610f2;
+                        }
+                    }
+                    .el-radio__inner {
+                        border: 1px solid #6610f2;
+                    }
+                }
+                .radio-group_box:nth-child(3n) {
+                    .is-checked {
+                        .el-radio__inner {
+                            background: #f4516c;
+                        }
+                    }
+                    .el-radio__inner {
+                        border: 1px solid #f4516c;
+                    }
+                }
+                .radio-group_box:nth-child(4n) {
+                    .is-checked {
+                        .el-radio__inner {
+                            background: #6610f2;
+                        }
+                    }
+                    .el-radio__inner {
+                        border: 1px solid #6610f2;
+                    }
+                }
+            }
+            .el-dialog__footer {
+                border-top: 1px solid #f0f0f0;
+            }
+        }
+    }
+}

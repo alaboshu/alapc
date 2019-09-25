@@ -1,0 +1,51 @@
+.admin-coupon-send {
+    width: 100%;
+    .el-form-item__label {
+        padding-right: 20px;
+        font-size: 13px;
+    }
+    .coupon-edit_form {
+        padding: 20px;
+        .coupon_intro {
+            font-size: 12px;
+            color: #999999;
+            line-height: 18px;
+        }
+        .form-restrictions {
+            .form-restrictions_li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+                .el-radio {
+                    margin-right: 5px;
+                    .el-radio__label {
+                        font-size: 13px;
+                    }
+                }
+                .restrictions_li-input {
+                    width: 300px;
+                }
+            }
+        }
+        .el-radio-group {
+            .el-radio {
+                .el-radio__label {
+                    font-size: 13px;
+                }
+            }
+        }
+        .group_discount-input {
+            display: flex;
+            .discount_tag-input {
+                width: 300px;
+            }
+            .discount_tag {
+                margin: 0px 5px;
+            }
+        }
+    }
+    .commit_btn {
+        padding: 20px 320px;
+        border-top: 1px solid #f0f0f0;
+    }
+}

@@ -1,0 +1,23 @@
+.dialog {
+  .dialog-cont {
+    padding: 20px;
+    width: 100%;
+
+    .el-radio-group {
+      margin-left: 100px;
+    }
+
+    .el-form-item__content {
+      margin-left: 10px !important;
+    }
+
+    .tips {
+      height: 20px;
+      line-height: 20px;
+    }
+  }
+
+  .el-textarea__inner {
+    height: 50px;
+  }
+}

@@ -1,0 +1,49 @@
+.protlet-border {
+    .border-header {
+        height: 50px;
+        line-height: 50px;
+        padding: 0px 25px;
+        .border-header-icon {
+            margin-right: 4px;
+        }
+        .border-header-title {
+            font-size: 16px;
+            font-family: 'PingFang SC';
+            font-weight: 700;
+        }
+        .border-header-desc {
+            margin-top: 2px;
+            height: 13px;
+            line-height: 13px;
+            padding: 0px 5px;
+            color: #999999;
+            border-left: 1px solid #d9d8d8;
+            font-family: 'PingFang SC';
+            color: #666666;
+        }
+    }
+}
+
+@mixin widget_border($name, $color, $text-color) {
+    .protlet-border__#{$name} {
+        .border-header {
+            background: $color;
+            .border-header-title {
+                color: $text-color;
+            }
+            .border-header-desc {
+                color: $text-color;
+            }
+        }
+    }
+}
+
+@each $name,
+$colors in $component-colors {
+    @include widget_border($name, map-get($colors, base), map-get($colors, font));
+}
+
+@each $name,
+$colors in $theme-colors {
+    @include widget_border($name, map-get($colors, base), map-get($colors, font));
+}

@@ -1,0 +1,19 @@
+{
+  "apiUrl": "/api/Component/GetComponentPageList",
+  "columns": [{
+      "prop": "name",
+      "label": "组件名称",
+      "width": 240
+    },
+    {
+      "prop": "path",
+      "label": "组件路径",
+      "width": 240
+    },
+    {
+      "prop": "createTime",
+      "label": "创建时间",
+      "width": 240
+    }
+  ]
+}

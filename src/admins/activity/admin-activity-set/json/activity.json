@@ -1,0 +1,32 @@
+[
+  {
+    "name": "购买权限",
+    "key": "ZKCloud.App.Shop.Activitys.Modules.BuyPermision.Model.BuyPermisionActivity",
+    "num": "first",
+    "icon": "flaticon-app"
+  },
+  {
+    "name": "会员折扣",
+    "key": "ZKCloud.App.Shop.Activitys.Modules.MemberDiscount.Model.MemberDiscountActivity",
+    "num": "fourth",
+    "icon": "flaticon-menu-button"
+  },
+  {
+    "name": "预售",
+    "key": "ZKCloud.App.Shop.Activitys.Modules.PreSells.Model.PreSellsActivity",
+    "num": "second",
+    "icon": "flaticon-bag"
+  },
+  {
+    "name": "限时抢购",
+    "key": "ZKCloud.App.Shop.Activitys.Modules.TimeLimitBuy.Model.TimeLimitBuyActivity",
+    "num": "third",
+    "icon": "flaticon-squares"
+  },
+  {
+    "name": "拼团",
+    "key": "ZKCloud.App.Shop.Activitys.Modules.GroupBuy.Model.GroupBuyActivity",
+    "num": "six",
+    "icon": "flaticon-user"
+  }
+]

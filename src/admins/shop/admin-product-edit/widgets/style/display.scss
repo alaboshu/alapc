@@ -1,0 +1,248 @@
+.basics {
+  padding-right: 20px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 4px;
+  font-size: 14px;
+
+  .basics-title_row {
+    width: 100%;
+    display: flex;
+    margin-bottom: 35px;
+  }
+
+  .right-whether {
+    margin-bottom: 0px;
+  }
+
+  .basics_title {
+    border-bottom: 1px solid #f5f7fa;
+    height: 44px;
+    line-height: 44px;
+    padding-left: 20px;
+    color: #353434;
+    font-weight: 500;
+    font-family: Roboto;
+  }
+
+  .title_row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 15px 25px;
+  }
+
+  .title_left {
+    width: 240px;
+    margin-right: 35px;
+    text-align: right;
+    font-size: 13px;
+    padding-top: 10px;
+    color: #606266;
+  }
+
+  .title-swtict {
+    padding-top: 0px;
+  }
+
+  .title_right {
+    flex: 1;
+
+    .rich-text {
+      max-width: 900px !important;
+
+      .edui-editor {
+        max-width: 900px !important;
+
+        .edui-editor-iframeholder {
+          max-width: 900px !important;
+          min-height: 500px !important;
+        }
+      }
+    }
+
+    .right-clear {
+      display: flex;
+      align-items: center;
+
+      .clear-select {
+        flex: 1;
+      }
+
+      .freight-template {
+        height: 40px;
+        line-height: 40px;
+        background-color: #34bfa3;
+        border: 1px solid #34bfa3;
+        padding: 0px 10px;
+        border-radius: 4px;
+        color: #ffffff;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+    }
+
+    .right-heading {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      background: #f7f8fa;
+      padding-top: 15px;
+
+      .right-head_list {
+        display: flex;
+        align-items: center;
+        width: 33%;
+        margin-bottom: 15px;
+
+        .head_list-text {
+          width: 100px;
+          margin-right: 10px;
+          font-size: 12px;
+          text-align: right;
+          color: #7b7e8a;
+
+          .text-span {
+            color: red;
+          }
+        }
+
+        .head_list-option {
+          flex: 1;
+
+          .el-select {
+            width: 100%;
+
+            .el-input__inner {
+              height: 35px;
+            }
+
+            .el-input__icon {
+              line-height: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    .el-input__inner {
+      width: 100%;
+      text-align: left;
+
+      &::-webkit-input-placeholder {
+        font-size: 11px;
+      }
+
+      &::-moz-placeholder {
+        font-size: 11px;
+      }
+
+      &:-ms-input-placeholder {
+        font-size: 11px;
+      }
+    }
+
+    .right-price {
+      display: flex;
+      align-items: center;
+
+      .right-price_input {
+        .el-input__inner {
+          width: 120px;
+          border-radius: 0px;
+        }
+      }
+
+      .price-right {
+        .el-input__inner {
+          border-top-right-radius: 4px;
+          border-bottom-right-radius: 4px;
+        }
+      }
+
+      .right-price_title {
+        height: 42px;
+        line-height: 42px;
+        width: 80px;
+        text-align: center;
+        border-top: 1px solid #DCDFE6;
+        border-bottom: 1px solid #DCDFE6;
+        // padding: 0px 15px;
+      }
+
+      .finally {
+        border-left: 1px solid #DCDFE6;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+    }
+
+    .text-inrto {
+      color: #909399;
+    }
+  }
+
+  .classifi-cation {
+    border: 1px solid #ebedf2;
+    border-radius: 5px;
+
+    .el-tree {
+      padding: 10px 15px;
+      border-radius: 5px;
+
+      .el-tree-node__content {
+        .el-tree-node__label {
+          font-size: 13px;
+        }
+
+        &:hover {
+          background-color: #eaf4f9;
+        }
+      }
+    }
+
+    .el-checkbox {
+      margin-right: 5px !important;
+    }
+  }
+
+  .category {
+    margin-bottom: 30px;
+
+    .category_content {
+      padding: 10px 30px;
+      padding-left: 85px;
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      background: #f7f8fa;
+      margin-left: 153px;
+      padding-top: 20px;
+      padding-right: 20px;
+      border-radius: 4px;
+
+      .content_item {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        margin-bottom: 20px;
+
+        .content_item_label {
+          width: 70px;
+          text-align: right;
+          margin-right: 10px;
+        }
+
+        .content_item_input {
+          flex: 1;
+
+          .el-input__inner {
+            height: 38px !important;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}

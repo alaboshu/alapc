@@ -1,0 +1,44 @@
+@import "@/assets/style/theme.scss";
+.platform-function_box {
+    .platform-function {
+        padding: 20px 20px 10px 20px;
+        .platform_intro {
+            border-radius: 3px;
+            background-color: #f66e84;
+            padding: 12px 15px;
+            color: $gl-light;
+            font-size: 11px;
+        }
+    }
+    .role-item_box {
+        .el-tree_list {
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            padding: 10px;
+        }
+    }
+    .role-foot {
+        padding: 20px 150px;
+        border-top: 1px solid #ebedf2;
+        div {
+            cursor: pointer;
+        }
+        .role-foot_right {
+            display: inline-block;
+            border: 1px solid #716aca;
+            background-color: #716aca;
+            border-radius: 3px;
+            color: #ffffff;
+            font-size: 12px;
+            padding: 8px 12px;
+        }
+        .role-foot_left {
+            display: inline-block;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            font-size: 12px;
+            padding: 8px 12px;
+            margin-left: 10px;
+        }
+    }
+}

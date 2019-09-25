@@ -1,0 +1,94 @@
+.activity-edit {
+  width: 100%;
+  margin: 20px auto;
+  padding: 0px 20px;
+
+  li {
+    min-height: 40px;
+    color: #8a8a8a;
+    display: flex;
+    margin-bottom: 20px;
+
+    &.activity-title {
+      height: 40px;
+      background: #e95a40;
+      color: white;
+      font-size: 18px;
+      line-height: 40px;
+      padding-left: 15px;
+      border-radius: 3px;
+      margin-bottom: 20px;
+    }
+
+    &:last-child {
+      .el-button {
+        margin-top: 20px;
+      }
+    }
+
+    span {
+      color: red;
+    }
+
+    .activity-text {
+      width: 190px;
+      height: 42px;
+      line-height: 42px;
+      text-align: right;
+      margin-right: 30px;
+      color: #606266;
+    }
+
+    .activity-calendar {
+      .activity-calendar_intro {
+        font-size: 12px;
+      }
+    }
+
+    .activity-table {
+      width: 90%;
+
+      .activity-table-title {
+        color: #e95a40;
+        padding: 12px 0;
+        border-bottom: 1px solid #DCDFE6;
+      }
+
+      .activity-table-edit {
+        padding-top: 19px;
+        display: flex;
+        align-items: center;
+        height: 42px;
+      }
+
+      .activity-table-input {
+        width: 200px;
+        margin-left: 20px;
+      }
+
+      .buttom {
+        margin-left: 20px;
+      }
+
+      .activity-table-cont {
+        margin: 20px 0;
+      }
+    }
+  }
+
+  .el-range-editor.el-input__inner {
+    width: 100%;
+  }
+}
+
+.activity-title {
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  margin-right: 20px;
+  border-bottom: 1px solid #e5e5e5;
+
+  i {
+    font-size: 16px;
+  }
+}

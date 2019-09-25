@@ -1,0 +1,25 @@
+.admin-store-settings {
+    .el-form {
+        padding: 20px;
+        .el-form-item__label {
+            padding-right: 30px;
+            color: #606266;
+            font-size: 13px;
+        }
+        .el-textarea__inner {
+            min-height: 100px !important;
+        }
+    }
+    .store-buttom {
+        border-top: 1px solid #f0f0f0;
+        padding: 20px 270px;
+        .store_but {
+            display: inline-block;
+            color: #ffffff;
+            background-color: #34bfa3;
+            padding: 11px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    }
+}

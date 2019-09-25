@@ -1,0 +1,83 @@
+.asset-allocation {
+    .alert-success {
+        padding: 15px;
+        .alert-success_box {
+            border-radius: 4px;
+            background-color: #45ccb1;
+            padding: 15px 25px 10px 25px;
+            p {
+                color: #ffffff;
+                font-size: 13px;
+                margin-bottom: 5px;
+                font-weight: 300;
+                span {
+                    color: #5867dd;
+                    cursor: pointer;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    .asset-allocation_text {
+        display: flex;
+        align-items: center;
+        margin: 40px;
+        span {
+            color: #3f4047;
+            font-size: 13px;
+        }
+        .form-control-sm {
+            width: 200px;
+            margin: 0px 8px;
+            .el-input__inner {
+                height: 35px;
+            }
+        }
+        .control-but {
+            background-color: #5867dd;
+            color: #ffffff;
+            font-size: 13px;
+            height: 35px;
+            line-height: 35px;
+            padding: 0px 14px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+    }
+    .asset_table {
+        width: 100%;
+        border-top: 1px solid #f0f0f0;
+        .cell {
+            text-align: center;
+            color: #343a40;
+            font-size: 13px;
+        }
+        .input_box {
+            display: flex;
+            div {
+                flex: 1;
+                margin: 0px 8px;
+            }
+        }
+        .actions_but {
+            display: inline-block;
+            background-color: red;
+            color: #ffffff;
+            font-size: 12px;
+            border-radius: 3px;
+            padding: 6px 14px;
+            cursor: pointer;
+        }
+        .actions_add {
+            display: inline-block;
+            background-color: #45ccb1;
+            color: #ffffff;
+            border-radius: 3px;
+            padding: 10px 16px;
+            cursor: pointer;
+            margin: 20px 10px;
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{
+  "list": [{
+      "name": "姓名地址",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "地址",
+      "icon": "zk-homepage",
+      "branch": "未认证",
+      "img": ""
+    },
+    {
+      "name": "买家留言",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "平台留言",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "平台备注",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "订单编号",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "店铺",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "下单时间",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "支付时间",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "支付方式",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    }
+  ]
+}

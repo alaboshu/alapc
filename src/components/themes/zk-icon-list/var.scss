@@ -1,0 +1,68 @@
+.zk-icon-list{
+    .zk-icon-list-cont{
+        height: 200px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #e5e5e5;
+        .img{
+            width: 160px;
+            height: 160px;
+            margin: 0;
+        }
+        .cont-text{
+            width: 590px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .cont-text-border{
+                display: flex;
+                align-items: center;
+                .cont-text-border-list{
+                    padding: 2px 5px;
+                    border: 1px solid #999;
+                    color: #999;
+                    border-radius: 3px;
+                    margin-right: 9px;
+                }
+            }
+            p{
+                font-size: 16px;
+                &:nth-child(1) {
+                    font-weight: 600;
+                }
+                &:nth-child(2) {
+                    color: #FB3F3F;
+                    span{
+                        font-weight: 600;
+                        font-size: 16px;
+                    }
+                }
+                &:nth-child(4) {
+                    color: #999999;
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .HeadPortrait{
+            width: 160px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+
+            .HeadPortrait-img{
+                width: 74px;
+                height: 74px;
+            }
+            p{
+                margin-top: 3px;
+                font-size: 13px;
+                color: #999;
+                text-align: center;
+            }
+        }
+    }
+}

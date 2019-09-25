@@ -1,0 +1,93 @@
+ .zk-data-option{
+    font-size: 12px;
+    background: #f2f3f8;
+    .m-portlet-fit--sides {
+      position: relative;
+      width: 400px;
+      margin: 0 auto;
+      background: #fff;
+
+    padding-bottom: 100px;
+    }
+    .m-widget27__pic {
+      position: relative;
+    }
+     .m-widget27__pic>img {
+      width: 100%;
+      height: 286px;
+    }
+    .m-widget27 .m-widget27__pic .m-widget27__title {
+      position: absolute;
+      left: 50%;
+      top: 60%;form: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      display: block;
+      z-index: 1;
+      color: #ffffff;
+      font-weight: normal;
+    }
+    .m-widget27 .m-widget27__pic .m-widget27__title>span {
+      font-size: 50px;
+    }
+    .m-widget27 .m-widget27__pic .m-widget27__title>span>span {
+      font-size: 40px;
+      padding-right: 0.4rem;
+    }
+     .m-widget27__pic .m-widget27__btn .btn {
+      color: #7b7e8a;
+    }
+    .m-widget27__pic .m-widget27__btn .btn {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      display: block;
+      font-size: 15px;
+      padding: 15px 27px;
+      border-radius: 60px;
+      background: #fff;
+      border-color: #ebedf2;
+      border: 1px solid #ebedf2;
+    }
+    .m-widget27__pic .m-widget27__btn .btn:hover{
+      background: #ebedf2;
+    }
+    .m-portlet__head-caption{
+      position: absolute;
+      top: 15px;
+      z-index: 10;
+      color: #d6d1d1;
+      margin:15px 40px;
+      font-size: 30px;
+      h3{
+        font-size: 18px;
+        font-weight: normal;
+      }
+    }
+    .m-widget27__container .m-widget27__nav-items {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      border-spacing: 0.7rem;
+    }
+    .nav.nav-pills, .nav.nav-tabs {
+      margin-bottom: 20px;
+    }
+    .m-widget27 .m-widget27__container .m-widget27__nav-items .m-widget27__nav-item {
+      display: table-cell;
+    }
+    .m-widget27 .m-widget27__container .m-widget27__nav-items .m-widget27__nav-item>a {
+      color: #a4a6ae;
+      border: 1px solid #ebedf2;
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 4px;
+    }
+    .btn.btn-secondary {
+      background: white;
+    }
+  }

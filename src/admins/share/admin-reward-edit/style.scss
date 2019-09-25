@@ -1,0 +1,89 @@
+.admin-reward {
+    background-color: #f8f9fa;
+    width: 100%;
+    display: flex;
+    .admin-reward_tabs {
+        margin-left: 0px;
+    }
+    .el-tabs__nav-scroll {
+        padding: 0px 15px;
+    }
+    .tab-pane-span {
+        font-size: 14px;
+        color: #333333;
+        i {
+            font-size: 15px;
+            margin-right: 5px;
+        }
+    }
+    .el-tabs__content {
+        padding: 0px 20px;
+        .tab-pane-boxs {
+            .demo_intro {
+                line-height: 18px;
+                margin-bottom: 6px;
+                color: #999999;
+                .demo_intro-span {
+                    margin-right: 5px;
+                    cursor: pointer;
+                }
+                .demo_intro-color {
+                    color: red;
+                    font-weight: 300;
+                }
+                .demo_intro-buttom {
+                    display: inline-block;
+                    background-color: #34bfa3;
+                    color: #ffffff;
+                    border-radius: 2px;
+                    padding: 2px 6px;
+                    font-size: 12px;
+                    cursor: pointer;
+                    transition: .5s all;
+                    &:hover {
+                        background-color: #299781;
+                    }
+                }
+                .demo_text-a {
+                    font-size: 12px;
+                    color: #5867dd;
+                    margin: 0px 4px;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    .el-form-item__label {
+        font-size: 13px;
+    }
+    .el-form-item__content {
+        padding-left: 20px;
+    }
+    .form-buttom {
+        padding-left: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #f0f0f0;
+    }
+    .admin-reward_dialog {
+        .modal-body {
+            background-color: #f66e84;
+            color: #ffffff;
+            line-height: 18px;
+            font-size: 13px;
+            padding: 20px;
+            margin: 25px;
+            border-radius: 4px;
+        }
+        .reward_dialog-form {
+            padding: 0px 25px 10px 25px;
+        }
+    }
+    .el-dialog__footer {
+        border-top: 1px solid #f0f0f0;
+    }
+    .footer_cancel {
+        border: 1px solid #f0f0f0;
+    }
+}

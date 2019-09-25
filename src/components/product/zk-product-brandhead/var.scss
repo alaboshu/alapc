@@ -1,0 +1,23 @@
+.zk-product-brandhead {
+    width: 100%;
+    .product-brandhead_box {
+        width: 1200px;
+        margin: 0 auto;
+        .mustsee-head {
+            font-size: 28px;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 12px 0px;
+            position: relative;
+            &::after {
+                content: "";
+                width: 38px;
+                height: 1px;
+                border-bottom: 5px solid #ffffff;
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+            }
+        }
+    }
+}

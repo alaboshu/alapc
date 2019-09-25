@@ -1,0 +1,118 @@
+ .zk-data-list{
+    font-size: 12px;
+    .col-xl-4 {
+      flex: 0 0 33.33333%;
+      max-width: 33.33333%;
+      position: relative;
+      margin: 0 auto;
+    }
+  .m-widget28__pic {
+      background-color: #5075E4;
+    }
+    .m-portlet.m-portlet--full-height {
+      height: calc(100% - 2.2rem);
+    }
+    .m-portlet.m-portlet--head-overlay .m-portlet__head {
+      position: relative;
+      border: 0;
+      z-index: 2;
+    }
+    .m-portlet .m-portlet__head .m-portlet__head-caption {
+      display: flex;
+      align-items: center;
+      align-content: flex-start;
+    }
+    .m-portlet__head-title {
+      display: flex;
+      align-items: center;
+    }
+     .m-portlet__head-title .m-portlet__head-text {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 500;
+      font-family: Roboto;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 22px;
+      left:25px;
+      color: #fff;
+    }
+    .m-widget28 .m-widget28__pic {
+      background-color: #5075E4;
+    }
+    .m-widget28 .m-widget28__pic {
+      position: relative;
+      min-height: 286px;
+    }
+    .m-widget28 .m-widget28__container {
+      width: 100%;
+    }
+    .m-widget28 .m-widget28__container .m-widget28__nav-items {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+      border-spacing: 1.2rem;
+      margin-top: -2rem;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0 1rem;
+    }
+    .m-widget28__nav-item {
+      display: table-cell;
+      text-align: center;
+      border: 1px solid #9ea7c0;
+      padding: 18px 0px;
+      width: 83px;
+      font-size: 14px;
+      span{
+        display: block;
+      }
+      span:nth-child(2){
+        margin-top: 15px;
+      }
+    }
+    .m-widget28__nav-item a {
+      color: #a4a6ae;
+
+      color: #fff;
+    }
+    i{
+      font-family: element-icons !important;
+      speak: none;
+      font-style: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      vertical-align: baseline;
+      display: inline-block;
+      font-size: 35px;
+    }
+    .tab-content>.active {
+      display: block;
+    }
+    .tab-content{
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .m-widget28__tab-item {
+      border-bottom: 1px solid #ebedf2;
+      height: 76px;
+      padding-top: 20px;
+      padding-bottom: 24px;
+      span{
+        display: block;
+      }
+      span:nth-child(1){
+        color: #a4a6ae;
+      }
+      span:nth-child(2){
+        color: #7b7e8a;
+        font-size: 17px;
+        font-weight: 600;
+        margin-top: 3px;
+      }
+    }
+  }

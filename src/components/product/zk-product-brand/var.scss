@@ -1,0 +1,103 @@
+.zk-product-brand {
+    width: 100%;
+    padding-bottom: 20px;
+    .product-brand_box {
+        width: 1200px;
+        margin: 0 auto;
+        .trademark-box {
+            padding-top: 15px;
+            display: flex;
+            height: 360px;
+            .trademark_box_left {
+                background: #fff;
+                width: 400px;
+                .trademark_box_left_img {
+                    img {
+                        width: 100%;
+                        height: 240px;
+                    }
+                }
+                .trademark_box_left_text {
+                    display: flex;
+                    justify-content: space-around;
+                    padding: 10px 0 16px 0;
+                    .left_text_detail {
+                        span {
+                            display: block;
+                        }
+                        span:nth-of-type(1) {
+                            font-size: 15px;
+                            font-weight: 600;
+                            color: #000;
+                        }
+                        span:nth-of-type(2) {
+                            background: #000;
+                            color: #fff;
+                            line-height: 18px;
+                            text-align: center;
+                            font-size: 12px;
+                            margin-top: 5px;
+                            padding: 2px 0;
+                        }
+                    }
+                    img {
+                        width: 25px;
+                        height: 22px;
+                        margin: 0;
+                        margin-top: 18px;
+                    }
+                }
+            }
+            .trademark_box_right {
+                flex: 1;
+                ul {
+                    margin-left: 10px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    height: 100%;
+                    li {
+                        width: 390px;
+                        height: 168px;
+                        display: flex;
+                        background: #fff;
+                        margin-right: 10px;
+                        margin-bottom: 10px;
+                        span {
+                            display: block;
+                        }
+                        .content_img {
+                            width: 50%;
+                            height: 100%;
+                            margin: 0;
+                        }
+                        .logo_img {
+                            display: block;
+                            width: 100px;
+                            height: 25px;
+                            margin: 25px auto;
+                        }
+                        span:nth-of-type(1) {
+                            text-align: center;
+                            font-size: 17px;
+                            font-weight: 600;
+                            margin-top: 30px;
+                        }
+                        span:nth-of-type(2) {
+                            width: 65px;
+                            background: #000;
+                            color: #fff;
+                            font-size: 12px;
+                            text-align: center;
+                            margin: 0 auto;
+                            padding: 2px 0;
+                            margin-top: 20px;
+                        }
+                        &:nth-child(2n) {
+                            margin-right: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

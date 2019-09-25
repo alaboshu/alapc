@@ -1,0 +1,33 @@
+.zk-quick-action {
+  .zk-quick-action-cont {
+    padding: 15px;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+
+      .zk-quick-action-list {
+        width: 70px;
+        height: 70px;
+        background: #5E738B;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin: 5px;
+
+        .zk-quick-action-icon {
+          height: 35px;
+          line-height: 40px;
+          text-align: center;
+        }
+
+        .zk-quick-action-text {
+          height: 30px;
+          line-height: 30px;
+          text-align: center;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

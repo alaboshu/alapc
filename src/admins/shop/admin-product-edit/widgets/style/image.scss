@@ -1,0 +1,20 @@
+ .uplaader-box {
+   position: relative;
+
+   .up-remove {
+     background-color: red;
+     color: #ffffff;
+     font-size: 10px;
+     position: absolute;
+     top: 0px;
+     right: 0px;
+     padding: 3px 6px;
+     display: none;
+   }
+
+   &:hover {
+     .up-remove {
+       display: block;
+     }
+   }
+ }

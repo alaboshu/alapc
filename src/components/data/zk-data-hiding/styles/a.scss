@@ -1,0 +1,38 @@
+ .zk-data-hiding {
+   font-size: 12px;
+
+   .m-widget13 .m-widget13__item {
+     display: table;
+     width: 80%
+   }
+
+   .m-portlet__body {
+     // width: 50%;
+   }
+
+   .m-widget13__desc {
+     color: #9699a2;
+     display: table-cell;
+     padding-right: 30px;
+     width: 50%;
+     vertical-align: top;
+     padding-top: 10px;
+     font-size: 14px;
+     font-weight: 300;
+   }
+
+   .m-widget13__text.m-widget13__text-bolder {
+     color: #6f727d;
+     font-size: 14px;
+     font-weight: 600;
+   }
+
+   .m-widget13__text {
+     color: #9699a2;
+     font-weight: 300;
+   }
+
+   .m--font-brand {
+     color: #716aca !important;
+   }
+ }

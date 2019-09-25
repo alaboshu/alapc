@@ -1,0 +1,115 @@
+#a {
+    .zk-ariticle-image-list {
+        .container_box {
+            width: 100%;
+            .el-col {
+                border: 1px solid #eaeaea;
+                margin-right: 30px;
+                position: relative;
+                margin-bottom: 20px;
+                box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+                margin-top: 15px;
+            }
+            .mask {
+                background: yellow;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 160px;
+                left: 0px;
+            }
+            .detail_img:hover .mask {
+                display: block;
+            }
+            .el-col-6 {
+                width: 23%;
+                height: 400px;
+                padding: 0 !important;
+            }
+            .el-col-6:nth-child(4n) {
+                margin-right: 0px;
+            }
+            .fusion-post-content-wrapper {
+                padding: 25px 20px 20px 20px !important;
+                .entry-title {
+                    font-family: Montserrat, Arial, Helvetica, sans-serif;
+                    font-weight: 700;
+                    line-height: 32px;
+                    letter-spacing: 0px;
+                    font-style: normal;
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1; //规定几行显示省略号
+                    -webkit-box-orient: vertical;
+                    a {
+                        font-size: 20px;
+                    }
+                    &:hover {
+                        color: #427ed1;
+                    }
+                }
+                .fusion-post-content p,
+                .post-content p {
+                    margin: 0 0 20px;
+                }
+                .fusion-post-content-container {
+                    p {
+                        height: 50px;
+                        text-indent: 20px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3; //规定几行显示省略号
+                        -webkit-box-orient: vertical;
+                    }
+                }
+                .fusion-inline-sep {
+                    padding: 0 5px;
+                }
+                .fusion-post-content-container {
+                    margin-top: 20px;
+                    color: #9b9898;
+                    cursor: pointer;
+                }
+                .fusion-content-sep {
+                    margin-top: 20px;
+                    height: 6px;
+                    border-top: 1px solid #eaeaea;
+                    border-bottom: 1px solid #eaeaea;
+                }
+                .fusion-meta-info {
+                    display: flex;
+                }
+                .fusion-alignleft,
+                .fusion-alignright {
+                    width: 50%;
+                    display: inline-block;
+                    margin: 0;
+                    a {
+                        color: #9b9898;
+                    }
+                }
+                .fusion-alignright {
+                    text-align: right;
+                }
+                .fusion-post-wrapper {
+                    background-color: rgba(255, 255, 255, 0);
+                    border: 1px solid #eaeaea;
+                    border-bottom-width: 3px;
+                }
+                .fusion-single-line-meta {
+                    span {
+                        color: #9b9898;
+                        cursor: pointer;
+                    }
+                    a {
+                        color: #9b9898;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,58 @@
+{
+  "list": [
+    {
+      "name": "会员等级",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "实名认证",
+      "icon": "zk-homepage",
+      "branch": "未认证",
+      "img": ""
+    },
+    {
+      "name": "推荐人",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "门店",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "性别",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "所属区域",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "最后登录IP",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "注册时间",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    },
+    {
+      "name": "最后登录时间",
+      "icon": "zk-homepage",
+      "branch": "免费会员",
+      "img": "zk-wodes"
+    }
+  ]
+}

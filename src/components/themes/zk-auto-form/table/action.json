@@ -1,0 +1,25 @@
+{
+    "prop": "action",
+    "label": "操作",
+    "width": 120,
+    "fixed": "right",
+    "actions": [{
+            "type": "event",
+            "name": "编辑",
+            "icon": "el-icon-edit-outline",
+            "method": "edit"
+        },
+        {
+            "type": "event",
+            "name": "删除",
+            "icon": "el-icon-close",
+            "method": "delete"
+        },
+        {
+            "type": "event",
+            "name": "复制",
+            "icon": "el-icon-tickets",
+            "method": "copy"
+        }
+    ]
+}

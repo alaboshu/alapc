@@ -1,0 +1,46 @@
+.admin-reward_left {
+    width: 262px;
+    height: 100%;
+    background-color: #ffffff;
+    .left-title {
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        padding: 0px 15px;
+        border-bottom: 1px solid #ebedf2;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: Roboto;
+        padding: 0 25px;
+        color: #5867dd;
+        i {
+            font-size: 17px;
+            margin-right: 8px;
+        }
+    }
+    .left-ul {
+        width: 100%;
+        .left-li {
+            width: 100%;
+            a {
+                width: 100%;
+                display: inline-block;
+                padding: 16px 25px;
+                border-bottom: 1px dashed #f4f5f8;
+                font-size: 14px;
+                font-weight: 300;
+                i {
+                    font-size: 17px;
+                    margin-right: 8px;
+                    vertical-align: -1px;
+                }
+                &:hover {
+                    background-color: #f7f8fa;
+                    i {
+                        color: #716ACA;
+                    }
+                }
+            }
+        }
+    }
+}

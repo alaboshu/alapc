@@ -1,0 +1,52 @@
+.batch_flex {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.batch_full {
+    width: 100px;
+    .el-input {
+        width: 70px;
+        height: 25px;
+        padding: 0;
+        margin: 0;
+    }
+    .el-input__inner {
+        height: 25px;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100%;
+    }
+}
+
+.batch_full {
+    .el-table th.is-leaf,
+    .el-table td {
+        padding: 4px 0 !important;
+    }
+    .cell {
+        text-align: center;
+    }
+    .el-input {
+        height: 37px;
+        padding: 0 !important;
+    }
+    .el-input__inner {
+        height: 30px;
+    }
+    .image {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.box_c {
+    // width: 79%;
+    margin-right: 50px;
+    .item {
+        padding: 10px 0 0 52px;
+        display: flex;
+        align-items: center;
+        margin-left: 28px;
+    }
+}

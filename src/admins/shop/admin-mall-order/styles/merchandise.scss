@@ -1,0 +1,89 @@
+.order-merchandise {
+  .merchandise_top {
+    display: flex;
+
+    .picture_left {
+      width: 110px;
+      height: 110px;
+      margin: 0px 15px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 3px;
+      }
+    }
+
+    .conter-text {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 15px;
+
+      .conter-text_list {
+        .text_p1 {
+          font-size: 14px;
+          color: #333439;
+          font-weight: 500;
+          word-break: break-all;
+          text-align: right;
+        }
+
+        .text_p2 {
+          font-size: 10px;
+          color: #6f727d;
+          text-align: left;
+
+          span {
+            font-size: 10px;
+            color: #34bfa3;
+          }
+        }
+
+        .text_p3 {
+          background: #ebedf2;
+          color: #e83e8c;
+          font-size: 11px;
+          text-align: center;
+          margin-top: 10px;
+          display: inline-block;
+        }
+
+        .text_size {
+          font-size: 16px;
+          font-weight: 600;
+          color: #6f727d;
+        }
+
+        .text_black {
+          color: #f4516c;
+        }
+
+        .conter_number {
+          font-size: 13px;
+          color: #6f727d;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  .merchandise_amount {
+    border-top: 1px solid #f4f5f8;
+    margin-top: 100px;
+  }
+
+  .merchandise_ul {
+    .team-list_li {
+      .team-list_li-left {
+        flex: 1;
+        text-align: right;
+      }
+
+      .right-number {
+        width: 300px;
+        text-align: right;
+      }
+    }
+  }
+}

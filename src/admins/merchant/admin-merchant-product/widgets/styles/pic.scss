@@ -1,0 +1,16 @@
+ .pic_all {
+    position: relative;
+    .pic_detele {
+      position: absolute;
+      background: rgba($color: #000, $alpha: 0.5);
+      width: 100%;
+      height: 100%;
+      top: 0;
+      .el-icon-delete {
+        color: #fff;
+        font-size: 16px;
+        line-height: 100px;
+        margin: 0 auto;
+      }
+    }
+  }

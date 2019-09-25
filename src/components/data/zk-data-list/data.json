@@ -1,0 +1,19 @@
+[
+  {
+    "title":"Finance Stats",
+    "listTile": [
+      {
+      "title":"GMI Taxes",
+      "icon":"el-icon-document"
+    },
+    {
+      "title":"IMT Invoice",
+      "icon":"el-icon-news"
+    },
+    {
+      "title":"Main Notes",
+      "icon":"el-icon-date"
+    }
+    ]
+}
+]

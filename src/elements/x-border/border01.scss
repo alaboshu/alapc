@@ -1,0 +1,51 @@
+@import '~_style_all/theme.scss';
+.border01 {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+  -moz-box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+  box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+  .widget-header {
+    border-bottom: 1px solid #ebedf2;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    .widget-header-title {
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: Roboto;
+      padding-left: 25px;
+      flex: 1;
+      display: flex;
+      .iconver {
+        color: $gl-themeColor;
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+        vertical-align: -1px;
+      }
+    }
+    .header-right {
+      padding-right: 25px;
+    }
+  }
+  .x-table {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .widget-body {
+    .body_title {
+      color: #6f727d;
+      margin: 5px 0 10px 0;
+      font-size: 1rem;
+      font-weight: 300;
+      font-family: Poppins;
+    }
+  }
+}

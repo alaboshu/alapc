@@ -1,0 +1,273 @@
+.zk-quick-action {
+    .tab-item {
+        padding: 8px;
+        .tab-item_li {
+            width: 75px;
+            height: 75px;
+            background-color: olivedrab;
+            display: inline-block;
+            margin: 5px;
+            cursor: pointer;
+            .tab-item_li-icon {
+                text-align: center;
+                line-height: 40px;
+                margin-top: 5px;
+            }
+            .tab-item_li-text {
+                text-align: center;
+                color: #ffffff;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+    .rank-item {
+        .rank-item_li {
+            display: inline-block;
+            width: 50%;
+            padding-right: 20px;
+            margin-top: 10px;
+            .rank-item_li-box {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                cursor: pointer;
+                .rank-item_li-left {
+                    width: 65px;
+                    height: 65px;
+                    border-radius: 65px;
+                    text-align: center;
+                    line-height: 65px;
+                }
+                .rank-item_li-right {
+                    height: 74px;
+                    flex: 1;
+                    min-width: 0;
+                    margin-left: 15px;
+                    .rank-item_name {
+                        font-family: 'Hiragino Sans GB';
+                        font-size: 14px;
+                        color: #030303;
+                        font-weight: 500;
+                    }
+                    .rank-item_intro {
+                        margin-top: 6px;
+                        font-family: 'Hiragino Sans GB';
+                        font-size: 12px;
+                        color: #999999;
+                    }
+                }
+            }
+        }
+    }
+    .guide-item {
+        .guide-item_li {
+            display: flex;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+            padding: 20px 0px;
+            .guide-item_li-left {
+                width: 65px;
+                height: 65px;
+                border-radius: 65px;
+                text-align: center;
+                line-height: 65px;
+            }
+            .guide-item_name {
+                font-family: 'Hiragino Sans GB';
+                font-size: 14px;
+                color: #030303;
+                font-weight: 500;
+                width: 80px;
+                margin: 0px 15px;
+            }
+            .guide-item_intro {
+                font-family: 'Hiragino Sans GB';
+                font-size: 12px;
+                color: #999999;
+                flex: 1;
+                min-width: 0;
+                margin-right: 50px;
+            }
+            .guide-item_buttom {
+                border: 1px solid #1989fa;
+                color: #1989fa;
+                border-radius: 2px;
+                padding: 4px 20px;
+                font-size: 13px;
+                margin: 0px 10px;
+                cursor: pointer;
+            }
+        }
+    }
+    .common-item {
+        .common-item_li {
+            display: inline-block;
+            width: 25%;
+            margin-top: 15px;
+            .common-item_li-box {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                .common-item_icon {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 3px;
+                    text-align: center;
+                    line-height: 30px;
+                }
+                .common-item_title {
+                    font-size: 13px;
+                    color: #030303;
+                    font-weight: 500;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+    .recommend-item {
+        .recommend-item_li {
+            width: 25%;
+            display: inline-block;
+            vertical-align: text-top;
+            padding-right: 10px;
+            margin-top: 10px;
+            .recommend-item_li-box {
+                width: 100%;
+                height: 130px;
+                border-radius: 3px;
+                position: relative;
+                cursor: pointer;
+                .recommend-item_center {
+                    width: 100%;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    padding: 10px;
+                    .recommend-item_title {
+                        width: 100%;
+                        font-size: 16px;
+                        color: #ffffff;
+                        text-align: center;
+                        font-weight: 600;
+                        font-family: 'PingFang SC';
+                    }
+                    .recommend-item_intro {
+                        width: 100%;
+                        font-size: 12px;
+                        color: #ffffff;
+                        margin-top: 15px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+    .exchange-item {
+        .exchange-item_li {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 0px 6px;
+            .exchange-item_li-box {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                background-color: #F8F8F8;
+                padding: 15px;
+                .exchange-item_icon {
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 3px;
+                    text-align: center;
+                    line-height: 36px;
+                }
+                .exchange-item_right {
+                    flex: 1;
+                    min-width: 0;
+                    margin-left: 10px;
+                    .exchange-item_title {
+                        font-size: 14px;
+                        color: #030303;
+                        font-family: 'PingFang SC';
+                        font-weight: 600;
+                    }
+                    .exchange-item_intro {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        color: #999999;
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+    .more-item {
+        .more-item_li {
+            display: inline-block;
+            margin-top: 15px;
+            .more-item_li-box {
+                cursor: pointer;
+                .more-item_icon {
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 3px;
+                    text-align: center;
+                    line-height: 30px;
+                    margin: 0 auto;
+                }
+                .more-item_title {
+                    font-size: 12px;
+                    margin-top: 8px;
+                    color: #909399;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .adcolumn-item {
+        .adcolumn-item_li {
+            display: inline-block;
+            vertical-align: text-top;
+            margin-top: 10px;
+            padding: 20px;
+            .adcolumn-item_title {
+                font-size: 15px;
+                color: #030303;
+            }
+            .adcolumn-item_intro {
+                height: 35px;
+                font-size: 12px;
+                color: #030303;
+                margin-top: 8px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            .adcolumn-item_buttom {
+                margin-top: 20px;
+                display: flex;
+                align-items: baseline;
+                .left-but {
+                    flex: 1;
+                    min-width: 0;
+                    .left-but_promptly {
+                        display: inline-block;
+                        background-color: #5487FA;
+                        font-size: 12px;
+                        color: #ffffff;
+                        padding: 6px 20px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            &:nth-child(2n) {
+                margin-left: 10px;
+            }
+        }
+    }
+}

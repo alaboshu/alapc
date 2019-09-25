@@ -1,0 +1,473 @@
+{
+  "links": [{
+      "name": "管理首页",
+      "icon": "flaticon-squares-4",
+      "url": "/user/index"
+    },
+    {
+      "name": "账户信息",
+      "icon": "flaticon-interface-3",
+      "url": "/user/bill/list",
+      "links": [{
+          "name": "财务明细",
+          "url": "/user/bill/list",
+          "isShow": true
+        },
+        {
+          "name": "我的钱包",
+          "url": "/user/account/wallet",
+          "isShow": true
+        },
+        {
+          "name": "实名认证",
+          "url": "",
+          "isShow": true,
+          "links": [{
+              "name": "个人认证",
+              "url": "/user/identity/edit"
+            },
+            {
+              "name": "企业认证",
+              "url": "/user/enterprise/edit"
+            }
+          ]
+        },
+        {
+          "name": "账户安全",
+          "url": "",
+          "isShow": true,
+          "links": [{
+              "name": "修改登录密码",
+              "url": "/user/changePassword"
+            },
+            {
+              "name": "修改支付密码",
+              "url": "/user/changePayPassword"
+            }
+          ]
+        },
+        {
+          "name": "收货地址",
+          "url": "",
+          "isShow": true,
+          "links": [{
+            "name": "地址管理",
+            "url": "/user/userAddress/list"
+          }]
+        }
+      ]
+    },
+    {
+      "name": "分润中心",
+      "icon": "flaticon-analytics",
+      "url": "/user/Reward/List",
+      "links": [{
+          "name": "所有收益",
+          "icon": "el-icon-s-claim",
+          "url": "/user/Reward/List",
+          "isShow": true
+        },
+        {
+          "name": "推荐收益",
+          "icon": "el-icon-s-claim",
+          "url": "/user/UserRight/Reward/Rec",
+          "isShow": true
+        },
+        {
+          "name": "采购收益",
+          "icon": "el-icon-s-claim",
+          "url": "/user/UserRight/Reward/Purchase",
+          "isShow": true
+        },
+        {
+          "name": "合伙人收益",
+          "icon": "el-icon-s-claim",
+          "url": "/user/UserRight/Reward/City",
+          "isShow": true
+        }
+      ]
+    },
+    {
+      "name": "我的商家",
+      "icon": "flaticon-calendar",
+      "url": "/user/MyUser/List",
+      "links": [{
+          "name": "商家管理",
+          "url": "/user/MyUser/List",
+          "isShow": true
+        },
+        {
+          "name": "商家开通",
+          "url": "/user/userRight/edit",
+          "isShow": true
+        },
+        {
+          "name": "端口记录",
+          "url": "/user/userRight/list",
+          "isShow": true
+        }
+      ]
+    },
+    {
+      "name": "我的店铺",
+      "icon": "flaticon-graphic-2",
+      "url": "/User/Merchant/Order/List",
+      "links": [{
+          "name": "店内订单",
+          "url": "/User/Merchant/Order/List",
+          "isShow": true
+        },
+        {
+          "name": "当面付",
+          "url": "/User/FacePay/List",
+          "isShow": true
+        },
+        {
+          "name": "企业名片",
+          "url": "/User/AutoConfig/Edit?Type=EnterpriseIntroductionConfig",
+          "isShow": true
+        },
+        {
+          "name": "本店出品",
+          "url": "",
+          "isShow": true,
+          "links": [{
+              "name": "商品管理",
+              "url": "/User/Merchant/Product/List"
+            },
+            {
+              "name": "添加商品",
+              "url": "/User/Merchant/Product/Edit"
+            },
+            {
+              "name": "添加分类",
+              "url": "/User/class?type=MerchantProductClassRelation"
+            }
+          ]
+        },
+        {
+          "name": "会员管理",
+          "url": "",
+          "isShow": true,
+          "links": [{
+              "name": "会员列表",
+              "url": "/user/list"
+            },
+            {
+              "name": "添加会员",
+              "url": "/user/add"
+            },
+            {
+              "name": "会员升级",
+              "url": "/User/UserCard/Open"
+            },
+            {
+              "name": "等级设置",
+              "url": "/User/UserCard/List?Type=UserCardSetting"
+            }
+          ]
+        },
+        {
+          "name": "储值营销",
+          "url": "",
+          "isShow": true,
+          "links": [{
+              "name": "储值充值",
+              "url": "/User/RechargeAccount/Edit"
+            },
+            {
+              "name": "储值记录",
+              "url": "/User/RechargeAccount/List"
+            },
+            {
+              "name": "储值规则",
+              "url": "/User/AutoConfig/List?Type=RechargeAccountConfig"
+            }
+          ]
+        },
+        {
+          "name": "互动营销",
+          "url": "",
+          "isShow": true,
+          "links": [{
+              "name": "大转盘设置",
+              "url": "/User/Hudong/Edit?Type=BigWheel"
+            },
+            {
+              "name": "获奖记录",
+              "url": "/User/Hudong/List?type=BigWheel"
+            }
+          ]
+        },
+        {
+          "name": "店铺装修",
+          "url": "",
+          "isShow": true,
+          "links": [{
+              "name": "基本信息",
+              "url": "/user/Merchant/Setting"
+            },
+            {
+              "name": "首页轮播图",
+              "url": "/User/AutoConfig/List?Type=WebDiySlideShow"
+            },
+            {
+              "name": "首页广告图",
+              "url": "/User/AutoConfig/List?Type=WebDiyADShow"
+            },
+            {
+              "name": "注册协议",
+              "url": "/User/AutoConfig/Edit?Type=RegisterProtocolConfig"
+            }
+          ]
+        },
+        {
+          "name": "商家头条",
+          "url": "",
+          "isShow": true,
+          "links": [{
+              "name": "头条管理",
+              "url": "/User/Topline/List"
+            },
+            {
+              "name": "添加头条",
+              "url": "/User/Topline/Edit?ChannelId=e02220001110000000000009"
+            }
+          ]
+        },
+        {
+          "name": "支付设置",
+          "url": "",
+          "isShow": true,
+          "links": [{
+              "name": "微信支付",
+              "url": "/user/AutoConfig/Edit?Type=WeChatPaymentConfig"
+            },
+            {
+              "name": "支付宝",
+              "url": "/user/AutoConfig/Edit?Type=AlipayPaymentConfig"
+            }
+          ]
+        },
+        {
+          "name": "数据统计",
+          "url": "/user/Decision/MerchantOrder/Report",
+          "isShow": true,
+          "links": [{
+              "name": "经营报表",
+              "url": "/user/Decision/Purchase/Report"
+            },
+            {
+              "name": "会员统计",
+              "url": "/user/Decision/UserReport/Report"
+            },
+            {
+              "name": "订单统计",
+              "url": "/user/Decision/MerchantOrder/Report"
+            },
+            {
+              "name": "账户统计",
+              "url": "/user/Decision/Bill/Report"
+            },
+            {
+              "name": "资产统计",
+              "url": "/user/Decision/Account/Report"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "采购中心",
+      "icon": "flaticon-transport",
+      "url": "/user/order/Purchase/List",
+      "links": [{
+          "name": "采购订单",
+          "url": "/user/order/Purchase/List",
+          "isShow": true
+        },
+        {
+          "name": "现场自提",
+          "url": "",
+          "isShow": true,
+          "links": [{
+              "name": "手动自提",
+              "url": "/user/PickUp/Edit"
+            },
+            {
+              "name": "库存管理",
+              "url": "/user/PickUp/Product"
+            },
+            {
+              "name": "自提记录",
+              "url": "/User/PickUp/List"
+            }
+          ]
+        },
+        {
+          "name": "免费商城",
+          "url": "",
+          "isShow": true,
+          "links": [{
+              "name": "订单管理",
+              "url": "/user/FreeShopping/Order"
+            },
+            {
+              "name": "商品管理",
+              "url": "/user/FreeShopping/Product"
+            },
+            {
+              "name": "规则设置",
+              "url": "/user/FreeShopping/Setting"
+            }
+          ]
+        },
+        {
+          "name": "积分商城",
+          "url": "",
+          "isShow": true,
+          "links": [{
+              "name": "订单管理",
+              "url": "/user/DiscountShop/Order"
+            },
+            {
+              "name": "商品管理",
+              "url": "/user/DiscountShop/Product"
+            },
+            {
+              "name": "规则设置",
+              "url": "/user/DiscountShop/Setting"
+            }
+          ]
+        },
+        {
+          "name": "优惠商城",
+          "url": "",
+          "isShow": false,
+          "links": [{
+              "name": "订单管理",
+              "url": "/user/ReducedPriceShop/Order"
+            },
+            {
+              "name": "库存管理",
+              "url": "/user/ReducedPriceShop/Product"
+            },
+            {
+              "name": "规则设置",
+              "url": "/user/ReducedPriceShop/Setting"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "我是供应商",
+      "icon": "flaticon-map",
+      "url": "/user/order/Store/list",
+      "links": [{
+          "name": "订单管理",
+          "url": "/user/order/Store/list",
+          "isShow": true
+        },
+        {
+          "name": "商品管理",
+          "url": "/User/Product/Store/list",
+          "isShow": true
+        },
+        {
+          "name": "添加商品",
+          "url": "/User/Product/Store/Edit",
+          "isShow": true
+        },
+        {
+          "name": "运费模板",
+          "url": "/User/deliveryTemplate/list",
+          "isShow": true
+        },
+        {
+          "name": "报表统计",
+          "url": "",
+          "isShow": true
+        }
+      ]
+    },
+    {
+      "name": "牛牛动态",
+      "icon": "flaticon-interface-7",
+      "url": "/user/usernotice/list",
+      "links": [{
+          "name": "牛牛头条",
+          "url": "/user/usernotice/list",
+          "isShow": true
+        },
+        {
+          "name": "系统帮助",
+          "url": "/articles/help/index",
+          "isExtLink": true,
+          "isShow": true
+        },
+        {
+          "name": "百问百答",
+          "url": "/user/faq/list",
+          "isShow": true
+        }
+      ]
+    },
+    {
+      "name": "十大神器",
+      "icon": "flaticon-shapes",
+      "url": "/user/usernotice/list2",
+      "links": [{
+          "name": "众筹神器",
+          "url": "/user/article/edit?id=5cf3807a3265ab1e708f374e",
+          "isShow": true
+        },
+        {
+          "name": "联盟神器",
+          "url": "/user/article/edit?id=5cf380643265ab1e708f3744",
+          "isShow": true
+        },
+        {
+          "name": "置换神器",
+          "url": "/user/article/edit?id=5cf3804f3265ab1e708f373b",
+          "isShow": true
+        },
+        {
+          "name": "中奖神器",
+          "url": "/user/article/edit?id=5cf3803b3265ab1e708f1ce6",
+          "isShow": true
+        },
+        {
+          "name": "引流神器",
+          "url": "/user/article/edit?id=5cf380203265ab1e708f1cdd",
+          "isShow": true
+        },
+        {
+          "name": "积分神器",
+          "url": "/user/article/edit?id=5cf3800c3265ab1e708f1cd4",
+          "isShow": true
+        },
+        {
+          "name": "倒贴神器",
+          "url": "/user/article/edit?id=5cf37ff33265ab1e708f027f",
+          "isShow": true
+        },
+        {
+          "name": "配销神器",
+          "url": "/user/article/edit?id=5cf37eff3265ab1e708e9944",
+          "isShow": true
+        },
+        {
+          "name": "储值神器",
+          "url": "/user/article/edit?id=5cf37ee03265ab1e708e9934",
+          "isShow": true
+        },
+        {
+          "name": "赠品神器",
+          "url": "/user/article/edit?id=5cf37ec43265ab1e708e7edd",
+          "isShow": true
+        }
+      ]
+    }
+  ]
+}

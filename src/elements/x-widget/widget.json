@@ -1,0 +1,39 @@
+{
+  "isLayoutPage": false,
+  "name": null,
+  "url": null,
+  "path": null,
+  "layouts": [],
+  "widgets": [
+    {
+      "name": "admin-auto-table",
+      "columns": null,
+      "isApiRequest": false,
+      "masterPageIndex": 0,
+      "componentPath": "/auto/admin-auto-table",
+      "apiUrl": "Api/Theme/GetValue",
+      "value": {
+        "table": {
+          "type": "ZKCloud.App.Core.User.ViewModels.ViewAdminUser"
+        }
+      },
+      "layout": null,
+      "title": null,
+      "style": null,
+      "border": null,
+      "borderClass": null
+    }
+  ],
+  "setting": {
+    "tabBarSetting": null,
+    "isLogin": false,
+    "isRead": false,
+    "title": null,
+    "keywords": null,
+    "description": null,
+    "showHead": true,
+    "showFoot": true,
+    "background": null,
+    "popImage": null
+  }
+}

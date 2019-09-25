@@ -1,0 +1,30 @@
+{"level":"info","message":"Start generation:","timestamp":"2019-08-18T08:11:19.515Z"}
+{"level":"info","message":"write build config","timestamp":"2019-08-18T08:11:19.532Z"}
+{"level":"info","message":"write codes","timestamp":"2019-08-18T08:11:19.535Z"}
+{"level":"info","message":"write svg font","timestamp":"2019-08-18T08:11:19.547Z"}
+{"level":"info","message":"write ttf first-pass","timestamp":"2019-08-18T08:11:20.401Z"}
+{"level":"info","message":"write eot file","timestamp":"2019-08-18T08:11:20.404Z"}
+{"level":"info","message":"write woff file","timestamp":"2019-08-18T08:11:20.568Z"}
+{"level":"info","message":"write woff2 file","timestamp":"2019-08-18T08:11:25.735Z"}
+{"level":"info","message":"write demo/css files","timestamp":"2019-08-18T08:11:25.936Z"}
+{"level":"info","message":"Generated in 6.421","timestamp":"2019-08-18T08:11:25.937Z"}
+{"level":"info","message":"Start generation:","timestamp":"2019-08-24T13:56:26.784Z"}
+{"level":"info","message":"write build config","timestamp":"2019-08-24T13:56:26.822Z"}
+{"level":"info","message":"write codes","timestamp":"2019-08-24T13:56:26.826Z"}
+{"level":"info","message":"write svg font","timestamp":"2019-08-24T13:56:26.835Z"}
+{"level":"info","message":"write ttf first-pass","timestamp":"2019-08-24T13:56:27.568Z"}
+{"level":"info","message":"write eot file","timestamp":"2019-08-24T13:56:27.572Z"}
+{"level":"info","message":"write woff file","timestamp":"2019-08-24T13:56:27.702Z"}
+{"level":"info","message":"write woff2 file","timestamp":"2019-08-24T13:56:32.504Z"}
+{"level":"info","message":"write demo/css files","timestamp":"2019-08-24T13:56:32.705Z"}
+{"level":"info","message":"Generated in 5.922","timestamp":"2019-08-24T13:56:32.705Z"}
+{"level":"info","message":"Start generation:","timestamp":"2019-08-26T00:11:42.133Z"}
+{"level":"info","message":"write build config","timestamp":"2019-08-26T00:11:42.166Z"}
+{"level":"info","message":"write codes","timestamp":"2019-08-26T00:11:42.170Z"}
+{"level":"info","message":"write svg font","timestamp":"2019-08-26T00:11:42.178Z"}
+{"level":"info","message":"write ttf first-pass","timestamp":"2019-08-26T00:11:42.940Z"}
+{"level":"info","message":"write eot file","timestamp":"2019-08-26T00:11:42.944Z"}
+{"level":"info","message":"write woff file","timestamp":"2019-08-26T00:11:43.078Z"}
+{"level":"info","message":"write woff2 file","timestamp":"2019-08-26T00:11:47.768Z"}
+{"level":"info","message":"write demo/css files","timestamp":"2019-08-26T00:11:47.946Z"}
+{"level":"info","message":"Generated in 5.814","timestamp":"2019-08-26T00:11:47.946Z"}

@@ -1,0 +1,71 @@
+.role-box {
+    .role-foot {
+        padding: 20px 150px;
+        border-top: 1px solid #ebedf2;
+        div {
+            cursor: pointer;
+        }
+        .role-foot_right {
+            display: inline-block;
+            border: 1px solid #716aca;
+            background-color: #716aca;
+            border-radius: 3px;
+            color: #ffffff;
+            font-size: 12px;
+            padding: 8px 12px;
+        }
+        .role-foot_left {
+            display: inline-block;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            font-size: 12px;
+            padding: 8px 12px;
+            margin-left: 10px;
+        }
+    }
+    .right-sidebar {
+        border: 1px solid #e5e5e5;
+        width: 95px;
+        position: fixed;
+        top: 100px;
+        right: 50px;
+        background: #ffffff;
+        ul {
+            box-shadow: 0px 0px 0px 1px #fff, 0px 0px 0px 2px #dfdfdf, 0px 0px 5px 3px #f0f0f0;
+            li {
+                border-top: 1px solid #e5e5e5;
+                padding: 6px 10px;
+                a {
+                    font-size: 11px;
+                    color: #5867dd;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+    .el-textarea__inner {
+        resize: auto;
+        height: 120px;
+    }
+}
+
+.form-open {
+    padding: 20px 20px 0px 20px;
+    .el-form-item__label {
+        padding: 0px 20px 0px 0px;
+    }
+    .form-open_intro {
+        font-size: 11px;
+        color: #909399;
+    }
+}
+
+.role-item_box {
+    .el-tree_list {
+        border: 1px solid #e5e5e5;
+        border-radius: 4px;
+        padding: 10px;
+    }
+}

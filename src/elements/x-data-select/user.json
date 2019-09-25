@@ -1,0 +1,37 @@
+{
+  "apiUrl": "/api/product/QueryPageList",
+  "columns": [{
+      "prop": "thumbnailUrl",
+      "label": "图片",
+      "width": 90
+    },
+    {
+      "prop": "bn",
+      "label": "货号",
+      "width": 90
+    },
+    {
+      "prop": "price",
+      "label": "价格",
+      "width": 90
+    },
+    {
+      "prop": "modifiedTime",
+      "label": "时间",
+      "width": 200
+    },
+    {
+      "prop": "name",
+      "label": "名称",
+      "width": 330
+    }
+  ],
+  "searchOptions": {
+    "inline": true,
+    "forms": [{
+      "prop": "description",
+      "label": "商品名称",
+      "modelValue": "description"
+    }]
+  }
+}

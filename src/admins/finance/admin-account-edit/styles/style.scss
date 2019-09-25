@@ -1,0 +1,124 @@
+@import "@/assets/style/theme.scss";
+
+.account-details {
+  .account-card {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 2%;
+      padding-top: 2%;
+
+      li {
+        width: 31%;
+        height: 115px;
+        margin-right: 2%;
+        border-radius: 4px;
+        border: 1px solid #e5e5e5;
+        margin-bottom: 2%;
+        background: #e7505a;
+        overflow: hidden;
+
+        p {
+          color: $gl-light;
+          text-align: right;
+          padding: 0px 15px;
+        }
+
+        .p1 {
+          font-size: 32px;
+          font-weight: 300;
+          margin-top: 15px;
+        }
+
+        .p2 {
+          font-size: 13px;
+          height: 20px;
+          margin-bottom: 13px;
+        }
+
+        .p3 {
+          height: 25px;
+          line-height: 25px;
+          text-align: left;
+          font-size: 11px;
+          background-color: #e53e49;
+          opacity: 0.6;
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+
+      li:nth-child(2),
+      li:nth-child(5) {
+        background: #8E44AD;
+
+        .p3 {
+          background-color: #823e9e;
+        }
+      }
+
+      li:nth-child(4),
+      li:nth-child(6) {
+        background: #3598dc;
+
+        .p3 {
+          background-color: #258fd7;
+        }
+      }
+    }
+  }
+
+  .assets-operation {
+    padding: 20px 20px 0px 20px;
+
+    .el-form-item__label {
+      padding: 0px 20px 0px 0px;
+    }
+
+    .form-open_intro {
+      font-size: 11px;
+      color: #909399;
+    }
+
+    .radio_text {
+      .el-radio__label {
+        font-size: 11px;
+      }
+    }
+
+    .el-textarea__inner {
+      height: 150px;
+      resize: auto;
+    }
+
+    .form-open_text {
+      color: #e53e49;
+      list-style: none;
+      font-style: normal;
+      word-break: break-all;
+      font-size: 14px;
+    }
+  }
+
+  .role-foot {
+    padding: 20px 220px;
+    border-top: 1px solid #ebedf2;
+
+    div {
+      cursor: pointer;
+    }
+
+    .role-foot_right {
+      display: inline-block;
+      border: 1px solid #00a3b6;
+      background-color: #00a3b6;
+      border-radius: 3px;
+      color: #ffffff;
+      font-size: 11px;
+      padding: 8px 22px;
+    }
+  }
+}

@@ -1,0 +1,117 @@
+.admin-app-publish {
+    .apple-edit_box {
+        .apple-edit_list {
+            display: flex;
+            padding: 30px 0px;
+            .apple-edit_left {
+                color: #5d6976;
+                font-weight: 700;
+                font-size: 13px;
+                width: 150px;
+                text-align: right;
+            }
+            .apple-edit_center {
+                flex: 1;
+                min-width: 0;
+                padding: 0px 30px;
+                .apple-edit_center-p {
+                    font-size: 13px;
+                    color: #636d80;
+                    line-height: 18px;
+                    .apple-edit_center-span {
+                        font-size: 13px;
+                        color: #5cb053;
+                        cursor: pointer;
+                        margin: 0px 5px;
+                    }
+                }
+                .apple-edit_center-p+.apple-edit_center-p {
+                    margin-top: 6px;
+                }
+            }
+            .apple-edit_right {
+                padding-right: 20px;
+                .apple-edit_buttom {
+                    background-color: #eef8ee;
+                    color: #5cb053;
+                    display: inline-block;
+                    padding: 6px 16px;
+                    border-radius: 3px;
+                    font-size: 13px;
+                    cursor: pointer;
+                }
+            }
+            &:hover {
+                background-color: #f3f3f8;
+            }
+        }
+        .apple-edit_list+.apple-edit_list {
+            border-top: 1px solid #f0f0f0;
+        }
+    }
+    .admin-app-publish_dialog {
+        .el-form {
+            padding: 20px;
+            .el-form-item__label {
+                padding-right: 20px;
+                color: #636e7c;
+                font-size: 14px;
+                font-weight: 700;
+            }
+            .el-textarea__inner {
+                min-height: 100px !important;
+            }
+        }
+        .publish_dialog-li {
+            display: flex;
+            align-items: center;
+            i {
+                font-size: 30px;
+                margin-left: 5px;
+                cursor: pointer;
+            }
+            .el-icon-circle-plus-outline {
+                color: #3eb94e;
+            }
+            .el-icon-remove-outline {
+                color: red;
+            }
+            .publish_dialog-icon {
+                width: 100px;
+                display: flex;
+                align-items: center;
+            }
+        }
+        .is-one {
+            .el-icon-remove-outline {
+                display: none;
+            }
+        }
+        .is-two {
+            .el-icon-circle-plus-outline {
+                display: none;
+            }
+            .el-icon-remove-outline {
+                display: block;
+            }
+        }
+        .is-two:last-of-type {
+            .el-icon-circle-plus-outline {
+                display: block;
+            }
+            .el-icon-remove-outline {
+                display: block;
+            }
+        }
+        .app-publish_intro {
+            color: #9fa5b2;
+            font-size: 13px;
+            line-height: 22px;
+        }
+    }
+    .el-dialog__footer {
+        padding: 0px;
+        padding: 20px;
+        border-top: 1px solid #f0f0f0;
+    }
+}

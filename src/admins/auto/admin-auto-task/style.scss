@@ -1,0 +1,42 @@
+.admin-auto-task {
+    background: #f2f2f2;
+    .auto-task_one {
+        padding: 20px 40px;
+        .warm-prompt {
+            background: #45CCB1;
+            border-radius: 4px;
+            padding: 20px;
+            .warm-prompt_p {
+                color: #ffffff;
+                font-size: 13px;
+                font-weight: 300;
+                .warm-prompt_span {
+                    font-weight: 500;
+                    font-size: 14px;
+                }
+            }
+        }
+        .uto-task_one-buttom {
+            background: #F4516C;
+            color: #ffffff;
+            border-radius: 100px;
+            padding: 11px 24px;
+            margin: 20px 0px;
+            span {
+                font-size: 13px;
+            }
+        }
+    }
+    .auto-task_box {
+        margin-top: 20px;
+        .task_box-table {
+            .el-table__header-wrapper {
+                .cell {
+                    color: #333333;
+                    font-size: 13px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

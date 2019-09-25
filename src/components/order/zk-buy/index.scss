@@ -1,0 +1,529 @@
+@import "./styles/a.scss";
+@import "~_style_all/theme.scss";
+
+.zk-buy {
+  width: 990px;
+  margin: 0 auto;
+  color: #666;
+
+  .order-head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 92px;
+
+    .head-logo {
+      img {
+        width: 120px;
+        height: 50px;
+      }
+    }
+
+    .head-steps {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      .steps-box {
+        width: 600px;
+      }
+    }
+  }
+
+  .order-address {
+    margin-bottom: 30px;
+    margin-top: 30px;
+
+    h2 {
+      line-height: 25px;
+      color: #333;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .list {
+      .addr {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        width: 233px;
+        height: 90px;
+        margin: 0 14px 14px 0;
+        color: #666;
+        cursor: pointer;
+
+        .default {
+          position: absolute;
+          right: 0;
+          top: 0;
+          background: #ccc;
+          color: #fff;
+          // opacity: 0.7;
+          padding: 0 2px;
+        }
+
+        .default_edit {
+          position: absolute;
+          top: 0;
+          background: #ccc;
+          display: none;
+          // opacity: .7;
+          color: #fff;
+          text-align: center;
+          width: 40px;
+          height: 16px;
+          right: 60px;
+        }
+
+        &:hover {
+          .default_edit {
+            display: block;
+          }
+        }
+
+        .inner {
+          height: 90px;
+          padding: 11px 15px;
+          border: 3px solid #e5e5e5;
+
+          .addr-hd {
+            width: 100%;
+            border-bottom: 1px solid #f2f2f2;
+            padding: 0 0 5px;
+            margin-bottom: 5px;
+            line-height: 18px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            span {
+              font-weight: bold;
+              margin-right: 10px;
+            }
+          }
+
+          .addr-bd {
+            word-break: break-all;
+            text-overflow: ellipsis;
+            display: -webkit-box !important;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+          }
+        }
+
+        .active {
+          border: 5px dashed $gl-themeColor;
+        }
+      }
+    }
+
+    .control {
+      min-height: 25px;
+      display: flex;
+      justify-content: space-between;
+
+      .management {
+        a {
+          color: $gl-themeColor;
+        }
+      }
+    }
+  }
+
+  .order-dssc {
+    .buy-title {
+      line-height: 25px;
+      color: #333;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .buy-th {
+      margin-top: 15px;
+      color: #6c6c6c;
+
+      .buy-td {
+        display: inline-block;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        border-bottom: 3px solid #b2d1ff;
+        font-size: 12px;
+        margin-left: 1px;
+        vertical-align: bottom;
+      }
+
+      .td-0 {
+        width: 255px;
+        margin-left: 0;
+      }
+
+      .td-1 {
+        width: 180px;
+      }
+
+      .td-3 {
+        width: 180px;
+      }
+
+      .td-4 {
+        width: 120px;
+      }
+
+      .td-2 {
+        width: 120px;
+      }
+
+      .td-5 {
+        width: 130px;
+      }
+    }
+  }
+
+  .order-box {
+    border-bottom: 1px dotted #80b2ff;
+
+    .order-info {
+      position: relative;
+      padding-bottom: 5px;
+      padding-left: 10px;
+      margin-top: 25px;
+      border-bottom: 1px dotted #80b2ff;
+      height: 22px;
+    }
+
+    .order-item {
+      display: flex;
+      border-bottom: 1px dotted #ddd;
+      background-color: #fbfcff;
+
+      .order-item-info {
+        display: flex;
+        vertical-align: top;
+
+        .info-cell {
+          display: inline-block;
+          margin-right: 1px;
+        }
+
+        .info-detail {
+          display: flex;
+          width: 255px;
+          padding: 10px 0 0px 10px;
+        }
+
+        .info-img {
+          display: block;
+          width: 50px;
+          height: 50px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .info-msg {
+          padding-left: 10px;
+          vertical-align: top;
+
+          .info-title {
+            color: #3c3c3c;
+            width: 180px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+          }
+        }
+
+        .info-sku {
+          color: #6c6c6c;
+          width: 180px;
+          display: inline-block;
+          vertical-align: top;
+          padding: 10px 0;
+        }
+
+        .info-price {
+          width: 120px;
+          padding: 10px 0;
+          text-align: center;
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
+
+      .order-quantity {
+        width: 180px;
+        padding: 10px 0;
+        text-align: center;
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .order-promotion {
+        text-align: center;
+        display: inline-block;
+        vertical-align: top;
+        width: 120px;
+        padding: 10px 0;
+      }
+
+      .order-itemPay {
+        vertical-align: top;
+        text-align: right;
+        display: inline-block;
+        padding: 10px 0;
+        width: 130px;
+        font-weight: 700;
+        color: $gl-themeColor;
+        padding-right: 10px;
+      }
+    }
+
+    .order-orderExt {
+      background-color: #f2f7ff;
+      border-bottom: 1px solid #fff;
+      display: flex;
+      justify-content: flex-end;
+
+      .order-extUser {
+        display: inline-block;
+        width: 425px;
+        vertical-align: top;
+
+        .order-invoice {
+          .invoice-box {
+            border-top: 1px solid #fff;
+            border-right: 1px solid #fff;
+            padding: 10px;
+
+            .invoice-title {
+              margin-right: 10px;
+            }
+
+            .invoice-operate {
+
+              .invoice-type,
+              .invoice-info {
+                padding: 4px 0;
+                vertical-align: top;
+                display: flex;
+                align-items: center;
+
+                .title-label {
+                  display: inline-block;
+                  min-width: 85px;
+                }
+              }
+            }
+          }
+        }
+
+        .order-memo {
+          position: relative;
+          padding: 10px;
+          border-top: 1px solid #fff;
+          display: flex;
+        }
+      }
+
+      .order-extInfo {
+        width: 565px;
+        margin-left: -1px;
+        border-left: 1px solid #fff;
+
+        .order-promotion {
+          padding: 10px 0;
+          display: flex;
+          align-items: center;
+
+          .shop-promotion-title {
+            display: inline-block;
+            vertical-align: top;
+            text-align: right;
+            width: 150px;
+            padding-right: 15px;
+          }
+
+          .shop-promotion-selecter {
+            display: inline-block;
+            vertical-align: top;
+            width: 324px;
+          }
+
+          .shop-promotion-discount {
+            display: inline-block;
+            vertical-align: top;
+            width: 119px;
+            padding-right: 10px;
+            text-align: right;
+            font: 700 12px tahoma;
+            flex: 1;
+          }
+        }
+
+        .order-deliveryMethod {
+          border-top: 1px solid #fff;
+          padding: 10px 0;
+          display: flex;
+          align-items: center;
+
+          .delivery-title {
+            text-align: right;
+            width: 95px;
+            padding-right: 15px;
+          }
+
+          .delivery-select {
+            width: 324px;
+          }
+
+          .delivery-price {
+            padding-right: 10px;
+            text-align: right;
+            font: 700 12px tahoma;
+            flex: 1;
+            color: #e4393c;
+          }
+        }
+
+        .order-postageInsurance {
+          border-top: 1px solid #fff;
+          padding: 10px;
+          line-height: 19px;
+          text-align: left;
+          display: flex;
+
+          .user-title {
+            width: 130px;
+            padding-right: 15px;
+            text-align: right;
+          }
+
+          .user-operate {
+            width: 374px;
+          }
+
+          .user-price {
+            text-align: right;
+            font: 700 12px tahoma;
+            flex: 1;
+            color: #e4393c;
+          }
+        }
+      }
+    }
+
+    .order-pay {
+      background-color: #f2f7ff;
+      padding: 3px 10px 3px 0;
+      height: 45px;
+      line-height: 45px;
+      display: flex;
+      justify-content: flex-end;
+
+      .pay-price {
+        font-family: verdana, arial;
+        margin-left: 10px;
+        font-size: 16px;
+        font-weight: bolder;
+        vertical-align: middle;
+        color: #e4393c;
+      }
+    }
+  }
+
+  .order-payInfo {
+    text-align: right;
+    margin-top: 15px;
+
+    .payInfo-wrapper {
+      display: inline-block;
+      border: 1px solid $gl-themeColor;
+
+      .payInfo-shadow {
+        border: 3px solid #fff0e8;
+        min-width: 230px;
+        padding: 10px 10px 10px 20px;
+
+        .order-realPay {
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-end;
+
+          .realPay-title {
+            font-weight: 700;
+            color: #333;
+          }
+
+          .order-price {
+            font-size: 26px;
+            margin-right: 4px;
+            color: #999;
+          }
+
+          .realPay-price {
+            color: $gl-themeColor;
+            font: 700 26px tahoma;
+          }
+        }
+
+        .order-confirmAddr {
+          line-height: 1.6;
+          margin-top: 10px;
+
+          .confirmAddr-title {
+            font-weight: 700;
+            color: #333;
+            width: 88px;
+            text-align: right;
+          }
+
+          .confirmAddr-addr-bd {
+            .confirAddr-address {
+              margin-left: 5px;
+            }
+          }
+        }
+
+        .order-confirmAddr-user {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          .confirmAddr-title {
+            font-weight: 700;
+            color: #333;
+          }
+
+          .confirmAddr-content {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+
+    .order-submitOrder {
+      .wrapper {
+        display: inline-block;
+        width: 182px;
+        height: 39px;
+        position: relative;
+        vertical-align: middle;
+        line-height: 39px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+        background: $gl-themeColor;
+        color: #fff;
+      }
+    }
+  }
+}

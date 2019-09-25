@@ -1,0 +1,34 @@
+.operating-record {
+    padding-left: 70px;
+    .operating-record_box {
+        display: flex;
+        align-items: center;
+        .number-text {
+            color: #898b96;
+            font-size: 12px;
+        }
+        .text_coter {
+            color: #898b96;
+            font-size: 12px;
+        }
+        .record_box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0px 15px;
+            .record_box-list {
+                width: 2px;
+                height: 20px;
+                background-color: #E7E9F5;
+            }
+            .record_box-circle {
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                border-radius: 20px;
+                border: 2px solid #36a3f7;
+                margin: 5px 0px;
+            }
+        }
+    }
+}

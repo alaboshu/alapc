@@ -1,0 +1,64 @@
+.zk-qrcode-list {
+  .el-row {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .el-col {
+    border-radius: 4px;
+    padding: 10px 10px;
+    border: 1px solid #f1f2f3;
+    margin: 5px;
+  }
+
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
+
+  .el-col-4 {
+    // width: 15%;
+    width: 13.5%;
+    height: 360px;
+  }
+
+  .bg-purple {
+    .table_title {
+      text-align: center;
+      height: 30px;
+      line-height: 30px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #888;
+      margin-top: 20px;
+    }
+
+    .table_intro {
+      font-size: 13p;
+      color: #666;
+      line-height: 24px;
+      margin: 4px 0;
+      text-indent: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+
+    .table_url {
+      font-size: 11px;
+      color: #666;
+      line-height: 20px;
+      margin-top: 30px;
+    }
+  }
+}

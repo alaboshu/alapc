@@ -1,0 +1,186 @@
+.zk-product-reg {
+    .zk-product-login_box {
+        height: 650px;
+        background: url(https://s-open.qiniuniu99.com/wwwroot/uploads/api/2019-05-22/5ce4fb62522c0511c8980cdd.jpg) no-repeat;
+        background-size: 100% 100%;
+        background-position: center center;
+        position: relative;
+        overflow: hidden;
+        .login_box_content {
+            width: 360px;
+            height: 460px;
+            background: #fff;
+            box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+            margin: 0 auto;
+            margin-right: 100px;
+            margin-right: 24%;
+            margin-top: 3.5%;
+            overflow: hidden;
+            .login_box-title {
+                margin-top: 30px;
+                width: 100%;
+                .title_news {
+                    width: 300px;
+                    display: flex;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    margin: 0 auto;
+                    .currentType {
+                        color: #000;
+                    }
+                    span {
+                        display: block;
+                        line-height: 48px;
+                        font-size: 19px;
+                        font-family: '微软雅黑';
+                        color: #999;
+                    }
+                }
+            }
+            .user_news {
+                margin-top: 30px;
+                .user_news_name {
+                    width: 300px;
+                    height: 37px;
+                    border: 1px solid #e5e5e5;
+                    display: flex;
+                    margin: 0 auto;
+                    align-items: center;
+                    padding: 0 10px;
+                    input {
+                        border: none;
+                        outline: none;
+                        margin-left: 10px;
+                        border-left: 1px solid #e1dfdf;
+                        padding-left: 10px;
+                    }
+                }
+                .verification-code {
+                    width: 300px;
+                    height: 37px;
+                    border: 1px solid #e5e5e5;
+                    margin: 0px auto;
+                    margin-top: 25px;
+                    display: flex;
+                    align-items: center;
+                    .verification-code_input {
+                        outline: none;
+                        flex: 1;
+                        height: 35px;
+                        padding: 0px 10px;
+                    }
+                    .verification-code_box {
+                        border-left: 1px solid #e5e5e5;
+                        height: 36px;
+                        line-height: 36px;
+                        padding: 0px 10px;
+                        cursor: pointer;
+                        background-color: #f0f0f0;
+                        color: #999999;
+                        font-size: 12px;
+                    }
+                }
+                .user_news_password {
+                    width: 300px;
+                    height: 37px;
+                    border: 1px solid #e5e5e5;
+                    display: flex;
+                    margin: 0 auto;
+                    margin: 0 auto;
+                    align-items: center;
+                    margin-top: 25px;
+                    padding: 0 10px;
+                    input {
+                        border: none;
+                        outline: none;
+                        margin-left: 10px;
+                        border-left: 1px solid #e1dfdf;
+                        padding-left: 10px;
+                    }
+                }
+            }
+            .user_login_btn {
+                width: 300px;
+                height: 48px;
+                line-height: 48px;
+                text-align: center;
+                background: #c81432;
+                color: #fff;
+                margin: 0 auto;
+                margin-top: 40px;
+                font-size: 14px;
+                border-radius: 2px;
+                cursor: pointer;
+            }
+            .user_login-text {
+                width: 300px;
+                margin: 5px auto;
+                margin-bottom: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .reg-buttom {
+                    cursor: pointer;
+                    color: #999;
+                }
+            }
+            .user_aggrement {
+                width: 300px;
+                margin: 0 auto;
+                .el-checkbox__input.is-checked+.el-checkbox__label {
+                    color: #c81432;
+                }
+                .el-checkbox__inner {
+                    color: #c81432
+                }
+                .el-checkbox__input.is-checked .el-checkbox__inner {
+                    background-color: #c81432;
+                }
+            }
+        }
+        .el-slider__bar {
+            height: 30px;
+        }
+        .el-slider__runway {
+            height: 30px;
+            width: 300px;
+            margin: 0 auto;
+        }
+        .el-slider__button {
+            width: 30px;
+            height: 30px;
+            border-radius: 0;
+        }
+        .el-slider__button-wrapper {
+            height: 32px;
+            top: 0;
+        }
+        .user_news_test {
+            width: 300px;
+            height: 37px;
+            border: 1px solid #e5e5e5;
+            display: flex;
+            margin: 0 auto;
+            align-items: center;
+        }
+        .user_news_code {
+            width: 300px;
+            height: 37px;
+            border: 1px solid #e5e5e5;
+            display: flex;
+            margin: 0 auto;
+            margin-top: 30px;
+            cursor: pointer;
+            input {
+                padding-left: 10px;
+                outline: none;
+            }
+        }
+        .get_code_test {
+            width: 50%;
+            line-height: 37px;
+            text-align: center;
+            background: #EEEEEE;
+        }
+    }
+}

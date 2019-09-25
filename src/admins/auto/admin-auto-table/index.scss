@@ -1,0 +1,40 @@
+.derived-box {
+  .el-dropdown {
+    border: none;
+  }
+  .derived-box_btn {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 40px;
+    background-color: #ffffff;
+    cursor: pointer;
+    box-shadow: 0px 3px 20px 0px rgba(113, 106, 202, 0.17);
+    i {
+      font-size: 14px;
+    }
+    &:hover {
+      background-color: #36a3f7;
+      i {
+        color: #ffffff;
+      }
+    }
+  }
+}
+.el-popover {
+  min-width: 120px !important;
+}
+.derived_popover {
+  ul {
+    li {
+      padding: 12px 0px;
+      text-align: center;
+      cursor: pointer;
+      &:hover {
+        background: #f7f8fa;
+        color: #716aca;
+      }
+    }
+  }
+}

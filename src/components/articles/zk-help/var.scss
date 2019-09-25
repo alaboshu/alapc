@@ -1,0 +1,73 @@
+.zk-help {
+  // min-width: 1024px;
+  width: 1200px;
+  // max-width: 1280px;
+  margin: 50px auto;
+  display: flex;
+
+  .zk-help-left {
+    width: 204px;
+
+    .zk-help-left-cont {
+      border: 1px solid #eee;
+    }
+
+    .zk-help-title {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      font-size: 16px;
+      color: #E95A40;
+      background: #eef6ef;
+      cursor: default;
+    }
+
+    .zk-help-list {
+      width: 100%;
+      height: 33px;
+      line-height: 33px;
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+
+      &.cl {
+        color: #E95A40;
+      }
+
+      &:hover {
+        color: #E95A40;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .zk-help-right {
+    margin-left: 50px;
+    width: 940px;
+
+
+    .zk-help-detail-title {
+      font-size: 28px;
+      color: #222;
+      font-weight: bold;
+    }
+
+    .zk-help-detail-fubiao {
+      font-size: 15px;
+      color: #999;
+    }
+
+    .zk-help-detail {
+      width: 100%;
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #eee;
+
+      .zk-help-connit {
+        font-size: 13px;
+      }
+
+    }
+  }
+}

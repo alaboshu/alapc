@@ -1,0 +1,57 @@
+.admin-sms-send {
+    .sms-send_top {
+        padding: 20px;
+        .alert-success {
+            background-color: #45ccb1;
+            border-radius: 3px;
+            padding: 20px;
+            p {
+                color: #ffffff;
+            }
+            .alert-p1 {
+                font-size: 20px;
+                margin-bottom: 5px;
+            }
+            .alert-p2 {
+                font-size: 13px;
+                line-height: 20px;
+            }
+        }
+        .sms-send_form {
+            .el-form {
+                padding: 20px;
+            }
+            .el-form-item__label {
+                padding-right: 30px;
+                color: #3f4047;
+                font-size: 13px;
+                font-weight: 400;
+            }
+            .lable-text {
+                font-size: 13px;
+                color: black;
+            }
+            .el-textarea__inner {
+                min-height: 150px !important;
+            }
+            .stored-edit_intro {
+                font-size: 11px;
+                color: #7b7e8a;
+                line-height: 14px;
+                margin-bottom: 5px;
+            }
+        }
+    }
+    .stored_footer {
+        border-top: 1px solid #f0f0ff;
+        padding: 20px 290px;
+        .stored_btn {
+            display: inline-block;
+            background-color: #34bfa3;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    }
+}

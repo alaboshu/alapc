@@ -1,0 +1,59 @@
+.address-view {
+  color: #666;
+
+  .address-info {
+    width: 450px;
+    margin: 20px auto 0 auto;
+    padding-bottom: 20px;
+
+    .info-item {
+      margin-bottom: 16px;
+      display: flex;
+
+      .item-label {
+        margin: 0;
+        width: 90px;
+        padding-right: 12px;
+        text-align: right;
+        top: 0;
+        line-height: 30px;
+
+        .label-must {
+          &::before {
+            content: "*";
+            margin-right: 4px;
+            color: #e4393c;
+          }
+        }
+      }
+
+      .item-content {
+        width: 336px;
+        line-height: 28px;
+        border-radius: 3px;
+        padding: 0 8px;
+      }
+    }
+  }
+}
+
+.zk-address-edit {
+  padding: 20px;
+
+  .el-form-item__label {
+    padding-right: 20px;
+  }
+
+  .el-textarea__inner {
+    height: 50px;
+  }
+
+  .el-input__inner {
+    height: 40px;
+  }
+
+  .tips {
+    height: 20px;
+    line-height: 20px;
+  }
+}

@@ -1,0 +1,31 @@
+.zk-icon-ad {
+    display: flex;
+    flex-wrap: wrap;
+    .icon-ad_list {
+        padding: 15px 10px;
+        cursor: pointer;
+        .icon_box {
+            text-align: center;
+            .icon_box-text {
+                display: inline-block;
+                width: 70px;
+                height: 70px;
+                border-radius: 70px;
+                text-align: center;
+                line-height: 70px;
+            }
+        }
+        .icon-ad_name {
+            font-size: 14px;
+            text-align: center;
+            color: #7A621E;
+            line-height: 24px;
+            margin-top: 10px;
+        }
+        .icon-ad_intro {
+            font-size: 12px;
+            text-align: center;
+            color: #999999;
+        }
+    }
+}

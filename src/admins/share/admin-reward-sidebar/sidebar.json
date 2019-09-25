@@ -1,0 +1,26 @@
+{
+  "icon": "icon-zk-funnels",
+  "title": "模式超市",
+  "links": [
+    {
+      "icon": "icon-zk-tornado",
+      "name": "维度添加",
+      "url": "/Admin/RewardRule/Edit"
+    },
+    {
+      "icon": "icon-zk-jpy",
+      "name": "维度管理",
+      "url": "/Admin/RewardRule/List"
+    },
+    {
+      "icon": "icon-zk-redpacket",
+      "name": "分润数据",
+      "url": "/Admin/RewardRule/Data"
+    },
+    {
+      "icon": "icon-zk-order",
+      "name": "数据报表",
+      "url": "/Admin/RewardRule/Report"
+    }
+  ]
+}

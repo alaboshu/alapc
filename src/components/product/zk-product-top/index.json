@@ -1,0 +1,18 @@
+{
+  "links": [{
+      "name": "供应商后台",
+      "url": "/admin-store/index",
+      "inshow": true
+    },
+    {
+      "name": "分公司后台",
+      "url": "/admin-city/index",
+      "inshow": false
+    },
+    {
+      "name": "营销中心后台",
+      "url": "/admin-market/index",
+      "inshow": false
+    }
+  ]
+}

@@ -1,0 +1,277 @@
+ .zk-pay {
+   font-size: 12px;
+ }
+
+ .zk-order-paid {
+   background: #eff0f1;
+   position: relative;
+
+   .paid_password-box {
+     position: relative;
+
+     .padTransparent {
+       width: 0.1px;
+       height: 0.1px;
+       color: transparent;
+       position: relative;
+       top: 23px;
+       background: #000000;
+       left: 46px;
+       border: none;
+       font-size: 18px;
+       opacity: 0;
+       z-index: -1;
+     }
+
+     .psdInput {
+       width: 250px;
+       margin: 20px 0;
+       background-color: #fff;
+       border: 1px solid #c6c6c6;
+       border-radius: 2px;
+       -webkit-box-shadow: 0 1px 1px 1px #ededed inset;
+       box-shadow: 0 1px 1px 1px #ededed inset;
+       padding: 5px 0;
+       display: flex;
+
+       li.psdItem {
+         flex: 1;
+         height: 18px;
+         position: relative;
+         border-right: 1px solid #e5e5e5;
+         border-bottom: none;
+
+         i {
+           background: #000;
+           border-radius: 50%;
+           width: 10px;
+           height: 10px;
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+         }
+       }
+     }
+   }
+ }
+
+ .containers {
+   width: 950px;
+   margin: 0 auto;
+   margin-bottom: 20px;
+   position: relative;
+   padding: 20px 0;
+
+   .content_top {
+     display: flex;
+
+     .c_top_mid {
+       margin-left: 20px;
+       margin-top: 20px;
+       color: #1a1a1a;
+
+       p:nth-of-type(1) {
+         line-height: 26px;
+         height: 26px;
+         overflow: hidden;
+         color: #474646;
+         font-weight: 400;
+         font-size: 14px;
+         font-family: "Microsoft Yahei";
+       }
+
+       p:nth-of-type(2) {
+         color: #666;
+       }
+     }
+
+     .c_top_left {
+       img {
+         width: 100px;
+         height: 100px;
+       }
+     }
+
+     .c_top_right {
+       line-height: 72px;
+       margin-left: 230px;
+
+       span {
+         color: #ff8208;
+         font-weight: 700;
+         font-size: 22px;
+       }
+     }
+   }
+
+   .content_middle {
+     padding: 20px;
+     margin-top: 30px;
+     background-color: #fff;
+     padding: 12px 30px;
+     box-shadow: 0 6px 32px rgba(0, 0, 0, 0.13);
+     padding-bottom: 50px;
+
+     .paid_btn {
+       margin-top: 30px;
+       margin-left: 100px;
+       width: 250px;
+       height: 48px;
+       line-height: 48px;
+       display: inline-block;
+       color: #fff;
+       border: 1px solid $gl-themeColor;
+       background: $gl-themeColor;
+       border-radius: 2px;
+       vertical-align: middle;
+       cursor: pointer;
+       text-align: center;
+       box-shadow: 0 1px 0 0 #fe8c8a inset;
+       font-size: 16px;
+     }
+
+     input {
+       width: 18px;
+       height: 18px;
+       margin-top: 6px;
+     }
+
+     .left_btn {
+       background: $gl-themeColor;
+       width: 100px;
+       height: 40px;
+       border-radius: 0 20px 20px 0;
+       color: #fff;
+       line-height: 44px;
+       margin-left: -37px;
+       text-align: center;
+       font-size: 14px;
+     }
+
+     li.payType_item {
+       border-bottom: 1px solid #eee;
+       padding: 20px 2px 20px 20px;
+       display: flex;
+       justify-content: flex-start;
+
+       img {
+         width: 26px;
+         height: 26px;
+         margin-left: 30px;
+       }
+
+       span {
+         margin-left: 20px;
+         display: block;
+         margin-top: 3px;
+         font-size: 15px;
+         font-weight: 700;
+         width: 20%;
+       }
+
+       .balance {
+         color: #666;
+         width: 70%;
+         line-height: 26px;
+       }
+     }
+
+     li.payType_item:hover {
+       box-shadow: 0 6px 32px rgba(0, 0, 0, 0.13);
+     }
+   }
+ }
+
+ .top_content {
+   width: 950px;
+   margin: 0 auto;
+   display: flex;
+
+   // li:nth-of-type(1) {
+   //   // background-repeat: no-repeat;
+   //   // background-image: url(https://t.alipayobjects.com/images/rmsweb/T13IFgXjlaXXXXXXXX.png);
+   //   // width: 88px;
+   //   // height: 30px;
+   //   // margin-right: 15px;
+   // }
+   li:nth-of-type(2) {
+     font: normal 18px/26px Microsoft YaHei, SimSun;
+     // border-left: 1px solid gray;
+     height: 30px;
+     color: #1a1a1a;
+     float: left;
+     padding-left: 10px;
+     margin-top: 2px;
+     margin-right: 15px;
+   }
+
+   .top_news {
+     display: flex;
+     float: right;
+     line-height: 30px;
+     margin-left: 210px;
+
+     p {
+       margin-right: 15px;
+     }
+
+     p:nth-of-type(2) {
+       a {
+         padding-left: 10px;
+         border-left: 1px solid gray;
+       }
+     }
+   }
+ }
+
+ .order-top {
+   width: 100%;
+   height: 42px;
+   background-color: #fff;
+   border-bottom: 1px solid #d7d8d8;
+   box-shadow: 0 1px 1px #ddd;
+   margin-bottom: 1px;
+   margin-top: 10px;
+   display: flex;
+
+   .el-select {
+     outline: none;
+     width: 65% !important;
+     margin-top: 5px;
+   }
+
+   .el-input__inner {
+     border: none !important;
+     background-color: #eff0f1;
+     padding: 1px 5px;
+     color: #5b6a6f;
+   }
+
+   .el-input__suffix {
+     display: none !important;
+   }
+ }
+
+ .paid_password {
+   margin-top: 30px;
+   margin-left: 100px;
+
+   p {
+     color: #999;
+     line-height: 20px;
+     margin-bottom: 5px;
+   }
+
+   .foget_password {
+     margin-top: 26px;
+     margin-left: 20px;
+     cursor: pointer;
+   }
+
+   .foget_password:hover {
+     color: $gl-themeColor;
+   }
+
+
+ }

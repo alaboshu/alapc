@@ -1,0 +1,138 @@
+.el-dropdown {
+  padding: 0px 8px;
+  height: 40px;
+  border: 1px solid #dcdfe6;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-right: none;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: .1s;
+  font-weight: 500;
+
+  .el-dropdown-link {
+    font-size: 13px;
+  }
+}
+
+.dro_border {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-right: 1px solid #dcdfe6;
+}
+
+.input {
+  width: 100px !important;
+  margin-left: 20px;
+}
+
+.el-tabs--top {
+  width: 100%;
+}
+
+.elForm {
+  display: flex;
+  justify-items: center;
+
+  .el_elasticity {
+    // display: inline-block;
+    // margin: 0 auto;
+    width: 100%;
+
+    .showHiden {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .el-form-item {
+        display: flex;
+        margin-right: 20px;
+        margin-bottom: 15px;
+        width: 30%;
+
+        .el-form-item__label {
+          width: 85px !important;
+          margin-right: 5px;
+        }
+
+        .picker_data {
+          width: 250px !important;
+        }
+      }
+
+      .el-input__inner {
+        height: 40px;
+        line-height: 40px;
+      }
+
+      .el-form-item__content {
+        width: 220px;
+      }
+    }
+  }
+
+  .block {
+
+    .el-date-editor--datetimerange.el-input,
+    .el-date-editor--datetimerange.el-input__inner {
+      width: 220px;
+    }
+  }
+}
+
+.hightSearch {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  padding-left: 140px;
+}
+
+.form-data {
+  border-radius: 0px;
+
+  .el-input__inner {
+    border-radius: 0px;
+    height: 40px;
+  }
+}
+
+.but_modality {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  height: 40px;
+  padding: 0px 15px;
+  font-size: 13px;
+}
+
+.form_flex {
+  .el-form-item__content {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.number-rang {
+  display: flex;
+
+  .center-icon {
+    padding: 0px 5px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .el-input {
+    width: 99px;
+
+    .el-input__inner {
+      width: 100%;
+    }
+  }
+}

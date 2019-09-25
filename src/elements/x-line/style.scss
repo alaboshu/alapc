@@ -1,0 +1,37 @@
+.x-line {
+  width: 100% !important;
+
+  .line-header {
+    display: flex;
+    align-items: center;
+    padding: 5px 20px;
+
+    &.line-border {
+      border-bottom: 1px solid #ebedf2;
+      padding: 10px 20px;
+    }
+  }
+
+  .line-header-title {
+    flex: 1;
+    font-size: 14px;
+  }
+
+  .line-header-i {
+    vertical-align: -1px;
+    margin-right: 5px;
+  }
+
+  .line-header-intro {
+    font-size: 10px;
+    color: #909399 !important;
+    margin-left: 5px;
+    font-weight: 300;
+    display: flex;
+
+    .line-header-list {
+      margin-right: 5px;
+    }
+  }
+
+}

@@ -1,0 +1,109 @@
+.zk-product-head {
+    width: 100%;
+    .head-middle {
+        width: 1200px;
+        margin: 50px auto;
+        display: flex;
+        align-items: center;
+        .head-login {
+            width: 160px;
+            height: 55px;
+            margin-top: -10px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .head-search {
+            margin-left: 250px;
+            .middle-center {
+                display: flex;
+                align-items: center;
+            }
+            .search-list {
+                margin-top: 4px;
+                padding-left: 8px;
+                .search-list_a {
+                    display: inline-block;
+                    color: #999999;
+                    font-family: '微软雅黑';
+                    font-size: 13px;
+                    margin-right: 10px;
+                    cursor: pointer;
+                }
+            }
+            .head-search_box {
+                width: 424px;
+                height: 38px;
+                border-radius: 38px;
+                border: 1.5px solid #d85066;
+                display: flex;
+                align-items: center;
+                .head-search_input {
+                    flex: 1;
+                    position: relative;
+                    .search_img {
+                        width: 15px;
+                        height: 15px;
+                        position: absolute;
+                        top: 10px;
+                        left: 15px;
+                    }
+                    .search_box {
+                        outline: none;
+                        width: 100%;
+                        height: 34px;
+                        border-top-left-radius: 34px;
+                        border-bottom-left-radius: 34px;
+                        padding-left: 40px;
+                        &::-webkit-input-placeholder {
+                            font-size: 14px;
+                            color: #999999;
+                            font-family: '微软雅黑';
+                        }
+                    }
+                }
+                .search_box-btn {
+                    background-color: #c81332;
+                    width: 100px;
+                    height: 38px;
+                    font-size: 16px;
+                    color: #ffffff;
+                    letter-spacing: 15px;
+                    line-height: 38px;
+                    text-align: center;
+                    border-top-right-radius: 34px;
+                    border-bottom-right-radius: 34px;
+                    margin-right: -1px;
+                    padding-left: 10px;
+                    font-weight: 300;
+                }
+            }
+            .middle-center_cart {
+                width: 30px;
+                height: 30px;
+                margin-left: 70px;
+                position: relative;
+                cursor: pointer;
+                .cart-img {
+                    width: 100%;
+                    height: 100%;
+                }
+                .cart-number {
+                    display: inline-block;
+                    font-size: 8px;
+                    background-color: #c81332;
+                    color: #ffffff;
+                    width: 18px;
+                    height: 18px;
+                    text-align: center;
+                    line-height: 18px;
+                    border-radius: 100%;
+                    position: absolute;
+                    right: -8px;
+                    top: -5px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+.essential {
+    .essential-list {
+        width: 96%;
+        margin: 0 auto;
+        margin-top: 15px;
+        li {
+            margin-bottom: 15px;
+            display: flex;
+            justify-items: center;
+            width: 100%;
+            min-height: 12px;
+            color: #8a8a8a;
+            .text {
+                width: 250px;
+                height: 42px;
+                line-height: 42px;
+                text-align: right;
+                margin-right: 30px;
+                span {
+                    color: red;
+                }
+            }
+            .right-box {
+                flex: 1;
+                .text-right {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    .select {
+                        flex: 1;
+                    }
+                }
+            }
+            .list-buttom {
+                cursor: pointer;
+                margin-left: 15px;
+                height: 42px;
+                width: 120px;
+                text-align: center;
+                line-height: 42px;
+                border: 1px solid #e5e5e5;
+                border-radius: 3px;
+            }
+            .input-l {
+                width: 880px;
+            }
+            .textArea {
+                height: 100px;
+            }
+            .radio-heig {
+                height: 20px;
+            }
+            .textYel {
+                height: 20px;
+                line-height: 20px;
+            }
+            .label {
+                display: flex;
+                .label-text {
+                    width: 70px;
+                    height: 40px;
+                    line-height: 40px;
+                }
+            }
+            .img_top_text {
+                height: 42px;
+                line-height: 42px;
+            }
+        }
+    }
+}

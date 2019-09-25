@@ -1,0 +1,143 @@
+.zk-product-recommend {
+  width: 100%;
+
+  .product-recommend_box {
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 15px;
+
+    .product-exhibition {
+      display: flex;
+
+      .exhibition_box {
+        width: 400px;
+        height: 320px;
+        margin-right: 5px;
+        position: relative;
+        cursor: pointer;
+        border: 1px solid #f0f0f0;
+
+        .exhibition-img {
+          width: 100%;
+          height: 100%;
+        }
+
+        .exhibition-image {
+          width: 60%;
+          height: 40%;
+          position: absolute;
+          bottom: 10px;
+          left: 50%;
+          margin-left: -30%;
+        }
+
+        .text_box {
+          width: 100%;
+          position: absolute;
+          left: 0px;
+          // bottom: 10px;
+          top: 10px;
+
+          text-align: center;
+
+          .text_box-title {
+            font-size: 20px;
+            font-family: 'Microsoft YaHei';
+            color: #202020;
+            line-height: 50px;
+            position: relative;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: 0px 15px;
+
+            &::after {
+              content: "";
+              width: 50px;
+              height: 2px;
+              background-color: #999999;
+              position: absolute;
+              bottom: 0px;
+              left: 50%;
+              margin-left: -25px;
+              transform: scaleY(0.3);
+            }
+          }
+
+          .text_box-money {
+            font-size: 20px;
+            font-family: 'Microsoft YaHei';
+            color: #202020;
+            line-height: 45px;
+          }
+        }
+      }
+
+      .tandem-list {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .tandem-list_a {
+          display: inline-block;
+
+          &:nth-child(2n) {
+            margin-top: 8px;
+          }
+        }
+
+        .tandem-list_box {
+          height: 156px;
+          display: flex;
+          cursor: pointer;
+          border: 1px solid #f0f0f0;
+
+          .tandem-left {
+            flex: 1;
+            padding: 15px;
+
+            .tandem-title {
+              font-size: 20px;
+              font-family: 'Microsoft YaHei';
+              color: #202020;
+              line-height: 50px;
+              width: 178px;
+              position: relative;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+
+              &::after {
+                content: "";
+                width: 50px;
+                height: 2px;
+                background-color: #999999;
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                transform: scaleY(0.3);
+              }
+            }
+
+            .tandem-money {
+              font-size: 20px;
+              font-family: 'Microsoft YaHei';
+              color: #202020;
+              line-height: 45px;
+            }
+          }
+
+          .tandem-right {
+            width: 180px;
+            height: 100%;
+
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

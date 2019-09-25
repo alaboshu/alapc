@@ -1,0 +1,26 @@
+[
+  {
+    "title": "团队数量",
+    "text": "Awerage Weekly",
+    "mount": "0",
+    "color": "#716aca "
+  },
+  {
+    "title": "团队业绩",
+    "text": "Weekly Customer",
+    "mount": "0.00",
+    "color": "#f4516c "
+  },
+  {
+    "title": "推荐会员",
+    "text": "bugs and issues",
+    "mount": "0",
+    "color": "#34bfa3"
+  },
+  {
+    "title": "登录次数",
+    "text": "Weekly Profit",
+    "mount": "1",
+    "color": "#716aca "
+  }
+]

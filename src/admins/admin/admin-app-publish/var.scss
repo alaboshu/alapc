@@ -1,0 +1,16 @@
+.admin-app-publish {
+    .el-tabs--top {
+        margin: 0px;
+        .el-tabs__item {
+            border-right: 1px solid #DCDFE6;
+            .border-card_span {
+                i {
+                    margin-left: 4px;
+                }
+            }
+        }
+        .el-tabs__content {
+            padding: 0px;
+        }
+    }
+}

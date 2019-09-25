@@ -1,0 +1,125 @@
+#a {
+  .zk-aritcle-detail {
+
+    .el-header,
+    .el-footer {
+      color: #333;
+      text-align: center;
+    }
+
+    .el-aside {
+      color: #333;
+      text-align: center;
+    }
+
+    body>.el-container {
+      margin-bottom: 40px;
+    }
+
+    .container_box {
+      width: 1200px;
+      margin: 0 auto;
+    }
+
+    .el-main {
+      .detail_img {
+        width: 85%;
+        height: 400px;
+      }
+
+      .fusion-post-title {
+        font-family: Montserrat,
+          Arial,
+          Helvetica,
+          sans-serif;
+        font-weight: 700;
+        line-height: 36px;
+        letter-spacing: 0px;
+        font-style: normal;
+        font-size: 26px;
+        margin: 20px 0;
+      }
+
+      .fusion-column-wrapper {
+        width: 85%;
+        color: #494949;
+        margin-bottom: 20px;
+        font-weight: 400;
+
+        p {
+          line-height: 25px;
+          font-size: 15px;
+        }
+      }
+
+      .else_detail {
+        height: 70px;
+        border-left: 4px solid #427ed1;
+        padding: 10px 10px;
+        margin-left: 25px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+
+        p {
+          line-height: 18px;
+          color: #494949;
+          margin-top: 8px;
+          font-style: italic;
+        }
+      }
+
+      .fusion-text {
+        width: 85%;
+        color: #494949;
+        margin-bottom: 20px;
+        font-weight: 400;
+        margin: 20px 0;
+
+        p {
+          line-height: 25px;
+          font-size: 15px;
+          margin-bottom: 25px;
+        }
+      }
+    }
+
+    .el-aside {
+      padding: 20px;
+
+      .search {
+        width: 200px;
+        height: 38px;
+        border: 1px solid #e5e5e5;
+        overflow: hidden;
+        display: flex;
+
+        input {
+          height: 38px;
+          line-height: 38px;
+          outline: none;
+          border: none;
+          padding-left: 10px;
+        }
+
+        .search_icon {
+          height: 38px;
+          line-height: 38px;
+          font-size: 15px;
+          background: #000;
+          width: 100px;
+          color: #fff;
+
+          i {
+            font-size: 20px;
+            margin-top: 10px;
+            display: block;
+          }
+        }
+
+        .tab_content {
+          border: 1px solid #eaeaea;
+        }
+      }
+    }
+  }
+}
