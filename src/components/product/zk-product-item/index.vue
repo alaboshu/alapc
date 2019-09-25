@@ -183,9 +183,6 @@
         var initResponse = await this.$api.httpGet(PRODUCT_LIST_GET, params)
         this.dataModel = initResponse.result
         this.ready = true
-        // 设置dataId
-        var config = editSetting
-        config.ApiUrl = null
         this.widgetModel = await this.$api.themeWidget(this.widget)
       },
       golinks (id) {
