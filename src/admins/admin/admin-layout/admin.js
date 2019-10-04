@@ -68,14 +68,17 @@ export default {
       spinner: 'el-icon-loading',
       background: 'rgba(0, 0, 0, 0.7)'
     })
-    console.info('请求', api.tenant())
     var response = await api.httpPost('/api/Employee/LoginByToken', para)
     loading.close()
     if (response.status === 1) {
       user.setUser(response.result)
     } else {
-      Vue.prototype.$alert('自动登录失败：' + response.message)
-      window.location.href = '/admin/login'
+      Vue.prototype.$alert(response.message, '自动登录失败：', {
+        confirmButtonText: '确定',
+        callback: action => {
+          window.location.href = '/admin/login'
+        }
+      })
     }
   },
 
