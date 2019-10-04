@@ -51,7 +51,6 @@
         if (this.site == null) {
           this.site = await this.$base.site()
         }
-
         this.async = true
         if (this.$route.fullPath === '/admin') {
           this.$router.push('/admin/index')

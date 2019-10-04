@@ -13,7 +13,8 @@ export default {
   // 当前租户
   tenant () {
     if (config.isTenant === true) {
-      return this.vuexLocalGet('tenant')
+      var tenant = this.vuexLocalGet('tenant')
+      return tenant
     } else {
       return ''
     }
@@ -122,7 +123,7 @@ export default {
     this.localSet(name, value)
   },
   vuexLocalGet (name, isEncrypt) {
-    if (!this.isEmpty(store.state[name])) {
+    if (store.state[name] !== undefined) {
       return store.state[name]
     } else {
       var data = this.localGet(name, isEncrypt)

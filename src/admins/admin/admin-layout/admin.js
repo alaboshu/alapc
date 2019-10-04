@@ -42,7 +42,6 @@ export default {
       window.location.href = '/admin/index'
       return false
     }
-
     if (api.isTenant()) {
       if (
         tenant === undefined ||
@@ -69,13 +68,13 @@ export default {
       spinner: 'el-icon-loading',
       background: 'rgba(0, 0, 0, 0.7)'
     })
+    console.info('请求', api.tenant())
     var response = await api.httpPost('/api/Employee/LoginByToken', para)
     loading.close()
     if (response.status === 1) {
       user.setUser(response.result)
-      window.location.href = '/admin/index'
     } else {
-      Vue.prototype.$alert('自动登录失败' + response.message)
+      Vue.prototype.$alert('自动登录失败：' + response.message)
       window.location.href = '/admin/login'
     }
   },
