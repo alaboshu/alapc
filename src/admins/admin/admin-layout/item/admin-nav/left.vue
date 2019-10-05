@@ -1,6 +1,6 @@
 <template>
   <div class="aside-left">
-    <div class="stair-navigation">
+    <div class="stair-navigation" v-if="roleOutput">
       <ul class="stair-ul">
         <li class="stair-li" :class="{'stair_active':index===currentMenu.oneIndex}" v-for="(item,index) in roleOutput.menus" :key="index" @click="to(item)" v-show="item.isEnable">
           <div class="stair-box">
@@ -51,6 +51,7 @@
         this.currentMenu = this.$api.vuexLocalGet('admin_current_menu')
       },
       to (threeMenu) {
+        console.info('点击', threeMenu, this.currentMenu)
         this.$emit('clickMenu', threeMenu)
       },
       secondMenuClick (item) {
