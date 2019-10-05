@@ -1,104 +1,104 @@
 .admin-login {
-    width: 100vw;
-    height: 100vh;
-    background: url('../../../../static/img/bg-2.jpg') no-repeat;
-    background-size: cover;
-    position: relative;
-    .admin-login_box {
-        position: absolute;
-        top: 100px;
-        left: 50%;
-        transform: translateX(-50%);
-        .m-login__logo {
-            width: 95px;
-            height: 95px;
-            margin: 0 auto;
-            img {
-                width: 100%;
-                height: 100%;
-            }
-        }
-        .m-login__signin {
-            h3 {
-                color: #7668a4;
-                font-size: 20px;
-                font-weight: 400;
-                text-align: center;
-                letter-spacing: 2px;
-                margin: 45px 0px;
-            }
-            .form-control {
-                .m-input {
-                    margin-bottom: 20px;
-                    input {
-                        width: 430px;
-                        height: 40px;
-                        border-radius: 40px;
-                        padding: 0px 20px;
-                        outline: none;
-                        background: #24143f;
-                        color: #7668a4;
-                        font-size: 13px;
-                        &::-webkit-input-placeholder {
-                            color: #7668a4;
-                        }
-                    }
-                }
-                .m-login__form-sub {
-                    padding: 0px 20px;
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    .sub_text-color {
-                        color: #7668a4;
-                        cursor: pointer;
-                        .el-checkbox__input.is-checked .el-checkbox__inner {
-                            background-color: #7668a4;
-                            border-color: #7668a4;
-                        }
-                        .el-checkbox__label {
-                            color: #7668a4;
-                        }
-                    }
-                    .sub_forget {
-                        &:hover {
-                            text-decoration: underline;
-                        }
-                    }
-                }
-            }
-            .m-login__form-action {
-                margin-top: 50px;
-                text-align: center;
-                .action_but {
-                    display: inline-block;
-                    color: #ffffff;
-                    background-color: #9816f4;
-                    font-size: 14px;
-                    padding: 16px 60px;
-                    border-radius: 40px;
-                    cursor: pointer;
-                    box-shadow: 0px 5px 10px 2px rgba(152, 22, 244, 0.19);
-                    transition: all .5s;
-                    &:hover {
-                        background-color: #840ad9;
-                        box-shadow: 0px 5px 10px 2px rgba(152, 22, 244, 0.36);
-                    }
-                }
-            }
-            .m-login__account {
-                margin-top: 60px;
-                text-align: center;
-                color: #7668a4;
-                a {
-                    color: #a198c1;
-                    font-size: 13px;
-                    margin-left: 20px;
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-        }
+  width: 100vw;
+  height: 100vh;
+  background: url('../../../../static/img/bg-2.jpg') no-repeat;
+  background-size: cover;
+  position: relative;
+  .admin-login_box {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    .m-login__logo {
+      width: 237px;
+      height: 60px;
+      margin: 0 auto;
+      img {
+        width: 237px;
+        height: 60px;
+      }
     }
+    .m-login__signin {
+      h3 {
+        color: #7668a4;
+        font-size: 20px;
+        font-weight: 400;
+        text-align: center;
+        letter-spacing: 2px;
+        margin: 45px 0px;
+      }
+      .form-control {
+        .m-input {
+          margin-bottom: 20px;
+          input {
+            width: 430px;
+            height: 40px;
+            border-radius: 40px;
+            padding: 0px 20px;
+            outline: none;
+            background: #24143f;
+            color: #7668a4;
+            font-size: 13px;
+            &::-webkit-input-placeholder {
+              color: #7668a4;
+            }
+          }
+        }
+        .m-login__form-sub {
+          padding: 0px 20px;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .sub_text-color {
+            color: #7668a4;
+            cursor: pointer;
+            .el-checkbox__input.is-checked .el-checkbox__inner {
+              background-color: #7668a4;
+              border-color: #7668a4;
+            }
+            .el-checkbox__label {
+              color: #7668a4;
+            }
+          }
+          .sub_forget {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      .m-login__form-action {
+        margin-top: 50px;
+        text-align: center;
+        .action_but {
+          display: inline-block;
+          color: #ffffff;
+          background-color: #9816f4;
+          font-size: 14px;
+          padding: 16px 60px;
+          border-radius: 40px;
+          cursor: pointer;
+          box-shadow: 0px 5px 10px 2px rgba(152, 22, 244, 0.19);
+          transition: all 0.5s;
+          &:hover {
+            background-color: #840ad9;
+            box-shadow: 0px 5px 10px 2px rgba(152, 22, 244, 0.36);
+          }
+        }
+      }
+      .m-login__account {
+        margin-top: 60px;
+        text-align: center;
+        color: #7668a4;
+        a {
+          color: #a198c1;
+          font-size: 13px;
+          margin-left: 20px;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }
