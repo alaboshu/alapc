@@ -51,7 +51,6 @@
         this.currentMenu = this.$api.vuexLocalGet('admin_current_menu')
       },
       to (threeMenu) {
-        console.info('点击', threeMenu, this.currentMenu)
         this.$emit('clickMenu', threeMenu)
       },
       secondMenuClick (item) {

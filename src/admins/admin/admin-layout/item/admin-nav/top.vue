@@ -188,7 +188,7 @@
             cancelButtonText: '取消'
           })
           .then(() => {
-            window.location.href = `/${this.roleOutput.prefix}/login`
+            window.location.href = `/${this.roleOutput.prefix}login`
             this.$user.loginOut()
           })
           .catch(() => { })
