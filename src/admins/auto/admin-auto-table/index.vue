@@ -56,6 +56,7 @@
         this.$refs.xTable.toExcel(command)
       },
       watchWidget (val) {
+        console.info('出发 admin-auto-table')
         this.init()
         this.$nextTick(() => {
           this.$refs.xTable.init(this.table.type, this.table.columns)

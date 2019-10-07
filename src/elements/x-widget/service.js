@@ -23,6 +23,8 @@ export default {
     if (jsThis.$route.path.toLowerCase().endsWith('list')) {
       var type = this.getType(jsThis, 'list')
       widget.widgets[0].value.table.type = type
+      widget.widgets[0].componentPath = '/auto/admin-auto-table'
+      widget.widgets[0].name = 'admin-auto-table'
       return widget
     } else if (jsThis.$route.path.toLowerCase().endsWith('edit')) {
       type = this.getType(jsThis, 'edit')
