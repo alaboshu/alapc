@@ -16,7 +16,7 @@ export default {
   // 权限类型 All=1:无权限，匿名，谁都可以访问   User = 2 会员级别 Admin = 3 管理员级别
   //  Store = 4 供应商级别 Offline = 5 线下店铺 City = 6 城市合伙人  营销中心 Market = 101
   filter () {
-    var filter = this.router().params.filter
+    var filter = this.router().meta.filter
     if (filter) {
       return filter
     } else {

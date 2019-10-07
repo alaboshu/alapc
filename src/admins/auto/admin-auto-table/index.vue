@@ -40,6 +40,7 @@
       async init () {
         this.tableName = this.widget.value.title
         this.table = this.widget.value.table
+        console.info('this.table', this.table, this.$base.filter(), this.$base.router())
         this.$nextTick(() => {
           this.$refs.xBorder.changeStyle(this.widget.value.title, this.widget.value.icon.name, this.widget.value.themeColor)
         })
@@ -56,7 +57,6 @@
         this.$refs.xTable.toExcel(command)
       },
       watchWidget (val) {
-        console.info('出发 admin-auto-table')
         this.init()
         this.$nextTick(() => {
           this.$refs.xTable.init(this.table.type, this.table.columns)

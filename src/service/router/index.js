@@ -35,11 +35,10 @@ export const constantRouterMap = [
       {
         path: '*',
         meta: {
-          title: '后台管理'
-        },
-        params: {
+          title: '后台管理',
           filter: 3 // 后台过滤权限
         },
+        params: {},
         component: () => import('@/pages/admin/index')
       }
     ]
