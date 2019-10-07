@@ -84,10 +84,12 @@
       // 监听 子组件中的数据，如果需要触发可以在子组件中定义watchWidget方法
       // 具体的用法可以参考admin-auto-table
       watchWidget (val) {
-        this.$refs.childComponent.forEach(element => {
-          if (element.watchWidget) {
-            element.watchWidget(val)
-          }
+        this.$nextTick(() => {
+          this.$refs.childComponent.forEach(element => {
+            if (element.watchWidget) {
+              element.watchWidget(val)
+            }
+          })
         })
       },
       watchRoute () {

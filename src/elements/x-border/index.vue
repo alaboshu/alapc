@@ -7,7 +7,9 @@
         <i class="iconver iconfont glyph-icon" :class="Icon" v-if="iconShow" :style="{color:fontColor}"></i>
         <x-icon class="iconver" :src="iconType.path" v-else></x-icon>
         {{borderTitle}}
+        <div class="widget-header-desc">短信、营销、客群维护等</div>
       </h3>
+
       <div class="header-right">
         <slot name="borderFooter"></slot>
       </div>
@@ -73,7 +75,6 @@
           this.convert(color)
         }
         if (!this.Icon && this.$base.filter() === 3) {
-          console.info('ssss', service.getAdminIcon())
           this.Icon = service.getAdminIcon()
         }
       },

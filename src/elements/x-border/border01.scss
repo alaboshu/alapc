@@ -14,7 +14,7 @@
     .widget-header-title {
       display: table-cell;
       vertical-align: middle;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 500;
       font-family: Roboto;
       padding-left: 25px;
@@ -25,8 +25,16 @@
         font-size: 18px;
         width: 18px;
         height: 18px;
-        margin-right: 10px;
+        margin-right: 6px;
         vertical-align: -1px;
+        margin-top: 3px;
+      }
+      .widget-header-desc {
+        font-size: 12px;
+        margin-left: 12px;
+        margin-top: 6px;
+        font-weight: 200;
+        background-blend-mode: color-dodge;
       }
     }
     .header-right {
