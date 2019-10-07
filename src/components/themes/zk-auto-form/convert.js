@@ -38,8 +38,8 @@ export default {
         var item = {}
         item.dataSource = items.dataSource
         item.value = items.value
-        item.type = this.getType(items.type)
         item.name = items.name
+        item.type = items.type
         item.icon = items.icon
         item.helpBlock = items.helpBlock
         item.model = items.field
@@ -98,8 +98,6 @@ export default {
 
     return activitySku
   },
-  async toFiledItem () {},
-  async toModel () {},
   // 获取图标
   geIcon () {
     var iconList = [

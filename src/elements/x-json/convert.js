@@ -39,8 +39,8 @@ export default {
         var item = {}
         item.dataSource = items.dataSource
         item.value = items.value
-        item.type = this.getType(items.type)
         item.name = items.name
+        item.type = items.type
         item.icon = items.icon
         item.helpBlock = items.helpBlock
         item.model = items.field
@@ -91,71 +91,15 @@ export default {
     })
     return activitySku
   },
-  async toFiledItem () {
-
-  },
-  async toModel () {
-
-  },
-  getType (type) {
-    if (type === 1) {
-      return 'label'
-    }
-    if (type === 2) {
-      return 'input'
-    }
-    if (type === 3) {
-      return 'textarea'
-    }
-    if (type === 4) {
-      return 'checkBox'
-    }
-    if (type === 5) {
-      return 'radio'
-    }
-    if (type === 11) {
-      return 'uploadFile'
-    }
-    if (type === 10) {
-      return 'imgupload'
-    }
-    if (type === 43) {
-      return 'area'
-    }
-    if (type === 6) {
-      return 'select'
-    }
-    if (type === 15) {
-      return 'switch'
-    }
-    if (type === 45) {
-      return 'editor'
-    }
-    if (type === 7) {
-      return 'number'
-    }
-    if (type === 1005 || type === 1009) {
-      return 'x-Json'
-    }
-    if (type === 13) {
-      return 'hide'
-    }
-    if (type === 9) {
-      return 'timePicker'
-    }
-    if (type === 21) {
-      return 'checkBoxList'
-    }
-    if (type === 18) {
-      return 'floatingInput'
-    }
-    if (type === 12) {
-      return 'password'
-    }
-  },
   // 获取图标
   geIcon () {
-    var iconList = ['flaticon-puzzle', 'flaticon-menu-button', 'flaticon-interface-2', 'flaticon-layers', 'flaticon-apps']
+    var iconList = [
+      'flaticon-puzzle',
+      'flaticon-menu-button',
+      'flaticon-interface-2',
+      'flaticon-layers',
+      'flaticon-apps'
+    ]
     return iconList
   }
 }
