@@ -47,9 +47,9 @@
         } else {
           this.viewModel = response.result
           this.bordetTitle = this.viewModel.name
-          this.viewModel.tenant = this.widgetData.tenant
           this.async = true
         }
+        console.info('auto Form 表格结构', this.viewModel)
       },
       async saveForm (models) {
         models.userId = this.$user.id()

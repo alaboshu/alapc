@@ -80,7 +80,6 @@ export default {
         icon: item.icon,
         value: item.value,
         jsonItems: item.jsonItems,
-        tenant: serviceConfig.tenant,
         options: {
           placeholder: item.placeHolder,
           sortOrder: item.sortOrder,

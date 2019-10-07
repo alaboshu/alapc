@@ -1,5 +1,5 @@
 <template>
-  <!-- :required="widget.required" -->
+
   <el-form-item :label="widgetName" :prop="widget.model" class="from-item" :rules="rulesInput" v-if="async&&widget.type !== 'hide'">
     <template v-if="widget.type == 'label'">
       <el-input type="input" v-model="dataModel" :disabled="true" :placeholder="widget.options.placeholder" :style="{width: widget.options.width}"></el-input>
@@ -14,6 +14,9 @@
 
     <template v-if="widget.type == 'number'||widget.type == 7">
       <el-input-number v-model="dataModel" :min="0" @change="handleChange" :step="widget.options.step" controls-position="right"></el-input-number>
+    </template>
+    <template v-if="widget.type == 'decimal'||widget.type == 18">
+      <el-input-number v-model="dataModel" :min="0" :precision="2" :step="0.1" @change="handleChange" controls-position="right"></el-input-number>
     </template>
     <template v-if="widget.type == 'x-Json'">
       <x-json :widget="widget" v-model="dataModel"></x-json>
@@ -93,8 +96,13 @@
     <template v-if="widget.type == 'password'">
       <el-input v-model="dataModel" type="password" password :placeholder="widget.options.placeholder"></el-input>
     </template>
+    {{widget.type}}
     <template v-if="widget.type == 'timePicker'">
       <el-date-picker v-model="dataModel" type="datetime" placeholder="选择日期时间">
+      </el-date-picker>
+    </template>
+    <template v-if="widget.type == 'datePicker'">
+      <el-date-picker v-model="dataModel" type="date" placeholder="选择日期时间">
       </el-date-picker>
     </template>
     <template v-if="widget.type == 'tags'||widget.model == 'tags'">
