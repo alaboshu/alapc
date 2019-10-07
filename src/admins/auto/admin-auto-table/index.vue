@@ -60,8 +60,8 @@
       toExcel (command) {
         this.$refs.xTable.toExcel(command)
       },
+      // 监听 x-widget值得变化,不能直接监听路由，直接监听路由可能会导致数据延迟
       watchWidget (val) {
-        console.info('监听', val)
         this.init()
         this.$nextTick(() => {
           this.$refs.xTable.init(this.table.type, this.table.columns)

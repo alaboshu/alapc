@@ -80,20 +80,18 @@
           this.$crud.message(response)
         }
       },
-      getPath () {
-        this.init().then(() => {
-          this.$refs.zkAutoForm.$emit('form_change_widget_data', this.viewModel)
-          this.$refs.xBorder.$emit('changeTitle', this.viewModel.name)
-        })
-      },
       formLoad (val) {
         if (val) {
           this.loading = false
         }
+      },
+      // 监听 x-widget值得变化,不能直接监听路由，直接监听路由可能会导致数据延迟
+      watchWidget (val) {
+        this.init().then(() => {
+          this.$refs.zkAutoForm.$emit('form_change_widget_data', this.viewModel)
+          this.$refs.xBorder.$emit('changeTitle', this.viewModel.name)
+        })
       }
-    },
-    watch: {
-      widgetData: 'getPath'
     }
   }
 </script>
