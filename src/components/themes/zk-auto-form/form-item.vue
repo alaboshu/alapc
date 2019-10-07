@@ -50,9 +50,8 @@
     <template v-if="widget.type=='slider'">
       <el-slider v-model="dataModel" :min="widget.options.min" :max="widget.options.max" :disabled="widget.options.disabled" :step="widget.options.step" :show-input="widget.options.showInput" :range="widget.options.range" :style="{width: widget.options.width}"></el-slider>
     </template>
-    <template v-if="widget.type=='imgupload'|| widget.model==='imageUrl'">
+    <template v-if="widget.type=='albumuploder'|| widget.model==='imageUrl'">
       <x-select-image v-model="dataModel" :widget="widget"></x-select-image>
-      <!-- <x-upload-file v-model="dataModel" :disabled="widget.options.disabled" :domain="widget.options.domain"></x-upload-file> -->
     </template>
     <template v-if="widget.type=='icon'">
       <x-icon-input :icondata="dataModel" @itemForm="formiconmanagement"></x-icon-input>
@@ -66,8 +65,11 @@
         <div class="item_box-btn" @click="selectTrigger">选择</div>
       </div>
     </template>
-    <template v-if="widget.type == 'uploadFile'">
+    <template v-if="widget.type == 'fileuploder'">
       <x-upload v-model="dataModel"></x-upload>
+    </template>
+    <template v-if="widget.type == 'markdown'">
+      <x-markdown v-model="dataModel"></x-markdown>
     </template>
     <template v-if="widget.type == 'checkBox'">
       <el-checkbox v-model="dataModel"></el-checkbox>
@@ -89,18 +91,14 @@
         <x-editor v-model="dataModel"></x-editor>
       </div>
     </template>
-    <template v-if="widget.type == 'floatingInput'">
-      <el-input v-model="dataModel" placeholder="请输入内容"></el-input>
-    </template>
     <template v-if="widget.type == 'password'">
       <el-input v-model="dataModel" type="password" password :placeholder="widget.options.placeholder"></el-input>
     </template>
-    {{widget.type}}
-    <template v-if="widget.type == 'timePicker'">
+    <template v-if="widget.type == 'timepicker'">
       <el-date-picker v-model="dataModel" type="datetime" placeholder="选择日期时间">
       </el-date-picker>
     </template>
-    <template v-if="widget.type == 'datePicker'">
+    <template v-if="widget.type == 'datepicker'">
       <el-date-picker v-model="dataModel" type="date" placeholder="选择日期时间">
       </el-date-picker>
     </template>

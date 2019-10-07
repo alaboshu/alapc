@@ -6,6 +6,8 @@ import ElementUI from 'element-ui'
 import VCharts from 'v-charts'
 import GlobalUtils from '@/service/prototypes/prototype'
 import VueLazyload from 'vue-lazyload'
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/style/element-variables.scss'
@@ -260,6 +262,9 @@ import adminRoleEdit from '@/admins/user/admin-role-edit/index.vue'
 import adminRoleOpen from '@/admins/user/admin-role-open/index.vue'
 import adminUserEdit from '@/admins/user/admin-user-edit/index.vue'
 import adminUserView from '@/admins/user/admin-user-view/index.vue'
+
+
+Vue.use(mavonEditor)
 Vue.component('zk-groupbuy', zkGroupbuy)
 Vue.component('zk-aritcle-detail', zkAritcleDetail)
 Vue.component('zk-ariticle-image-list', zkAriticleImageList)
