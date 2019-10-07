@@ -1,33 +1,32 @@
 <template>
 
-  <el-form-item :label="widgetName" :prop="widget.model" class="from-item" :rules="rulesInput" v-if="async&&widget.type !== 'hide'">
+  <el-form-item :label="widgetName" :prop="widget.model" class="from-item" :rules="rulesInput" v-if="async&&widget.type !== 'hidden'">
     <template v-if="widget.type == 'label'">
       <el-input type="input" v-model="dataModel" :disabled="true" :placeholder="widget.options.placeholder" :style="{width: widget.options.width}"></el-input>
     </template>
-    <template v-if="widget.type == 'input'">
-      <el-input v-if="widget.options.dataType == 'number' || widget.options.dataType == 'integer' || widget.options.dataType == 'float'" :type="widget.options.dataType" v-model.number="dataModel" :value="widget.value" :placeholder="widget.options.placeholder" :style="{width: widget.options.width}"></el-input>
-      <el-input v-else :type="widget.options.dataType" v-model="dataModel" :placeholder="widget.options.placeholder" :value="widget.value"></el-input>
+    <template v-if="widget.type == 'textbox'">
+      <el-input v-model="dataModel" :placeholder="widget.options.placeholder" :value="widget.value"></el-input>
     </template>
     <template v-if="widget.type == 'textarea'">
       <el-input type="textarea" :rows="5" v-model="dataModel" :placeholder="widget.options.placeholder"></el-input>
     </template>
 
-    <template v-if="widget.type == 'number'||widget.type == 7">
+    <template v-if="widget.type == 'number'">
       <el-input-number v-model="dataModel" :min="0" @change="handleChange" :step="widget.options.step" controls-position="right"></el-input-number>
     </template>
-    <template v-if="widget.type == 'decimal'||widget.type == 18">
+    <template v-if="widget.type == 'decimal'">
       <el-input-number v-model="dataModel" :min="0" :precision="2" :step="0.1" @change="handleChange" controls-position="right"></el-input-number>
     </template>
-    <template v-if="widget.type == 'x-Json'">
+    <template v-if="widget.type == 'x-json'">
       <x-json :widget="widget" v-model="dataModel"></x-json>
     </template>
 
-    <template v-if="widget.type == 'time'">
+    <template v-if="widget.type == 'timepicker'">
       <el-time-picker v-model="dataModel" :is-range="widget.options.isRange" :placeholder="widget.options.placeholder" :start-placeholder="widget.options.startPlaceholder" :end-placeholder="widget.options.endPlaceholder" :readonly="widget.options.readonly" :disabled="widget.options.disabled" :editable="widget.options.editable" :clearable="widget.options.clearable" :arrowControl="widget.options.arrowControl" :value-format="widget.options.format" :style="{width: widget.options.width}">
       </el-time-picker>
     </template>
 
-    <template v-if="widget.type=='date'">
+    <template v-if="widget.type=='datepicker'">
       <el-date-picker v-model="dataModel" :type="widget.options.type" :placeholder="widget.options.placeholder" :start-placeholder="widget.options.startPlaceholder" :end-placeholder="widget.options.endPlaceholder" :readonly="widget.options.readonly" :disabled="widget.options.disabled" :editable="widget.options.editable" :clearable="widget.options.clearable" :value-format="widget.options.timestamp ? 'timestamp' : widget.options.format" :format="widget.options.format" :style="{width: widget.options.width}">
       </el-date-picker>
     </template>
@@ -40,7 +39,7 @@
       <el-color-picker v-model="dataModel" :disabled="widget.options.disabled" :show-alpha="widget.options.showAlpha"></el-color-picker>
     </template>
 
-    <template v-if="widget.type == 'select'">
+    <template v-if="widget.type == 'dropdownlist'">
       <x-form-select v-model="dataModel" :widget="widget"></x-form-select>
     </template>
 
@@ -58,7 +57,7 @@
     <template v-if="widget.type=='icon'">
       <x-icon-input :icondata="dataModel" @itemForm="formiconmanagement"></x-icon-input>
     </template>
-    <template v-if="widget.type=='radio'">
+    <template v-if="widget.type=='radiobutton'">
       <x-radio v-model="dataModel" :widget="widget"></x-radio>
     </template>
     <template v-if="widget.type == 'link'">
@@ -76,7 +75,7 @@
     <template v-if="widget.type == 'checkBoxList'">
       <x-check v-model="dataModel" :widget="widget"></x-check>
     </template>
-    <template v-if="widget.type == 'hide'">
+    <template v-if="widget.type == 'hidden'">
       <el-input v-model="dataModel" placeholder="请输入内容" type="hidden"></el-input>
     </template>
     <template v-if="widget.type == 'uploadImg'">

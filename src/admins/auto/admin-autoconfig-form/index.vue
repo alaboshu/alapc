@@ -34,6 +34,7 @@
           })
           this.$base.setTitle(this.widgetModel.name)
         }
+        console.info('auto Form 表格结构', this.viewModel)
       },
       async saveForm (models) {
         let parameter = {
