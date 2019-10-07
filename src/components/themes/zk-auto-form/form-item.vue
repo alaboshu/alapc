@@ -94,6 +94,7 @@
     <template v-if="widget.type == 'password'">
       <el-input v-model="dataModel" type="password" password :placeholder="widget.options.placeholder"></el-input>
     </template>
+
     <template v-if="widget.type == 'timepicker'">
       <el-date-picker v-model="dataModel" type="datetime" placeholder="选择日期时间">
       </el-date-picker>
