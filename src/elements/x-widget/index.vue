@@ -10,16 +10,16 @@
             <div class="border-header-tools"></div>
           </div>
           <div class="border-body">
-            <component :is="widget.name" :widget="widget" :title="widget.title" />
+            <component :is="widget.name" :widget="widget" :title="widget.title" ref="childComponent" />
           </div>
         </div>
-        <component v-else :is="widget.name" :widget="widget" :title="widget.title" />
+        <component v-else :is="widget.name" :widget="widget" :title="widget.title" ref="childComponent" />
       </template>
       <div v-if="widget.layout==='tab-layer'">
         <el-tabs v-model="tabName">
           <el-tab-pane :label="columns.option.name" :name="columnsIndex" v-for="(columns,columnsIndex) in widget.columns" :key="columnsIndex">
             <div v-for="(tabWidget,tabWidgetIndex) in columns.widgets" :key="tabWidgetIndex">
-              <component :is="tabWidget.name" :title="tabWidget.title" :widget="tabWidget" />
+              <component :is="tabWidget.name" :title="tabWidget.title" :widget="tabWidget" ref="childComponent" />
             </div>
           </el-tab-pane>
         </el-tabs>
@@ -30,7 +30,7 @@
           <el-col :span="Number(widget.value.cols[layoutIndex].span)" v-for="(tablayout,layoutIndex) in widget.columns" :key="layoutIndex">
             <div v-if="tablayout.columns !== null">
               <div v-for="(tabWidget, index) in tablayout.columns" :key="index">
-                <component :is="tabWidget.name" :title="tabWidget.title" :widgetData="tabWidget" />
+                <component :is="tabWidget.name" :title="tabWidget.title" :widget="tabWidget" ref="childComponent" />
               </div>
             </div>
           </el-col>
@@ -79,6 +79,14 @@
         if (!this.$base.isBuild()) {
           console.info('页面信息:', this.viewModel)
         }
+        this.watchWidget(this.viewModel)
+      },
+      // 监听 子组件中的数据，如果需要触发可以在子组件中定义watchWidget方法
+      // 具体的用法可以参考admin-auto-table
+      watchWidget (val) {
+        this.$refs.childComponent.forEach(element => {
+          element.watchWidget(val)
+        })
       },
       watchRoute () {
         this.init()
