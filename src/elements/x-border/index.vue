@@ -21,6 +21,7 @@
   </div>
 </template>
 <script>
+  import service from './service'
   export default {
     data () {
       return {
@@ -70,6 +71,10 @@
         }
         if (color) {
           this.convert(color)
+        }
+        if (!this.Icon && this.$base.filter() === 3) {
+          console.info('ssss', service.getAdminIcon())
+          this.Icon = service.getAdminIcon()
         }
       },
       async init () {
