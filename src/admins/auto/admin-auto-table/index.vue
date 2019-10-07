@@ -1,6 +1,6 @@
 <template>
   <x-border ref="xBorder">
-    <x-table ref="xTable" :type="table.type" :columns="table.columns" v-if="table.type">
+    <x-table ref="xTable" :type="table.type" @afterTableLoad="afterTableLoad" :columns="table.columns" v-if="table.type">
     </x-table>
     <div v-if="$base.filter() === 3" class="derived-box" slot="borderFooter">
       <el-popover placement="bottom-end" trigger="hover">
@@ -30,7 +30,8 @@
           type: null,
           columns: null
         },
-        tableName: null // 名称
+        tableName: null, // 名称,
+        icon: null
       }
     },
     mounted () {
@@ -38,22 +39,20 @@
     },
     methods: {
       async init () {
+        console.info('this.widget', this.widget.value)
         this.tableName = this.widget.value.title
         this.table = this.widget.value.table
-        console.info('this.table', this.table)
+        if (this.widget.value && this.widget.value.icon) {
+          this.icon = this.widget.value.icon.name
+        }
         this.$nextTick(() => {
-          if (this.widget.value && this.widget.value.icon) {
-            this.$refs.xBorder.changeStyle(this.tableName, this.widget.value.icon.name, this.widget.value.themeColor)
-          } else {
-            this.$refs.xBorder.changeStyle(this.tableName)
-          }
+          this.$refs.xBorder.changeStyle(this.tableName, this.icon, this.widget.value.themeColor)
         })
       },
       // 表格加载完成事件
       afterTableLoad (dataResult) {
-        console.info('表格数据加载完成', dataResult)
         this.$nextTick(() => {
-          if (!this.widget || !this.widget.value) {
+          if (!this.tableName) {
             this.$refs.xBorder.changeStyle(dataResult.name)
           }
         })
@@ -69,7 +68,6 @@
       }
     },
     watch: {
-      widget: 'watchWidget',
       $route: 'watchWidget'
     }
   }

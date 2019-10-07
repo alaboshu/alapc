@@ -23,6 +23,7 @@ export default {
     if (jsThis.$route.path.toLowerCase().endsWith('list')) {
       var type = this.getType(jsThis, 'list')
       widget.widgets[0].value.table.type = type
+      widget.widgets[0].value.type = type
       widget.widgets[0].componentPath = '/auto/admin-auto-table'
       widget.widgets[0].name = 'admin-auto-table'
       return widget
