@@ -172,6 +172,7 @@ import xIcon from '@/elements/x-icon/index.vue'
 import xImage from '@/elements/x-image/index.vue'
 import xJson from '@/elements/x-json/index.vue'
 import xLine from '@/elements/x-line/index.vue'
+import xMarkdown from '@/elements/x-markdown/index.vue'
 import xRadioGroup from '@/elements/x-radio-group/index.vue'
 import xRadio from '@/elements/x-radio/index.vue'
 import xRow from '@/elements/x-row/index.vue'
@@ -417,6 +418,7 @@ Vue.component('x-icon', xIcon)
 Vue.component('x-image', xImage)
 Vue.component('x-json', xJson)
 Vue.component('x-line', xLine)
+Vue.component('x-markdown', xMarkdown)
 Vue.component('x-radio-group', xRadioGroup)
 Vue.component('x-radio', xRadio)
 Vue.component('x-row', xRow)
