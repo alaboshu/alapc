@@ -2,7 +2,7 @@
   <div class="aside-left">
     <div class="stair-navigation" v-if="roleOutput">
       <ul class="stair-ul">
-        <li class="stair-li" :class="{'stair_active':index===currentMenu.oneIndex}" v-for="(item,index) in roleOutput.menus" :key="index" @click="to(item)" v-show="item.isEnable">
+        <li class="stair-li" :class="{'stair_active':index===leftCurrentMenu.oneIndex}" v-for="(item,index) in roleOutput.menus" :key="index" @click="to(item)" v-show="item.isEnable">
           <div class="stair-box">
             <i :class="item.icon"></i>
             {{item.name}}
@@ -10,16 +10,16 @@
         </li>
       </ul>
     </div>
-    <div class="shared-second-sidebar" v-show="currentMenu.showChildMenu">
+    <div class="shared-second-sidebar" v-show="leftCurrentMenu.showChildMenu ">
       <div class="shared-second-sidebar-nav">
-        <ul class="sidebar-nav_ul">
-          <li class="sidebar-nav_li" v-for="(secondMenu,twoIndex) in roleOutput.menus[currentMenu.oneIndex].menus" :key="twoIndex">
+        <ul class="sidebar-nav_ul" v-show="roleOutput.menus[leftCurrentMenu.oneIndex].menus">
+          <li class="sidebar-nav_li" v-for="(secondMenu,twoIndex) in roleOutput.menus[leftCurrentMenu.oneIndex].menus" :key="twoIndex">
             <div class="sidebar-nav_box" :class="{'avtice_nav':secondMenu.isEnable==true}" @click="secondMenuClick(secondMenu)">
               <span class="sidebar-nav_box-span"><i class="el-icon-arrow-right" v-if="secondMenu.menus.length!==0"></i></span>
               <div class="sidebar_title">{{secondMenu.name}}</div>
             </div>
             <div class="sidebar-nav_drop-down" :class="{'drop-down_active':secondMenu.isEnable==true}">
-              <div class="drop-down_li " :class="{'three-menu-active':threeIndex==currentMenu.threeIndex && twoIndex===currentMenu.twoIndex}" v-for="(threeMenu,threeIndex) in secondMenu.menus" :key="threeIndex" @click="to(threeMenu)" v-show="threeMenu.isEnable">
+              <div class="drop-down_li " :class="{'three-menu-active':threeIndex==leftCurrentMenu.threeIndex && twoIndex===leftCurrentMenu.twoIndex}" v-for="(threeMenu,threeIndex) in secondMenu.menus" :key="threeIndex" @click="to(threeMenu)" v-show="threeMenu.isEnable">
                 {{threeMenu.name}}
               </div>
             </div>
@@ -34,7 +34,7 @@
   export default {
     data () {
       return {
-
+        leftCurrentMenu: {}
       }
     },
     props: {
@@ -48,10 +48,12 @@
     },
     methods: {
       async init () {
-        this.currentMenu = this.$api.vuexLocalGet('admin_current_menu')
+        this.leftCurrentMenu = await this.$api.vuexLocalGet('admin_current_menu')
+        console.info('roleOutput', this.roleOutput, this.leftCurrentMenu)
       },
       to (threeMenu) {
         this.$emit('clickMenu', threeMenu)
+        this.leftCurrentMenu = threeMenu
       },
       secondMenuClick (item) {
         this.$set(item, 'isEnable', !item.isEnable)
