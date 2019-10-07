@@ -30,7 +30,7 @@
           type: null,
           columns: null
         },
-        tableName: null
+        tableName: null // 名称
       }
     },
     mounted () {
@@ -40,13 +40,18 @@
       async init () {
         this.tableName = this.widget.value.title
         this.table = this.widget.value.table
-        console.info('this.table', this.table, this.$base.filter(), this.$base.router())
+        console.info('this.table', this.table)
         this.$nextTick(() => {
-          this.$refs.xBorder.changeStyle(this.widget.value.title, this.widget.value.icon.name, this.widget.value.themeColor)
+          if (this.widget.value && this.widget.value.icon) {
+            this.$refs.xBorder.changeStyle(this.tableName, this.widget.value.icon.name, this.widget.value.themeColor)
+          } else {
+            this.$refs.xBorder.changeStyle(this.tableName)
+          }
         })
       },
       // 表格加载完成事件
       afterTableLoad (dataResult) {
+        console.info('表格数据加载完成', dataResult)
         this.$nextTick(() => {
           if (!this.widget || !this.widget.value) {
             this.$refs.xBorder.changeStyle(dataResult.name)
