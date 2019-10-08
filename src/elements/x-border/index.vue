@@ -7,7 +7,7 @@
         <i class="iconver iconfont glyph-icon" :class="Icon" v-if="iconShow" :style="{color:fontColor}"></i>
         <x-icon class="iconver" :src="iconType.path" v-else></x-icon>
         {{borderTitle}}
-        <div class="widget-header-desc">短信、营销、客群维护等</div>
+        <div class="widget-header-desc" v-if="description">{{description}}</div>
       </h3>
 
       <div class="header-right">
@@ -31,11 +31,15 @@
         backGroundColor: '#ffffff',
         fontColor: '#575962',
         iconShow: true,
+        description: null,
         borderTitle: null
       }
     },
     props: {
       title: {
+        default: null
+      },
+      desc: {
         default: null
       },
       color: {
@@ -59,7 +63,7 @@
     },
     methods: {
       // 修改标题，图标和颜色
-      changeStyle (title, icon, color) {
+      changeStyle (title, icon, color, desc) {
         this.borderTitle = null
         this.backGroundColor = '#ffffff'
         this.fontColor = '#575962'
@@ -77,6 +81,7 @@
         if (!this.Icon && this.$base.filter() === 3) {
           this.Icon = service.getAdminIcon()
         }
+        this.description = desc
       },
       async init () {
         if (this.iconType === null) {
@@ -95,6 +100,7 @@
         if (!this.$api.isEmpty(this.color)) {
           this.convert(this.color)
         }
+        this.description = this.desc
       },
       convert (colorType) {
         if (colorType === 'brand') {

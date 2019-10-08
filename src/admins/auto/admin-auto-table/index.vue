@@ -26,6 +26,7 @@
     },
     data () {
       return {
+        reload: true, // 是否刷新
         table: {
           type: null,
           columns: null
@@ -34,27 +35,21 @@
         icon: null
       }
     },
-    mounted () {
-      this.init()
-    },
     methods: {
       async init () {
-        console.info('this.widget', this.widget.value)
         this.tableName = this.widget.value.title
+        if (!this.tableName) {
+          this.tableName = this.$api.vuexLocalGet('admin_current_menu').name
+        }
         this.table = this.widget.value.table
         if (this.widget.value && this.widget.value.icon) {
           this.icon = this.widget.value.icon.name
         }
-        this.$nextTick(() => {
-          this.$refs.xBorder.changeStyle(this.tableName, this.icon, this.widget.value.themeColor)
-        })
       },
       // 表格加载完成事件
       afterTableLoad (dataResult) {
         this.$nextTick(() => {
-          if (!this.tableName) {
-            this.$refs.xBorder.changeStyle(dataResult.name)
-          }
+          this.$refs.xBorder.changeStyle(this.tableName, this.icon, this.widget.value.themeColor, dataResult.description)
         })
       },
       toExcel (command) {
@@ -62,10 +57,14 @@
       },
       // 监听 x-widget值得变化,不能直接监听路由，直接监听路由可能会导致数据延迟
       watchWidget (val) {
+        console.info('监听事件....', this.reload)
         this.init()
-        this.$nextTick(() => {
-          this.$refs.xTable.init(this.table.type, this.table.columns)
-        })
+        if (this.reload === false) {
+          this.$nextTick(() => {
+            this.$refs.xTable.init(this.table.type, this.table.columns)
+          })
+        }
+        this.reload = false // 解决刷新浏览器，数据加载两次的问题
       }
     }
   }
