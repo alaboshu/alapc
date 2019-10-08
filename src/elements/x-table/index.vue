@@ -28,30 +28,31 @@
     <el-table v-show="!isTemplate" class="table_box" ref="table" :data="dataResult.result.result" :stripe="true" :fit="true" :highlight-current-row="true">
       <slot name="prepend" />
       <div v-for="(column, columnIndex) in dataResult.columns" :key="columnIndex">
-        <el-table-column border :column-key="column.columnKey" :label="column.label" :prop="column.prop" :fixed="column.fixed" :render-header="column.headBackground" :sortable="column.sortable" :sort-by="column.sortBy" :sort-method="column.method" :show-overflow-tooltip="false" :align="column.align" :header-align="column.headerAlign || column.align" :class-name="column.className" :label-class-name="column.labelClassName" :selectable="column.selectable" :reserve-selection="column.reserveSelection" :filters="column.filters" :filter-placement="column.filterPlacement" :filter-multiple="column.filterMultiple" :filter-method="column.filterMethod" :filtered-value="column.filteredValue">
+        <el-table-column border :column-key="column.columnKey" :label="column.label+column.style.type" :prop="column.prop" :fixed="column.fixed" :render-header="column.headBackground" :sortable="column.sortable" :sort-by="column.sortBy" :sort-method="column.method" :show-overflow-tooltip="false" :align="column.align" :header-align="column.headerAlign || column.align" :class-name="column.className" :label-class-name="column.labelClassName" :selectable="column.selectable" :reserve-selection="column.reserveSelection" :filters="column.filters" :filter-placement="column.filterPlacement" :filter-multiple="column.filterMultiple" :filter-method="column.filterMethod" :filtered-value="column.filteredValue">
           <template slot-scope="scope" :scope="newSlotScope ? 'scope' : false">
             <span v-if="column.filter">{{ Vue.filter(column['filter'])(scope.row[column.prop]) }}</span>
             <span v-else-if="column.slotName">
               <slot :name="column.slotName" :row="scope.row" :$index="scope.$index" />
             </span>
             <span v-else-if="column.render">{{ column.render(scope.row) }}</span>
-            <span v-else-if="column.prop === 'image'">
-              <img :src="getImage(scope.row[column.prop])" style="width: 30px; height:30px;" altf="">
+            <span v-else-if="column.style.image === 'image'">
+              <div>adfasdf</div>
+              <img :src="getImage(scope.row[column.prop])" style="width: 30px; height:30px;" alt="">
             </span>
-            <span v-else-if="column.type === 'icon'">
+            <span v-else-if="column.style.type  === 'icon'">
               <x-icon :src="scope.row[column.prop].name" :name="scope.row[column.prop]"></x-icon>
               {{scope.row[column.prop].name}}
             </span>
-            <span v-else-if="column.type === 'bool'">
+            <span v-else-if="column.style.type  === 'bool'">
               <div class="column_type" :style="{background:scope.row[column.prop]?'#68BCA4':'#DD5C6D' }">{{scope.row[column.prop]?'是':'否'}}</div>
             </span>
-            <span v-else-if="column.type === 'enum'">
-              <div class="column_type" v-html="$base.enumHtml(column.options,scope.row[column.prop])"></div>
+            <span v-else-if="column.style.type  === 'enum'">
+              <div class="column_type" v-html="$base.enumHtml(column.style.parameter,scope.row[column.prop])"></div>
             </span>
-            <span v-else-if="column.prop === 'action'">
-              <el-button type="primary" @click.native="action(scope.row[column.prop], scope.row)">{{scope.row[column.prop].name}}</el-button>
+            <span v-else-if="column.style.type  === 'button'">
+              <el-button type="primary" @click.native="action(scope.row[column.prop], scope.row)">{{scope.row[column.prop]}}</el-button>
             </span>
-            <span v-else-if="column.type === 'switch'||column.prop === 'switch'">
+            <span v-else-if="column.style.type  === 'switch'||column.prop === 'switch'">
               <el-switch v-model="scope.row[column.prop]" active-color="#13ce66" inactive-color="#ff4949" :disabled="true">
               </el-switch>
             </span>

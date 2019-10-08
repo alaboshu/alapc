@@ -39,33 +39,37 @@ export default {
 
   // 获取枚举中的文字
   enumText (enumType, value) {
+    if (!enumType) {
+      return value
+    }
     var enumFind = this.getEnum(enumType)
     var itemValue = enumFind.keyValue.find(item => item.key === value)
     if (itemValue) {
       return itemValue.value
     }
+    return value
   },
   // 获取枚举数据
   getEnum (enumType) {
     var allEnums = this.getAllEnums()
-    var find = allEnums.find(
-      item => item.name.toLowerCase() === enumType.toLowerCase()
-    )
+    var find = allEnums.find(item => item.name === enumType)
     if (find) {
       return find
     }
   },
   // 获取枚举中的文字
   enumHtml (enumType, value) {
-    console.info('enumType', enumType)
+    if (!enumType) {
+      return value
+    }
     var enumFind = this.getEnum(enumType)
     if (enumFind) {
       var itemValue = enumFind.keyValue.find(item => item.key === value)
-      console.info('enumType', enumType, value, itemValue)
       if (itemValue) {
         return itemValue.html
       }
     }
+    return value
   },
   getAllEnums () {
     var allEnums = api.vuexLocalGet('all_enums_keyvalues')
