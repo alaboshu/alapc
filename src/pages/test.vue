@@ -1,6 +1,5 @@
 <template>
-  <div v-html="$base.enumHtml('status',1)">
-    {{$base.enumHtml('status',1)}}
+  <div v-html="$base.enumHtml('status',3)">
   </div>
 </template>
 
@@ -8,15 +7,14 @@
   export default {
     data () {
       return {
-        text: 'sss'
+        text: `<span>正常</span> `
       }
     },
     mounted () {
       this.init()
     },
     methods: {
-      async init () {
-
+      init () {
       }
     }
   }

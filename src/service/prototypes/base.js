@@ -38,40 +38,45 @@ export default {
   },
 
   // 获取枚举中的文字
-  async enumText (enumType, value) {
-    var allEnums = await this.getAllEnums()
-    for (let item of allEnums) {
-      if (item.name.toLowerCase() === enumType.toLowerCase()) {
-        for (let list of item.keyValue) {
-          if (list.key === value) {
-            return list.value
-          }
-        }
-      }
+  enumText (enumType, value) {
+    var enumFind = this.getEnum(enumType)
+    var itemValue = enumFind.keyValue.find(item => item.key === value)
+    if (itemValue) {
+      return itemValue.value
+    }
+  },
+  // 获取枚举数据
+  getEnum (enumType) {
+    var allEnums = this.getAllEnums()
+    var find = allEnums.find(
+      item => item.name.toLowerCase() === enumType.toLowerCase()
+    )
+    if (find) {
+      return find
     }
   },
   // 获取枚举中的文字
-  async enumHtml (enumType, value) {
-    var allEnums = await this.getAllEnums()
-    for (let item of allEnums) {
-      if (item.name.toLowerCase() === enumType.toLowerCase()) {
-        for (let list of item.keyValue) {
-          if (list.key === value) {
-            return list.html
-          }
-        }
+  enumHtml (enumType, value) {
+    console.info('enumType', enumType)
+    var enumFind = this.getEnum(enumType)
+    if (enumFind) {
+      var itemValue = enumFind.keyValue.find(item => item.key === value)
+      console.info('enumType', enumType, value, itemValue)
+      if (itemValue) {
+        return itemValue.html
       }
     }
   },
-  async getAllEnums () {
+  getAllEnums () {
     var allEnums = api.vuexLocalGet('all_enums_keyvalues')
     if (!allEnums) {
-      var response = await api.httpGet('/api/type/AllEnums')
-      if (response.status === 1) {
-        allEnums = response.result
-        api.vuexLocalSet('all_enums_keyvalues', response.result)
-      }
+      api.httpGet('/api/type/AllEnums').then(response => {
+        if (response.status === 1) {
+          api.vuexLocalSet('all_enums_keyvalues', response.result)
+        }
+      })
     }
+    allEnums = api.vuexLocalGet('all_enums_keyvalues')
     return allEnums
   },
   isDiy () {

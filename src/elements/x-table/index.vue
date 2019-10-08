@@ -35,31 +35,21 @@
               <slot :name="column.slotName" :row="scope.row" :$index="scope.$index" />
             </span>
             <span v-else-if="column.render">{{ column.render(scope.row) }}</span>
-            <span v-else-if="column.prop==='avator'">
-              <img :src="$api.baseUrl()+scope.row[column.prop]" alt="">
-            </span>
-            <span v-else-if="column.prop === 'thumbnailUrl'">
+            <span v-else-if="column.prop === 'image'">
               <img :src="getImage(scope.row[column.prop])" style="width: 30px; height:30px;" altf="">
             </span>
             <span v-else-if="column.type === 'icon'">
               <x-icon :src="scope.row[column.prop].name" :name="scope.row[column.prop]"></x-icon>
               {{scope.row[column.prop].name}}
             </span>
-            <span v-else-if="column.prop ==='userName'&&scope.row[column.prop]!==null" v-html="scope.row[column.prop].replace(/\/Admin\//g, '/')"> </span>
             <span v-else-if="column.type === 'bool'">
               <div class="column_type" :style="{background:scope.row[column.prop]?'#68BCA4':'#DD5C6D' }">{{scope.row[column.prop]?'是':'否'}}</div>
             </span>
             <span v-else-if="column.type === 'enum'">
-              <div class="column_type">{{$base.enumText(column.options,scope.row[column.prop])}}</div>
+              <div class="column_type" v-html="$base.enumHtml(column.options,scope.row[column.prop])"></div>
             </span>
-            <span v-else-if="column.prop === 'orderUserName'" v-html="scope.row[column.prop].replace(/\/Admin\//g, '/')">
-            </span>
-            <span v-else-if="column.prop === 'image' || column.type === 'image'|| column.prop==='imgupload'">
-              <img :src="scope.row[column.prop]" style="width: 30px; height:30px;" altf="" v-if="column.prop==='imgupload'">
-              <img :src="getImage(scope.row[column.prop])" style="width: 30px; height:30px;" alt="" v-else>
-            </span>
-            <span v-else-if="column.prop === 'columnAction'">
-              <el-button type="primary" @click.native="columnAction(scope.row[column.prop], scope.row)">{{scope.row[column.prop].name}}</el-button>
+            <span v-else-if="column.prop === 'action'">
+              <el-button type="primary" @click.native="action(scope.row[column.prop], scope.row)">{{scope.row[column.prop].name}}</el-button>
             </span>
             <span v-else-if="column.type === 'switch'||column.prop === 'switch'">
               <el-switch v-model="scope.row[column.prop]" active-color="#13ce66" inactive-color="#ff4949" :disabled="true">
