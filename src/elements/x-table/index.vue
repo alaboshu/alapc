@@ -50,7 +50,7 @@
               <div class="column_type" :style="{background:scope.row[column.prop]?'#68BCA4':'#DD5C6D' }">{{scope.row[column.prop]?'是':'否'}}</div>
             </span>
             <span v-else-if="column.type === 'enum'">
-              <div class="column_type" :style="{background: getColor(scope.row[column.prop])||'#DD5C6D'}">{{getEmun(column.options,scope.row[column.prop], dataResult.tabs)}}</div>
+              <div class="column_type">{{$base.enumText(column.options,scope.row[column.prop])}}</div>
             </span>
             <span v-else-if="column.prop === 'orderUserName'" v-html="scope.row[column.prop].replace(/\/Admin\//g, '/')">
             </span>

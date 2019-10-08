@@ -1,11 +1,10 @@
 <template>
-  <div>
-    <i class="icon-7962-mianfeisrd0 icondemo"></i>
+  <div v-html="$base.enumHtml('status',1)">
+    {{$base.enumHtml('status',1)}}
   </div>
 </template>
 
 <script>
-
   export default {
     data () {
       return {
@@ -17,7 +16,7 @@
     },
     methods: {
       async init () {
-        console.info(this.$base.router())
+        await this.$base.localData()
       }
     }
   }

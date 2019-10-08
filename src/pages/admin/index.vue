@@ -13,6 +13,7 @@
     },
     methods: {
       async init () {
+
       }
     }
   }

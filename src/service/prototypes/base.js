@@ -4,6 +4,19 @@ import config from '@/service/config'
 import router from '@/service/router'
 
 export default {
+  // 在系统启动时提前加载默认启动数据
+  // 包括枚举、地址等数据
+  async localData () {
+    setTimeout(async () => {
+      var allEnums = api.vuexLocalGet('all_enums_keyvalues')
+      if (!allEnums) {
+        var response = await api.httpGet('/api/type/AllEnums')
+        if (response.status === 1) {
+          api.vuexLocalGet('all_enums_keyvalues', response.result)
+        }
+      }
+    }, 100)
+  },
   // 当前访问的路由信息
   router () {
     return router.history.current
@@ -34,23 +47,28 @@ export default {
   clientHost () {
     return config.apiBaseUrl
   },
-  // 获取所有的枚举数据
-  allEnums () {
+
+  // 获取枚举中的文字
+  enumText (enumType, value) {
     var allEnums = api.vuexLocalGet('all_enums_keyvalues')
-    if (!allEnums) {
-      var response = api.httpGet('/api/type/AllEnums').then()
-      if (response.status === 1) {
-        api.vuexLocalSet('all_enums_keyvalues', response.result)
+    for (let item of allEnums) {
+      if (item.name.toLowerCase() === enumType.toLowerCase()) {
+        for (let list of item.keyValue) {
+          if (list.key === value) {
+            return list.value
+          }
+        }
       }
     }
   },
   // 获取枚举中的文字
-  getEnumText (enumType, value) {
-    for (let item of this.allEnums()) {
-      if (item.name === enumType) {
+  enumHtml (enumType, value) {
+    var allEnums = api.vuexLocalGet('all_enums_keyvalues')
+    for (let item of allEnums) {
+      if (item.name.toLowerCase() === enumType.toLowerCase()) {
         for (let list of item.keyValue) {
           if (list.key === value) {
-            return list.value
+            return list.html
           }
         }
       }
