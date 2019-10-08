@@ -69,7 +69,7 @@ export default {
       var response = await api.httpGet('/api/type/AllEnums')
       if (response.status === 1) {
         allEnums = response.result
-        api.vuexLocalGet('all_enums_keyvalues', response.result)
+        api.vuexLocalSet('all_enums_keyvalues', response.result)
       }
     }
     return allEnums
