@@ -1,5 +1,5 @@
-import emuny from '@/service/data/enum.json'
 import Sortable from 'sortablejs'
+import base from '@/service/prototypes/base'
 
 export default {
   // 表格样式和拖动
@@ -62,7 +62,8 @@ export default {
   },
   getEmun (name, val, tabs) {
     if (tabs == null || tabs === undefined || tabs.length === 0) {
-      for (let item of emuny) {
+      var enums = base.allEnums()
+      for (let item of enums) {
         if (item.name === name) {
           for (let list of item.keyValue) {
             if (list.key === val) {

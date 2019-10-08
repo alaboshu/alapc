@@ -26,7 +26,6 @@
   import Basic from './usersubpage/basic.vue'
   import Detailed from './usersubpage/detailed.vue'
   import Modify from './usersubpage/modify.vue'
-  import active from '../active.js'
   export default {
     props: ['viewModel'],
     components: {

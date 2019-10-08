@@ -55,7 +55,6 @@
 </template>
 <script>
   import list from './edit.json'
-  import active from '../active.js'
   import List from './list.vue'
   export default {
     props: ['viewModel'],
@@ -64,8 +63,7 @@
     },
     data () {
       return {
-        list: list.list,
-        actives: active
+        list: list.list
       }
     }
   }

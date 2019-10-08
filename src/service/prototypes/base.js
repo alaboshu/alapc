@@ -1,6 +1,5 @@
 import api from '@/service/prototypes/api'
 import help from '@/service/utils/helper'
-import enumy from '@/service/data/enum.json'
 import config from '@/service/config'
 import router from '@/service/router'
 
@@ -35,9 +34,19 @@ export default {
   clientHost () {
     return config.apiBaseUrl
   },
+  // 获取所有的枚举数据
+  allEnums () {
+    var allEnums = api.vuexLocalGet('all_enums_keyvalues')
+    if (!allEnums) {
+      var response = api.httpGet('/api/type/AllEnums').then()
+      if (response.status === 1) {
+        api.vuexLocalSet('all_enums_keyvalues', response.result)
+      }
+    }
+  },
   // 获取枚举中的文字
   getEnumText (enumType, value) {
-    for (let item of enumy) {
+    for (let item of this.allEnums()) {
       if (item.name === enumType) {
         for (let list of item.keyValue) {
           if (list.key === value) {
