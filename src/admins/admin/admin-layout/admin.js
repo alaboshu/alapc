@@ -146,7 +146,6 @@ export default {
       '正在清空系统缓存,预计<span style="color: red;">1分钟</span>时间，请勿离开或刷新页面...'
     )
     var res = await api.httpGet('Api/Admin/ClearCache')
-    await this.$base.localData()
     setTimeout(async () => {
       api.progressClose()
       if (res.status === 1) {

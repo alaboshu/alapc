@@ -16,7 +16,7 @@
     },
     methods: {
       async init () {
-        await this.$base.localData()
+
       }
     }
   }

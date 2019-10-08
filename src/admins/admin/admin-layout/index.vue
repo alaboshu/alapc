@@ -39,7 +39,6 @@
     },
     methods: {
       async init () {
-        await this.$base.localData()
         await admin.loginByToken()
         if (this.roleOutput == null) {
           this.roleOutput = await this.$admin.employeeLogin()
