@@ -57,7 +57,6 @@
       },
       // 监听 x-widget值得变化,不能直接监听路由，直接监听路由可能会导致数据延迟
       watchWidget (val) {
-        console.info('监听事件....', this.reload)
         this.init()
         if (this.reload === false) {
           this.$nextTick(() => {
