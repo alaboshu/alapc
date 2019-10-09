@@ -28,7 +28,7 @@
     <el-table v-show="!isTemplate" class="table_box" ref="table" :data="dataResult.result.result" :stripe="true" :fit="true" :highlight-current-row="true">
       <slot name="prepend" />
       <div v-for="(column, columnIndex) in dataResult.columns" :key="columnIndex">
-        <el-table-column border :column-key="column.columnKey" :label="column.label+column.style.type" :width="column.style.width" :prop="column.prop" :fixed="column.fixed" :render-header="column.headBackground" :sortable="column.sortable" :sort-by="column.sortBy" :sort-method="column.method" :show-overflow-tooltip="false" :align="column.style.algin" header-align="center" :class-name="column.className" :label-class-name="column.labelClassName" :selectable="column.selectable" :reserve-selection="column.reserveSelection" :filters="column.filters" :filter-placement="column.filterPlacement" :filter-multiple="column.filterMultiple" :filter-method="column.filterMethod" :filtered-value="column.filteredValue">
+        <el-table-column :class="column.style.align" border :column-key="column.columnKey" :label="column.label+column.style.type" :width="column.style.width" :prop="column.prop" :fixed="column.fixed" :render-header="column.headBackground" :sortable="column.sortable" :sort-by="column.sortBy" :sort-method="column.method" :show-overflow-tooltip="false" :align="column.style.algin" header-align="center" :class-name="column.className" :label-class-name="column.labelClassName" :selectable="column.selectable" :reserve-selection="column.reserveSelection" :filters="column.filters" :filter-placement="column.filterPlacement" :filter-multiple="column.filterMultiple" :filter-method="column.filterMethod" :filtered-value="column.filteredValue">
           <template slot-scope="scope" :scope="newSlotScope ? 'scope' : false">
             <img v-if="column.style.image === 'image'" :src="getImage(scope.row[column.prop])" style="width: 30px; height:30px;" alt="">
             <span v-else-if="column.style.type  === 'icon'">
@@ -40,7 +40,7 @@
             <el-button v-else-if="column.style.type  === 'button'" type="primary" @click.native="action(scope.row[column.prop], scope.row)">{{scope.row[column.prop]}}</el-button>
             <el-switch v-else-if="column.style.type  === 'switch'" v-model="scope.row[column.prop]" active-color="#13ce66" inactive-color="#ff4949" :disabled="true">
             </el-switch>
-            <div v-else v-html="scope.row[column.prop]" :class="column.style.algin">{{column.style.algin}}</div>
+            <div v-else v-html="scope.row[column.prop]" :class="column.style.align">{{column.style.align}}</div>
             <div v-if="column.style.type==='action'" class="btn-group" @mouseenter="enter(scope.row)" @mouseleave="leave(scope.row)">
               <el-popover placement="bottom" width="70" trigger="hover">
                 <ul class="x-table_action">
