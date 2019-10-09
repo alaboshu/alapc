@@ -1,7 +1,6 @@
 <template>
-  <x-enum type='status' :value='3'></x-enum>
+  <img v-lazy='' />
 </template>
-
 <script>
   export default {
     data () {
