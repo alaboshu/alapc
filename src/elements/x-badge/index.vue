@@ -7,8 +7,9 @@
   export default {
     data () {
       return {
-        backGroundColor: '',
-        fontColor: ''
+        backGroundColor: '#a2a5b9',
+        fontColor: '#ffffff',
+        text: null
       }
     },
     props: {
@@ -21,6 +22,7 @@
     },
     methods: {
       init () {
+        console.info('this.color', this.color)
         this.convert(this.color)
       },
       convert (colorType) {

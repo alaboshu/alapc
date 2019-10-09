@@ -36,7 +36,6 @@
             </span>
             <span v-else-if="column.render">{{ column.render(scope.row) }}</span>
             <span v-else-if="column.style.image === 'image'">
-              <div>adfasdf</div>
               <img :src="getImage(scope.row[column.prop])" style="width: 30px; height:30px;" alt="">
             </span>
             <span v-else-if="column.style.type  === 'icon'">
@@ -47,7 +46,9 @@
               <div class="column_type" :style="{background:scope.row[column.prop]?'#68BCA4':'#DD5C6D' }">{{scope.row[column.prop]?'是':'否'}}</div>
             </span>
             <span v-else-if="column.style.type  === 'enum'">
-              <div class="column_type" v-html="$base.enumHtml(column.style.parameter,scope.row[column.prop])"></div>
+              <div class="column_type">
+                <x-enum :type='column.style.parameter' :value='scope.row[column.prop]'></x-enum>
+              </div>
             </span>
             <span v-else-if="column.style.type  === 'button'">
               <el-button type="primary" @click.native="action(scope.row[column.prop], scope.row)">{{scope.row[column.prop]}}</el-button>

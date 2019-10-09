@@ -1,5 +1,5 @@
 <template>
-  <x-badge color="warning">测试</x-badge>
+  <x-enum type='status' :value='3'></x-enum>
 </template>
 
 <script>

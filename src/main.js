@@ -167,6 +167,7 @@ import xCode from '@/elements/x-code/index.vue'
 import xCol from '@/elements/x-col/index.vue'
 import xDataSelect from '@/elements/x-data-select/index.vue'
 import xEditor from '@/elements/x-editor/index.vue'
+import xEnum from '@/elements/x-enum/index.vue'
 import xFormSelect from '@/elements/x-form-select/index.vue'
 import xIcon from '@/elements/x-icon/index.vue'
 import xImage from '@/elements/x-image/index.vue'
@@ -414,6 +415,7 @@ Vue.component('x-code', xCode)
 Vue.component('x-col', xCol)
 Vue.component('x-data-select', xDataSelect)
 Vue.component('x-editor', xEditor)
+Vue.component('x-enum', xEnum)
 Vue.component('x-form-select', xFormSelect)
 Vue.component('x-icon', xIcon)
 Vue.component('x-image', xImage)
