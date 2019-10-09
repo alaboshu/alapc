@@ -32,10 +32,12 @@
           <template slot-scope="scope" :scope="newSlotScope ? 'scope' : false">
             <img v-if="column.style.image === 'image'" :src="getImage(scope.row[column.prop])" style="width: 30px; height:30px;" alt="">
             <span v-else-if="column.style.type  === 'icon'">
-              <x-icon :src="scope.row[column.prop].name" :name="scope.row[column.prop]"></x-icon>
+              <x-icon :src="scope.row[column.prop].name" :name="scope.row[column.prop]" :title="scope.row[column.prop]"></x-icon>
               {{scope.row[column.prop].name}}
             </span>
-            <div v-else-if="column.style.type  === 'bool'" class="column_type" :style="{background:scope.row[column.prop]?'#68BCA4':'#DD5C6D' }">{{scope.row[column.prop]?'是':'否'}}</div>
+            <column-link v-if="column.style.type  === 'link'" :class="column.style.align" :value='scope.row' :url='column.style.parameter' :title="scope.row[column.prop]">
+            </column-link>
+            <div v-else-if="column.style.type  === 'bool'" :style="{background:scope.row[column.prop]?'#68BCA4':'#DD5C6D' }">{{scope.row[column.prop]?'是':'否'}}</div>
             <x-enum v-else-if="column.style.type  === 'enum'" :type='column.style.parameter' :value='scope.row[column.prop]'></x-enum>
             <el-button v-else-if="column.style.type  === 'button'" type="primary" @click.native="action(scope.row[column.prop], scope.row)">{{scope.row[column.prop]}}</el-button>
             <el-switch v-else-if="column.style.type  === 'switch'" v-model="scope.row[column.prop]" active-color="#13ce66" inactive-color="#ff4949" :disabled="true">
@@ -77,6 +79,7 @@
   import action from './action'
   import props from './props'
   import searchForm from './search/'
+  import columnLink from './columnItem/link'
   import format from './format.js'
   import data from './data.js'
   import excel from './excel.js'
@@ -84,7 +87,8 @@
   export default {
     name: 'x-table',
     components: {
-      searchForm
+      searchForm,
+      columnLink
     },
     props,
     data () {
