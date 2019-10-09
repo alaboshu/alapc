@@ -24,6 +24,7 @@
     },
     methods: {
       init () {
+        console.info('this.title', this.title)
         if (this.url !== undefined && this.value !== undefined) {
           var linkUrl = this.url.replace('[[', 'linkBegin')
           this.toUrl = linkUrl.match(/(\S*)linkBegin/)[1]
@@ -33,7 +34,6 @@
             query = this.replaceStr(query)
             var queryValue = this.value[query]
             this.toUrl = this.toUrl + queryValue
-            console.info('sss', this.toUrl)
           }
         }
       },
