@@ -1,6 +1,5 @@
 <template>
-  <div v-html="$base.enumHtml('status',3)">
-  </div>
+  <x-badge color="warning">测试</x-badge>
 </template>
 
 <script>
