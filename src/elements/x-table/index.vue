@@ -46,9 +46,7 @@
               <div class="column_type" :style="{background:scope.row[column.prop]?'#68BCA4':'#DD5C6D' }">{{scope.row[column.prop]?'是':'否'}}</div>
             </span>
             <span v-else-if="column.style.type  === 'enum'">
-              <div class="column_type">
-                <x-enum :type='column.style.parameter' :value='scope.row[column.prop]'></x-enum>
-              </div>
+              <x-enum :type='column.style.parameter' :value='scope.row[column.prop]'></x-enum>
             </span>
             <span v-else-if="column.style.type  === 'button'">
               <el-button type="primary" @click.native="action(scope.row[column.prop], scope.row)">{{scope.row[column.prop]}}</el-button>
@@ -58,7 +56,7 @@
               </el-switch>
             </span>
             <span v-else>
-              <span v-html="scope.row[column.prop]" class="table-span" :class="{'table-afterAmount':column.prop==='afterAmount','table-amount':column.prop==='amount','table-flowAmoumtStr':column.prop==='flowAmoumtStr','table-billTypeName':column.prop==='billTypeName'}"></span>
+              <span v-html="scope.row[column.prop]" :class="column.style.algin"></span>
             </span>
             <span v-if="column.prop==='action'">
               <div class="btn-group" @mouseenter="enter(scope.row)" @mouseleave="leave(scope.row)">
