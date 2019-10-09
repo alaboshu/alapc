@@ -24,7 +24,6 @@
     methods: {
       init () {
         var find = this.$base.enumValue(this.type, this.value)
-        console.info('find', find)
         if (find) {
           this.text = find.value
           this.color = find.cssType

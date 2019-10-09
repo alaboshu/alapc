@@ -30,49 +30,30 @@
       <div v-for="(column, columnIndex) in dataResult.columns" :key="columnIndex">
         <el-table-column border :column-key="column.columnKey" :label="column.label+column.style.type" :width="column.style.width" :prop="column.prop" :fixed="column.fixed" :render-header="column.headBackground" :sortable="column.sortable" :sort-by="column.sortBy" :sort-method="column.method" :show-overflow-tooltip="false" :align="column.style.algin" header-align="center" :class-name="column.className" :label-class-name="column.labelClassName" :selectable="column.selectable" :reserve-selection="column.reserveSelection" :filters="column.filters" :filter-placement="column.filterPlacement" :filter-multiple="column.filterMultiple" :filter-method="column.filterMethod" :filtered-value="column.filteredValue">
           <template slot-scope="scope" :scope="newSlotScope ? 'scope' : false">
-            <span v-if="column.filter">{{ Vue.filter(column['filter'])(scope.row[column.prop]) }}</span>
-            <span v-else-if="column.slotName">
-              <slot :name="column.slotName" :row="scope.row" :$index="scope.$index" />
-            </span>
-            <span v-else-if="column.render">{{ column.render(scope.row) }}</span>
-            <span v-else-if="column.style.image === 'image'">
-              <img :src="getImage(scope.row[column.prop])" style="width: 30px; height:30px;" alt="">
-            </span>
+            <img v-if="column.style.image === 'image'" :src="getImage(scope.row[column.prop])" style="width: 30px; height:30px;" alt="">
             <span v-else-if="column.style.type  === 'icon'">
               <x-icon :src="scope.row[column.prop].name" :name="scope.row[column.prop]"></x-icon>
               {{scope.row[column.prop].name}}
             </span>
-            <span v-else-if="column.style.type  === 'bool'">
-              <div class="column_type" :style="{background:scope.row[column.prop]?'#68BCA4':'#DD5C6D' }">{{scope.row[column.prop]?'是':'否'}}</div>
-            </span>
-            <span v-else-if="column.style.type  === 'enum'">
-              <x-enum :type='column.style.parameter' :value='scope.row[column.prop]'></x-enum>
-            </span>
-            <span v-else-if="column.style.type  === 'button'">
-              <el-button type="primary" @click.native="action(scope.row[column.prop], scope.row)">{{scope.row[column.prop]}}</el-button>
-            </span>
-            <span v-else-if="column.style.type  === 'switch'||column.prop === 'switch'">
-              <el-switch v-model="scope.row[column.prop]" active-color="#13ce66" inactive-color="#ff4949" :disabled="true">
-              </el-switch>
-            </span>
-            <span v-else>
-              <span v-html="scope.row[column.prop]" :class="column.style.algin"></span>
-            </span>
-            <span v-if="column.prop==='action'">
-              <div class="btn-group" @mouseenter="enter(scope.row)" @mouseleave="leave(scope.row)">
-                <el-popover placement="bottom" width="70" trigger="hover">
-                  <ul class="x-table_action">
-                    <li v-for="(action,actionIndex) in  dataResult.tableActions.filter(r=>r.actionType===1)" :key="actionIndex">
-                      <el-button :icon="action.icon" @click="tableActionMethod(action,scope.row,scope.$index)">{{action.name}}</el-button>
-                    </li>
-                  </ul>
-                  <a slot="reference" class="btn-circle btn-sm" href="javascript:;" data-toggle="dropdown">
-                    <i class="el-icon-setting"></i>操作
-                    <i class="el-icon-arrow-down el-icon--right"></i>
-                  </a>
-                </el-popover>
-              </div>
-            </span>
+            <div v-else-if="column.style.type  === 'bool'" class="column_type" :style="{background:scope.row[column.prop]?'#68BCA4':'#DD5C6D' }">{{scope.row[column.prop]?'是':'否'}}</div>
+            <x-enum v-else-if="column.style.type  === 'enum'" :type='column.style.parameter' :value='scope.row[column.prop]'></x-enum>
+            <el-button v-else-if="column.style.type  === 'button'" type="primary" @click.native="action(scope.row[column.prop], scope.row)">{{scope.row[column.prop]}}</el-button>
+            <el-switch v-else-if="column.style.type  === 'switch'" v-model="scope.row[column.prop]" active-color="#13ce66" inactive-color="#ff4949" :disabled="true">
+            </el-switch>
+            <div v-else v-html="scope.row[column.prop]" :class="column.style.algin">{{column.style.algin}}</div>
+            <div v-if="column.style.type==='action'" class="btn-group" @mouseenter="enter(scope.row)" @mouseleave="leave(scope.row)">
+              <el-popover placement="bottom" width="70" trigger="hover">
+                <ul class="x-table_action">
+                  <li v-for="(action,actionIndex) in  dataResult.tableActions.filter(r=>r.actionType===1)" :key="actionIndex">
+                    <el-button :icon="action.icon" @click="tableActionMethod(action,scope.row,scope.$index)">{{action.name}}</el-button>
+                  </li>
+                </ul>
+                <a slot="reference" class="btn-circle btn-sm" href="javascript:;" data-toggle="dropdown">
+                  <i class="el-icon-setting"></i>操作
+                  <i class="el-icon-arrow-down el-icon--right"></i>
+                </a>
+              </el-popover>
+            </div>
           </template>
         </el-table-column>
       </div>

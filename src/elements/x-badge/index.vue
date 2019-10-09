@@ -22,7 +22,6 @@
     },
     methods: {
       init () {
-        console.info('this.color', this.color)
         this.convert(this.color)
       },
       convert (colorType) {
