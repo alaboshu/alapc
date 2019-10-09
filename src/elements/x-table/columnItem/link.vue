@@ -24,7 +24,36 @@
     },
     methods: {
       init () {
-        console.info('x-link', this.value, this.url)
+        if (this.url !== undefined && this.value !== undefined) {
+          var linkUrl = this.url.replace('[[', 'linkBegin')
+          this.toUrl = linkUrl.match(/(\S*)linkBegin/)[1]
+          linkUrl = linkUrl.replace(']]', 'linkEnd')
+          var query = linkUrl.match(/linkBegin(\S*)linkEnd/)[1]
+          if (query !== undefined && query !== null) {
+            query = this.replaceStr(query)
+            var queryValue = this.value[query]
+            this.toUrl = this.toUrl + queryValue
+            console.info('sss', this.toUrl)
+          }
+        }
+      },
+      // 首字母小写
+      replaceStr (str) {
+        var strTemp = '' // 新字符串
+        for (var i = 0; i < str.length; i++) {
+          if (i === 0) {
+            strTemp += str[i].toLowerCase() // 第一个
+            continue
+          }
+          if (str[i] === ' ' && i < str.length - 1) { // 空格后
+            strTemp += ' '
+            strTemp += str[i + 1].toLowerCase()
+            i++
+            continue
+          }
+          strTemp += str[i]
+        }
+        return strTemp
       }
     }
   }
