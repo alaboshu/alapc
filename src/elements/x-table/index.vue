@@ -30,13 +30,15 @@
       <div v-for="(column, columnIndex) in dataResult.columns" :key="columnIndex">
         <el-table-column :class="column.style.align" border :column-key="column.columnKey" :label="column.label+column.style.type" :width="column.style.width" :prop="column.prop" :fixed="column.fixed" :render-header="column.headBackground" :sortable="column.sortable" :sort-by="column.sortBy" :sort-method="column.method" :show-overflow-tooltip="false" :align="column.style.algin" header-align="center" :class-name="column.className" :label-class-name="column.labelClassName" :selectable="column.selectable" :reserve-selection="column.reserveSelection" :filters="column.filters" :filter-placement="column.filterPlacement" :filter-multiple="column.filterMultiple" :filter-method="column.filterMethod" :filtered-value="column.filteredValue">
           <template slot-scope="scope" :scope="newSlotScope ? 'scope' : false">
-            <img v-if="column.style.image === 'image'" :src="getImage(scope.row[column.prop])" style="width: 30px; height:30px;" alt="">
-            <span v-else-if="column.style.type  === 'icon'">
+            <span v-if="column.style.type  === 'icon'">
               <x-icon :src="scope.row[column.prop].name" :name="scope.row[column.prop]" :title="scope.row[column.prop]"></x-icon>
               {{scope.row[column.prop].name}}
             </span>
             <column-link v-if="column.style.type  === 'link'" :class="column.style.align" :value='scope.row' :url='column.style.parameter' :title="scope.row[column.prop]">
             </column-link>
+            <column-image v-if="column.style.type  === 'image'" :url="scope.row[column.prop]">
+            </column-image>
+
             <x-label v-else-if="column.style.type  === 'label'" :color='column.style.parameter'>{{scope.row[column.prop]}}</x-label>
             <x-code v-else-if="column.style.type  === 'code'">{{scope.row[column.prop]}}</x-code>
             <div v-else-if="column.style.type  === 'bool'" :style="{background:scope.row[column.prop]?'#68BCA4':'#DD5C6D' }">{{scope.row[column.prop]?'是':'否'}}</div>
@@ -82,6 +84,7 @@
   import props from './props'
   import searchForm from './search/'
   import columnLink from './columnItem/link'
+  import columnImage from './columnItem/image'
   import format from './format.js'
   import data from './data.js'
   import excel from './excel.js'
@@ -90,7 +93,8 @@
     name: 'x-table',
     components: {
       searchForm,
-      columnLink
+      columnLink,
+      columnImage
     },
     props,
     data () {
@@ -223,15 +227,6 @@
       },
       toggleSelection (rows) {
         this.$refs.table.toggleRowSelection(rows)
-      },
-      getImage (imageUrl) {
-        if (imageUrl !== undefined && imageUrl !== null) {
-          if (imageUrl.substr(0, 7).toLowerCase() === 'http://' || imageUrl.substr(0, 7).toLowerCase() === 'https:/') {
-            return imageUrl
-          }
-          return this.$api.baseUrl() + imageUrl
-        }
-        return imageUrl
       },
       // 获取表格格式颜色
       getColor () {
