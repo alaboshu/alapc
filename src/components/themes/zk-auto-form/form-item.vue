@@ -11,7 +11,7 @@
       <el-input type="textarea" :rows="5" v-model="dataModel" :placeholder="widget.options.placeholder"></el-input>
     </template>
 
-    <template v-if="widget.type == 'number'">
+    <template v-if="widget.type == 'numberic'">
       <el-input-number v-model="dataModel" :min="0" @change="handleChange" :step="widget.options.step" controls-position="right"></el-input-number>
     </template>
     <template v-if="widget.type == 'decimal'">
