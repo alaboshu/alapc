@@ -1,0 +1,1846 @@
+{
+  "_id": ObjectId("5d63458f8fc98a1338b25ef8"),
+  "CreateTime": ISODate("2019-08-26T02:35:59.782Z"),
+  "UserId": NumberLong("1"),
+  "Name": "后台标准模板",
+  "Images": [
+    "/wwwroot/uploads/api/2019-10-05/5d9813e2f2b9133270c941f7.png"
+  ],
+  "UpdateTime": ISODate("2019-10-10T11:47:52.026Z"),
+  "Intro": "管理员后台模板(初始模板)",
+  "Level": NumberInt("0"),
+  "Status": NumberInt("1"),
+  "Price": "0",
+  "Prices": [],
+  "SortOrder": NumberLong("0"),
+  "SiteId": ObjectId("5d63457e8fc98a1338b25cae"),
+  "ClientType": NumberInt("1"),
+  "IsDefault": false,
+  "SiteType": NumberInt("0"),
+  "Type": NumberInt("3"),
+  "Setting": null,
+  "TabBarSetting": "{\"menu\":[{\"name\":\"默认数据\",\"icon\":\"\",\"isSwith\":false,\"delete\":\"\",\"id\":\"jxoi6mhqx926yhbzch\",\"_expanded\":false,\"_level\":1,\"_show\":true}]}",
+  "IndustryId": UUID("00000000-0000-0000-0000-000000000000"),
+  "ClientTypes": null,
+  "CodeType": NumberInt("2"),
+  "Menu": {
+    "StyleType": "2",
+    "Menus": [
+      {
+        "_id": ObjectId("ccc000638e700000000638e7"),
+        "Icon": "icon-5333-huiifen",
+        "Name": "总览",
+        "Url": "/admin/index",
+        "IsEnable": true,
+        "Menus": null
+      },
+      {
+        "_id": ObjectId("ccc000b3fca00000000b3fca"),
+        "Icon": "icon-5333-biaoshji",
+        "Name": "数据",
+        "Url": "/Admin/Report/Index",
+        "IsEnable": false,
+        "Menus": null
+      },
+      {
+        "_id": ObjectId("ccc000bdcf100000000bdcf1"),
+        "Icon": "icon-5333-qinniu",
+        "Name": "渠道",
+        "Url": "/Admin/Terminal",
+        "IsEnable": false,
+        "Menus": null
+      },
+      {
+        "_id": ObjectId("ccc00056b620000000056b62"),
+        "Icon": "icon-5333-icon57",
+        "Name": "客户",
+        "Url": "/admin/user/list",
+        "IsEnable": true,
+        "Menus": [
+          {
+            "_id": ObjectId("fffff00022ca000a0000a000"),
+            "Icon": "",
+            "Name": "会员管理",
+            "IsEnable": true,
+            "Url": "/admin/user/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0002fedf000000002fedf"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "会员管理",
+                "Url": "/admin/user/list"
+              },
+              {
+                "_id": ObjectId("eee000fdc5a00000000fdc5a"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "用户选项",
+                "Url": "/Admin/AutoConfig/Edit?key=UserConfig"
+              },
+              {
+                "_id": ObjectId("eee00018eb30000000018eb3"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "会员概况",
+                "Url": "/Admin/User/Index"
+              },
+              {
+                "_id": ObjectId("eee000c630800000000c6308"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "会员添加",
+                "Url": "/admin/user/add?type=AdminUserAddAutoForm"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff00011c5500a0000a000"),
+            "Icon": "",
+            "Name": "会员等级",
+            "IsEnable": true,
+            "Url": "/Admin/AutoConfig/List?key=UserGradeConfig",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000eb9fb00000000eb9fb"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "用户等级",
+                "Url": "/Admin/AutoConfig/List?key=UserGradeConfig"
+              },
+              {
+                "_id": ObjectId("eee000d76b900000000d76b9"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "用户等级添加",
+                "Url": "/Admin/Autoconfig/Edit?id=72be65e6-3000-414d-972e-1a3d4a366000&key=ZKCloud.App.Core.User.Domain.Callbacks.UserGradeConfig"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000df1ca00a0000a000"),
+            "Icon": "",
+            "Name": "会员地址",
+            "IsEnable": true,
+            "Url": "/Admin/UserAddress/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0002377b000000002377b"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "会员地址",
+                "Url": "/Admin/UserAddress/List"
+              },
+              {
+                "_id": ObjectId("eee00065d850000000065d85"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "会员地址添加",
+                "Url": "/Admin/UserAddress/Edit"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff00090a1200a0000a000"),
+            "Icon": "",
+            "Name": "会员认证",
+            "IsEnable": true,
+            "Url": "/Admin/Identity/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0007d33d000000007d33d"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "实名认证",
+                "Url": "/Admin/Identity/List"
+              },
+              {
+                "_id": ObjectId("eee000cef1500000000cef15"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "企业认证",
+                "Url": "/Admin/Enterprise/List"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0009034b00a0000a000"),
+            "Icon": "",
+            "Name": "会员二维码",
+            "IsEnable": true,
+            "Url": "/admin/qrcodeimage/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0005aefe000000005aefe"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "二维码名片",
+                "Url": "/Admin/QrCodeImage/list"
+              },
+              {
+                "_id": ObjectId("eee0004d639000000004d639"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "二维码设置",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.Common.Domain.CallBacks.QrCodeConfig"
+              },
+              {
+                "_id": ObjectId("eee000645b500000000645b5"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "重新生成二维码",
+                "Url": "/Admin/QrCode/Task"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000635fa00a0000a000"),
+            "Icon": "",
+            "Name": "组织架构图",
+            "IsEnable": true,
+            "Url": "/Admin/User/Relation",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000c6c7b00000000c6c7b"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "组织架构图",
+                "Url": "/Admin/User/Relation"
+              },
+              {
+                "_id": ObjectId("eee000714d100000000714d1"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "修改推荐关系",
+                "Url": "/admin/usermap/edit"
+              },
+              {
+                "_id": ObjectId("eee000ba48800000000ba488"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "转移团队关系",
+                "Url": "/admin/usermap/transfer"
+              },
+              {
+                "_id": ObjectId("eee000b893d00000000b893d"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "组织架构图配置",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.User.Domain.Callbacks.UserTreeConfig"
+              },
+              {
+                "_id": ObjectId("eee0002d3bb000000002d3bb"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "重新生成关系图",
+                "Url": "/Admin/UserMap/Task"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": ObjectId("ccc00027c900000000027c90"),
+        "Icon": "icon-5333-tasueien",
+        "Name": "招商",
+        "Url": "/Admin/City/List",
+        "IsEnable": true,
+        "Menus": [
+          {
+            "_id": ObjectId("fffff0002c16400a0000a000"),
+            "Icon": "",
+            "Name": "十八罗汉",
+            "IsEnable": true,
+            "Url": "/admin/ParentInternal/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0000ac63000000000ac63"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "罗汉管理",
+                "Url": "/admin/ParentInternal/list"
+              },
+              {
+                "_id": ObjectId("eee0005a1f9000000005a1f9"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "罗汉添加",
+                "Url": "/admin/ParentInternal/edit"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff00064e4e00a0000a000"),
+            "Icon": "",
+            "Name": "城市合伙人",
+            "IsEnable": true,
+            "Url": "/Admin/City/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000b633b00000000b633b"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "市代理概况",
+                "Url": "/Admin/City/Index"
+              },
+              {
+                "_id": ObjectId("eee0007324c000000007324c"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "市代理管理",
+                "Url": "/Admin/City/List"
+              },
+              {
+                "_id": ObjectId("eee0006c0c1000000006c0c1"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "市代理添加",
+                "Url": "/Admin/City/Edit"
+              },
+              {
+                "_id": ObjectId("eee000aa59500000000aa595"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "市代理等级",
+                "Url": "/Admin/AutoConfig/List?Type=CityGradeConfig"
+              },
+              {
+                "_id": ObjectId("eee000715650000000071565"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "市代理配置",
+                "Url": "/Admin/AutoConfig/Edit?key=CityConfig"
+              },
+              {
+                "_id": ObjectId("eee000a4d7900000000a4d79"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "管理后台",
+                "Url": "admin-City/index"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0002e01a00a0000a000"),
+            "Icon": "",
+            "Name": "股东",
+            "IsEnable": true,
+            "Url": "/admin/shareholder/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0005d6f1000000005d6f1"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "股东管理",
+                "Url": "/admin/shareholder/list"
+              },
+              {
+                "_id": ObjectId("eee0003c632000000003c632"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "股东添加",
+                "Url": "/admin/shareholder/edit"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0007c2a200a0000a000"),
+            "Icon": "",
+            "Name": "商圈管理",
+            "IsEnable": true,
+            "Url": "/admin/Circle/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0007b71d000000007b71d"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "商圈管理",
+                "Url": "/admin/Circle/list"
+              },
+              {
+                "_id": ObjectId("eee000d01a500000000d01a5"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "商圈添加",
+                "Url": "/admin/Circle/edit"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0006eb9a00a0000a000"),
+            "Icon": "",
+            "Name": "自定义商城",
+            "IsEnable": false,
+            "Url": "/Admin/Tenant/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0003915e000000003915e"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "自定义商城管理",
+                "Url": "/Admin/Tenant/List"
+              },
+              {
+                "_id": ObjectId("eee0005bf42000000005bf42"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "添加自定义商城",
+                "Url": "/Admin/Tenant/Edit"
+              },
+              {
+                "_id": ObjectId("eee000f814b00000000f814b"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "后台api服务器",
+                "Url": "/Admin/AutoConfig/List?Type=TenantServiceHostConfig"
+              },
+              {
+                "_id": ObjectId("eee0001def1000000001def1"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "前台访问地址",
+                "Url": "/Admin/AutoConfig/List?Type=TenantClientHostConfig"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000a794d00a0000a000"),
+            "Icon": "",
+            "Name": "区县合伙人",
+            "IsEnable": true,
+            "Url": "/admin/County/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000e1e4100000000e1e41"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "区县合伙人",
+                "Url": "/Admin/County/List"
+              },
+              {
+                "_id": ObjectId("eee0005ed08000000005ed08"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "区县",
+                "Url": "/Admin/County/Edit"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000e158600a0000a000"),
+            "Icon": "",
+            "Name": "用户权益",
+            "IsEnable": false,
+            "Url": "/admin/userrights/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0006650e000000006650e"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "用户权益",
+                "Url": "/admin/userrights/list"
+              },
+              {
+                "_id": ObjectId("eee000dc1f700000000dc1f7"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "权益添加",
+                "Url": "/Admin/UserRights/Edit"
+              },
+              {
+                "_id": ObjectId("eee0004db6b000000004db6b"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "权益设置",
+                "Url": "/Admin/AutoConfig/List?key=ZKCloud.App.Market.UserRightss.Domain.CallBack.UserRightsConfig"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": ObjectId("ccc000940390000000094039"),
+        "Icon": "icon-5333-icon51",
+        "Name": "资产",
+        "Url": "/Admin/Account/List",
+        "IsEnable": true,
+        "Menus": [
+          {
+            "_id": ObjectId("fffff00062f9000a0000a000"),
+            "Icon": "",
+            "Name": "平台资产",
+            "IsEnable": true,
+            "Url": "/Admin/Account/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000ebf0500000000ebf05"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "资产总览",
+                "Url": "/Admin/Account/Index"
+              },
+              {
+                "_id": ObjectId("eee000bd2c600000000bd2c6"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "账户资金",
+                "Url": "/Admin/Account/List"
+              },
+              {
+                "_id": ObjectId("eee000d3fff00000000d3fff"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "收银台",
+                "Url": "/Admin/Pay/List"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000dc21300a0000a000"),
+            "Icon": "",
+            "Name": "资金对账",
+            "IsEnable": true,
+            "Url": "/Admin/finance/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee00031d780000000031d78"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "账单明细",
+                "Url": "/Admin/finance/list"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0001d79900a0000a000"),
+            "Icon": "",
+            "Name": "提现",
+            "IsEnable": true,
+            "Url": "/Admin/Finance/withDraw/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0001a2a8000000001a2a8"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "提现明细",
+                "Url": "/Admin/Finance/withDraw/list"
+              },
+              {
+                "_id": ObjectId("eee0002a7f8000000002a7f8"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "提现设置",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.Finance.Domain.CallBacks.WithdRawConfig"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff00010bc600a0000a000"),
+            "Icon": "",
+            "Name": "充值",
+            "IsEnable": true,
+            "Url": "/Admin/Finance/recharge/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000979710000000097971"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "充值明细",
+                "Url": "/Admin/Finance/recharge/list"
+              },
+              {
+                "_id": ObjectId("eee0005e7c5000000005e7c5"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "收款设置",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.Finance.Domain.CallBacks.ReceivablesConfig"
+              },
+              {
+                "_id": ObjectId("eee00066e4d0000000066e4d"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "充值设置",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.Finance.Domain.CallBacks.RechargeConfig"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0009097700a0000a000"),
+            "Icon": "",
+            "Name": "转账",
+            "IsEnable": false,
+            "Url": "/Admin/Finance/Transfer/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0009c19e000000009c19e"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "转账明细",
+                "Url": "/Admin/Finance/Transfer/list"
+              },
+              {
+                "_id": ObjectId("eee000f6e3a00000000f6e3a"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "转账设置",
+                "Url": "/Admin/AutoConfig/List?key=ZKCloud.App.Core.Finance.Domain.CallBacks.TransferConfig"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0003aacc00a0000a000"),
+            "Icon": "",
+            "Name": "财务工具",
+            "IsEnable": true,
+            "Url": "/Admin/BankCard/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee00000c600000000000c60"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "银行卡管理",
+                "Url": "/Admin/BankCard/List"
+              },
+              {
+                "_id": ObjectId("eee000432b900000000432b9"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "货币类型配置",
+                "Url": "/Admin/AutoConfig/List?key=ZKCloud.App.Core.Finance.Domain.CallBacks.MoneyTypeConfig"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": ObjectId("ccc00077d400000000077d40"),
+        "Icon": "icon-5333-beifen19",
+        "Name": "目标",
+        "Url": "/Admin/Target/List",
+        "IsEnable": true,
+        "Menus": [
+          {
+            "_id": ObjectId("fffff000ab91a00a0000a000"),
+            "Icon": "",
+            "Name": "目标迭代",
+            "IsEnable": true,
+            "Url": "/Admin/Iteration/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0008f8c9000000008f8c9"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "迭代",
+                "Url": "/Admin/Iteration/List"
+              },
+              {
+                "_id": ObjectId("eee0006f546000000006f546"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "数字目标",
+                "Url": "/Admin/Target/List"
+              },
+              {
+                "_id": ObjectId("eee000795d700000000795d7"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "添加目标",
+                "Url": "/Admin/Target/Edit"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000c9dae00a0000a000"),
+            "Icon": "",
+            "Name": "数据",
+            "IsEnable": true,
+            "Url": "/Admin/TargetReport/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee00040d750000000040d75"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "目标数据",
+                "Url": "/Admin/TargetReport/List"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0002efe800a0000a000"),
+            "Icon": "",
+            "Name": "目标工具",
+            "IsEnable": true,
+            "Url": "/Admin/Iteration/Edit",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000a52bd00000000a52bd"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "添加迭代",
+                "Url": "/Admin/Iteration/Edit"
+              },
+              {
+                "_id": ObjectId("eee0005393d000000005393d"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "目标设置",
+                "Url": "/Admin/AutoConfig/Edit?key=TargetConfig"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": ObjectId("ccc00054e590000000054e59"),
+        "Icon": "icon-5333-wubfen",
+        "Name": "商品",
+        "Url": "/Admin/Product/List?priceStyleId=e0000000-1478-49bd-bfc7-e73a5d699000",
+        "IsEnable": true,
+        "Menus": [
+          {
+            "_id": ObjectId("fffff000c461000a0000a000"),
+            "Icon": "",
+            "Name": "F2B商城",
+            "IsEnable": true,
+            "Url": "/Admin/Product/List?priceStyleId=e0000000-1478-49bd-bfc7-e73a5d699000",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000ad35500000000ad355"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "商品管理",
+                "Url": "/Admin/Product/List?priceStyleId=e0000000-1478-49bd-bfc7-e73a5d699000"
+              },
+              {
+                "_id": ObjectId("eee0009b8f9000000009b8f9"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "添加商品",
+                "Url": "/Admin/Product/Edit?priceStyleId=e0000000-1478-49bd-bfc7-e73a5d699000"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff00089eaf00a0000a000"),
+            "Icon": "",
+            "Name": "F2C商城",
+            "IsEnable": true,
+            "Url": "/Admin/Product/List?priceStyleId=e0000000-1478-49bd-bfc7-e73a5d699013",
+            "Menus": [
+              {
+                "_id": ObjectId("eee00018d4b0000000018d4b"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "商品管理",
+                "Url": "/Admin/Product/List?priceStyleId=e0000000-1478-49bd-bfc7-e73a5d699013"
+              },
+              {
+                "_id": ObjectId("eee000693620000000069362"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "添加商品",
+                "Url": "/Admin/Product/Edit?priceStyleId=e0000000-1478-49bd-bfc7-e73a5d699013"
+              },
+              {
+                "_id": ObjectId("eee000074ba00000000074ba"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "F2C设置",
+                "Url": "/Admin/Autoconfig/Edit?id=e0000000-1478-49bd-bfc7-e73a5d699013&key=ZKCloud.App.Shop.Product.Domain.CallBacks.PriceStyleConfig"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000c615700a0000a000"),
+            "Icon": "",
+            "Name": "商品工具",
+            "IsEnable": true,
+            "Url": "/Admin/Category/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0005ec9d000000005ec9d"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "商品类目",
+                "Url": "/Admin/Category/list"
+              },
+              {
+                "_id": ObjectId("eee000049720000000004972"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "商品分类",
+                "Url": "/Admin/Class?Type=ProductClassRelation"
+              },
+              {
+                "_id": ObjectId("eee0001c4da000000001c4da"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "商品标签",
+                "Url": "/Admin/Tag?Type=ProductTagRelation"
+              },
+              {
+                "_id": ObjectId("eee0006f60d000000006f60d"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "商品品牌",
+                "Url": "/Admin/ProductBrand/list"
+              },
+              {
+                "_id": ObjectId("eee0007605d000000007605d"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "运费模板",
+                "Url": "/admin/deliverytemplate/list"
+              },
+              {
+                "_id": ObjectId("eee000099650000000009965"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "发布设置",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Shop.Product.Domain.CallBacks.ProductConfig"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff00077ca200a0000a000"),
+            "Icon": "",
+            "Name": "产品线",
+            "IsEnable": true,
+            "Url": "/Admin/ProductLine/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0001d062000000001d062"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "产品线管理",
+                "Url": "/Admin/ProductLine/List"
+              },
+              {
+                "_id": ObjectId("eee00046ec80000000046ec8"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "添加产品线",
+                "Url": "/Admin/ProductLine/Edit"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff00012b2400a0000a000"),
+            "Icon": "",
+            "Name": "优惠券",
+            "IsEnable": true,
+            "Url": "/Admin/coupon/list",
+            "Menus": [
+              {
+                "_id": ObjectId("eee00044d4d0000000044d4d"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "优惠券管理",
+                "Url": "/Admin/coupon/list"
+              },
+              {
+                "_id": ObjectId("eee000337cb00000000337cb"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "优惠券添加",
+                "Url": "/Admin/coupon/edit"
+              },
+              {
+                "_id": ObjectId("eee000ff1b100000000ff1b1"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "发放优惠券",
+                "Url": "/Admin/coupon/send"
+              },
+              {
+                "_id": ObjectId("eee00075d1d0000000075d1d"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "优惠券发放记录",
+                "Url": "/Admin/coupon/record"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": ObjectId("ccc000c0a2400000000c0a24"),
+        "Icon": "icon-5333-huocheb",
+        "Name": "交易",
+        "Url": "/Admin/Cart/List",
+        "IsEnable": true,
+        "Menus": [
+          {
+            "_id": ObjectId("fffff0004c4c200a0000a000"),
+            "Icon": "",
+            "Name": "订单管理",
+            "IsEnable": true,
+            "Url": "/Admin/Order/List?type=PlatformApiOrderList",
+            "Menus": [
+              {
+                "_id": ObjectId("eee00012b860000000012b86"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "订单管理",
+                "Url": "/Admin/Order/List?type=PlatformApiOrderList"
+              },
+              {
+                "_id": ObjectId("eee000e876100000000e8761"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "订单设置",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Shop.Order.Domain.CallBacks.OrderConfig"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000a856200a0000a000"),
+            "Icon": "",
+            "Name": "购物车",
+            "IsEnable": true,
+            "Url": "/Admin/Cart/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000fd34800000000fd348"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "购物车",
+                "Url": "/Admin/Cart/List"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0000e4dc00a0000a000"),
+            "Icon": "",
+            "Name": "商品收藏",
+            "IsEnable": true,
+            "Url": "/Admin/Favorite/Product/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0006ceb2000000006ceb2"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "商品收藏",
+                "Url": "/Admin/Favorite/Product/List"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff00043efd00a0000a000"),
+            "Icon": "",
+            "Name": "商品足迹",
+            "IsEnable": true,
+            "Url": "/Admin/Footprint/Product/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0007ec0b000000007ec0b"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "商品足迹",
+                "Url": "/Admin/Footprint/Product/List"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": ObjectId("ccc00006d480000000006d48"),
+        "Icon": "icon-5333-yeifen",
+        "Name": "内容",
+        "Url": "/Admin/Article/list?ChannelId=e02220001110000000000000",
+        "IsEnable": true,
+        "Menus": [
+          {
+            "_id": ObjectId("fffff000a555b00a0000a000"),
+            "Icon": "",
+            "Name": "文章",
+            "IsEnable": true,
+            "Url": "/Admin/Article/list?ChannelId=e02220001110000000000000",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0001efea000000001efea"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "文章管理",
+                "Url": "/Admin/Article/list?ChannelId=e02220001110000000000000"
+              },
+              {
+                "_id": ObjectId("eee0008f871000000008f871"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "文章添加",
+                "Url": "/Admin/Article/Edit?ChannelId=e02220001110000000000000"
+              },
+              {
+                "_id": ObjectId("eee0003b0e1000000003b0e1"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "文章分类",
+                "Url": "/Admin/Class?Type=ChannelArticleClassRelation"
+              },
+              {
+                "_id": ObjectId("eee0004ddbc000000004ddbc"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "文章标签",
+                "Url": "/Admin/Tag?Type=ChannelArticleTagRelation"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0009ac4900a0000a000"),
+            "Icon": "",
+            "Name": "评论",
+            "IsEnable": true,
+            "Url": "/Admin/Article/list?ChannelId=e02220001110000000000001",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000d898100000000d8981"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "评论管理",
+                "Url": "/Admin/Article/list?ChannelId=e02220001110000000000001"
+              },
+              {
+                "_id": ObjectId("eee00056f100000000056f10"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "评论添加",
+                "Url": "/Admin/Article/Edit?ChannelId=e02220001110000000000001"
+              },
+              {
+                "_id": ObjectId("eee0007a88f000000007a88f"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "评论分类",
+                "Url": "/Admin/Class?Type=ChannelCommentClassRelation"
+              },
+              {
+                "_id": ObjectId("eee000eea8700000000eea87"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "评论标签",
+                "Url": "/Admin/Tag?Type=ChannelCommentTagRelation"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0006244500a0000a000"),
+            "Icon": "",
+            "Name": "帮助",
+            "IsEnable": true,
+            "Url": "/Admin/Article/list?ChannelId=e02220001110000000000003",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0004595e000000004595e"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "帮助管理",
+                "Url": "/Admin/Article/list?ChannelId=e02220001110000000000003"
+              },
+              {
+                "_id": ObjectId("eee000f8ff900000000f8ff9"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "帮助添加",
+                "Url": "/Admin/Article/Edit?ChannelId=e02220001110000000000003"
+              },
+              {
+                "_id": ObjectId("eee00067f980000000067f98"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "帮助分类",
+                "Url": "/Admin/Class?Type=ChannelHelpClassRelation"
+              },
+              {
+                "_id": ObjectId("eee000442de00000000442de"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "帮助标签",
+                "Url": "/Admin/Tag?Type=ChannelHelpTagRelation"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000559a300a0000a000"),
+            "Icon": "",
+            "Name": "图片",
+            "IsEnable": true,
+            "Url": "/Admin/Article/list?ChannelId=e02220001110000000000004",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0008133d000000008133d"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "图片管理",
+                "Url": "/Admin/Article/list?ChannelId=e02220001110000000000004"
+              },
+              {
+                "_id": ObjectId("eee000259750000000025975"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "图片添加",
+                "Url": "/Admin/Article/Edit?ChannelId=e02220001110000000000004"
+              },
+              {
+                "_id": ObjectId("eee0009babe000000009babe"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "图片分类",
+                "Url": "/Admin/Class?Type=ChannelImagesClassRelation"
+              },
+              {
+                "_id": ObjectId("eee00047c540000000047c54"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "图片标签",
+                "Url": "/Admin/Tag?Type=ChannelImagesTagRelation"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0002656b00a0000a000"),
+            "Icon": "",
+            "Name": "视频",
+            "IsEnable": true,
+            "Url": "/Admin/Article/list?ChannelId=e02220001110000000000005",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000a269400000000a2694"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "视频管理",
+                "Url": "/Admin/Article/list?ChannelId=e02220001110000000000005"
+              },
+              {
+                "_id": ObjectId("eee0006a392000000006a392"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "视频添加",
+                "Url": "/Admin/Article/Edit?ChannelId=e02220001110000000000005"
+              },
+              {
+                "_id": ObjectId("eee0009d161000000009d161"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "视频分类",
+                "Url": "/Admin/Class?Type=ChannelVideoClassRelation"
+              },
+              {
+                "_id": ObjectId("eee000b2cb700000000b2cb7"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "视频标签",
+                "Url": "/Admin/Tag?Type=ChannelVideoTagRelation"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000e1bbc00a0000a000"),
+            "Icon": "",
+            "Name": "下载",
+            "IsEnable": true,
+            "Url": "/Admin/Article/list?ChannelId=e02220001110000000000006",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000313d600000000313d6"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "下载管理",
+                "Url": "/Admin/Article/list?ChannelId=e02220001110000000000006"
+              },
+              {
+                "_id": ObjectId("eee0000d6c0000000000d6c0"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "下载添加",
+                "Url": "/Admin/Article/Edit?ChannelId=e02220001110000000000006"
+              },
+              {
+                "_id": ObjectId("eee000332fd00000000332fd"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "下载分类",
+                "Url": "/Admin/Class?Type=ChannelDownClassRelation"
+              },
+              {
+                "_id": ObjectId("eee000a1e6100000000a1e61"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "下载标签",
+                "Url": "/Admin/Tag?Type=ChannelDownTagRelation"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff00032de900a0000a000"),
+            "Icon": "",
+            "Name": "问答",
+            "IsEnable": true,
+            "Url": "/Admin/Article/list?ChannelId=e02220001110000000000007",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0004155a000000004155a"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "问答管理",
+                "Url": "/Admin/Article/list?ChannelId=e02220001110000000000007"
+              },
+              {
+                "_id": ObjectId("eee000674bc00000000674bc"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "问答添加",
+                "Url": "/Admin/Article/Edit?ChannelId=e02220001110000000000007"
+              },
+              {
+                "_id": ObjectId("eee000e6e2700000000e6e27"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "问答分类",
+                "Url": "/Admin/Class?Type=ChannelQuestionClassRelation"
+              },
+              {
+                "_id": ObjectId("eee00097a830000000097a83"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "问答标签",
+                "Url": "/Admin/Tag?Type=ChannelQuestionTagRelation"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0000f22f00a0000a000"),
+            "Icon": "",
+            "Name": "神器",
+            "IsEnable": true,
+            "Url": "/Admin/Article/list?ChannelId=e02220001110000000000008",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000e573400000000e5734"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "神器管理",
+                "Url": "/Admin/Article/list?ChannelId=e02220001110000000000008"
+              },
+              {
+                "_id": ObjectId("eee000444590000000044459"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "神器添加",
+                "Url": "/Admin/Article/Edit?ChannelId=e02220001110000000000008"
+              },
+              {
+                "_id": ObjectId("eee00085e980000000085e98"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "神器分类",
+                "Url": "/Admin/Class?Type=ChannelJobClassRelation"
+              },
+              {
+                "_id": ObjectId("eee0005c5d1000000005c5d1"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "神器标签",
+                "Url": "/Admin/Tag?Type=ChannelJobTagRelation"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0000163500a0000a000"),
+            "Icon": "",
+            "Name": "头条",
+            "IsEnable": true,
+            "Url": "/Admin/Article/list?ChannelId=e02220001110000000000009",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000370d600000000370d6"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "头条管理",
+                "Url": "/Admin/Article/list?ChannelId=e02220001110000000000009"
+              },
+              {
+                "_id": ObjectId("eee000784f900000000784f9"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "头条添加",
+                "Url": "/Admin/Article/Edit?ChannelId=e02220001110000000000009"
+              },
+              {
+                "_id": ObjectId("eee00001f590000000001f59"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "头条分类",
+                "Url": "/Admin/Class?Type=ChannelTopLineClassRelation"
+              },
+              {
+                "_id": ObjectId("eee000c7b6500000000c7b65"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "头条标签",
+                "Url": "/Admin/Tag?Type=ChannelTopLineTagRelation"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000d890a00a0000a000"),
+            "Icon": "",
+            "Name": "消息",
+            "IsEnable": true,
+            "Url": "/Admin/Article/list?ChannelId=e02220001110000000000010",
+            "Menus": [
+              {
+                "_id": ObjectId("eee00015fcf0000000015fcf"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "消息管理",
+                "Url": "/Admin/Article/list?ChannelId=e02220001110000000000010"
+              },
+              {
+                "_id": ObjectId("eee0008ce52000000008ce52"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "消息添加",
+                "Url": "/Admin/Article/Edit?ChannelId=e02220001110000000000010"
+              },
+              {
+                "_id": ObjectId("eee000381450000000038145"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "消息分类",
+                "Url": "/Admin/Class?Type=ChannelMessageClassRelation"
+              },
+              {
+                "_id": ObjectId("eee000fb5bc00000000fb5bc"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "消息标签",
+                "Url": "/Admin/Tag?Type=ChannelMessageTagRelation"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000b4db700a0000a000"),
+            "Icon": "",
+            "Name": "会员通知",
+            "IsEnable": true,
+            "Url": "/Admin/Article/list?ChannelId=e02220001110000000000011",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000bb87d00000000bb87d"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "会员通知管理",
+                "Url": "/Admin/Article/list?ChannelId=e02220001110000000000011"
+              },
+              {
+                "_id": ObjectId("eee000da6d000000000da6d0"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "会员通知添加",
+                "Url": "/Admin/Article/Edit?ChannelId=e02220001110000000000011"
+              },
+              {
+                "_id": ObjectId("eee0001af17000000001af17"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "用户通知分类",
+                "Url": "/Admin/Class?Type=ChannelUserNoticeClassRelation"
+              },
+              {
+                "_id": ObjectId("eee000059eb00000000059eb"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "会员通知标签",
+                "Url": "/Admin/Tag?Type=ChannelUserNoticeTagRelation"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0005a03b00a0000a000"),
+            "Icon": "",
+            "Name": "产品手册",
+            "IsEnable": true,
+            "Url": "/Admin/Article/list?ChannelId=e02220001110000000000012",
+            "Menus": [
+              {
+                "_id": ObjectId("eee00099b080000000099b08"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "产品手册管理",
+                "Url": "/Admin/Article/list?ChannelId=e02220001110000000000012"
+              },
+              {
+                "_id": ObjectId("eee000a9e6c00000000a9e6c"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "产品手册添加",
+                "Url": "/Admin/Article/Edit?ChannelId=e02220001110000000000012"
+              },
+              {
+                "_id": ObjectId("eee000c47c400000000c47c4"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "产品手册分类",
+                "Url": "/Admin/Class?Type=ChannelNoteBookClassRelation"
+              },
+              {
+                "_id": ObjectId("eee000eafc800000000eafc8"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "产品手册标签",
+                "Url": "/Admin/Tag?Type=ChannelNoteBookTagRelation"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000c856100a0000a000"),
+            "Icon": "",
+            "Name": "客服中心",
+            "IsEnable": false,
+            "Url": "/Admin/WorkOrder/Index",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000b5ded00000000b5ded"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "工单系统",
+                "Url": "/Admin/WorkOrder/Index"
+              },
+              {
+                "_id": ObjectId("eee00091ab10000000091ab1"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "工单分类",
+                "Url": "/Admin/Class?Type=WorkOrderClassRelation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": ObjectId("ccc000c913200000000c9132"),
+        "Icon": "icon-5333-biaohanyi",
+        "Name": "分润",
+        "Url": "/Admin/RewardOrder/List",
+        "IsEnable": true,
+        "Menus": [
+          {
+            "_id": ObjectId("fffff00014aa600a0000a000"),
+            "Icon": "",
+            "Name": "分润记录",
+            "IsEnable": true,
+            "Url": "/Admin/Reward/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000add7600000000add76"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "分润数据",
+                "Url": "/Admin/Reward/List"
+              },
+              {
+                "_id": ObjectId("eee0009b07a000000009b07a"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "分润订单",
+                "Url": "/Admin/RewardOrder/List"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000c720d00a0000a000"),
+            "Icon": "",
+            "Name": "分润配置",
+            "IsEnable": true,
+            "Url": "/Admin/Reward/ModulesEnable",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0007d3fa000000007d3fa"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "我的分润配置",
+                "Url": "/Admin/Reward/ModulesEnable"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": ObjectId("ccc000d7df900000000d7df9"),
+        "Icon": "icon-5333-fuwzichi",
+        "Name": "商学院",
+        "Url": "/Admin/BookingSignup/List",
+        "IsEnable": true,
+        "Menus": [
+          {
+            "_id": ObjectId("fffff0000fed000a0000a000"),
+            "Icon": "",
+            "Name": "预约活动",
+            "IsEnable": true,
+            "Url": "/Admin/BookingSignup/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000584fd00000000584fd"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "预约活动管理",
+                "Url": "/Admin/BookingSignup/List"
+              },
+              {
+                "_id": ObjectId("eee000b4afb00000000b4afb"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "添加活动",
+                "Url": "/Admin/BookingSignup/Edit"
+              },
+              {
+                "_id": ObjectId("eee000759d300000000759d3"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "预约订单",
+                "Url": "/Admin/BookingSignup/Order"
+              },
+              {
+                "_id": ObjectId("eee000a0dbe00000000a0dbe"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "活动用户",
+                "Url": "/Admin/BookingSignup/User"
+              },
+              {
+                "_id": ObjectId("eee000a6a9f00000000a6a9f"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "报名统计",
+                "Url": "/Admin/BookingSignup/Count"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0002f32600a0000a000"),
+            "Icon": "",
+            "Name": "百家案例",
+            "IsEnable": true,
+            "Url": "/Admin/LightApp/List?TableName=hundredsofcases",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000e728f00000000e728f"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "百家案例管理",
+                "Url": "/Admin/LightApp/List?TableName=hundredsofcases"
+              },
+              {
+                "_id": ObjectId("eee000a054900000000a0549"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "添加百家案例",
+                "Url": "/Admin/LightApp/Edit?TableName=hundredsofcases"
+              },
+              {
+                "_id": ObjectId("eee000407aa00000000407aa"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "百家案例统计",
+                "Url": "/Admin/LightApp/Report?TableName=hundredsofcases"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000431b700a0000a000"),
+            "Icon": "",
+            "Name": "产品塑造",
+            "IsEnable": true,
+            "Url": "/Admin/LightApp/List?TableName=productshaping",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000f692900000000f6929"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "产品塑造管理",
+                "Url": "/Admin/LightApp/List?TableName=productshaping"
+              },
+              {
+                "_id": ObjectId("eee000db17600000000db176"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "添加产品塑造",
+                "Url": "/Admin/LightApp/Edit?TableName=productshaping"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000ca44e00a0000a000"),
+            "Icon": "",
+            "Name": "十大神器管理",
+            "IsEnable": true,
+            "Url": "/Admin/LightApp/List?TableName=tenartifacts",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000ac6ff00000000ac6ff"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "添加十大神器",
+                "Url": "/Admin/LightApp/Edit?TableName=tenartifacts"
+              },
+              {
+                "_id": ObjectId("eee00042f740000000042f74"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "十大神器管理",
+                "Url": "/Admin/LightApp/List?TableName=tenartifacts"
+              },
+              {
+                "_id": ObjectId("eee000ba74d00000000ba74d"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "十大神器统计",
+                "Url": "/Admin/LightApp/Report?TableName=tenartifacts"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff000b08df00a0000a000"),
+            "Icon": "",
+            "Name": "团队风采管理",
+            "IsEnable": true,
+            "Url": "/Admin/LightApp/List?TableName=teamstyle",
+            "Menus": [
+              {
+                "_id": ObjectId("eee00059b8f0000000059b8f"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "添加团队风采",
+                "Url": "/Admin/LightApp/Edit?TableName=teamstyle"
+              },
+              {
+                "_id": ObjectId("eee000c9acf00000000c9acf"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "团队风采管理",
+                "Url": "/Admin/LightApp/List?TableName=teamstyle"
+              },
+              {
+                "_id": ObjectId("eee000a149f00000000a149f"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "团队风采统计",
+                "Url": "/Admin/LightApp/Report?TableName=teamstyle"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0003a1d600a0000a000"),
+            "Icon": "",
+            "Name": "会议视频",
+            "IsEnable": true,
+            "Url": "/Admin/LightApp/List?TableName=schoollinks",
+            "Menus": [
+              {
+                "_id": ObjectId("eee00034b590000000034b59"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "视频添加",
+                "Url": "/Admin/LightApp/Edit?TableName=schoollinks"
+              },
+              {
+                "_id": ObjectId("eee000913550000000091355"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "视频管理",
+                "Url": "/Admin/LightApp/List?TableName=schoollinks"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "_id": ObjectId("ccc000453870000000045387"),
+        "Icon": "icon-5333-yingyong",
+        "Name": "应用",
+        "Url": "/Admin/App",
+        "IsEnable": true,
+        "Menus": null
+      },
+      {
+        "_id": ObjectId("ccc000084e700000000084e7"),
+        "Icon": "icon-5333-xiufifen",
+        "Name": "设置",
+        "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.Common.Domain.CallBacks.WebSiteConfig",
+        "IsEnable": true,
+        "Menus": [
+          {
+            "_id": ObjectId("fffff0004fb7a00a0000a000"),
+            "Icon": "",
+            "Name": "平台信息",
+            "IsEnable": true,
+            "Url": "/Admin/AutoConfig/Edit?key=WebSiteConfig",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0004805e000000004805e"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "基本设置",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.Common.Domain.CallBacks.WebSiteConfig"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0002aef600a0000a000"),
+            "Icon": "",
+            "Name": "注册协议",
+            "IsEnable": true,
+            "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.User.Domain.Callbacks.RegisterProtocolConfig",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000708170000000070817"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "注册协议",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.User.Domain.Callbacks.RegisterProtocolConfig"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0007c7c000a0000a000"),
+            "Icon": "",
+            "Name": "支付方式",
+            "IsEnable": true,
+            "Url": "/Admin/Autoconfig/Pay/Index",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0004c8f9000000004c8f9"),
+                "Icon": "",
+                "IsEnable": false,
+                "Name": "支付概况",
+                "Url": "/Admin/Autoconfig/Pay/Index"
+              },
+              {
+                "_id": ObjectId("eee000426690000000042669"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "余额支付",
+                "Url": "/Admin/Autoconfig/Edit?id=e97ccd1e-1478-49bd-bfc7-e73a5d699000&key=ZKCloud.App.Core.Finance.Domain.CallBacks.MoneyTypeConfig"
+              },
+              {
+                "_id": ObjectId("eee000495c400000000495c4"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "微信公众号支付",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.ApiStore.CallBacks.WeChatPaymentConfig"
+              },
+              {
+                "_id": ObjectId("eee0004ba59000000004ba59"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "微信小程序支付",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.ApiStore.CallBacks.MiniProgramConfig"
+              },
+              {
+                "_id": ObjectId("eee0001cbac000000001cbac"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "微信app支付",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.ApiStore.CallBacks.AppWeChatPaymentConfig"
+              },
+              {
+                "_id": ObjectId("eee000602f700000000602f7"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "支付宝支付",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Core.ApiStore.CallBacks.AlipayPaymentConfig"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0006243a00a0000a000"),
+            "Icon": "",
+            "Name": "员工管理",
+            "IsEnable": true,
+            "Url": "/Admin/Employee/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0003848f000000003848f"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "员工管理",
+                "Url": "/Admin/Employee/List"
+              },
+              {
+                "_id": ObjectId("eee000bd37b00000000bd37b"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "添加员工",
+                "Url": "/Admin/Employee/Edit"
+              },
+              {
+                "_id": ObjectId("eee00066f470000000066f47"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "岗位权限",
+                "Url": "/Admin/PostRole/List"
+              },
+              {
+                "_id": ObjectId("eee00047dca0000000047dca"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "添加岗位",
+                "Url": "/Admin/PostRole/Edit"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0007e13800a0000a000"),
+            "Icon": "",
+            "Name": "操作日志",
+            "IsEnable": true,
+            "Url": "/Admin/Logs/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0006b7c1000000006b7c1"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "操作日志",
+                "Url": "/Admin/Logs/List"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0009a1f200a0000a000"),
+            "Icon": "",
+            "Name": "国家区域",
+            "IsEnable": true,
+            "Url": "/Admin/Region/List",
+            "Menus": [
+              {
+                "_id": ObjectId("eee0006add5000000006add5"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "国家区域",
+                "Url": "/Admin/Region/List"
+              }
+            ]
+          },
+          {
+            "_id": ObjectId("fffff0008a32900a0000a000"),
+            "Icon": "",
+            "Name": "等级价格显示",
+            "IsEnable": true,
+            "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Shop.Activitys.Modules.MemberDiscount.Callbacks.MemberDiscountConfig",
+            "Menus": [
+              {
+                "_id": ObjectId("eee000c3ef000000000c3ef0"),
+                "Icon": "",
+                "IsEnable": true,
+                "Name": "等级价格显示",
+                "Url": "/Admin/AutoConfig/Edit?key=ZKCloud.App.Shop.Activitys.Modules.MemberDiscount.Callbacks.MemberDiscountConfig"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
