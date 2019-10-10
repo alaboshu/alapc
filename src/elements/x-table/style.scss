@@ -481,3 +481,39 @@
     }
   }
 }
+
+.user-card {
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  img {
+    width: 36px;
+    height: 36x;
+    margin: 0px;
+    margin-right: 0.5rem;
+  }
+  .user-card-detail {
+    text-align: left;
+    margin-left: 0.01rem;
+    a {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: bold;
+      line-height: 1.02rem;
+      color: #7b7e8a;
+      text-align: left;
+    }
+    span {
+      margin-top: 0.02rem;
+      display: inline-block;
+      font-size: 0.9rem;
+      text-align: left;
+      color: #7b7e8a;
+      font-weight: 100;
+      background-blend-mode: color-dodge;
+    }
+  }
+}
