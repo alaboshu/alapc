@@ -172,6 +172,7 @@ import xFormSelect from '@/elements/x-form-select/index.vue'
 import xIcon from '@/elements/x-icon/index.vue'
 import xImage from '@/elements/x-image/index.vue'
 import xJson from '@/elements/x-json/index.vue'
+import xLabel from '@/elements/x-label/index.vue'
 import xLine from '@/elements/x-line/index.vue'
 import xMarkdown from '@/elements/x-markdown/index.vue'
 import xQrcode from '@/elements/x-qrcode/index.vue'
@@ -420,6 +421,7 @@ Vue.component('x-form-select', xFormSelect)
 Vue.component('x-icon', xIcon)
 Vue.component('x-image', xImage)
 Vue.component('x-json', xJson)
+Vue.component('x-label', xLabel)
 Vue.component('x-line', xLine)
 Vue.component('x-markdown', xMarkdown)
 Vue.component('x-qrcode', xQrcode)

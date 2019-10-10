@@ -24,7 +24,6 @@
     },
     methods: {
       init () {
-        console.info('this.title', this.title)
         if (this.url !== undefined && this.value !== undefined) {
           var linkUrl = this.url.replace('[[', 'linkBegin')
           this.toUrl = linkUrl.match(/(\S*)linkBegin/)[1]

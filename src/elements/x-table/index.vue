@@ -37,6 +37,8 @@
             </span>
             <column-link v-if="column.style.type  === 'link'" :class="column.style.align" :value='scope.row' :url='column.style.parameter' :title="scope.row[column.prop]">
             </column-link>
+            <x-label v-else-if="column.style.type  === 'label'" :color='column.style.parameter'>{{scope.row[column.prop]}}</x-label>
+            <x-code v-else-if="column.style.type  === 'code'">{{scope.row[column.prop]}}</x-code>
             <div v-else-if="column.style.type  === 'bool'" :style="{background:scope.row[column.prop]?'#68BCA4':'#DD5C6D' }">{{scope.row[column.prop]?'是':'否'}}</div>
             <x-enum v-else-if="column.style.type  === 'enum'" :type='column.style.parameter' :value='scope.row[column.prop]'></x-enum>
             <el-button v-else-if="column.style.type  === 'button'" type="primary" @click.native="action(scope.row[column.prop], scope.row)">{{scope.row[column.prop]}}</el-button>
