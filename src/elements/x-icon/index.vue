@@ -17,8 +17,8 @@
         default: 20
       },
       name: {
-        type: String,
-        required: true
+        type: String
+
       }
     },
     mounted () {
