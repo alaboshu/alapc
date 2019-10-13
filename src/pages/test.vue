@@ -1,11 +1,5 @@
 <template>
-  <div class="user-card">
-    <img src='http://localhost:1800//wwwroot/static/images/GradeIcon/User03.png' alt='黄金会员' />
-    <div class="user-card-detail">
-      <a title='admin(老板) 等级:黄金会员' href='/Admin/User/Edit?id=1'>admin(老板)</a>
-      <span>黄金会员</span>
-    </div>
-  </div>
+  <x-border title="设置" type="brand" icon="icon-5333-icon51" desc="测试描述"></x-border>
 </template>
 <script>
   export default {

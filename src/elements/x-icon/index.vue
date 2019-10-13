@@ -29,7 +29,6 @@
     },
     methods: {
       init () {
-        console.info('name', this.name)
       }
     }
   }
