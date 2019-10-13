@@ -1,5 +1,5 @@
 <template>
-  <x-border title="储值设置" color="success">
+  <x-border title="储值设置" type="success">
     <div class="store-value">
       <div class="store-value_head">
         <div class="store_btn" @click="newRules">新增储值规则</div>

@@ -1,5 +1,5 @@
 <template>
-  <x-border :title="addTitle&&addTitle.name" v-loading.fullscreen.lock="fullscreenLoading" color="focus">
+  <x-border :title="addTitle&&addTitle.name" v-loading.fullscreen.lock="fullscreenLoading" type="focus">
     <div style="background:#ffffff;" class="list_detail" v-if="!isAdd&&viewModel">
       <div class="container">
         <div class="container-head">

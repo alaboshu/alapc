@@ -1,5 +1,5 @@
 <template>
-  <x-border title="短信充值" color="success">
+  <x-border title="短信充值" type="success">
     <div class="admin-sms-recharge">
       <div class="recharge-box">
         <ul>

@@ -1,6 +1,6 @@
 <template>
   <div class="admin-account-recharge" v-loading="loading">
-    <x-border title="我的钱包" color="brand" icon="flaticon-bag">
+    <x-border title="我的钱包" type="brand" icon="flaticon-bag">
       <div class="account-wallet">
         <div class="account-card">
           <ul>
@@ -15,7 +15,7 @@
       </div>
     </x-border>
     <div class="admin-account-recharge-undel">
-      <x-border title="储值充值" color="brand" icon="flaticon-bag">
+      <x-border title="储值充值" type="brand" icon="flaticon-bag">
         <div class="admin-account-recharge-from">
           <el-form label-width="250px" :model="formLabelAlign" placeholder="fjsdakflak ">
             <el-form-item label="金额">

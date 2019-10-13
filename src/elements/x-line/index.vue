@@ -34,7 +34,13 @@
     props: {
       title: {},
       intro: {},
-      color: {},
+      type: {
+        type: String,
+        validator: function (t) {
+          return t === 'metal' || t === 'brand' || t === 'primary' || t === 'success' || t === 'warning' || t === 'focus' || t === 'accent' || t === 'danger' || t === 'light'
+        },
+        defalut: 'metal'
+      },
       icon: {},
       index: {
         default: null
@@ -53,47 +59,42 @@
         } else {
           this.Icon = this.icon
         }
-        if (!this.$api.isEmpty(this.color)) {
-          if (this.color === 'brand') {
-            this.backGroundColor = '#716aca'
-            this.fontColor = '#ffffff'
-          }
-          if (this.color === 'info') {
-            this.backGroundColor = '#36a3f7'
-            this.fontColor = '#ffffff'
-          }
-          if (this.color === 'metal') {
-            this.backGroundColor = '#575962'
-            this.fontColor = '#ffffff'
-          }
-          if (this.color === 'primary') {
-            this.backGroundColor = '#5867dd'
-            this.fontColor = '#ffffff'
-          }
-          if (this.color === 'success') {
-            this.backGroundColor = '#34bfa3'
-            this.fontColor = '#ffffff'
-          }
-          if (this.color === 'warning') {
-            this.backGroundColor = '#ffb822'
-            this.fontColor = '#ffffff'
-          }
-          if (this.color === 'focus') {
-            this.backGroundColor = '#9816f4'
-            this.fontColor = '#ffffff'
-          }
-          if (this.color === 'accent') {
-            this.backGroundColor = '#00c5dc'
-            this.fontColor = '#ffffff'
-          }
-          if (this.color === 'danger') {
-            this.backGroundColor = '#f4516c'
-            this.fontColor = '#ffffff'
-          }
-          if (this.color === 'light') {
-            this.backGroundColor = '#ffffff'
-            this.fontColor = '#575962'
-          }
+        this.convert(this.type)
+      },
+      convert (type) {
+        if (type === 'brand') {
+          this.backGroundColor = '#716aca'
+          this.fontColor = '#ffffff'
+        } else if (type === 'info') {
+          this.backGroundColor = '#36a3f7'
+          this.fontColor = '#ffffff'
+        } else if (type === 'metal') {
+          this.backGroundColor = '#575962'
+          this.fontColor = '#ffffff'
+        } else if (type === 'primary') {
+          this.backGroundColor = '#5867dd'
+          this.fontColor = '#ffffff'
+        } else if (type === 'success') {
+          this.backGroundColor = '#34bfa3'
+          this.fontColor = '#ffffff'
+        } else if (type === 'warning') {
+          this.backGroundColor = '#ffb822'
+          this.fontColor = '#ffffff'
+        } else if (type === 'focus') {
+          this.backGroundColor = '#9816f4'
+          this.fontColor = '#ffffff'
+        } else if (type === 'accent') {
+          this.backGroundColor = '#00c5dc'
+          this.fontColor = '#ffffff'
+        } else if (type === 'danger') {
+          this.backGroundColor = '#f4516c'
+          this.fontColor = '#ffffff'
+        } else if (type === 'light') {
+          this.backGroundColor = '#ffffff'
+          this.fontColor = '#575962'
+        } else {
+          this.backGroundColor = '#ffffff'
+          this.fontColor = '#575962'
         }
       }
     }

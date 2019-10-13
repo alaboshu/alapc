@@ -1,5 +1,5 @@
 <template>
-  <x-border title="订单详情" color="primary">
+  <x-border title="订单详情" type="primary">
     <div class="order-edit" v-if="viewModel">
       <div class="user-management_left">
         <Left :viewModel="viewModel"></Left>

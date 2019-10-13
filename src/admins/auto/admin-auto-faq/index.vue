@@ -1,5 +1,5 @@
 <template>
-  <x-border :title="title" icon="flaticon-settings" color="accent">
+  <x-border :title="title" icon="flaticon-settings" type="accent">
     <div v-if="async">
       <zk-auto-form :serviceConfig="viewModel" v-if="async"></zk-auto-form>
       <div class="admin-faq">

@@ -1,6 +1,6 @@
 <template>
   <div class="admin-reward">
-    <x-border title="分润编辑" color="accent">
+    <x-border title="分润编辑" type="accent">
       <el-form label-position="right" label-width="160px">
         <el-tabs class="admin-reward_tabs">
           <el-tab-pane>

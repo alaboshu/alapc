@@ -6,7 +6,7 @@
         <p>限制的为触发用户类型</p>
       </div>
     </div>
-    <x-line :border="true" title="收益用户,获利会员设置" color="metal" icon="flaticon-users" style="padding:0px 15px;">
+    <x-line :border="true" title="收益用户,获利会员设置" type="metal" icon="flaticon-users" style="padding:0px 15px;">
       <el-form-item label="是否限制获利会员类型">
         <el-switch v-model="viewModel.userConfig.orderUser.isLimitOrderUserType" @change="headleSwitch(viewModel.userConfig.orderUser.isLimitOrderUserType, 'orderUser')"></el-switch>
         <div class="demo_intro">开启获利会员限制后，只对特定的用户类型有效</div>
@@ -14,7 +14,7 @@
       <edit-range-user-form v-show="viewModel.userConfig.orderUser.isLimitOrderUserType" type="orderUser" :viewModel="viewModel.userConfig.orderUser"></edit-range-user-form>
     </x-line>
 
-    <x-line :border="true" title="订单用户,触发会员设置" color="metal" icon="null" style="padding:0px 15px;">
+    <x-line :border="true" title="订单用户,触发会员设置" type="metal" icon="null" style="padding:0px 15px;">
       <el-form-item label="是否限制触发会员类型">
         <el-switch v-model="viewModel.userConfig.shareUser.isLimitShareUserType" @change="headleSwitch(viewModel.userConfig.shareUser.isLimitShareUserType, 'shareUser')"></el-switch>
         <div class="demo_intro">开启触发会员限制后，只对特定的用户类型有效</div>

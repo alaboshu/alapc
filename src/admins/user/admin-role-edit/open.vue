@@ -1,10 +1,10 @@
 <template>
-  <x-border title="平台功能" color="accent" icon="flaticon-puzzle">
+  <x-border title="平台功能" type="accent" icon="flaticon-puzzle">
     <div class="platform-function_box">
       <div class="platform-function">
         <div class="platform_intro">您可以根据您项目的实际需求，选择开启或关闭某些功能</div>
       </div>
-      <x-line :border="true" title="平台(勾选启用)" color="metal" icon="flaticon-users">
+      <x-line :border="true" title="平台(勾选启用)" type="metal" icon="flaticon-users">
         <div class="role-item_box">
           <div class="el-tree_list">
             <el-tree :data="data2" show-checkbox node-key="id" :default-expanded-keys="[2, 3]" :default-checked-keys="[5]" :props="defaultProps">

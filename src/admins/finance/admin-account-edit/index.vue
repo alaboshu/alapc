@@ -1,5 +1,5 @@
 <template>
-  <x-border title="财务详情" color="danger" icon="flaticon-bag">
+  <x-border title="财务详情" type="danger" icon="flaticon-bag">
     <div class="account-details" v-if="viewModel">
       <div class="account-card">
         <ul>
@@ -11,7 +11,7 @@
           </li>
         </ul>
       </div>
-      <x-line :border="true" title="资产操作" color="primary" icon="flaticon-interface-4">
+      <x-line :border="true" title="资产操作" type="primary" icon="flaticon-interface-4">
         <div class="assets-operation">
           <el-form :model="ruleForm" label-width="200px" size="medium" class="form-open">
             <el-form-item label="用户信息">

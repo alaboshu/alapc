@@ -1,5 +1,5 @@
 <template>
-  <x-border title="单数据统计添加" color="success">
+  <x-border title="单数据统计添加" type="success">
     <div class="zk-report-edit" v-if="async">
       <el-form ref="form" label-width="250px" class="report-form">
         <el-form-item label="名称">

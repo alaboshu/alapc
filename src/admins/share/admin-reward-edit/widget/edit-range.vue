@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-line :border="true" title="价格限制，订单金额相关限制" color="metal" icon="flaticon-infinity" style="padding:0px 15px;">
+    <x-line :border="true" title="价格限制，订单金额相关限制" type="metal" icon="flaticon-infinity" style="padding:0px 15px;">
       <el-form-item label="价格限制方式">
         <x-radio v-model="viewModel.range.priceLimitType" type="PriceLimitType"></x-radio>
         <div class="demo_intro">订单总价：按商品的订单总金额限制。商品单价限制：按当个商品的价格显示</div>
@@ -19,7 +19,7 @@
         <div class="demo_intro">用户或用户类型升级：用户或用户类型升级:比如会员注册、会员升级，省代理加盟、门店开通等。商城购物订单：指商城系统下单</div>
       </el-form-item>
     </x-line>
-    <x-line :border="true" v-if="viewModel.range.triggerType === 2" title="商品范围" color="metal" icon="flaticon-rocket" style="padding:0px 15px;">
+    <x-line :border="true" v-if="viewModel.range.triggerType === 2" title="商品范围" type="metal" icon="flaticon-rocket" style="padding:0px 15px;">
       <el-form-item label="分润价格类型">
         <x-radio v-model="viewModel.range.productRule.amountType" type="PriceType"></x-radio>
         <div class="demo_intro">分润所依赖的数据来源，不同的价格在不同的地方设置。商品价格、分润价格在商品编辑处设置</div>

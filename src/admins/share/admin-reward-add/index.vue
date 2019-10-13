@@ -1,5 +1,5 @@
 <template>
-  <x-border :title="widgetModel.name" v-if="async" color="success">
+  <x-border :title="widgetModel.name" v-if="async" type="success">
     <div class="admin-reward-add">
       <zk-auto-form :serviceConfig="widgetModel.autoForm"></zk-auto-form>
     </div>

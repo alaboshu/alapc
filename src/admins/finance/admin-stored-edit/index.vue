@@ -1,5 +1,5 @@
 <template>
-  <x-border title="储值充值" color="primary">
+  <x-border title="储值充值" type="primary">
     <div class="admin-stored-edit">
       <el-form label-width="250px">
         <el-form-item label="套餐">

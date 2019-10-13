@@ -14,7 +14,7 @@
         </el-form>
       </div>
       <div class="product-line_table">
-        <x-line :border="true" title="产品线商品" icon="null" color="metal">
+        <x-line :border="true" title="产品线商品" icon="null" type="metal">
           <div slot="headerRight" class="add-buttom" @click="addGood">新增商品</div>
           <el-form :model="ruleForm" label-width="200px" size="medium" class="form-open">
             <el-form-item :required="true">

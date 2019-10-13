@@ -1,6 +1,6 @@
 <template>
   <div v-if="inshow">
-    <x-border icon="zk-home" :title="borderTitle" color="accent">
+    <x-border icon="zk-home" :title="borderTitle" type="accent">
       <div class="relation" v-if="async">
         <el-button class="buttom" @click="addclass(0)" type="primary">添加分类</el-button>
         <zk-treetable :data="viewModel" :edit="edit" :addclass="addclass" :columns="columns" :detele="detele" class="content" border></zk-treetable>

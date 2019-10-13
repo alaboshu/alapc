@@ -1,5 +1,5 @@
 <template>
-  <x-border title="门店设置" color="primary">
+  <x-border title="门店设置" type="primary">
     <div class="admin-store-settings">
       <el-form el-form ref="form" label-width="250px">
         <el-form-item label="店铺名称">

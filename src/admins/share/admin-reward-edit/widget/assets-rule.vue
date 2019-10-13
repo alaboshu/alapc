@@ -5,7 +5,7 @@
         <p>不同的分润维度，可以分配到不同的资产账户，总比例必须等于1，<span>资产账户管理</span></p>
       </div>
     </div>
-    <x-line :border="true" title="不同的分润维度，可以分配到不同的资产账户，总比例必须等于1" color="brand" icon="null" style="padding:0px 15px;">
+    <x-line :border="true" title="不同的分润维度，可以分配到不同的资产账户，总比例必须等于1" type="brand" icon="null" style="padding:0px 15px;">
       <div class="asset_table">
         <el-table :data="viewModel.ruleItems" style="width: 100%">
           <el-table-column prop="moneyTypeId">

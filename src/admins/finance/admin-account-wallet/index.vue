@@ -1,5 +1,5 @@
  <template>
-  <x-border title="我的钱包" color="brand" icon="flaticon-bag">
+  <x-border title="我的钱包" type="brand" icon="flaticon-bag">
     <div class="account-wallet">
       <div class="account-card">
         <ul>

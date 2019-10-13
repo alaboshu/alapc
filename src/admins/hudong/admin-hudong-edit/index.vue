@@ -1,5 +1,5 @@
 <template>
-  <x-border :title="viewModel.name" color="brand">
+  <x-border :title="viewModel.name" type="brand">
     <div class="admin-hudong-edit">
       <div class="hudong-edit-box">
         <div class="hudong-edit_left">
@@ -24,7 +24,7 @@
               </el-form-item>
             </el-form>
           </div>
-          <x-line :border="true" title="奖品设置" icon="null" color="metal">
+          <x-line :border="true" title="奖品设置" icon="null" type="metal">
             <div class="line-buttom" v-if="$route.query.Type !== 'BigWheel'" slot="headerRight">新增奖品设置</div>
             <div class="hudong-edit_table">
               <el-table :data="viewModel.awards" style="width: 100%" border>
@@ -75,7 +75,7 @@
               </el-table>
             </div>
           </x-line>
-          <x-line :border="true" title="游戏规则设定" icon="null" color="metal">
+          <x-line :border="true" title="游戏规则设定" icon="null" type="metal">
             <div class="game-rule">
               <div class="activity-content">
                 <p>活动内容：</p>

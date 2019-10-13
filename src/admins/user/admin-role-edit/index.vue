@@ -1,5 +1,5 @@
 <template>
-  <x-border title="岗位权限" color="success" icon="flaticon-add-circular-button">
+  <x-border title="岗位权限" type="success" icon="flaticon-add-circular-button">
     <div class="role-box" v-if="async">
       <div>
         <el-form label-width="200px" size="medium" class="form-open">
@@ -14,7 +14,7 @@
         </el-form>
       </div>
       <div>
-        <x-line :border="true" title="选择该岗位的权限" color="metal" icon="flaticon-layers">
+        <x-line :border="true" title="选择该岗位的权限" type="metal" icon="flaticon-layers">
           <el-form label-width="200px" size="medium" class="form-open">
             <el-form-item label="" :required="true">
               <div class="role-item_box">

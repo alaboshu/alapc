@@ -3,7 +3,7 @@
     <x-table :config="viewModel" v-if="async"></x-table>
   </x-border> -->
   <div class="admin-auto-task">
-    <x-border title="重新生成组织架构图" color="accent">
+    <x-border title="重新生成组织架构图" type="accent">
       <div class="auto-task_one">
         <div class="warm-prompt">
           <p class="warm-prompt_p"><span class="warm-prompt_span">温馨提示！</span>重新生成组织架构图</p>
@@ -13,7 +13,7 @@
       </div>
     </x-border>
     <div class="auto-task_box">
-      <x-border title="最近重新生成组织架构图后台队列任务" color="accent">
+      <x-border title="最近重新生成组织架构图后台队列任务" type="accent">
         <div class="task_box-table">
           <el-table :data="tableData" style="width: 100%">
             <div v-for="(item,index) in confing" :key="index">

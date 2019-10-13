@@ -1,5 +1,5 @@
 <template>
-  <x-border title="活动设置" color="focus">
+  <x-border title="活动设置" type="focus">
     <div class="product-activity">
       <el-tabs tab-position="left" v-model="activeName">
         <el-tab-pane v-for="(item, index) in editList" :key="index" :label="item.name" :name="item.num">

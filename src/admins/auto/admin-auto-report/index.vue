@@ -2,7 +2,7 @@
   <div v-if="async">
     <div v-for="(widget,widgetIndex) in viewModel" :key="widgetIndex" class="auto-report_list">
       <div v-if="widget.autoReportChart" class="report_list-box">
-        <x-border :title="widget.name" color="success">
+        <x-border :title="widget.name" type="success">
           <zk-report-chart :widget="widget"></zk-report-chart>
         </x-border>
       </div>
