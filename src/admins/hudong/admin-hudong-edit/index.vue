@@ -25,7 +25,7 @@
             </el-form>
           </div>
           <x-line :border="true" title="奖品设置" icon="null" color="metal">
-            <div class="line-buttom" v-if="$route.query.Type !== 'BigWheel'" slot="borderFooter">新增奖品设置</div>
+            <div class="line-buttom" v-if="$route.query.Type !== 'BigWheel'" slot="headerRight">新增奖品设置</div>
             <div class="hudong-edit_table">
               <el-table :data="viewModel.awards" style="width: 100%" border>
                 <el-table-column label="图片" width="70px">

@@ -1,17 +1,15 @@
 
 <template>
-  <div class="border01">
-    <div class="widget-header" :style="{background:backGroundColor}" v-if="headType">
+  <div class="x-border">
+    <div class="widget-header" :style="{background:backGroundColor}">
       <span class="more"></span>
       <h3 class="widget-header-title" :style="{color:fontColor}">
-        <i class="iconver iconfont glyph-icon" :class="Icon" v-if="iconShow" :style="{color:fontColor}"></i>
-        <x-icon class="iconver" :src="iconType.path" v-else></x-icon>
+        <x-icon class="iconver" :name="borderIcon" :color="fontColor"></x-icon>
         {{borderTitle}}
         <div class="widget-header-desc" v-if="description">{{description}}</div>
       </h3>
-
       <div class="header-right">
-        <slot name="borderFooter"></slot>
+        <slot name="headerRight"></slot>
       </div>
     </div>
     <div class="widget-body">
@@ -27,10 +25,9 @@
   export default {
     data () {
       return {
-        Icon: null,
+        borderIcon: null,
         backGroundColor: '#ffffff',
         fontColor: '#575962',
-        iconShow: true,
         description: null,
         borderTitle: null
       }
@@ -47,15 +44,6 @@
       },
       icon: {
         default: null
-      },
-      headType: {
-        default: true
-      },
-      iconType: {
-        default: null
-      },
-      bgColor: {
-        default: null
       }
     },
     mounted () {
@@ -67,19 +55,19 @@
         this.borderTitle = null
         this.backGroundColor = '#ffffff'
         this.fontColor = '#575962'
-        this.Icon = null
+        this.borderIcon = null
         this.iconShow = true
         if (title && !this.borderTitle) {
           this.borderTitle = title
         }
         if (icon) {
-          this.Icon = icon
+          this.borderIcon = icon
         }
         if (color) {
           this.convert(color)
         }
-        if (!this.Icon && this.$base.filter() === 3) {
-          this.Icon = service.getAdminIcon()
+        if (!this.borderIcon && this.$base.filter() === 3) {
+          this.borderIcon = service.getAdminborderIcon()
         }
         this.description = desc
       },
@@ -87,9 +75,9 @@
         if (this.iconType === null) {
           this.iconShow = true
           if (!this.icon) {
-            this.Icon = this.$random.icon()
+            this.borderIcon = this.$random.icon()
           } else {
-            this.Icon = this.icon
+            this.borderIcon = this.icon
           }
         } else {
           this.iconShow = false
@@ -144,5 +132,5 @@
 </script>
 <style lang="scss" rel="stylesheet/scss">
   @import "~_style_all/theme.scss";
-  @import "./border01.scss";
+  @import "./style.scss";
 </style>

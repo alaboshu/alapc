@@ -2,7 +2,7 @@
   <x-border ref="xBorder">
     <x-table ref="xTable" :type="table.type" @afterTableLoad="afterTableLoad" :columns="table.columns" v-if="table.type">
     </x-table>
-    <div v-if="$base.filter() === 3" class="derived-box" slot="borderFooter">
+    <div v-if="$base.filter() === 3" class="derived-box" slot="headerRight">
       <el-popover placement="bottom-end" trigger="hover">
         <div class="derived_popover">
           <ul>

@@ -73,6 +73,9 @@ export default {
     if (route.query !== undefined && route.query.key !== undefined) {
       return route.query.key
     }
+    if (route.query !== undefined && route.query.Key !== undefined) {
+      return route.query.Key
+    }
     if (route.meta !== undefined && route.meta.type !== undefined) {
       return route.meta.type
     }

@@ -11,10 +11,10 @@
         </span>
       </div>
       <div class="header-right">
-        <slot name="borderFooter"></slot>
+        <slot name="headerRight"></slot>
       </div>
     </div>
-    <div class="line-body">
+    <div class=" line-body">
       <slot></slot>
     </div>
     <div class="line-footer">
