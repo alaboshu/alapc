@@ -18,7 +18,6 @@
       },
       name: {
         type: String
-
       }
     },
     mounted () {
