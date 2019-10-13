@@ -97,7 +97,7 @@
             this.viewModel.description = this.border.description
           }
           if (this.border.icon) {
-            if (this.border.icon.includes('fa-') !== -1) {
+            if (this.border.icon.includes('fa-') === -1) {
               this.viewModel.icon = this.border.icon
             }
           }
@@ -106,8 +106,6 @@
           this.viewModel.icon = this.$random.icon()
         }
         this.viewModel.title = this.border.title
-        console.info('thsi.border', this.border)
-        console.info('this.titl', this.viewModel.title)
         this.convert(this.type)
         this.async = true
       },

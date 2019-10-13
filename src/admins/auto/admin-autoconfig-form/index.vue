@@ -1,5 +1,5 @@
 <template>
-  <x-border v-if="widgetModel" icon="icon-5333-xiufifen" ref="xBorder" :border="widgetModel.border">
+  <x-border v-if="widgetModel" icon="flaticon-settings" ref="xBorder" :border="widgetModel.border">
     <zk-auto-form :serviceConfig="widgetModel" ref="zkAutoForm" @saveForm="saveForm"></zk-auto-form>
   </x-border>
 </template>
@@ -29,9 +29,7 @@
         var response = await this.$api.httpGet('/Api/Auto/Form', par)
         if (response.status === 1) {
           this.widgetModel = response.result
-          this.$nextTick(() => {
-            this.$refs.xBorder.changeStyle(this.widgetModel.name, this.widgetModel.icon)
-          })
+
           this.$base.setTitle(this.widgetModel.name)
         }
         console.info('auto Form 表格结构', this.widgetModel)
