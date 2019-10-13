@@ -1,5 +1,5 @@
 <template>
-  <x-border v-if="widgetModel" ref="xBorder">
+  <x-border v-if="widgetModel" ref="xBorder" :border="widgetModel.border">
     <zk-auto-form :serviceConfig="widgetModel" ref="zkAutoForm" @saveForm="saveForm"></zk-auto-form>
   </x-border>
 </template>

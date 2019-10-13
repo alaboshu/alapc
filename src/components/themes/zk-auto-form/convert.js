@@ -12,11 +12,11 @@ export default {
   async toTabConfig (serviceConfig) {
     var formConfig = {}
     formConfig.config = {
-      name: serviceConfig.name,
-      title: serviceConfig.title,
-      bottonText: serviceConfig.bottonText,
-      apiUrl: serviceConfig.service.postApi,
-      successReturn: serviceConfig.service.successReturn
+      name: serviceConfig.border.title,
+      title: serviceConfig.border.title,
+      bottonText: serviceConfig.tooltip.bottonText,
+      apiUrl: '/api/auto/save'
+      // successReturn: serviceConfig.service.successReturn
     }
     formConfig.list = []
     var tab = {

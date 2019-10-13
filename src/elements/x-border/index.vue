@@ -1,6 +1,6 @@
 
 <template>
-  <div class="x-border">
+  <div class="x-border" v-if="async">
     <div class="widget-header" :style="{background:backGroundColor}">
       <span class="more"></span>
       <h3 class="widget-header-title" :style="{color:fontColor}">
@@ -29,7 +29,8 @@
         backGroundColor: '#ffffff',
         fontColor: '#575962',
         description: null,
-        borderTitle: null
+        borderTitle: null,
+        async: false
       }
     },
     props: {
@@ -77,16 +78,34 @@
         this.description = desc
       },
       async init () {
-        if (!this.icon) {
-          this.borderIcon = this.$random.icon()
-        } else {
+        if (this.icon) {
           this.borderIcon = this.icon
         }
         if (this.title) {
           this.borderTitle = this.title
         }
-        this.description = this.desc
+        if (this.desc) {
+          this.description = this.desc
+        }
+        if (this.border) {
+          if (this.border.title) {
+            this.borderTitle = this.border.title
+          }
+          if (this.border.description) {
+            this.description = this.border.description
+          }
+          if (this.border.icon) {
+            if (this.border.icon.includes('fa-') !== -1) {
+              this.borderIcon = this.border.icon
+            }
+          }
+        }
+        if (!this.icon) {
+          this.borderIcon = this.$random.icon()
+        }
+        console.info('thsi.border', this.border)
         this.convert(this.type)
+        this.async = true
       },
       convert (type) {
         if (type === 'brand') {
