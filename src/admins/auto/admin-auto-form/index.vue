@@ -1,5 +1,5 @@
 <template>
-  <x-border :title="bordetTitle" icon="flaticon-settings" v-if="async" v-loading="loading" ref="xBorder">
+  <x-border v-if="async" v-loading="loading" ref="xBorder">
     <zk-auto-form @formLoad="formLoad" :serviceConfig="viewModel" @saveForm="saveForm" ref="zkAutoForm"></zk-auto-form>
   </x-border>
 </template>
@@ -15,9 +15,7 @@
       return {
         async: false,
         viewModel: null,
-        loginUser: '',
-        loading: true,
-        bordetTitle: ''
+        loading: true
       }
     },
     mounted () {
@@ -25,7 +23,6 @@
     },
     methods: {
       async  init () {
-        this.bordetTitle = this.title
         var type = this.$crud.getType()
         if (this.widgetData.value !== undefined && this.widgetData.value !== null && this.widgetData.value.type !== undefined) {
           type = this.widgetData.value.type
@@ -46,7 +43,6 @@
           })
         } else {
           this.viewModel = response.result
-          this.bordetTitle = this.viewModel.name
           this.async = true
         }
         console.info('auto Form 表格结构', this.viewModel)
