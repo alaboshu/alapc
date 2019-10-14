@@ -23,7 +23,6 @@
     methods: {
       async init () {
         this.type = this.$crud.getType()
-
         if (!this.type) {
           this.$admin.message('网址输入不正确，autoconfig请输入相关的key')
         }
@@ -35,20 +34,21 @@
           this.$refs.xBorder.init(dataResult.border)
         })
       },
-      watchWidgetAutoConfig (val) {
+      watchRoute (val) {
         if (this.firstLoad === true) {
           return // 第一次加载，不监听路由，防止二次触发
         }
-        console.info('watchWidgetAutoConfig list', this.type, this.widget)
+        if (this.$base.router().path !== '/Admin/AutoConfig/List') {
+          return // 调转到其他页面时，不执行
+        }
         this.init()
-        console.info('auto list type', this.type)
         this.$nextTick(() => {
           this.$refs.xTable.init(this.type)
         })
       }
     },
     watch: {
-      $route: 'watchWidgetAutoConfig'
+      $route: 'watchRoute'
     }
   }
 </script>

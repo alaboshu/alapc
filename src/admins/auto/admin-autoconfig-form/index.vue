@@ -11,7 +11,8 @@
   export default {
     data () {
       return {
-        widgetModel: null
+        widgetModel: null,
+        firstLoad: true // 首次加载
       }
     },
     props: {
@@ -29,9 +30,9 @@
         var response = await this.$api.httpGet('/Api/Auto/Form', par)
         if (response.status === 1) {
           this.widgetModel = response.result
-
           this.$base.setTitle(this.widgetModel.name)
         }
+        this.firstLoad = false
       },
       async saveForm (models) {
         let parameter = {
@@ -42,14 +43,19 @@
         var response = await this.$api.httpPost('/api/auto/save', parameter)
         this.$crud.message(response)
       },
-      async wathcRouteAutoConfigForm () {
-        console.info('this.widget wathcRouteAutoConfigForm', this.widget)
+      async wathcRoute () {
+        if (this.firstLoad === true) {
+          return // 第一次加载，不监听路由，防止二次触发
+        }
+        if (this.$base.router().path !== '/Admin/AutoConfig/Edit') {
+          return // 调转到其他页面时，不执行
+        }
         this.widgetModel = null
         await this.init()
       }
     },
     watch: {
-      $route: 'wathcRouteAutoConfigForm'
+      $route: 'wathcRoute'
     }
   }
 </script>
