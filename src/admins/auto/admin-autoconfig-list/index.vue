@@ -37,6 +37,7 @@
         })
       },
       watchWidget (val) {
+        console.info('重新出发', this.widget)
         this.type = null
         this.init()
         this.$nextTick(() => {
@@ -45,7 +46,8 @@
       }
     },
     watch: {
-      $route: 'watchWidget'
+      // 2019年10月14日 注释发现重复出发bug
+      //  $route: 'watchWidget'
     }
   }
 </script>
