@@ -83,7 +83,7 @@
         if (this.icon) {
           this.viewModel.icon = this.icon
         }
-        console.info('sssss', this.title)
+
         if (this.title) {
           this.viewModel.title = this.title
         }
@@ -106,7 +106,6 @@
         if (!this.icon) {
           this.viewModel.icon = this.$random.icon()
         }
-        this.viewModel.title = this.border.title
         this.convert(this.type)
         this.async = true
       },

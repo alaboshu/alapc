@@ -1,5 +1,5 @@
 <template>
-  <x-border v-if="data" :title="data.title" :type="data.color" icon="flaticon-alert">
+  <x-border v-if="data" :title="data.title" :type="data.type" icon="flaticon-alert">
     <div class="admin-operation-interface">
       <div class="operation_box">
         <div class="m-portlet__body">
@@ -12,8 +12,7 @@
           <div class="alert-primary_buttom">
             <div class="buttom-a" @click="getReturn(0)">返回上一页</div>
             <div class="buttom-a" @click="goHome">系统首页</div>
-
-            <div class="buttom-a" @click="goUrl(item)" v-for="(item,index) in history" :key="index" v-show="index<=2">{{item.name}}</div>
+            <div class="buttom-a" @click="goUrl(item)" v-for="(item,index) in history" :key="index" v-show="index<=2 &&item.name">{{item.name}}</div>
           </div>
         </div>
       </div>
@@ -39,7 +38,6 @@
           message: this.$route.query.message,
           type: this.$crud.getType()
         }
-
         this.data.type = 'success'
         if (this.data.type === 'danger' || this.data.type === 'error') {
           this.data.type = 'danger'
@@ -49,7 +47,6 @@
           this.data.title = '提示信息'
         }
         this.history = this.$api.vuexLocalGet('admin_browsing_history')
-        console.info('data', this.data)
       },
       getReturn () {
         var list = this.$api.vuexLocalGet('admin_browsing_history')
