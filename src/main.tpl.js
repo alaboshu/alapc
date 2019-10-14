@@ -6,7 +6,9 @@ import ElementUI from 'element-ui'
 import VCharts from 'v-charts'
 import GlobalUtils from '@/service/prototypes/prototype'
 import VueLazyload from 'vue-lazyload'
+import mavonEditor from 'mavon-editor'
 
+import 'mavon-editor/dist/css/index.css'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/style/element-variables.scss'
 import '@/assets/style/pc/index.scss'
@@ -16,6 +18,7 @@ import '@/assets/style/iconall/css/iconfount.css'
 
 /* 5ug auto-import */
 
+Vue.use(mavonEditor)
 Vue.use(ElementUI)
 Vue.use(VCharts)
 Vue.use(GlobalUtils)

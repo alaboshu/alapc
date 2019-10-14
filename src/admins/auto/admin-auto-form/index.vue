@@ -45,8 +45,10 @@
           this.viewModel = response.result
           this.async = true
         }
-        var border = this.$crud.getBorder(this.viewModel.border, this.widgetData.value)
-        this.$refs.xBorder.init(border)
+        this.$nextTick(() => {
+          var border = this.$crud.getBorder(this.viewModel.border, this.widgetData.value)
+          this.$refs.xBorder.init(border)
+        })
         console.info('auto Form 表格结构', this.viewModel)
       },
       async saveForm (models) {
