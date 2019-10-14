@@ -28,11 +28,11 @@
     <el-table v-show="!isTemplate" class="table_box" ref="table" :data="dataResult.result.result" :stripe="true" :fit="true" :highlight-current-row="true">
       <slot name="prepend" />
       <div v-for="(column, columnIndex) in dataResult.columns" :key="columnIndex">
-        <el-table-column :class="column.style.align" border :column-key="column.columnKey" :label="column.label+column.style.type" :width="column.style.width" :prop="column.prop" :fixed="column.fixed" :render-header="column.headBackground" :sortable="column.sortable" :sort-by="column.sortBy" :sort-method="column.method" :show-overflow-tooltip="false" :align="column.style.algin" header-align="center" :class-name="column.className" :label-class-name="column.labelClassName" :selectable="column.selectable" :reserve-selection="column.reserveSelection" :filters="column.filters" :filter-placement="column.filterPlacement" :filter-multiple="column.filterMultiple" :filter-method="column.filterMethod" :filtered-value="column.filteredValue">
+        <el-table-column :class="column.style.align" border :column-key="column.columnKey" :label="column.label" :width="column.style.width" :prop="column.prop" :fixed="column.fixed" :render-header="column.headBackground" :sortable="column.sortable" :sort-by="column.sortBy" :sort-method="column.method" :show-overflow-tooltip="false" :align="column.style.algin" header-align="center" :class-name="column.className" :label-class-name="column.labelClassName" :selectable="column.selectable" :reserve-selection="column.reserveSelection" :filters="column.filters" :filter-placement="column.filterPlacement" :filter-multiple="column.filterMultiple" :filter-method="column.filterMethod" :filtered-value="column.filteredValue">
           <template slot-scope="scope" :scope="newSlotScope ? 'scope' : false">
             <span v-if="column.style.type  === 'icon'">
               <x-icon :src="scope.row[column.prop].name" :name="scope.row[column.prop]" :title="scope.row[column.prop]"></x-icon>
-              {{scope.row[column.prop].name}}
+
             </span>
             <column-link v-if="column.style.type  === 'link'" :class="column.style.align" :value='scope.row' :url='column.style.parameter' :title="scope.row[column.prop]">
             </column-link>

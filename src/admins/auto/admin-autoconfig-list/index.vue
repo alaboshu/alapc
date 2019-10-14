@@ -37,18 +37,16 @@
           this.$refs.xBorder.init(dataResult.border)
         })
       },
-      watchWidget (val) {
-        // console.info('重新出发', this.widget)
-        // this.type = null
-        // this.init()
-        // this.$nextTick(() => {
-        //   this.$refs.xTable.init(this.type)
-        // })
+      watchWidgetAutoConfig (val) {
+        this.type = null
+        this.init()
+        this.$nextTick(() => {
+          this.$refs.xTable.init(this.type)
+        })
       }
     },
     watch: {
-      // 2019年10月14日 注释发现重复出发bug
-      //  $route: 'watchWidget'
+      $route: 'watchWidgetAutoConfig'
     }
   }
 </script>

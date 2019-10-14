@@ -32,7 +32,6 @@
 
           this.$base.setTitle(this.widgetModel.name)
         }
-        console.info('auto Form 表格结构', this.widgetModel)
       },
       async saveForm (models) {
         let parameter = {
@@ -44,13 +43,14 @@
         console.info('response', response)
         this.$crud.message(response)
       },
-      async wathcRoute () {
+      async wathcRouteAutoConfigForm () {
+        console.info('this.widget', this.widget)
         this.widgetModel = null
         await this.init()
       }
     },
     watch: {
-      $route: 'wathcRoute'
+      $route: 'wathcRouteAutoConfigForm'
     }
   }
 </script>
