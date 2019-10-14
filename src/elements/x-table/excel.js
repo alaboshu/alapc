@@ -16,8 +16,8 @@ export default {
       }
     }
 
-    if (jsThis.$route.query.key !== undefined) {
-      type = jsThis.$route.query.key
+    if (jsThis.$crud.getType() !== undefined) {
+      type = jsThis.$crud.getType()
     }
     if (command === 'exportTabl') {
       jsThis.fetchHandlersPara = {

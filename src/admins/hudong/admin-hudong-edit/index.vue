@@ -130,9 +130,9 @@
           this.express = responseOption.result
         }
         var para = {
-          key: this.$route.query.Type
+          key: this.$crud.getType()
         }
-        if (this.$route.query.Type !== undefined) {
+        if (this.$crud.getType()) {
           var response = await this.$api.httpGet('/Api/Hudong/GetView', para)
           if (response.status === 1) {
             this.viewModel = response.result
@@ -147,7 +147,7 @@
         }
       },
       async saveForm (model) {
-        this.viewModel.key = this.$route.query.Type
+        this.viewModel.key = this.$crud.getType()
         this.viewModel.userId = this.$user.loginUser().id
         var response = await this.$api.httpPost('/Api/Hudong/edit', this.viewModel)
         if (response.status === 1) {

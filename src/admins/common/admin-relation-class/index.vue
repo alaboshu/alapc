@@ -60,9 +60,9 @@
           userId: this.$user.id(this.widgetData.tenan)
         }
         var data = await this.$crud.getView('Api/relation/ViewById')
-        if (this.$route.query.Type !== '' && this.$route.query.Type !== null && this.$route.query.Type !== undefined) {
-          data.type = this.$route.query.Type
-          para.type = this.$route.query.Type
+        if (this.$crud.getType()) {
+          data.type = this.$crud.getType()
+          para.type = this.$crud.getType()
         } else {
           data.type = type
         }

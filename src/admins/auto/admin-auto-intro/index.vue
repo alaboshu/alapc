@@ -25,7 +25,7 @@
         this.async = false
         if (this.viewModel === null) {
           var para = {
-            type: this.$route.query.type
+            type: this.$crud.getType()
           }
           var response = await this.$api.httpGet('/Api/auto/intro', para)
           if (response.status === 1) {

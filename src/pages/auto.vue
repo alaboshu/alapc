@@ -20,7 +20,7 @@
     },
     methods: {
       async init () {
-        var type = this.$route.query.type
+        var type = this.$crud.getType()
         if (type === undefined) {
           this.$alert('类型不能为空', '提示', {
             confirmButtonText: '确定'

@@ -39,7 +39,7 @@
         this.data = {
           message: this.$route.query.message,
           title: this.$route.query.title,
-          type: this.$route.query.type
+          type: this.$crud.getType()
         }
         this.data.color = 'success'
         if (this.data.type === 'danger' || this.data.type === 'error') {

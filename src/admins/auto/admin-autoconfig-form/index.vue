@@ -36,16 +36,9 @@
       },
       async saveForm (models) {
         let parameter = {
-          type: this.$route.query.key,
+          type: this.$crud.getType(),
           userId: this.$user.id(),
           model: JSON.stringify(models)
-        }
-        if (parameter.type === undefined) {
-          if (this.$route.query.type !== undefined) {
-            parameter.type = this.$route.query.type
-          } else if (this.$route.query.Type !== undefined) {
-            parameter.type = this.$route.query.Type
-          }
         }
         var response = await this.$api.httpPost('/api/auto/save', parameter)
         this.$crud.message(response)
