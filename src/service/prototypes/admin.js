@@ -35,6 +35,7 @@ export default {
             twoMenu.oneIndex = index
             twoMenu.twoIndex = twoIndex
             twoMenu.threeIndex = 0
+            twoMenu.open = false
             twoMenu.showChildMenu = showChildMenu
             twoMenu.asideWidth = asideWidth
             if (twoMenu.menus) {
