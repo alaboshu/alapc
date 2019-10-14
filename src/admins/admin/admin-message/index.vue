@@ -11,8 +11,8 @@
           </div>
           <div class="alert-primary_buttom">
             <div class="buttom-a" @click="getReturn(0)">返回上一页</div>
-            <div class="buttom-a" @click="goHome">系统首页</div>
-            <div class="buttom-a" @click="goUrl(item)" v-for="(item,index) in history" :key="index" v-show="index<=2 &&item.name">{{item.name}}</div>
+            <div class="buttom-a" @click="goUrl(item)" v-for="(item,index) in history" :key="index" v-show="index<=4 &&item.name">{{item.name}}</div>
+            <div class="buttom-a buttom-home" @click="goHome">系统首页</div>
           </div>
         </div>
       </div>
@@ -48,13 +48,13 @@
         }
         this.history = this.$api.vuexLocalGet('admin_browsing_history')
         this.history = this.history.filter(r => r.id && r.name && r.url)
-        console.info('历史记录', this.history)
       },
       getReturn () {
-        var list = this.$api.vuexLocalGet('admin_browsing_history')
-        var item = list[0]
-        this.$admin.to(item.name, item.url)
-        this.$router.push(item.url)
+        this.$router.go(-1)
+        // var list = this.$api.vuexLocalGet('admin_browsing_history')
+        // var item = list[0]
+        // this.$admin.to(item.name, item.url)
+        // this.$router.push(item.url)
       },
       goHome () {
         this.$router.push('/admin/index')
