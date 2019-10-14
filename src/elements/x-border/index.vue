@@ -83,6 +83,7 @@
         if (this.icon) {
           this.viewModel.icon = this.icon
         }
+        console.info('sssss', this.title)
         if (this.title) {
           this.viewModel.title = this.title
         }

@@ -70,6 +70,9 @@ export default {
     if (route.query !== undefined && route.query.Type !== undefined) {
       return route.query.Type
     }
+    if (route.query !== undefined && route.query.type !== undefined) {
+      return route.query.type
+    }
     if (route.query !== undefined && route.query.key !== undefined) {
       return route.query.key
     }

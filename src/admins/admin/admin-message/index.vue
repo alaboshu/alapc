@@ -1,6 +1,5 @@
 <template>
-
-  <x-border v-if="data" :title="data.title" :color="data.color" icon="flaticon-alert">
+  <x-border v-if="data" :title="data.title" :type="data.color" icon="flaticon-alert">
     <div class="admin-operation-interface">
       <div class="operation_box">
         <div class="m-portlet__body">
@@ -38,18 +37,19 @@
       async init () {
         this.data = {
           message: this.$route.query.message,
-          title: this.$route.query.title,
           type: this.$crud.getType()
         }
-        this.data.color = 'success'
+
+        this.data.type = 'success'
         if (this.data.type === 'danger' || this.data.type === 'error') {
-          this.data.color = 'danger'
+          this.data.type = 'danger'
           this.backgroundColor = '#f4516c'
         }
         if (!this.data.title) {
           this.data.title = '提示信息'
         }
         this.history = this.$api.vuexLocalGet('admin_browsing_history')
+        console.info('data', this.data)
       },
       getReturn () {
         var list = this.$api.vuexLocalGet('admin_browsing_history')

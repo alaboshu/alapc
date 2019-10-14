@@ -41,6 +41,7 @@
           model: JSON.stringify(models)
         }
         var response = await this.$api.httpPost('/api/auto/save', parameter)
+        console.info('response', response)
         this.$crud.message(response)
       },
       async wathcRoute () {
