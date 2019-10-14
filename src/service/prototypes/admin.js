@@ -106,7 +106,9 @@ export default {
       list.unshift(item)
     }
     api.vuexLocalSet('admin_browsing_history', list)
-    api.vuexLocalSet('admin_current_menu', item)
+    if (item && item.id && item.name && item.url) {
+      api.vuexLocalSet('admin_current_menu', item)
+    }
     if (isDiy) {
       Vue.prototype.$bus.$emit('diyEditMenuJump', item.url)
     } else {

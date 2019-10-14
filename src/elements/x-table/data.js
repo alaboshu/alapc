@@ -5,6 +5,7 @@ import convert from './convert'
 import format from './format'
 export default {
   beforeInit (jsThis, type, columns) {
+    console.info('before init')
     // 数据初始化
     jsThis.dataResult = {
       tableActions: [],
@@ -48,6 +49,7 @@ export default {
   },
   // 获取数据
   async fetchDatas (jsThis) {
+    console.info('sssssssssssssssssss')
     if (!jsThis.$api.isEmpty(jsThis.data)) {
       jsThis.dataResult.result.result = jsThis.data
       jsThis.loading = false
