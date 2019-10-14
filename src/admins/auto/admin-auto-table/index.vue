@@ -31,12 +31,6 @@
           type: null,
           columns: null
         },
-        borderModel: {
-          title: '',
-          icon: '',
-          description: '',
-          type: ''
-        },
         widgetValue: ''
       }
     },
@@ -49,29 +43,13 @@
         this.table = this.widgetValue.table
         console.info('this.widgetValue', this.widgetValue)
       },
-      // 获取边框
-      getBorder (widget, typeBorder) {
-        if (typeBorder) {
-          this.borderModel = typeBorder // 使用服务返回的数据
-        }
-        if (this.widgetValue) {
-          // 优先级：先使用DIY传过来的数据
-          if (this.widgetValue.title) {
-            this.borderModel.title = this.widgetValue.title
-          }
-          this.borderModel.type = this.widgetValue.themeColor
-        }
-        if (!this.borderModel.title) {
-          this.borderModel.title = this.$api.vuexLocalGet('admin_current_menu').name
-        }
-      },
+
       // 表格加载完成事件
       afterTableLoad (dataResult) {
         this.$nextTick(() => {
           dataResult.border.type = this.widget.value.themeColor
-          var border = this.getBorder(dataResult.border)
-          console.info('边框', border)
-          // this.$refs.xBorder.init(border)
+          var border = this.$crud.getBorder(dataResult.border, this.widgetValue)
+          this.$refs.xBorder.init(border)
         })
       },
       toExcel (command) {

@@ -1,5 +1,5 @@
 <template>
-  <x-border v-if="async" v-loading="loading" ref="xBorder">
+  <x-border v-if="async" v-loading="loading" ref="xBorder" icon="flaticon-settings">
     <zk-auto-form @formLoad="formLoad" :serviceConfig="viewModel" @saveForm="saveForm" ref="zkAutoForm"></zk-auto-form>
   </x-border>
 </template>
@@ -45,6 +45,8 @@
           this.viewModel = response.result
           this.async = true
         }
+        var border = this.$crud.getBorder(this.viewModel.border, this.widgetData.value)
+        this.$refs.xBorder.init(border)
         console.info('auto Form 表格结构', this.viewModel)
       },
       async saveForm (models) {
@@ -83,11 +85,10 @@
       },
       // 监听 x-widget值得变化,不能直接监听路由，直接监听路由可能会导致数据延迟
       watchWidget (val) {
-        // 2019年10月14日 注释发现重复出发bug
-        // this.init().then(() => {
-        //   this.$refs.zkAutoForm.$emit('form_change_widget_data', this.viewModel)
-        //   this.$refs.xBorder.$emit('changeTitle', this.viewModel.name)
-        // })
+        this.init().then(() => {
+          this.$refs.zkAutoForm.$emit('form_change_widget_data', this.viewModel)
+          this.$refs.xBorder.$emit('changeTitle', this.viewModel.name)
+        })
       }
     }
   }

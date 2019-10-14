@@ -83,6 +83,29 @@ export default {
       return route.meta.type
     }
   },
+  // 获取边框
+  getBorder (typeBorder, widgetValue) {
+    var borderModel = {
+      title: '',
+      icon: '',
+      description: '',
+      type: ''
+    }
+    if (typeBorder) {
+      borderModel = typeBorder // 使用服务返回的数据
+    }
+    if (widgetValue) {
+      // 优先级：先使用DIY传过来的数据
+      if (widgetValue.title) {
+        borderModel.title = widgetValue.title
+      }
+      borderModel.type = widgetValue.themeColor
+    }
+    if (!borderModel.title) {
+      borderModel.title = api.vuexLocalGet('admin_current_menu').name
+    }
+    return borderModel
+  },
   // 获取URL中的ID
   getId () {
     var route = base.router()
