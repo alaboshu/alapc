@@ -22,7 +22,7 @@
       async init () {
         this.type = this.$crud.getType()
         if (this.$route.query.ChannelId === undefined) {
-          this.$admin.message('网址输入不正确，cms访问时请输入相关的ChannelId')
+          this.$admin.message('网址输入不正确，cms访问时请输入相关的ChannelId', 'danger')
         }
         var channelResponse = await this.$api.httpGet('api/Channel/ViewById', { Id: this.$route.query.ChannelId })
         if (channelResponse.status === 1) {

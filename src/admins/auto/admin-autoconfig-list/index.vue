@@ -22,10 +22,9 @@
     },
     methods: {
       async init () {
-        console.info('init')
         this.type = this.$crud.getType()
         if (!this.type) {
-          this.$admin.message('网址输入不正确，autoconfig请输入相关的key')
+          this.$admin.message('网址输入不正确，autoconfig请输入相关的key', 'danger')
         }
         this.firstLoad = false
       },

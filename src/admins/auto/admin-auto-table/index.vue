@@ -31,26 +31,50 @@
           type: null,
           columns: null
         },
-        tableName: null, // 名称,
-        icon: null
+        borderModel: {
+          title: '',
+          icon: '',
+          description: '',
+          type: ''
+        },
+        widgetValue: ''
       }
     },
     methods: {
       async init () {
-        this.tableName = this.widget.value.title
-        if (!this.tableName) {
-          this.tableName = this.$api.vuexLocalGet('admin_current_menu').name
+        if (!this.widget.value || this.widget.value.table) {
+          this.$admin.message('类型传入不正确,请重新传入', 'danger')
         }
-        this.table = this.widget.value.table
+        this.widgetValue = this.widget.value
+        this.table = this.widgetValue.table
+        console.info('this.widgetValue', this.widgetValue)
+      },
+      // 获取边框
+      getBorder (widget, typeBorder) {
+        if (typeBorder) {
+          this.borderModel = typeBorder // 使用服务返回的数据
+        }
+        if (this.widgetValue) {
+          // 优先级：先使用DIY传过来的数据
+          if (this.widgetValue.title) {
+            this.borderModel.title = this.widgetValue.title
+          }
+          this.borderModel.type = this.widgetValue.themeColor
+        }
+        if (!this.borderModel.title) {
+          this.borderModel.title = this.$api.vuexLocalGet('admin_current_menu').name
+        }
         if (this.widget.value && this.widget.value.icon) {
-          this.icon = this.widget.value.icon.name
+          // this.icon = this.widget.value.icon.name
         }
       },
       // 表格加载完成事件
       afterTableLoad (dataResult) {
         this.$nextTick(() => {
           dataResult.border.type = this.widget.value.themeColor
-          this.$refs.xBorder.init(dataResult.border)
+          var border = this.getBorder(dataResult.border)
+          console.info('边框', border)
+          this.$refs.xBorder.init(border)
         })
       },
       toExcel (command) {

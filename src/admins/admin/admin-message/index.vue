@@ -1,12 +1,12 @@
 <template>
-  <x-border v-if="data" :title="data.title" :type="data.type" icon="flaticon-alert">
+  <x-border v-if="data" :title="data.type==='success'?'操作成功':'操作失败'" :type="data.type" icon="flaticon-alert">
     <div class="admin-operation-interface">
       <div class="operation_box">
         <div class="m-portlet__body">
           <div class="alert-primary mistake-primary" :style="'background-color:'+backgroundColor">
             <div class="alert-primary_text">
               <i class="flaticon-danger"></i>
-              <span class="alert-conter">操作成功<span class="operator-text">操作成功</span></span>
+              <span class="alert-conter">{{data.type==='success'?'操作成功':'操作失败'}}<span class="operator-text">{{data.message}}</span></span>
             </div>
           </div>
           <div class="alert-primary_buttom">
@@ -38,23 +38,18 @@
           message: this.$route.query.message,
           type: this.$crud.getType()
         }
-        this.data.type = 'success'
+        if (!this.data.type) {
+          this.data.type = 'success'
+        }
         if (this.data.type === 'danger' || this.data.type === 'error') {
           this.data.type = 'danger'
           this.backgroundColor = '#f4516c'
-        }
-        if (!this.data.title) {
-          this.data.title = '提示信息'
         }
         this.history = this.$api.vuexLocalGet('admin_browsing_history')
         this.history = this.history.filter(r => r.id && r.name && r.url)
       },
       getReturn () {
         this.$router.go(-1)
-        // var list = this.$api.vuexLocalGet('admin_browsing_history')
-        // var item = list[0]
-        // this.$admin.to(item.name, item.url)
-        // this.$router.push(item.url)
       },
       goHome () {
         this.$router.push('/admin/index')
