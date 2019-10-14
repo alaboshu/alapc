@@ -33,19 +33,20 @@
             <span v-if="column.style.type  === 'icon'">
               <x-icon :src="scope.row[column.prop].name" :name="scope.row[column.prop]" :title="scope.row[column.prop]"></x-icon>
             </span>
-            <column-link v-if="column.style.type  === 'link'" :class="column.style.align" :value='scope.row' :url='column.style.parameter' :title="scope.row[column.prop]">
+            <column-link v-else-if="column.style.type  === 'link'" :class="column.style.align" :value='scope.row' :url='column.style.parameter' :title="scope.row[column.prop]">
             </column-link>
-            <column-image v-if="column.style.type  === 'image'" :url="scope.row[column.prop]">
+            <column-image v-else-if="column.style.type  === 'image'" :url="scope.row[column.prop]">
             </column-image>
             <x-label v-else-if="column.style.type  === 'label'" :color='column.style.parameter'>{{scope.row[column.prop]}}</x-label>
             <x-code v-else-if="column.style.type  === 'code'">{{scope.row[column.prop]}}</x-code>
-            <div v-else-if="column.style.type  === 'bool'" :style="{background:scope.row[column.prop]?'#68BCA4':'#DD5C6D' }">{{scope.row[column.prop]?'是':'否'}}</div>
+            <div v-else-if="column.style.type  === 'bool'">
+              <x-label :color="scope.row[column.prop]?'success':'danger'">{{scope.row[column.prop]?'是':'否'}}</x-label>
+            </div>
             <x-enum v-else-if="column.style.type  === 'enum'" :type='column.style.parameter' :value='scope.row[column.prop]'></x-enum>
             <el-button v-else-if="column.style.type  === 'button'" type="primary" @click.native="action(scope.row[column.prop], scope.row)">{{scope.row[column.prop]}}</el-button>
             <el-switch v-else-if="column.style.type  === 'switch'" v-model="scope.row[column.prop]" active-color="#13ce66" inactive-color="#ff4949" :disabled="true">
             </el-switch>
-            <div v-else v-html="scope.row[column.prop]" :class="column.style.align">{{column.style.align}}</div>
-            <div v-if="column.style.type==='action'" fixed="right" class="btn-group" @mouseenter="enter(scope.row)" @mouseleave="leave(scope.row)">
+            <div v-else-if="column.style.type==='action'" fixed="right" class="btn-group" @mouseenter="enter(scope.row)" @mouseleave="leave(scope.row)">
               <el-popover placement="bottom" width="70" trigger="hover">
                 <ul class="x-table_action">
                   <li v-for="(action,actionIndex) in  dataResult.tableActions.filter(r=>r.actionType===1)" :key="actionIndex">
@@ -58,6 +59,7 @@
                 </a>
               </el-popover>
             </div>
+            <div v-else v-html="scope.row[column.prop]" :class="column.style.align">{{column.style.align}}</div>
           </template>
         </el-table-column>
       </div>
@@ -142,6 +144,7 @@
       async init (type, columns) {
         data.beforeInit(this, type, columns)
         await data.fetchDatas(this)
+        console.info('显示的数据', this.dataResult)
         // 表格加载完成后，调用父组件中的afterTableLoad事件，完成表格加载完后的其他操作，比如修改标题，修改颜色等
         // 具体的用法可参考admin-auto-table  admin-autoconfig-list 
         this.$emit('afterTableLoad', this.dataResult)
