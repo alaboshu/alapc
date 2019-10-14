@@ -10,7 +10,8 @@
   export default {
     data () {
       return {
-        type: null
+        type: null,
+        firstLoad: true // 首次加载
       }
     },
     props: {
@@ -22,24 +23,25 @@
     methods: {
       async init () {
         this.type = this.$crud.getType()
+
         if (!this.type) {
           this.$admin.message('网址输入不正确，autoconfig请输入相关的key')
         }
-        this.$nextTick(() => {
-          var dataResult = this.$refs.xTable.dataResult
-          this.$refs.xBorder.init(dataResult.border)
-        })
+        this.firstLoad = false
       },
       // 表格加载完成事件
       afterTableLoad (dataResult) {
-        console.info('dataResult', dataResult)
         this.$nextTick(() => {
           this.$refs.xBorder.init(dataResult.border)
         })
       },
       watchWidgetAutoConfig (val) {
-        this.type = null
+        if (this.firstLoad === true) {
+          return // 第一次加载，不监听路由，防止二次触发
+        }
+        console.info('watchWidgetAutoConfig list', this.type, this.widget)
         this.init()
+        console.info('auto list type', this.type)
         this.$nextTick(() => {
           this.$refs.xTable.init(this.type)
         })

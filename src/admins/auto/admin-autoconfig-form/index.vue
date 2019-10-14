@@ -40,11 +40,10 @@
           model: JSON.stringify(models)
         }
         var response = await this.$api.httpPost('/api/auto/save', parameter)
-        console.info('response', response)
         this.$crud.message(response)
       },
       async wathcRouteAutoConfigForm () {
-        console.info('this.widget', this.widget)
+        console.info('this.widget wathcRouteAutoConfigForm', this.widget)
         this.widgetModel = null
         await this.init()
       }
