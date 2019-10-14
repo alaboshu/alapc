@@ -1,5 +1,5 @@
 <template>
-  <x-border ref="xBorder">
+  <x-border ref="xBorder" icon="flaticon-settings">
     <x-table :type="type" v-if="type" ref="xTable" @afterTableLoad="afterTableLoad"></x-table>
   </x-border>
 </template>
@@ -27,22 +27,23 @@
         }
         this.$nextTick(() => {
           var dataResult = this.$refs.xTable.dataResult
-          this.$refs.xBorder.changeStyle(dataResult.name, dataResult.icon)
+          this.$refs.xBorder.init(dataResult.border)
         })
       },
       // 表格加载完成事件
       afterTableLoad (dataResult) {
+        console.info('dataResult', dataResult)
         this.$nextTick(() => {
-          this.$refs.xBorder.changeStyle(dataResult.name, dataResult.icon)
+          this.$refs.xBorder.init(dataResult.border)
         })
       },
       watchWidget (val) {
-        console.info('重新出发', this.widget)
-        this.type = null
-        this.init()
-        this.$nextTick(() => {
-          this.$refs.xTable.init(this.type)
-        })
+        // console.info('重新出发', this.widget)
+        // this.type = null
+        // this.init()
+        // this.$nextTick(() => {
+        //   this.$refs.xTable.init(this.type)
+        // })
       }
     },
     watch: {

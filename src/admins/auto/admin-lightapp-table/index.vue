@@ -40,7 +40,7 @@
         if (response.status === 1) {
           this.dataJson = JSON.parse(response.result.autoForm)
           this.$nextTick(() => {
-            this.$refs.xBorder.changeStyle(response.result.name)
+            this.$refs.xBorder.init(response.result.border)
           })
         }
         let par = {

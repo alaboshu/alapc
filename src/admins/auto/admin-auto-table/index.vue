@@ -49,7 +49,8 @@
       // 表格加载完成事件
       afterTableLoad (dataResult) {
         this.$nextTick(() => {
-          this.$refs.xBorder.changeStyle(this.tableName, this.icon, this.widget.value.themeColor, dataResult.description)
+          dataResult.border.type = this.widget.value.themeColor
+          this.$refs.xBorder.init(dataResult.border)
         })
       },
       toExcel (command) {

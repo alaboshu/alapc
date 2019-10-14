@@ -57,29 +57,10 @@
       border: {}
     },
     mounted () {
-      this.init()
+      this.init(this.border)
     },
     methods: {
-      // 修改标题，图标和颜色
-      changeStyle (title, icon, type, desc) {
-        this.viewModel.title = null
-        this.backGroundColor = '#ffffff'
-        this.fontColor = '#575962'
-        if (title && !this.viewModel.title) {
-          this.viewModel.title = title
-        }
-        if (icon) {
-          this.viewModel.icon = icon
-        }
-        if (type) {
-          this.convert(type)
-        }
-        if (!this.viewModel.icon && this.$base.filter() === 3) {
-          this.viewModel.icon = service.getAdminviewModel.icon()
-        }
-        this.viewModel.description = desc
-      },
-      async init () {
+      async init (border) {
         if (this.icon) {
           this.viewModel.icon = this.icon
         }
@@ -90,20 +71,23 @@
         if (this.desc) {
           this.viewModel.description = this.desc
         }
-        if (this.border) {
-          if (this.border.title) {
-            this.viewModel.title = this.border.title
+        if (border) {
+          if (border.title) {
+            this.viewModel.title = border.title
           }
-          if (this.border.description) {
-            this.viewModel.description = this.border.description
+          if (border.description) {
+            this.viewModel.description = border.description
           }
-          if (this.border.icon) {
-            if (this.border.icon.includes('fa-') === -1) {
-              this.viewModel.icon = this.border.icon
+          if (border.icon) {
+            if (border.icon.includes('fa-') === -1) {
+              this.viewModel.icon = border.icon
             }
           }
         }
-        if (!this.icon) {
+        if (!this.viewModel.icon && this.$base.filter() === 3) {
+          this.viewModel.icon = service.getAdminviewModel.icon()
+        }
+        if (!this.viewModel.icon) {
           this.viewModel.icon = this.$random.icon()
         }
         this.convert(this.type)
