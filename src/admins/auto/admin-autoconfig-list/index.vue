@@ -1,6 +1,6 @@
 <template>
   <x-border ref="xBorder" icon="flaticon-settings">
-    <x-table :type="type" v-if="type" ref="xTable" @afterTableLoad="afterTableLoad"></x-table>
+    <x-table :type="type" v-if="type" :isShowPage="false" ref="xTable" @afterTableLoad="afterTableLoad"></x-table>
   </x-border>
 </template>
 

@@ -67,9 +67,10 @@ export default {
       type: jsThis.dataSourceConfig.type,
       ...jsThis.$crud.routeToObject()
     }
-
+    console.info('szzzzzz')
     var response = await jsThis.$api.httpGet(apiUrl, fetchHandlersPara)
-    if (!jsThis.$base.isBuild()) {
+    console.info('表格参数结果：', fetchHandlersPara, response)
+    if (jsThis.$base.isBuild() === false) {
       console.info('表格参数结果：', fetchHandlersPara, response)
     }
     if (response.status === 1) {

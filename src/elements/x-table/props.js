@@ -17,7 +17,11 @@ let props = {
   isTemplate: {
     type: Boolean,
     default: false
-  }, // 是否模板显示,bi
+  }, // 是否模板显示,
+  isShowPage: {
+    type: Boolean,
+    default: true
+  }, // 是否显示分页,
   widgetData: Object // 数据类型Type、过滤方式filter、标题等信息
 }
 

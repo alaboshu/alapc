@@ -32,7 +32,6 @@
           <template slot-scope="scope" :scope="newSlotScope ? 'scope' : false">
             <span v-if="column.style.type  === 'icon'">
               <x-icon :src="scope.row[column.prop].name" :name="scope.row[column.prop]" :title="scope.row[column.prop]"></x-icon>
-
             </span>
             <column-link v-if="column.style.type  === 'link'" :class="column.style.align" :value='scope.row' :url='column.style.parameter' :title="scope.row[column.prop]">
             </column-link>
@@ -46,7 +45,7 @@
             <el-switch v-else-if="column.style.type  === 'switch'" v-model="scope.row[column.prop]" active-color="#13ce66" inactive-color="#ff4949" :disabled="true">
             </el-switch>
             <div v-else v-html="scope.row[column.prop]" :class="column.style.align">{{column.style.align}}</div>
-            <div v-if="column.style.type==='action'" class="btn-group" @mouseenter="enter(scope.row)" @mouseleave="leave(scope.row)">
+            <div v-if="column.style.type==='action'" fixed="right" class="btn-group" @mouseenter="enter(scope.row)" @mouseleave="leave(scope.row)">
               <el-popover placement="bottom" width="70" trigger="hover">
                 <ul class="x-table_action">
                   <li v-for="(action,actionIndex) in  dataResult.tableActions.filter(r=>r.actionType===1)" :key="actionIndex">
@@ -68,7 +67,7 @@
     <el-dialog title="审核" :visible.sync="dialogVisible" :before-close="handleDialogClose">
       <zk-auto-form @formLoad="formLoad" :serviceConfig="dialogForm.columnActionView" ref="dialogAutoForm" @saveForm="saveForm"></zk-auto-form>
     </el-dialog>
-    <div style="margin-top: 10px;text-align: right;">
+    <div style="margin-top: 10px;text-align: right;" v-if="isShowPage">
       <div class="block" style="height: 50px;">
         <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="dataResult.result.pageIndex" :page-sizes="[10,15, 30, 60, 120]" :page-size="dataResult.result.pageSize" layout="total, sizes, prev, pager, next, jumper,->" :total="dataResult.result.recordCount">
         </el-pagination>
