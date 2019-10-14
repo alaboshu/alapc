@@ -14,7 +14,7 @@
       <div class="shared-second-sidebar-nav">
         <ul class="sidebar-nav_ul" v-show="secondMenus">
           <li class="sidebar-nav_li" v-for="(secondMenu,twoIndex) in secondMenus" :key="twoIndex">
-            <div class="sidebar-nav_box" :class="{'avtice_nav':secondMenu.isEnable==true}" @click="secondMenuClick(secondMenu)">
+            <div class="sidebar-nav_box" :class="{'avtice_nav':secondMenu.isEnable==true}" @click="secondMenuClick(secondMenu)" v-show="secondMenu.isEnable">
               <span class="sidebar-nav_box-span"><i class="el-icon-arrow-right" v-if="secondMenu.menus.length!==0"></i></span>
               <div class="sidebar_title">{{secondMenu.name}}</div>
             </div>
