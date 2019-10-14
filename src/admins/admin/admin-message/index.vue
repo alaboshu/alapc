@@ -47,6 +47,8 @@
           this.data.title = '提示信息'
         }
         this.history = this.$api.vuexLocalGet('admin_browsing_history')
+        this.history = this.history.filter(r => r.id && r.name && r.url)
+        console.info('历史记录', this.history)
       },
       getReturn () {
         var list = this.$api.vuexLocalGet('admin_browsing_history')

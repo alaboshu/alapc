@@ -82,7 +82,7 @@ export default {
   },
   // 跳转,并记录Url链接地址到换成
   to (item, isDiy = false) {
-    if (!item) {
+    if (!item || !item.id || !item.name || !item.url) {
       return
     }
     var list = api.vuexLocalGet('admin_browsing_history')
@@ -94,6 +94,9 @@ export default {
           isExist = true
           break
         }
+      }
+      if (isExist) {
+        list = list.filter(r => r.id !== item.id)
       }
       if (!isExist) {
         list.unshift(item)
