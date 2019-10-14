@@ -1,5 +1,5 @@
 <template>
-  <x-border ref="xBorder">
+  <x-border ref="xBorder" icon="flaticon-settings">
     <x-table ref="xTable" :type="table.type" @afterTableLoad="afterTableLoad" :columns="table.columns" v-if="table.type">
     </x-table>
     <div v-if="$base.filter() === 3" class="derived-box" slot="headerRight">
@@ -42,7 +42,7 @@
     },
     methods: {
       async init () {
-        if (!this.widget.value || this.widget.value.table) {
+        if (!this.widget.value || !this.widget.value.table) {
           this.$admin.message('类型传入不正确,请重新传入', 'danger')
         }
         this.widgetValue = this.widget.value
@@ -64,9 +64,6 @@
         if (!this.borderModel.title) {
           this.borderModel.title = this.$api.vuexLocalGet('admin_current_menu').name
         }
-        if (this.widget.value && this.widget.value.icon) {
-          // this.icon = this.widget.value.icon.name
-        }
       },
       // 表格加载完成事件
       afterTableLoad (dataResult) {
@@ -74,7 +71,7 @@
           dataResult.border.type = this.widget.value.themeColor
           var border = this.getBorder(dataResult.border)
           console.info('边框', border)
-          this.$refs.xBorder.init(border)
+          // this.$refs.xBorder.init(border)
         })
       },
       toExcel (command) {
