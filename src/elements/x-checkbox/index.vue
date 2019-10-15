@@ -1,8 +1,10 @@
 <template>
-  <el-radio-group v-model="viewModel" v-if="keyValues">
-    <el-radio v-for="(item,index) in keyValues" :key="index" :label="item.key" class="radio_text">{{item.value}}</el-radio>
-  </el-radio-group>
+  <el-checkbox-group v-model="viewModel">
+    <el-checkbox v-for="(item,index) in keyValues" :key="index" :label="item.key">{{item.value}}</el-checkbox>
+  </el-checkbox-group>
 </template>
+
+
 <script>
   import type from '@/service/api/type.api.js'
   export default {
@@ -17,7 +19,7 @@
     data () {
       return {
         keyValues: null,
-        viewModel: 0
+        viewModel: []
       }
     },
     mounted () {
@@ -53,3 +55,4 @@
     }
   }
 </style>
+

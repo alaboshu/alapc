@@ -1,48 +1,51 @@
 <template>
-  <div class="x-select">
-    <el-select v-model="currentValue" placeholder="请选择">
-      <el-option v-for="item in viewModel" :key="item.key" :label="item.value" :value="item.key">
-      </el-option>
-    </el-select>
-  </div>
+  <el-select filterable :multiple="multiple" v-model="viewModel" class="x-select" placeholder="请选择" v-if="keyValues">
+    <el-option v-for="item in keyValues" :key="item.key" :value="item.key" :label="item.value"></el-option>
+  </el-select>
 </template>
+
 <script>
+  import type from '@/service/api/type.api.js'
   export default {
-    data () {
-      return {
-        viewModel: '',
-        currentValue: this.value
-      }
+    model: {
+      prop: 'dataModel',
+      event: 'change'
     },
     props: {
-      type: {
+      type: {},
+      multiple: {
+        default: false
       },
-      value: {}
+      dataModel: {}
+    },
+    data () {
+      return {
+        keyValues: null,
+        viewModel: 0
+      }
     },
     mounted () {
       this.init()
     },
     methods: {
       async init () {
-        var para = {
-          type: this.type
+        if (this.keyValues === null) {
+          this.keyValues = await type.getKeyValues(this.type)
         }
-        var respone = await this.$api.httpGet('/Api/Type/GetKeyValue', para)
-        if (respone.status !== 1) {
-          this.$notify.error({
-            title: '错误',
-            message: respone.message,
-            position: 'bottom-right'
-          })
-          return
-        }
-        this.viewModel = respone.result
+        this.viewModel = this.dataModel
       }
     },
     watch: {
-      currentValue (val) {
-        this.$emit('input', val)
+      viewModel: {
+        deep: true,
+        handler (val) {
+          this.$emit('change', this.viewModel)
+        }
       }
     }
   }
 </script>
+
+
+
+

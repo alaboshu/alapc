@@ -75,7 +75,8 @@
       <el-checkbox v-model="dataModel"></el-checkbox>
     </template>
     <template v-if="widget.type == 'checkBoxList'">
-      <x-check v-model="dataModel" :widget="widget"></x-check>
+      <x-checkbox v-model="dataModel" :widget="widget">
+      </x-checkbox>
     </template>
     <template v-if="widget.type == 'hidden'">
       <el-input v-model="dataModel" placeholder="请输入内容" type="hidden"></el-input>

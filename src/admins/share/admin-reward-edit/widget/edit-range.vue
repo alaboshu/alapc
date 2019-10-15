@@ -30,7 +30,8 @@
         <div class="demo_intro">选择商品的限制范围</div>
       </el-form-item>
       <el-form-item label="所属产品线" v-if="viewModel.range.productRule.productModel==1">
-        <x-check v-model="viewModel.range.productRule.productLines" :widget="checkValue"></x-check>
+        <x-checkbox v-model="viewModel.range.productRule.productLines" :widget="checkValue">
+        </x-checkbox>
         <div class="demo_intro">可选择多条产品线，<router-link to="" class="demo_text-a">产品线管理</router-link>
           <router-link to="" class="demo_text-a">新增产品线</router-link>
         </div>
