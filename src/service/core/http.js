@@ -11,7 +11,6 @@ export default {
     const response = await this.getRequest(apiUrl, data).get(apiUrl, data)
     return response
   },
-
   //  Post方法 :增
   async post (apiUrl, data) {
     var response = await this.getRequest(apiUrl, data).post(apiUrl, data)
@@ -24,11 +23,6 @@ export default {
   },
   //  delete方法：删
   async delete (apiUrl, data) {
-    var list = this.parseParams(data)
-    var api = apiUrl + '?' + list
-    if (apiUrl.indexOf('?') > -1) {
-      api = apiUrl
-    }
     var response = await this.getRequest(apiUrl).delete(api, data)
     return response
   },
@@ -65,7 +59,7 @@ export default {
       (err, promise) => {
         if (err) {
           if (!base.isBuild()) {
-            console.error(`网络请求错误:${apiUrl},`, err.response.data.message)
+            console.error(`网络请求错误:${apiUrl},`, err.response)
           }
         }
         return promise.resolve(err.response.data)

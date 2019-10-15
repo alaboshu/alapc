@@ -6,7 +6,9 @@
 - 后台应用程序 https://github.com/zhongku/alabo
 - 移动端：多网合一前端 https://github.com/zhongku/alaweb
 - PC管理后台与PC前端 https://github.com/alaboshu/alapc
+  
 ## 配置 src/service/config.js
+
 
 ```
 const apiBaseUrl = 'http://localhost:1800'  // api服务地址
