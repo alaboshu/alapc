@@ -1,5 +1,5 @@
 <template>
-  <x-border :title="addTitle&&addTitle.name" v-loading.fullscreen.lock="fullscreenLoading" type="focus">
+  <x-border :title="addTitle&&addTitle.name" v-loading="loading" type="focus">
     <div style="background:#ffffff;" class="list_detail" v-if="!isAdd&&viewModel">
       <div class="container">
         <div class="container-head">
@@ -19,7 +19,7 @@
         <detail :productView="viewModel"></detail>
         <cat :widgetData="widgetData" :productView="viewModel" @changeClass="changeClass"></cat>
         <div class="goods_info buttom-save">
-          <el-button class="goods_info-but right" v-if="judgeSave()" :loading="loadingFool" @click="save">保存</el-button>
+          <el-button class="goods_info-but right" v-if="judgeSave()" :loading="saveLoading" @click="save">保存</el-button>
           <el-button class="goods_info-but right" v-else-if="judgeExamine()" @click="goodsButton">审核</el-button>
           <el-button class="goods_button" v-if="$base.filter() === 4" @click="UnderCose">下架</el-button>
           <popup ref="dialog" :init="init" :viewModel="viewModel"></popup>
@@ -78,11 +78,10 @@
         detail: null,
         images: [],
         viewModel: '',
-        fullscreenLoading: true,
         addTitle: '',
         rouerId: '',
         dialogVisible: false,
-        loadingFool: false
+        saveLoading: false
       }
     },
     mounted () {
@@ -90,7 +89,7 @@
     },
     methods: {
       async save () {
-        this.loadingFool = true
+        this.saveLoading = true
         if (this.$base.filter() === 3 && this.$route.query.id !== '') {
           if (this.viewModel.product.storeId !== 0 && this.viewModel.product.storeId !== this.viewModel.store.id) {
             this.dialogVisible = true
@@ -100,7 +99,7 @@
           this.viewModel.productDetail.productDetailExtension.aidutMessage = ''
         }
         await service.save(this)
-        this.loadingFool = false
+        this.saveLoading = false
       },
       async clickSave () {
         if (this.viewModel.productDetail.productDetailExtension.aidutMessage === '') {
@@ -121,7 +120,7 @@
           this.viewModel = await service.getProductView(this)
           this.addTitle = await this.$api.adminPage(this.$route)
         }
-        this.fullscreenLoading = false
+        this.loading = false
       },
       // 修改分类 
       changeClass (classes) {
