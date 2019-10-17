@@ -92,7 +92,6 @@
         this.$emit('changeClass', this.$refs.platform.getCheckedKeys())
       },
       freightEdit () {
-        window.localStorage.setItem('productView', JSON.stringify(this.productView))
         if (this.$route.name.indexOf('admin') > -1) {
           this.$router.push('/Admin/Product/DeliveryTemplate')
           return
@@ -100,7 +99,6 @@
         this.$router.push('/user/deliveryTemplate/list')
       },
       labelEdit () {
-        window.localStorage.setItem('productView', JSON.stringify(this.productView))
         this.$router.push(this.$route.matched[0].path + '/Tag?Type=ProductTagRelation')
         // if (this.$route.name.indexOf('admin') > -1) {
         //   this.$router.push('/Admin/Tag?Type=ProductTagRelation')

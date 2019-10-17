@@ -79,7 +79,6 @@
         images: [],
         viewModel: '',
         addTitle: '',
-        rouerId: '',
         dialogVisible: false,
         saveLoading: false
       }
@@ -112,14 +111,9 @@
         await service.save(this)
       },
       async init () {
-        this.rouerId = this.$route.query.id
-        if (JSON.parse(window.localStorage.getItem('productView'))) {
-          this.viewModel = JSON.parse(window.localStorage.getItem('productView'))
-          this.isAdd = false
-        } else {
-          this.viewModel = await service.getProductView(this)
-          this.addTitle = await this.$api.adminPage(this.$route)
-        }
+        this.isAdd = true
+        this.viewModel = await service.getProductView(this)
+        this.addTitle = await this.$api.adminPage(this.$route)
         this.loading = false
       },
       // 修改分类 
@@ -138,7 +132,6 @@
       },
       change (id) {
         this.categoryId = id
-        this.$api.localSet('categoryId', this.categoryId)
         this.init()
       },
       goodsButton () {
