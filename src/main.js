@@ -253,6 +253,7 @@ import adminOrderTenantEdit from '@/admins/shop/admin-order-tenant-edit/index.vu
 import adminOrderTenantList from '@/admins/shop/admin-order-tenant-list/index.vue'
 import adminProductEdit from '@/admins/shop/admin-product-edit/index.vue'
 import adminProductLine from '@/admins/shop/admin-product-line/index.vue'
+import adminProductList from '@/admins/shop/admin-product-list/index.vue'
 import adminSmsRecharge from '@/admins/sms/admin-sms-recharge/index.vue'
 import adminSmsSend from '@/admins/sms/admin-sms-send/index.vue'
 import adminSmsSendgroup from '@/admins/sms/admin-sms-sendgroup/index.vue'
@@ -502,6 +503,7 @@ Vue.component('admin-order-tenant-edit', adminOrderTenantEdit)
 Vue.component('admin-order-tenant-list', adminOrderTenantList)
 Vue.component('admin-product-edit', adminProductEdit)
 Vue.component('admin-product-line', adminProductLine)
+Vue.component('admin-product-list', adminProductList)
 Vue.component('admin-sms-recharge', adminSmsRecharge)
 Vue.component('admin-sms-send', adminSmsSend)
 Vue.component('admin-sms-sendgroup', adminSmsSendgroup)
