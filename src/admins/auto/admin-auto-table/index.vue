@@ -1,6 +1,6 @@
 <template>
   <x-border ref="xBorder" icon="flaticon-settings">
-    <x-table ref="xTable" :type="table.type" @afterTableLoad="afterTableLoad" :columns="table.columns" v-if="table.type">
+    <x-table ref="xTable" :type="table.key" @afterTableLoad="afterTableLoad" :columns="table.columns" v-if="table.key">
     </x-table>
     <div v-if="$base.filter() === 3" class="derived-box" slot="headerRight">
       <el-popover placement="bottom-end" trigger="hover">
@@ -41,14 +41,13 @@
         }
         this.widgetValue = this.widget.value
         this.table = this.widgetValue.table
-        console.info('this.widgetValue', this.widgetValue)
       },
 
       // 表格加载完成事件
       afterTableLoad (dataResult) {
         this.$nextTick(() => {
           dataResult.border.type = this.widget.value.themeColor
-          var border = this.$crud.getBorder(dataResult.border, this.widgetValue)
+          var border = this.$crud.getBorder(dataResult.border, this.widgetValue.table.border)
           this.$refs.xBorder.init(border)
         })
       },

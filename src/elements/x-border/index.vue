@@ -79,8 +79,8 @@
             this.viewModel.description = border.description
           }
           if (border.icon) {
-            if (border.icon.includes('fa-') === -1) {
-              this.viewModel.icon = border.icon
+            if (border.icon.name.includes('fa-') !== -1) {
+              this.viewModel.icon = border.icon.name
             }
           }
         }
@@ -90,7 +90,11 @@
         if (!this.viewModel.icon) {
           this.viewModel.icon = this.$random.icon()
         }
-        this.convert(this.type)
+        var borderType = this.type
+        if (border && border.type) {
+          borderType = border.type
+        }
+        this.convert(borderType)
         this.async = true
       },
       convert (type) {

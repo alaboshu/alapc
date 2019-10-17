@@ -144,7 +144,6 @@
       async init (type, columns) {
         data.beforeInit(this, type, columns)
         await data.fetchDatas(this)
-        console.info('显示的数据', this.dataResult)
         // 表格加载完成后，调用父组件中的afterTableLoad事件，完成表格加载完后的其他操作，比如修改标题，修改颜色等
         // 具体的用法可参考admin-auto-table  admin-autoconfig-list 
         this.$emit('afterTableLoad', this.dataResult)
