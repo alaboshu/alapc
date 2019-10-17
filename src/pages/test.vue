@@ -1,5 +1,5 @@
 <template>
-  <x-border title="设置" type="brand" icon="icon-5333-icon51" desc="测试描述"></x-border>
+  <admin-category-edit></admin-category-edit>
 </template>
 <script>
   export default {

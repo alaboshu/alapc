@@ -243,6 +243,7 @@ import adminRewardEdit from '@/admins/share/admin-reward-edit/index.vue'
 import adminRewardModules from '@/admins/share/admin-reward-modules/index.vue'
 import adminRewardSidebar from '@/admins/share/admin-reward-sidebar/index.vue'
 import adminActivityProduct from '@/admins/shop/admin-activity-product/index.vue'
+import adminCategoryEdit from '@/admins/shop/admin-category-edit/index.vue'
 import adminDeliveryEdit from '@/admins/shop/admin-delivery-edit/index.vue'
 import adminDeliveryTemplate from '@/admins/shop/admin-delivery-template/index.vue'
 import adminMallOrder from '@/admins/shop/admin-mall-order/index.vue'
@@ -493,6 +494,7 @@ Vue.component('admin-reward-edit', adminRewardEdit)
 Vue.component('admin-reward-modules', adminRewardModules)
 Vue.component('admin-reward-sidebar', adminRewardSidebar)
 Vue.component('admin-activity-product', adminActivityProduct)
+Vue.component('admin-category-edit', adminCategoryEdit)
 Vue.component('admin-delivery-edit', adminDeliveryEdit)
 Vue.component('admin-delivery-template', adminDeliveryTemplate)
 Vue.component('admin-mall-order', adminMallOrder)
