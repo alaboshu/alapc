@@ -1,5 +1,5 @@
 <template>
-  <x-border :title="addTitle&&addTitle.name" v-loading="loading" type="focus">
+  <x-border :title="isAdd?'添加商品':'编辑商品'" v-loading="loading" type="focus">
     <div style="background:#ffffff;" class="list_detail" v-if="!isAdd&&viewModel">
       <div class="container">
         <div class="container-head">
@@ -78,7 +78,6 @@
         detail: null,
         images: [],
         viewModel: '',
-        addTitle: '',
         dialogVisible: false,
         saveLoading: false
       }
