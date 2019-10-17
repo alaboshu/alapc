@@ -21,7 +21,6 @@
   </div>
 </template>
 <script>
-  import service from './service'
   export default {
     data () {
       return {
@@ -84,12 +83,11 @@
             }
           }
         }
-        if (!this.viewModel.icon && this.$base.filter() === 3) {
-          this.viewModel.icon = service.getAdminviewModel.icon()
-        }
+
         if (!this.viewModel.icon) {
           this.viewModel.icon = this.$random.icon()
         }
+
         var borderType = this.type
         if (border && border.type) {
           borderType = border.type

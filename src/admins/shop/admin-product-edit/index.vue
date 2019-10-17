@@ -113,7 +113,6 @@
       async init () {
         this.isAdd = true
         this.viewModel = await service.getProductView(this)
-        this.addTitle = await this.$api.adminPage(this.$route)
         this.loading = false
       },
       // 修改分类 
