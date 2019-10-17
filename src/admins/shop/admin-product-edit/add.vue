@@ -48,6 +48,7 @@
 </template>
 
 <script>
+  import category from './widgets/js/category'
   export default {
     props: {
       filterType: {}
@@ -72,21 +73,9 @@
           index + 1,
           this.categoryChildList.length - index
         )
-        var res = await this.$api.httpGet('/Api/Store/GetChildCategories', {
-          parentId: this.categoryList[index].id
-        })
-        if (res !== undefined && res.status === 1) {
-          if (res.result.length > 0) {
-            this.categoryChildList.push(res.result)
-            this.categoryList.push({})
-          }
-        } else {
-          this.$notify({
-            title: '提示',
-            message: '获取类目列表失败',
-            type: 'error'
-          })
-        }
+        var childCatetories = category.getChildCategories(this.categoryList[index].id)
+        this.categoryChildList.push(childCatetories)
+        this.categoryList.push({})
       },
       addList (conter) {
         this.currentlySelected = conter.name
@@ -103,18 +92,10 @@
         }
       },
       async init () {
-        var res = await this.$api.httpGet('/Api/Store/GetChildCategories')
-        if (res !== undefined && res.status === 1) {
-          this.categoryChildList = [res.result]
-          this.selectList = res.result
-          this.data = res.result
-        } else {
-          this.$notify({
-            title: '提示',
-            message: '获取类目列表失败',
-            type: 'error'
-          })
-        }
+        var childCatetories = category.getChildCategories()
+        this.categoryChildList = childCatetories
+        this.selectList = childCatetories
+        this.data = childCatetories
       },
       change (ev) {
         var list = []
