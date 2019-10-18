@@ -6,7 +6,7 @@
       <commodityEdit :productView="viewModel"></commodityEdit>
     </div>
     <div class="edit-foot">
-      <el-button type="primary" class="edit-foot_but" @click="save" style="margin-left: 60px;">保存</el-button>
+      <el-button type="primary" class="edit-foot_but" @click="save" style="margin-left: 200px;">保存</el-button>
     </div>
   </x-border>
 </template>

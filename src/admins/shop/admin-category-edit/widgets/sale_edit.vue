@@ -1,9 +1,9 @@
 <template>
   <div class="sale-edit dialog-box" v-if="inshow">
     <div class="edit-head">
-      <div class="edit-head_left">销售属性<span class="edit-head_intro">商品销售属性信息，比如服装类目中的颜色和尺码，销售属性至少一个，最多三个</span></div>
+      <div class="edit-head_left">销售规格<span class="edit-head_intro">商品销售规格信息，比如服装类目中的颜色和尺码，销售规格至少一个，最多三个</span></div>
       <div class="edit-head_right">
-        <div class="right-buttom" @click="saleEdit">新增销售属性</div>
+        <div class="right-buttom" @click="saleEdit">新增销售规格</div>
       </div>
     </div>
     <div class="edit-table">
@@ -13,7 +13,7 @@
             {{scope.row.name}}
           </template>
         </el-table-column>
-        <el-table-column label="属性值">
+        <el-table-column label="规格值">
           <template slot-scope="scope" prop="valueName">
             {{scope.row.intro}}
           </template>
@@ -28,19 +28,19 @@
         </el-table-column>
       </el-table>
     </div>
-    <el-dialog title="新增销售属性" :visible.sync="dialogVisible" width="70%" top="15vh">
+    <el-dialog title="新增销售规格" :visible.sync="dialogVisible" width="70%" top="15vh">
       <div class="display-edit">
-        <el-form ref="form" label-width="150px" size="mini">
+        <el-form ref="form" label-width="100px" size="mini">
           <el-form-item label="名称">
             <el-input maxlength="10" v-model="tableList.name" @keydown.native="restrictedNum" placeholder="请输入类目名称"></el-input>
-            <div class="sale-intro">请输入销售属性名称</div>
+            <div class="sale-intro">请输入销售规格名称</div>
           </el-form-item>
           <el-form-item label="排序">
-            <el-input-number v-model="tableList.sortOrder" controls-position="right" :min="1" :max="10"></el-input-number>
-            <div class="sale-intro">设置商品属性排序</div>
+            <el-input-number v-model="tableList.sortOrder" :min="1" :max="1000"></el-input-number>
+            <div class="sale-intro">设置商品规格排序，序号越小排序越前,1-1000之间</div>
           </el-form-item>
         </el-form>
-        <x-line title="新增销售属性值"></x-line>
+        <x-line title="新增销售规格值" type="brand"></x-line>
         <div class="dialog-table">
           <el-table :data="tableList.values" style="width: 100%">
             <el-table-column label="名称" prop="name">
@@ -56,7 +56,7 @@
               </template>
             </el-table-column>
           </el-table>
-          <el-button type="primary" style="margin-top: 20px;" @click="editValues">新增属性</el-button>
+          <el-button type="primary" style="margin-top: 20px;" @click="editValues">新增规格</el-button>
         </div>
       </div>
       <span slot="footer" class="dialog-footer">
