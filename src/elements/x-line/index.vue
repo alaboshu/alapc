@@ -1,23 +1,11 @@
 <template>
   <div class="x-line">
-    <div class="line-header line-border">
-      <span class="more"></span>
-      <div class="line-header-title" :style="{color:backGroundColor}">
-        <i class="iconver iconfont glyph-icon line-header-i" :class="Icon"></i>
-        {{title}}
-        <span class="line-header-intro">
-          {{intro}}
-        </span>
-      </div>
-      <div class="header-right">
-        <slot name="headerRight"></slot>
-      </div>
-    </div>
-    <div class=" line-body">
-      <slot></slot>
-    </div>
-    <div class="line-footer">
-      <span></span>
+    <div class="line-header-title" :style="{color:backGroundColor}">
+      <i class="iconver iconfont glyph-icon line-header-i" :class="Icon"></i>
+      {{title}}
+      <span class="line-header-intro">
+        {{intro}}
+      </span>
     </div>
   </div>
 </template>

@@ -3,9 +3,7 @@
   background: #ffffff;
   padding: 0px;
 }
-.prou-from {
-  padding: 0px 20px;
-}
+
 .el-min_head {
   text-align: right;
   padding: 20px;
@@ -43,10 +41,10 @@
   border: 1px solid #34bfa3;
 }
 .patch_area {
+  margin-top: 20px;
   .el-input__inner {
     height: 30px !important;
     text-align: center;
-    // margin-left: 13px;
   }
   .el-col-15 {
     text-align: center;

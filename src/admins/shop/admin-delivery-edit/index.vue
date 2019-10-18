@@ -19,8 +19,8 @@
           </el-radio-group>
           <div class="prompt-message">请选择计费方式</div>
         </el-form-item>
-        <x-line tiltle="配送区域" type="brand" icon="icon-5333-quanqudao" intro="点击右上角的按钮，新增运费模板配送区域"></x-line>
-        <el-form-item style="text-align:left;padding-bottom:10px" label="配送区域" class="patch_area">
+        <x-line title="配送区域" type="brand" icon="icon-5333-quanqudao" intro="点击右上角的按钮，新增运费模板配送区域"></x-line>
+        <el-form-item label="配送区域" class="patch_area">
           <el-row :gutter="10" style="background-color:#f7f8fa">
             <el-col :span="15">可配送区域</el-col>
             <el-col :span="2">{{title}}</el-col>
@@ -41,11 +41,9 @@
 
 <script>
   import templateRegionFee from './template_regionfee.vue'
-  // import nonDelivery from './nonDelivery.vue'
   export default {
     components: {
       templateRegionFee
-      // nonDelivery
     },
     data () {
       return {
