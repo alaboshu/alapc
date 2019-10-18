@@ -96,7 +96,7 @@
         var res = await this.$api.httpGet('api/region/all')
         this.regions = res.result
         if (this.$route.query.templateId !== undefined) {
-          res = await this.$api.httpGet('api/DeliveryTemplate/GetDeliveryTemplateSingle', { id: this.$route.query.templateId })
+          res = await this.$api.httpGet('api/DeliveryTemplate/ViewById', { id: this.$route.query.templateId })
           if (res.status === 1) {
             this.template = res.result
             var index = 0

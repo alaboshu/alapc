@@ -72,7 +72,7 @@
         var res = await this.$api.httpGet('api/region/all')
         this.regions = res.result
         if (this.templateId !== undefined) {
-          res = await this.$api.httpGet('api/DeliveryTemplate/GetDeliveryTemplateSingle', { id: this.templateId })
+          res = await this.$api.httpGet('api/DeliveryTemplate/ViewById', { id: this.templateId })
           this.template = res.result
           var index = 0
           this.template.templateFees.forEach(fee => {
