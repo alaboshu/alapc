@@ -102,21 +102,29 @@ export default {
     }
     widgets.forEach(element => {
       element.border = null
-      element.borderClass = null
-      if (!api.isEmpty(element.style)) {
-        if (!api.isEmpty(element.style.border)) {
+      if (element.style) {
+        if (element.style.border) {
           var styleBorder = JSON.parse(element.style.border)
           element.border = styleBorder
-          element.borderClass = 'widget_border ' + styleBorder.name + ' '
-          if (!api.isEmpty(styleBorder.colorName)) {
-            element.borderClass += styleBorder.colorName + ' '
+          if (!element.border) {
+            element.border = {}
+            element.border.show = false
+          } else {
+            if (element.border.name && element.border.name.length > 0) {
+              element.border.show = true
+            }
+          }
+          element.border.borderClass = 'widget_border ' + styleBorder.name + ' '
+          if (styleBorder.colorName) {
+            element.border.borderClass += styleBorder.colorName + ' '
           }
         }
       }
+
       if (api.isEmpty(element.layout)) {
         element.layout = null
       } else {
-        if (!api.isEmpty(element.value)) {
+        if (element.value) {
           if (typeof element.value !== 'object') {
             element.value = JSON.parse(element.value)
           }
