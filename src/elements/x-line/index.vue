@@ -1,7 +1,7 @@
 <template>
   <div class="x-line">
     <div class="line-header-title" :style="{color:backGroundColor}">
-      <i class="iconver iconfont glyph-icon line-header-i" :class="Icon"></i>
+      <i class="iconver iconfont" :class="Icon"></i>
       {{title}}
       <span class="line-header-intro">
         {{intro}}
