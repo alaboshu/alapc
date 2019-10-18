@@ -15,15 +15,7 @@ export default {
       return true
     }
   },
-  // 自定商城URL，租户Url
-  clientUrl () {
-    var user = this.loginUser()
-    if (user.tenant !== null) {
-      return user.tenant.clientUrl
-    } else {
-      return null
-    }
-  },
+
   // 用户Id
   id () {
     var loginUser = this.loginUser()

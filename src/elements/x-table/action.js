@@ -170,7 +170,7 @@ export default {
     }
     return new Promise((resolve, reject) => {
       api
-        .httpDelete(apiUrl, parament, intance.widgetData.tenant)
+        .httpDelete(apiUrl, parament)
         .then(response => {
           if (response.status === 1) {
             intance.$message({

@@ -64,11 +64,9 @@
         },
         viewModel: '',
         finaModel: {
-          tenant: this.widgetData.tenant,
           dataSource: '/Api/Type/GetKeyValue?type=FinanceActionType'
         },
         moneyModel: {
-          tenant: this.widgetData.tenant,
           dataSource: '/Api/Type/GetKeyValue?type=MoneyTypeConfig'
         }
       }

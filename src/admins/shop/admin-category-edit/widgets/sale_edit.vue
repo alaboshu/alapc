@@ -70,9 +70,7 @@
   import sale from './js/sale'
   export default {
     props: {
-      productView: {
-
-      }
+      productView: {}
     },
     data () {
       return {

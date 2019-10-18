@@ -62,7 +62,6 @@
         } else {
           this.viewModel = response.result
           this.bordetTitle = this.viewModel.name
-          this.viewModel.tenant = this.widgetData.tenant
           this.viewModel.isCms = true
           this.async = true
         }

@@ -17,8 +17,7 @@ export default {
       }
       var response = await jsThis.$api.httpPost(
         '/api/auto/save',
-        parameter,
-        jsThis.widgetData.tenant
+        parameter
       )
       jsThis.$crud.message(response)
       jsThis.init()
@@ -30,8 +29,7 @@ export default {
       }
       response = await jsThis.$api.httpPost(
         jsThis.dialogForm.columnActionView.service.postApi,
-        para,
-        jsThis.widgetData.tenant
+        para
       )
       jsThis.$crud.message(response)
       jsThis.init()

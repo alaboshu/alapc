@@ -17,7 +17,6 @@
         this.qrcode = new QRCode('qrcode', {
           width: 130,
           height: 130,
-          text: _this.$user.clientUrl(),
           colorDark: '#000',
           colorLight: '#fff'
         })

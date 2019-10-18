@@ -96,9 +96,6 @@
       showImage (index) {
         if (this.isUpload) {
           var data = ''
-          if (this.widget) {
-            data = this.widget.tenant
-          }
           this.$refs.zkAutoDialog.$emit('autoDialogEvent', data)
           this.$bus.$off('imageUrl').$on('imageUrl', (imageUrl) => {
             if (this.count > 1) {
