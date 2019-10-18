@@ -60,7 +60,6 @@
     methods: {
       getPath () {
         if (this.$base.router().path.toLowerCase().includes('Admin/Tag')) {
-          console.info('sssssssssssssssssss', this.$base.router().path.toLowerCase().includes('Admin/Tag'))
           this.init()
         }
       },
