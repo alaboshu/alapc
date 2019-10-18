@@ -1,12 +1,11 @@
 <template>
   <div class="x-line">
-    <div class="line-header" :class="{'line-border':border}">
+    <div class="line-header line-border">
       <span class="more"></span>
       <div class="line-header-title" :style="{color:backGroundColor}">
-        <i class="iconver iconfont glyph-icon line-header-i" v-if="!index" :class="Icon"></i>
+        <i class="iconver iconfont glyph-icon line-header-i" :class="Icon"></i>
         {{title}}
         <span class="line-header-intro">
-          <div v-if="index" class="line-header-list">{{index}}.</div>
           {{intro}}
         </span>
       </div>
@@ -41,13 +40,7 @@
         },
         defalut: 'metal'
       },
-      icon: {},
-      index: {
-        default: null
-      },
-      border: {
-        default: false
-      }
+      icon: {}
     },
     mounted () {
       this.init()
@@ -93,7 +86,7 @@
           this.backGroundColor = '#ffffff'
           this.fontColor = '#575962'
         } else {
-          this.backGroundColor = '#ffffff'
+          this.backGroundColor = '#575962'
           this.fontColor = '#575962'
         }
       }

@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
+  <x-border title="运费模板编辑" icon="icon-5333-icon38">
+    <div slot="headerRight">
+      <el-button @click="addRegion" class="newly-increased">新增配送区域</el-button>
+    </div>
     <div class="el-main">
-      <div class="el-min_head">
-        <el-button @click="addRegion" class="newly-increased">新增配送区域</el-button>
-      </div>
-      <el-form label-position="left" class="prou-from">
+      <el-form label-position="left">
         <div class="template_name">
           <el-form-item label="模板名称">
             <el-input v-model="template.templateName" placeholder="最多允许输入30个汉字(60个字符)"></el-input>
@@ -19,6 +19,7 @@
           </el-radio-group>
           <div class="prompt-message">请选择计费方式</div>
         </el-form-item>
+        <x-line tiltle="配送区域" type="brand" icon="icon-5333-quanqudao" intro="点击右上角的按钮，新增运费模板配送区域"></x-line>
         <el-form-item style="text-align:left;padding-bottom:10px" label="配送区域" class="patch_area">
           <el-row :gutter="10" style="background-color:#f7f8fa">
             <el-col :span="15">可配送区域</el-col>
@@ -29,21 +30,13 @@
           </el-row>
           <templateRegionFee :allfee="template.templateFees" :regionfee="fee" :regions="regions" v-for="(fee,index) in template.templateFees" :key="index"></templateRegionFee>
         </el-form-item>
-        <!-- <el-form-item style="text-align:left;padding-bottom:10px" label="不配送区域" class="patch_area">
-          <el-row :gutter="10" style="background-color:#f7f8fa">
-            <el-col :span="15">不配送区域</el-col>
-          </el-row>
-          <nonDelivery :allfee="template.templateFees" :regionfee="fee" :regions="regions" v-for="(fee,index) in template.templateFees" :key="index"></nonDelivery>
-        </el-form-item> -->
       </el-form>
       <div class="btn_type">
         <el-button @click="save" class="new-save" :loading="loading">保存</el-button>
-        <!-- <router-link :to="cancel()">
-          <el-button class="newly_a">取消</el-button>
-        </router-link> -->
       </div>
     </div>
-  </div>
+  </x-border>
+
 </template>
 
 <script>
@@ -228,91 +221,5 @@
 </script>
 
 <style lang="scss">
-  @import "~_style/index.scss";
-  .container {
-    .el-main {
-      width: 100%;
-      background: #ffffff;
-      padding: 0px;
-    }
-    .prou-from {
-      padding: 0px 20px;
-    }
-    .el-min_head {
-      text-align: right;
-      padding: 20px;
-    }
-    .el-container:nth-child(5) .el-aside,
-    .el-container:nth-child(6) .el-aside {
-      line-height: 260px;
-    }
-    .el-container:nth-child(7) .el-aside {
-      line-height: 320px;
-    }
-    .el-form--label-left .el-form-item__label {
-      color: #676769;
-      font-weight: 600;
-      font-size: 13px;
-    }
-    .btn_type {
-      border-top: 1px solid #f5f7fa;
-      padding: 10px 260px;
-      .new-save {
-        background-color: #e95a40;
-        color: #ffffff;
-        border: 1px solid #e95a40;
-      }
-      .newly_a {
-        margin-left: 10px;
-        background-color: red;
-        color: #ffffff;
-        border: 1px solid red;
-      }
-    }
-    .newly-increased {
-      background-color: #34bfa3;
-      color: #ffffff;
-      border: 1px solid #34bfa3;
-    }
-    .patch_area {
-      .el-input__inner {
-        height: 30px !important;
-        text-align: center;
-        // margin-left: 13px;
-      }
-      .el-col-15 {
-        text-align: center;
-        width: 64.5%;
-      }
-    }
-    .el-form-item {
-      display: flex;
-      margin-bottom: 20px;
-      .el-form-item__label {
-        width: 250px;
-        margin-right: 30px;
-        text-align: right;
-        font-size: 13px;
-        color: #606266;
-        font-weight: 400;
-      }
-      .el-form-item__content {
-        width: 100%;
-      }
-    }
-
-    .prompt-message {
-      font-size: 12px;
-      color: #909399;
-      line-height: 20px;
-    }
-    .container-radio {
-      .el-radio__label {
-        font-size: 13px;
-      }
-    }
-    .el-row {
-      margin-bottom: 0px;
-    }
-  }
+  @import "./index.scss";
 </style>

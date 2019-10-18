@@ -1,1 +1,84 @@
-@import "./styles/a.scss";
+.el-main {
+  width: 100%;
+  background: #ffffff;
+  padding: 0px;
+}
+.prou-from {
+  padding: 0px 20px;
+}
+.el-min_head {
+  text-align: right;
+  padding: 20px;
+}
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+  line-height: 260px;
+}
+.el-container:nth-child(7) .el-aside {
+  line-height: 320px;
+}
+.el-form--label-left .el-form-item__label {
+  color: #676769;
+  font-weight: 600;
+  font-size: 13px;
+}
+.btn_type {
+  border-top: 1px solid #f5f7fa;
+  padding: 10px 260px;
+  .new-save {
+    background-color: #e95a40;
+    color: #ffffff;
+    border: 1px solid #e95a40;
+  }
+  .newly_a {
+    margin-left: 10px;
+    background-color: red;
+    color: #ffffff;
+    border: 1px solid red;
+  }
+}
+.newly-increased {
+  background-color: #34bfa3;
+  color: #ffffff;
+  border: 1px solid #34bfa3;
+}
+.patch_area {
+  .el-input__inner {
+    height: 30px !important;
+    text-align: center;
+    // margin-left: 13px;
+  }
+  .el-col-15 {
+    text-align: center;
+    width: 64.5%;
+  }
+}
+.el-form-item {
+  display: flex;
+  margin-bottom: 20px;
+  .el-form-item__label {
+    width: 250px;
+    margin-right: 30px;
+    text-align: right;
+    font-size: 13px;
+    color: #606266;
+    font-weight: 400;
+  }
+  .el-form-item__content {
+    width: 100%;
+  }
+}
+
+.prompt-message {
+  font-size: 12px;
+  color: #909399;
+  line-height: 20px;
+}
+.container-radio {
+  .el-radio__label {
+    font-size: 13px;
+  }
+}
+.el-row {
+  margin-bottom: 0px;
+}
