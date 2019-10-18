@@ -73,6 +73,7 @@ export default {
       return itemValue
     }
   },
+  // 系统所有的枚举
   getAllEnums () {
     var allEnums = api.vuexLocalGet('all_enums_keyvalues')
     if (!allEnums) {

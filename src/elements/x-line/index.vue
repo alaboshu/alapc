@@ -7,6 +7,9 @@
         {{intro}}
       </span>
     </div>
+    <div class="header-right">
+      <slot name="headerRight"></slot>
+    </div>
   </div>
 </template>
 <script>
