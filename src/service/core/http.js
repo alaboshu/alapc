@@ -23,7 +23,7 @@ export default {
   },
   //  delete方法：删
   async delete (apiUrl, data) {
-    var response = await this.getRequest(apiUrl).delete(api, data)
+    var response = await this.getRequest(apiUrl).delete(apiUrl, data)
     return response
   },
   parseParams (data) {

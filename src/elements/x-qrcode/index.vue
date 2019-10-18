@@ -13,7 +13,6 @@
     },
     methods: {
       init () {
-        var _this = this
         this.qrcode = new QRCode('qrcode', {
           width: 130,
           height: 130,
