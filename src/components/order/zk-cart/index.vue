@@ -1,5 +1,5 @@
 <template>
-  <div class="zk-cart" v-loading.fullscreen.lock="loading">
+  <div class="zk-cart" v-loading="loading">
     <div class="pc-x-cart_box" v-if="async">
       <div class="x-cart-nav">
         <div class="nav-checker">

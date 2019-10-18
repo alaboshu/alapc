@@ -8,7 +8,7 @@
       </el-input>
     </el-form-item>
     <el-dialog title="选择商品" width="70%" top="5vh" :visible.sync="dialogFormVisible">
-      <div v-loading.fullscreen.lock="sectLoading" class="xtable-select">
+      <div v-loading="sectLoading" class="xtable-select">
         <x-table @change="change" :widgetData="widgetData" v-if="widgetData" @onvalue="onfaus"></x-table>
       </div>
     </el-dialog>

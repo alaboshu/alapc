@@ -1,5 +1,5 @@
 <template>
-  <x-border title="订单管理" v-loading.fullscreen.lock="fullscreenLoading">
+  <x-border title="订单管理" v-loading="fullscreenLoading">
     <x-table :config="viewModel" v-if="async" :isTemplate="true" :showTable="false">
       <template slot-scope="user">
         <div class="order_list" v-for="(item,itemIndex) in user.data" :key="itemIndex">

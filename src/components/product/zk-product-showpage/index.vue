@@ -1,5 +1,5 @@
 <template>
-  <div class="zk-product-showpage" v-loading.fullscreen.lock="loading">
+  <div class="zk-product-showpage" v-loading="loading">
     <div class="container_box">
       <div class="all_box">
         <div class="data_model" v-if="shows">

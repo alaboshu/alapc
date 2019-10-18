@@ -1,5 +1,5 @@
 <template>
-  <x-border title="添加\编辑类目" color="success" v-loading.fullscreen.lock="loading">
+  <x-border title="添加\编辑类目" color="success" v-loading="loading">
     <div class="category-box" v-if="inshow">
       <displayEdit :productView="viewModel"></displayEdit>
       <saleEdit :refs="init" :productView="viewModel"></saleEdit>

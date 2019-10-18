@@ -1,5 +1,5 @@
 <template>
-  <div class="zk-product-screening" v-loading.fullscreen.lock="loading">
+  <div class="zk-product-screening" v-loading="loading">
     <div class="pc-x-product-listpage">
       <div class="pc-x-product-class">
         <ul>
