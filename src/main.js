@@ -247,8 +247,6 @@ import adminMallOrder from '@/admins/shop/admin-mall-order/index.vue'
 import adminMallgoodsEdit from '@/admins/shop/admin-mallgoods-edit/index.vue'
 import adminOrderEdit from '@/admins/shop/admin-order-edit/index.vue'
 import adminOrderList from '@/admins/shop/admin-order-list/index.vue'
-import adminOrderTenantEdit from '@/admins/shop/admin-order-tenant-edit/index.vue'
-import adminOrderTenantList from '@/admins/shop/admin-order-tenant-list/index.vue'
 import adminProductEdit from '@/admins/shop/admin-product-edit/index.vue'
 import adminProductLine from '@/admins/shop/admin-product-line/index.vue'
 import adminProductList from '@/admins/shop/admin-product-list/index.vue'
@@ -495,8 +493,6 @@ Vue.component('admin-mall-order', adminMallOrder)
 Vue.component('admin-mallgoods-edit', adminMallgoodsEdit)
 Vue.component('admin-order-edit', adminOrderEdit)
 Vue.component('admin-order-list', adminOrderList)
-Vue.component('admin-order-tenant-edit', adminOrderTenantEdit)
-Vue.component('admin-order-tenant-list', adminOrderTenantList)
 Vue.component('admin-product-edit', adminProductEdit)
 Vue.component('admin-product-line', adminProductLine)
 Vue.component('admin-product-list', adminProductList)
