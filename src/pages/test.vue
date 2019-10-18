@@ -1,5 +1,5 @@
 <template>
-  <admin-category-edit></admin-category-edit>
+  <admin-delivery-edit></admin-delivery-edit>
 </template>
 <script>
   export default {

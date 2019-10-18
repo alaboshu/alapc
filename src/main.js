@@ -85,11 +85,9 @@ import zkProductStorecat from '@/components/product/zk-product-storecat/index.vu
 import zkProductSuperior from '@/components/product/zk-product-superior/index.vue'
 import zkProductSwiper from '@/components/product/zk-product-swiper/index.vue'
 import zkProductSwiperitem from '@/components/product/zk-product-swiperitem/index.vue'
-import zkProductTemplate from '@/components/product/zk-product-template/index.vue'
 import zkProductTop from '@/components/product/zk-product-top/index.vue'
 import zkProductTypeNav from '@/components/product/zk-product-type-nav/index.vue'
 import zkProductclassItem from '@/components/product/zk-productclass-item/index.vue'
-import zkTemplateSave from '@/components/product/zk-template-save/index.vue'
 import zkBorderDate from '@/components/reports/zk-border-date/index.vue'
 import zkCountReport from '@/components/reports/zk-count-report/index.vue'
 import zkCountTable from '@/components/reports/zk-count-table/index.vue'
@@ -336,11 +334,9 @@ Vue.component('zk-product-storecat', zkProductStorecat)
 Vue.component('zk-product-superior', zkProductSuperior)
 Vue.component('zk-product-swiper', zkProductSwiper)
 Vue.component('zk-product-swiperitem', zkProductSwiperitem)
-Vue.component('zk-product-template', zkProductTemplate)
 Vue.component('zk-product-top', zkProductTop)
 Vue.component('zk-product-type-nav', zkProductTypeNav)
 Vue.component('zk-productclass-item', zkProductclassItem)
-Vue.component('zk-template-save', zkTemplateSave)
 Vue.component('zk-border-date', zkBorderDate)
 Vue.component('zk-count-report', zkCountReport)
 Vue.component('zk-count-table', zkCountTable)

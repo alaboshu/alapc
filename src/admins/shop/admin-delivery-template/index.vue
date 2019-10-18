@@ -3,9 +3,9 @@
     <div class="setprice-set">
       <el-input class="input" v-model="text" @input.native="change"></el-input>
       <router-link :to="'/Admin-Store/delivery/edit?storeId='+storeId">
-        <el-button type="primary" class="setprice_buttom" @click="fregth">新建运费模板</el-button>
+        <el-button type="primary" class="setprice_buttom">新建运费模板</el-button>
       </router-link>
-      <el-table :data="templateList" border style="width: 96%;margin: 0 auto;">
+      <el-table :data="deliveryTemplates" border style="width: 96%;margin: 0 auto;" v-if="!deliveryTemplates">
         <el-table-column prop="templateName" label="模板" width="315"></el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
@@ -26,7 +26,7 @@
     },
     data () {
       return {
-        templateList: [],
+        deliveryTemplates: null,
         storeId: undefined,
         text: ''
       }
@@ -61,14 +61,15 @@
         })
       },
       async init () {
-        this.storeId = this.$user.loginUser().store.id
-        var res = await this.$api.httpGet(
-          '/Api/DeliveryTemplate/GetDeliveryTemplateList',
-          { storeId: this.storeId }
-        )
-        // this.$crud.message(this, res)
-        this.templateList = res.result
-        this.data = res.result
+        var para = {
+          userId: this.$user.id()
+        }
+        var response = await this.$api.httpGet('/Api/DeliveryTemplate/GetListByUserId', para)
+        if (response.status === 1) {
+          this.deliveryTemplates = response.result
+        } else {
+          this.deliveryTemplates = []
+        }
       },
       change (val) {
         var list = []
@@ -77,10 +78,7 @@
             list.push(element)
           }
         })
-        this.templateList = list
-      },
-      fregth () {
-        // this.$route.push('/test/deliveryTemplate/edit?storeId=' + this.storeId)
+        this.deliveryTemplates = list
       }
     }
   }
