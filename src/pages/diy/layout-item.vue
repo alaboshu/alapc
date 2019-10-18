@@ -20,7 +20,7 @@
     <div class="redact-buttom" @click="editWidget(widget)">设置数据源</div>
     <div class="diy-masker" v-if="showChecked" />
     <div class="diy-widget-actions">
-      <span class="diy-widget-actions-span" @click="testClick()">{{widget.title}}({{widget.name}})</span>
+      <span class="diy-widget-actions-span">{{widget.title}}({{widget.name}})</span>
       <span class="diy-widget-actions-span" @click="switchWidget(widget)">切换</span>
       <span class="diy-widget-actions-span" @click="editWidget(widget)">编辑</span>
       <span class="diy-widget-actions-span" @click="removeWidget(widget,removeIndex)">删除</span>
