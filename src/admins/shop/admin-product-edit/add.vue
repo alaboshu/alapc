@@ -1,5 +1,5 @@
 <template>
-  <div class="mall-edit">
+  <div class="mall-edit" v-loading="loading">
     <div class="category-box">
       <div class="choose-category">
         <div class="category-list">
@@ -55,6 +55,7 @@
         categoryList: [{}],
         categoryChildList: [[]],
         selectList: '',
+        loading: true,
         selectCategory: null // 当前选中的类目
       }
     },
@@ -88,6 +89,7 @@
         this.categoryChildList = childCatetories
         this.selectList = childCatetories
         this.data = childCatetories
+        this.loading = false
       },
       change (ev) {
         var list = []

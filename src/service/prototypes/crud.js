@@ -110,7 +110,6 @@ export default {
     if (route.query !== undefined && route.query.id !== undefined) {
       return route.query.id
     }
-    return 0
   },
   // 提示，成功提示正确信息，获取显示错误信息
   message (response) {

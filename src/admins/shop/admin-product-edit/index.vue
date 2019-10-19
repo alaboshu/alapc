@@ -68,7 +68,7 @@
       return {
         loading: true,
         product: {},
-        isAdd: true, // 判断
+        isAdd: true, // 判断是新增商品还是编辑商品
         categoryId: '', // 类目id
         category: {},
         saleConfigs: [],
@@ -85,6 +85,16 @@
       this.init()
     },
     methods: {
+      async init () {
+        if (this.categoryId || this.$crud.getId()) {
+          this.isAdd = false
+        }
+        if (this.isAdd === false) {
+          this.loading = true
+          this.viewModel = await service.getProductView(this.categoryId)
+        }
+        this.loading = false
+      },
       async save () {
         this.saveLoading = true
         if (this.$base.filter() === 3 && this.$route.query.id !== '') {
@@ -108,12 +118,6 @@
         }
         await service.save(this)
       },
-      async init () {
-        this.isAdd = true
-        console.info('商品', this.categoryId)
-        this.viewModel = await service.getProductView(this)
-        this.loading = false
-      },
       // 修改分类 
       changeClass (classes) {
         this.viewModel.productDetail.productDetailExtension.storeClass = classes
@@ -131,6 +135,7 @@
       // 新商品选择类目
       selectCategory (categoryId) {
         this.categoryId = categoryId
+        this.isAdd = false
         this.init()
       },
       goodsButton () {

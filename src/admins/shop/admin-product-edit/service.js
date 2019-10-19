@@ -1,26 +1,17 @@
+import api from '@/service/prototypes/api'
+import crud from '@/service/prototypes/crud'
+
 export default {
-  async getProductView (jsThis) {
+  // 获取商品视图
+  async getProductView () {
     var para = {
-      ...(await this.getPara(jsThis))
+      id: crud.getId()
     }
-    if (para.productId === undefined) {
-      if (para.categoryId === '' || para.categoryId === undefined) {
-        return
-      }
-      jsThis.isAdd = false
-    } else {
-      jsThis.isAdd = false
-    }
-    var response = await jsThis.$api.httpGet('/Api/Store/GetProductView', para)
+    var response = await api.httpGet('/Api/Store/GetProductView', para)
     if (response.status === 1) {
       return response.result
     } else {
-      jsThis.$alert('类目id不存在', {
-        confirmButtonText: '确定',
-        callback: action => {
-          jsThis.$router.push('/Admin/Product/list')
-        }
-      })
+      api.alert(response.message)
     }
   },
   async save (jsThis) {
@@ -68,15 +59,5 @@ export default {
         position: 'bottom-right'
       })
     }
-  },
-  getPara (jsThis) {
-    var para = {
-      userId: jsThis.$user.id()
-    }
-    if (jsThis.$route.query.id !== undefined) {
-      para.productId = jsThis.$route.query.id
-      jsThis.isAdd = false
-    }
-    return para
   }
 }
