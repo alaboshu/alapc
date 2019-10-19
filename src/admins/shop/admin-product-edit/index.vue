@@ -70,6 +70,7 @@
         product: {},
         isAdd: true, // 判断是新增商品还是编辑商品
         categoryId: '', // 类目id
+        priceStyleId: null, // 商城模式Id
         category: {},
         saleConfigs: [],
         displayConfigs: [],
@@ -86,12 +87,18 @@
     },
     methods: {
       async init () {
+        if (this.widgetData && this.widgetData.value) {
+          this.priceStyleId = this.widgetData.value.priceStyleId
+        }
+        if (!this.priceStyleId) {
+          this.$api.alert('商城模式不正确,请在DIY系统中配置')
+        }
         if (this.categoryId || this.$crud.getId()) {
           this.isAdd = false
         }
         if (this.isAdd === false) {
           this.loading = true
-          this.viewModel = await service.getProductView(this.categoryId)
+          this.viewModel = await service.getProductView(this.categoryId, this.priceStyleId)
         }
         this.loading = false
       },

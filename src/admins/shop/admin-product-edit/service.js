@@ -1,13 +1,17 @@
 import api from '@/service/prototypes/api'
 import crud from '@/service/prototypes/crud'
+import user from '@/service/prototypes/user'
 
 export default {
   // 获取商品视图
-  async getProductView () {
+  async getProductView (categoryId, priceStyleId) {
     var para = {
-      id: crud.getId()
+      id: crud.getId(),
+      categoryId: categoryId,
+      userId: user.id(),
+      priceStyleId: priceStyleId
     }
-    var response = await api.httpGet('/Api/Store/GetProductView', para)
+    var response = await api.httpGet('/Api/ShopStore/GetProductView', para)
     if (response.status === 1) {
       return response.result
     } else {
