@@ -22,22 +22,9 @@
         <cat :widgetData="widgetData" :productView="viewModel" @changeClass="changeClass"></cat>
         <div class="goods_info buttom-save">
           <el-button class="goods_info-but right" v-if="judgeSave()" :loading="saveLoading" @click="save">保存</el-button>
-          <el-button class="goods_info-but right" v-else-if="judgeExamine()" @click="goodsButton">审核</el-button>
           <el-button class="goods_button" v-if="$base.filter() === 4" @click="UnderCose">下架</el-button>
           <popup ref="dialog" :init="init" :viewModel="viewModel"></popup>
         </div>
-        <el-dialog title="保存信息" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
-          <el-form label-width="100px" class="el-form-List">
-            <el-form-item label="保存信息">
-              <el-input type="textarea" v-model="viewModel.productDetail.productDetailExtension.aidutMessage" placeholder="请输入内容"></el-input>
-              <div class="tips">请输入保存信息</div>
-            </el-form-item>
-          </el-form>
-          <span slot="footer" class="dialog-footer">
-            <el-button @click="dialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="clickSave">确 定</el-button>
-          </span>
-        </el-dialog>
       </div>
     </div>
     <add v-if="setting.isAdd" @selectCategory="selectCategory" :filterType="$base.filter()"></add>
@@ -84,7 +71,6 @@
         detail: null,
         images: [],
         viewModel: null,
-        dialogVisible: false,
         saveLoading: false
       }
     },
@@ -118,26 +104,8 @@
       },
       async save () {
         this.saveLoading = true
-        if (this.$base.filter() === 3 && this.$route.query.id !== '') {
-          if (this.viewModel.product.storeId !== 0 && this.viewModel.product.storeId !== this.viewModel.store.id) {
-            this.dialogVisible = true
-            return
-          }
-        } else if (this.$base.filter() === 2) {
-          this.viewModel.productDetail.productDetailExtension.aidutMessage = ''
-        }
         await service.save(this)
         this.saveLoading = false
-      },
-      async clickSave () {
-        if (this.viewModel.productDetail.productDetailExtension.aidutMessage === '') {
-          return this.$notify({
-            title: '警告',
-            message: '保存信息不能为空',
-            position: 'bottom-right'
-          })
-        }
-        await service.save(this)
       },
       // 修改分类 
       changeClass (classes) {
@@ -158,25 +126,6 @@
         this.categoryId = categoryId
         this.setting.isAdd = false
         this.init()
-      },
-      goodsButton () {
-        this.$refs.dialog.dialogVisible = true
-      },
-      handleClose () {
-        this.dialogVisible = false
-      },
-      async UnderCose () {
-        var para = {
-          id: this.viewModel.product.id
-        }
-        this.$confirm('是否下架此商品？', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'success'
-        }).then(async () => {
-          await this.$api.httpPost('Api/Product/SoldOutProduct', para)
-          this.init()
-        }).catch(() => { })
       },
       judgeSave () {
         return judge.judgeSave(this)

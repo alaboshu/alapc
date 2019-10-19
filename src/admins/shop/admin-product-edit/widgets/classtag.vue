@@ -11,7 +11,6 @@
                 <el-option v-for="item in productView.relation.tags" :key="item.value" :label="item.name" :value="item.value"></el-option>
               </el-select>
             </div>
-            <div class="freight-template" @click="labelEdit">添加标签</div>
           </div>
           <div class="text-inrto">商品标签</div>
         </div>
@@ -22,43 +21,31 @@
           <div class="classifi-cation">
             <el-tree ref="platform" show-checkbox :data="productView.relation.classes" :props="{children: 'childClass',label: 'name'}" @check="change" :default-checked-keys="productView.productDetail.productDetailExtension.storeClass" node-key="id" :accordion="true"></el-tree>
           </div>
+          <div class="text-inrto">可以选择多个店铺分类</div>
         </div>
-      </div>
-    </div>
-    <div class="basics" v-if="false">
-      <div class="title_row basics_row">
-        <div class="basics-title_row">
-          <div class="title_left">所在城市:</div>
-          <div class="title_right">
-            <el-select size="large" :max="80" placeholder="请选择" v-model="productView.product.regionId">
-              <el-option></el-option>
-            </el-select>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="basics">
-      <div class="title_row basics_row">
-        <div class="basics-title_row">
-          <div class="title_left">运费模板:</div>
-          <div class="title_right">
-            <div class="right-clear">
-              <div class="clear-select" v-if="judgeFreight()">
-                <el-select v-model="productView.product.deliveryTemplateId" :disabled="isSelect()" filterable placeholder="请选择运费模板">
-                  <el-option v-for="(item,index) in productView.relation.deliveryTemplates" :key="index" :label="item.value" :value="item.key"></el-option>
-                </el-select>
-              </div>
-              <div v-if="judgeFreight()" @click="freightEdit" class="freight-template">添加运费模版</div>
-              <div class="freight-template" @click="dialogVisible = true" v-else>查看运费模板</div>
 
+      </div>
+      <div class="basics-title_row">
+        <div class="title_left">运费模板:</div>
+        <div class="title_right">
+          <div class="right-clear">
+            <div class="clear-select" v-if="judgeFreight()">
+              <el-select v-model="productView.product.deliveryTemplateId" :disabled="isSelect()" filterable placeholder="请选择运费模板">
+                <el-option v-for="(item,index) in productView.relation.deliveryTemplates" :key="index" :label="item.value" :value="item.key"></el-option>
+              </el-select>
             </div>
-            <div class="text-inrto" v-if="judgeFreight()">为了提升消费者购物体验,要求全网设置运费模板,可在输入框输入进行搜索</div>
           </div>
+          <div class="text-inrto" v-if="judgeFreight()">为了提升消费者购物体验,要求全网设置运费模板,可在输入框输入进行搜索</div>
         </div>
       </div>
-      <el-dialog title="查看模板" :visible.sync="dialogVisible" width="50%" :before-close="handleClose">
-        <zk-template-save :templateId="productView.product.deliveryTemplateId"></zk-template-save>
-      </el-dialog>
+      <div class="basics-title_row" v-if="false">
+        <div class="title_left">所在城市:</div>
+        <div class="title_right">
+          <el-select size="large" :max="80" placeholder="请选择" v-model="productView.product.regionId">
+            <el-option></el-option>
+          </el-select>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -72,7 +59,6 @@
     data () {
       return {
         routeId: '',
-        dialogVisible: false,
         isAdmin: false
       }
     },
@@ -98,19 +84,8 @@
         }
         this.$router.push('/user/deliveryTemplate/list')
       },
-      labelEdit () {
-        this.$router.push(this.$route.matched[0].path + '/Tag?Type=ProductTagRelation')
-        // if (this.$route.name.indexOf('admin') > -1) {
-        //   this.$router.push('/Admin/Tag?Type=ProductTagRelation')
-        //   return
-        // }
-        // this.$router.push('/user/tag?type=ProductTagRelation')
-      },
       judgeFreight () {
         return judge.judgeFreight(this)
-      },
-      handleClose () {
-        this.dialogVisible = false
       },
       isSelect () {
         return judge.isSelect(this)
