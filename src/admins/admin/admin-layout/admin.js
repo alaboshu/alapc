@@ -143,7 +143,10 @@ export default {
   // 清空缓存
   async clearCache () {
     var list = api.vuexLocalGet('admin_browsing_history')
-    var history = list[0]
+    if (list) {
+      var history = list[0]
+    }
+
     api.progressOpen(
       '正在清空系统缓存,预计<span style="color: red;">1分钟</span>时间，请勿离开或刷新页面...'
     )
@@ -156,7 +159,9 @@ export default {
           message: '恭喜您，缓存清空成功',
           type: 'success'
         })
-        base.push(history.url)
+        if (history) {
+          base.push(history.url)
+        }
       }
     }, 100)
   }

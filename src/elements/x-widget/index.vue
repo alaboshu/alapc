@@ -1,10 +1,10 @@
 <template>
   <div v-if="async" :style="'background:'+viewModel.setting.background+';'">
-    <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="widget.style && widget.style.css" :class="widget.border.borderClass+ ' '+ widget.blockList">
+    <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="widget.style && widget.style.css" :class="widget.border.class+ ' '+ widget.blockList">
       <template v-if="widget.status !== 'small'">
         <div v-if="widget.border.show===true">
           <div class="border-header">
-            <x-icon class="border-header-icon" v-if="widget.border.icon" :src="widget.border.icon" :size="widget.border.size" :color="widget.border.iconSecondColor"></x-icon>
+            <x-icon class="border-header-icon" v-if="widget.border.icon" :icon="widget.border.icon"></x-icon>
             <div class="border-header-title">{{widget.border.title}}</div>
             <div class="border-header-desc">{{widget.border.intro}}</div>
             <div class="border-header-tools"></div>

@@ -114,10 +114,6 @@ export default {
               element.border.show = true
             }
           }
-          element.border.borderClass = 'widget_border ' + styleBorder.name + ' '
-          if (styleBorder.colorName) {
-            element.border.borderClass += styleBorder.colorName + ' '
-          }
         }
       }
 

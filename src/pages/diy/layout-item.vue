@@ -1,6 +1,6 @@
 
 <template>
-  <div class="diy-widget-wrap" :id="widget.widgetTheme" :style="widget.style && widget.style.css" :class="widget.border.borderClass+ ' '+ widget.blockList" @click.stop="handleCheck(widget)">
+  <div class="diy-widget-wrap" :id="widget.widgetTheme" :style="widget.style && widget.style.css" :class="widget.border.class+ ' '+ widget.blockList" @click.stop="handleCheck(widget)">
     <template v-if="widget.status !== 'small'">
       <div v-if="widget.border.show">
         <div class="border-header">
