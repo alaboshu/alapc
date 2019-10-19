@@ -72,14 +72,7 @@
         <el-pagination background v-if="barTitleSelectIndex===0" :current-page="searchModel.pageIndex" @current-change="search" :page-size="searchModel.pageSize" @size-change="changeSearchSize" :page-sizes="[36, 100, 200, 500]" layout="total,prev, pager, next,sizes, jumper" :total="totalCount">
         </el-pagination>
       </div>
-      <div class="management-foot">
-        <div class="management-foot_text">图片服务器地址：{{$base.clientHost()}}</div>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="colseFileManger" type="primary" class="button">关 闭</el-button>
-        </span>
-      </div>
     </div>
-
   </div>
 </template>
 <script>

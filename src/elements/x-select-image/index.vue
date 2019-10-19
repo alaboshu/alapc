@@ -26,7 +26,7 @@
         <i class="el-icon-plus"></i>
       </div>
     </div>
-    <el-dialog :visible="dialogVisible" top="8vh" :before-close="handleClose">
+    <el-dialog v-el-drag-dialog :visible="dialogVisible" top="8vh" :before-close="handleClose">
       <zk-file-manage @autoDialogClose="handleClose" @selectFileChildEvent="selectFileChildEvent"></zk-file-manage>
     </el-dialog>
   </div>
@@ -34,7 +34,9 @@
 
 
 <script>
+  import elDragDialog from '@/service/directives/el-dragDialog'
   export default {
+    directives: { elDragDialog },
     model: {
       event: 'imgUrl',
       prop: 'dataModel'
