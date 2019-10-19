@@ -21,7 +21,7 @@
       </div>
       <div class="select">
         <div>
-          <el-upload :action="$api.baseUrl()+'/api/common/upload'" :on-success="handleAvatarSuccess" multiple>
+          <el-upload :action="$api.baseUrl()+'/api/StorageFile/upload'" :on-success="handleAvatarSuccess" multiple>
             <el-button size="small" type="primary">点击上传</el-button>
           </el-upload>
           <div>
@@ -29,7 +29,7 @@
               <img class="uploadimg_img" :src="imgItem" alt="" v-for="(imgItem,imgIndex) in uploadShowImg" :key="imgIndex">
             </div>
           </div>
-          <el-upload drag :action="$api.baseUrl()+'/api/common/upload'" multiple :on-success="handleAvatarSuccess">
+          <el-upload drag :action="$api.baseUrl()+'/api/StorageFile/upload'" multiple :on-success="handleAvatarSuccess">
             <i class="el-icon-upload"></i>
             <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
           </el-upload>

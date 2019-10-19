@@ -1,4 +1,4 @@
-import titleBarJson from './titleBar.json'
+
 export default {
   // 图片搜索
   async search (jsThis) {
@@ -19,21 +19,6 @@ export default {
         jsThis.imageListViewModel = response.result.result
       }
       jsThis.loading = false
-    }
-  },
-  // 数据初始化
-  init (jsThis) {
-    if (jsThis.barTitles.length === 0) {
-      jsThis.barTitles = titleBarJson
-    }
-    if (jsThis.systemBackGroundImageList.length === 0) {
-      for (let i = 1; i <= 50; i++) {
-        var imagePara = {
-          url: `https://diyservice.5ug.com/static/background/${i}.jpg`,
-          name: `${i}.jpg`
-        }
-        jsThis.systemBackGroundImageList.push(imagePara)
-      }
     }
   },
   // 复制图片地址

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <zk-icon-manage></zk-icon-manage>
+    <zk-file-manage></zk-file-manage>
     <x-select-image v-model="viewModel"></x-select-image>
     {{viewModel}}
   </div>

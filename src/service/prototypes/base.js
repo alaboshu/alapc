@@ -133,7 +133,7 @@ export default {
   },
   // 客户端服务器地址，上传图片地址
   clientUploadApi () {
-    var apiUrl = api.baseUrl() + '/api/common/upload'
+    var apiUrl = api.baseUrl() + '/api/StorageFile/upload'
     return apiUrl
   },
   // 基本信息

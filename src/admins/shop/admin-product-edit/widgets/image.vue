@@ -6,7 +6,7 @@
       <div>
         <div class="upload_img" v-if="uploadImage">
           <div v-for="(item, index) in uploadImage" @click="imgIndex = index" :key="index">
-            <el-upload class="avatar-uploader" ref="index" :action="$api.baseUrl()+'/api/common/upload'" :before-upload="beforeAvatarUpload" :show-file-list="false" :on-success="handleAvatarSuccess">
+            <el-upload class="avatar-uploader" ref="index" :action="$api.baseUrl()+'/api/StorageFile/upload'" :before-upload="beforeAvatarUpload" :show-file-list="false" :on-success="handleAvatarSuccess">
               <div v-if="item" class="uplaader-box">
                 <img :src="$api.baseUrl()+item" class="avatar">
                 <div class="up-remove" @click.stop="handleRemove(index)">删除</div>

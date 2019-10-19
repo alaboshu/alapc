@@ -14,7 +14,7 @@
         <div class="formData-text">图片/图标</div>
         <div class="formData-img">
           <div style="position: relative;">
-            <el-upload :action="baseUrl+'/api/common/upload'" list-type="picture-card" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+            <el-upload :action="baseUrl+'/api/StorageFile/upload'" list-type="picture-card" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
               <img v-if="column.icon" class="upload_img" :src="baseUrl+column.icon" alt="">
               <i v-else class="el-icon-plus"></i>
             </el-upload>

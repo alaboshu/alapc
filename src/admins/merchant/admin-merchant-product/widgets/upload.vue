@@ -1,7 +1,7 @@
 <template>
   <div class="upload">
     <div style="position: relative;" v-for="(item, index) in config.images" :key="index" @click="imgIndex = index">
-      <el-upload :action="baseUrl+'/api/common/upload'" list-type="picture-card" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+      <el-upload :action="baseUrl+'/api/StorageFile/upload'" list-type="picture-card" :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
         <img v-if="item !== ' '" class="upload_img" :src="baseUrl+item" alt="">
         <i v-else class="el-icon-plus"></i>
       </el-upload>

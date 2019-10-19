@@ -15,7 +15,7 @@
               <div style="display:flex;">
                 <el-input v-if="item.isCheck" v-model="item.valueAlias" @keydown.native="remarksInput(pIndex, index, $event)" placeholder="输入备注" @blur="selectSaleItem()"></el-input>
                 <div class="size-pic" v-if="false">
-                  <el-upload :action="api.baseUrl()+'/api/common/upload'" :show-file-list="false">
+                  <el-upload :action="api.baseUrl()+'/api/StorageFile/upload'" :show-file-list="false">
                     <div class="pic_all">
                       <img v-if="item.image" @mouseenter="valueImageStatus=true" :src="apiBaseUrl+item.image" class="avatar">
                       <i v-else class="el-icon-plus avatar-uploader-icon"></i>

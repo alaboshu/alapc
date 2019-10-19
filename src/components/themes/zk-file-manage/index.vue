@@ -137,7 +137,6 @@
         this.headers = {
           'zk-tenant': this.$api.tenant()
         }
-        service.init(this)
         await service.search(this)
       },
       async search (pageIndex) {
