@@ -81,8 +81,8 @@
         }
         this.watchWidget(this.viewModel)
       },
-      // 监听 子组件中的数据，如果需要触发可以在子组件中定义watchWidget方法
-      // 具体的用法可以参考admin-auto-table
+      // 监听子组件中的数据，如果需要触发可以在子组件中定义watchWidget方法
+      // 具体的用法可以参考admin-auto-table admin-product-list等组件的实现
       watchWidget (val) {
         this.$nextTick(() => {
           this.$refs.childComponent.forEach(element => {
