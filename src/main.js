@@ -178,8 +178,6 @@ import xQrcode from '@/elements/x-qrcode/index.vue'
 import xRadioGroup from '@/elements/x-radio-group/index.vue'
 import xRadio from '@/elements/x-radio/index.vue'
 import xRow from '@/elements/x-row/index.vue'
-import xSelectImage from '@/elements/x-select-image/index.vue'
-import xSelectMutile from '@/elements/x-select-mutile/index.vue'
 import xSelect from '@/elements/x-select/index.vue'
 import xTab from '@/elements/x-tab/index.vue'
 import xTable from '@/elements/x-table/index.vue'
@@ -420,8 +418,6 @@ Vue.component('x-qrcode', xQrcode)
 Vue.component('x-radio-group', xRadioGroup)
 Vue.component('x-radio', xRadio)
 Vue.component('x-row', xRow)
-Vue.component('x-select-image', xSelectImage)
-Vue.component('x-select-mutile', xSelectMutile)
 Vue.component('x-select', xSelect)
 Vue.component('x-tab', xTab)
 Vue.component('x-table', xTable)
