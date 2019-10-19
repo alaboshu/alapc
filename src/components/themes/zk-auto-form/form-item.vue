@@ -57,6 +57,7 @@
       <x-icon-input :icondata="dataModel" @itemForm="formiconmanagement"></x-icon-input>
     </template>
     <template v-if="widget.type=='radiobutton'">
+      {{widget}}
       <x-radio v-model="dataModel" :widget="widget"></x-radio>
     </template>
     <template v-if="widget.type == 'link'">

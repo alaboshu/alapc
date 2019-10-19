@@ -255,7 +255,6 @@ import adminStoreSettings from '@/admins/store/admin-store-settings/index.vue'
 import adminSupplierEdit from '@/admins/store/admin-supplier-edit/index.vue'
 import adminSupplierEidt from '@/admins/store/admin-supplier-eidt/index.vue'
 import adminSupplierOrder from '@/admins/store/admin-supplier-order/index.vue'
-import adminCmuserEdit from '@/admins/user/admin-cmuser-edit/index.vue'
 import adminRoleEdit from '@/admins/user/admin-role-edit/index.vue'
 import adminRoleOpen from '@/admins/user/admin-role-open/index.vue'
 import adminUserEdit from '@/admins/user/admin-user-edit/index.vue'
@@ -499,7 +498,6 @@ Vue.component('admin-store-settings', adminStoreSettings)
 Vue.component('admin-supplier-edit', adminSupplierEdit)
 Vue.component('admin-supplier-eidt', adminSupplierEidt)
 Vue.component('admin-supplier-order', adminSupplierOrder)
-Vue.component('admin-cmuser-edit', adminCmuserEdit)
 Vue.component('admin-role-edit', adminRoleEdit)
 Vue.component('admin-role-open', adminRoleOpen)
 Vue.component('admin-user-edit', adminUserEdit)

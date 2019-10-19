@@ -3,6 +3,8 @@
 
 import convert from './convert'
 import format from './format'
+import api from '@/service/prototypes/api'
+import crud from '@/service/prototypes/crud'
 export default {
   beforeInit (jsThis, type, columns) {
     console.info('before init')
@@ -38,7 +40,7 @@ export default {
     }
     if (!jsThis.dataSourceConfig.type) {
       // 从路由获取参数
-      jsThis.dataSourceConfig.type = jsThis.$crud.getType()
+      jsThis.dataSourceConfig.type = crud.getType()
     }
     if (!jsThis.dataSourceConfig.type) {
       jsThis.$alert('类型type不能为空')
@@ -49,8 +51,7 @@ export default {
   },
   // 获取数据
   async fetchDatas (jsThis) {
-    console.info('sssssssssssssssssss')
-    if (!jsThis.$api.isEmpty(jsThis.data)) {
+    if (!api.isEmpty(jsThis.data)) {
       jsThis.dataResult.result.result = jsThis.data
       jsThis.loading = false
       return
@@ -67,10 +68,10 @@ export default {
       pageIndex: jsThis.dataResult.result.pageIndex,
       pageSize: jsThis.dataResult.result.pageSize,
       type: jsThis.dataSourceConfig.type,
-      ...jsThis.$crud.routeToObject()
+      ...crud.routeToObject()
     }
     console.info('szzzzzz')
-    var response = await jsThis.$api.httpGet(apiUrl, fetchHandlersPara)
+    var response = await api.httpGet(apiUrl, fetchHandlersPara)
     console.info('表格参数结果：', fetchHandlersPara, response)
     if (jsThis.$base.isBuild() === false) {
       console.info('表格参数结果：', fetchHandlersPara, response)
@@ -124,7 +125,7 @@ export default {
   // 获取参数
   getParameters (jsThis, widgetData) {
     var parameters = {}
-    if (!jsThis.$api.isEmpty(widgetData.parameters)) {
+    if (!api.isEmpty(widgetData.parameters)) {
       widgetData.parameters.forEach(par => {
         if (par.key) {
           parameters[par.key] = par.value
