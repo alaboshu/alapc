@@ -4,19 +4,32 @@
     <template v-if="widget.type == 'label'">
       <el-input type="input" v-model="dataModel" :disabled="true" :placeholder="widget.options.placeholder" :style="{width: widget.options.width}"></el-input>
     </template>
-    <template v-if="widget.type == 'textbox'">
+    <template v-if="widget.type == 'checkBox'" x-verify="已验证">
+      <x-checkbox v-model="dataModel" :apiUrl="widget.dataSource"></x-checkbox>
+    </template>
+    <template v-if="widget.type=='radiobutton'" x-verify="已验证">
+      <x-radio v-model="dataModel" :widget="widget" :apiUrl="widget.dataSource"></x-radio>
+    </template>
+    <template v-if="widget.type == 'textbox'" x-verify="已验证">
       <el-input v-model="dataModel" :placeholder="widget.options.placeholder" :value="widget.value"></el-input>
     </template>
-    <template v-if="widget.type == 'textarea'">
+    <template v-if="widget.type == 'textarea'" x-verify="已验证">
       <el-input type="textarea" :rows="5" v-model="dataModel" :placeholder="widget.options.placeholder"></el-input>
     </template>
-
-    <template v-if="widget.type == 'numberic'">
+    <template v-if="widget.type == 'dropdownlist'" x-verify="已验证">
+      <x-select v-model="dataModel" :widget="widget" :apiUrl="widget.dataSource"></x-select>
+    </template>
+    <template v-if="widget.type=='switch'" x-verify="已验证">
+      <el-switch v-model="dataModel" :disabled="widget.options.disabled">
+      </el-switch>
+    </template>
+    <template v-if="widget.type == 'numberic'" x-verify="已验证">
       <el-input-number v-model="dataModel" :min="0" @change="handleChange" :step="widget.options.step" controls-position="right"></el-input-number>
     </template>
-    <template v-if="widget.type == 'decimal'">
+    <template v-if="widget.type == 'decimal'" x-verify="已验证">
       <el-input-number v-model="dataModel" :min="0" :precision="2" :step="0.1" @change="handleChange" controls-position="right"></el-input-number>
     </template>
+
     <template v-if="widget.type == 'x-json'">
       <x-json :widget="widget" v-model="dataModel"></x-json>
     </template>
@@ -39,14 +52,6 @@
       <el-color-picker v-model="dataModel" :disabled="widget.options.disabled" :show-alpha="widget.options.showAlpha"></el-color-picker>
     </template>
 
-    <template v-if="widget.type == 'dropdownlist'">
-      <x-form-select v-model="dataModel" :widget="widget"></x-form-select>
-    </template>
-
-    <template v-if="widget.type=='switch'">
-      <el-switch v-model="dataModel" :disabled="widget.options.disabled">
-      </el-switch>
-    </template>
     <template v-if="widget.type=='slider'">
       <el-slider v-model="dataModel" :min="widget.options.min" :max="widget.options.max" :disabled="widget.options.disabled" :step="widget.options.step" :show-input="widget.options.showInput" :range="widget.options.range" :style="{width: widget.options.width}"></el-slider>
     </template>
@@ -56,10 +61,7 @@
     <template v-if="widget.type=='icon'">
       <x-icon-input :icondata="dataModel" @itemForm="formiconmanagement"></x-icon-input>
     </template>
-    <template v-if="widget.type=='radiobutton'">
-      {{widget}}
-      <x-radio v-model="dataModel" :widget="widget"></x-radio>
-    </template>
+
     <template v-if="widget.type == 'link'">
       <div class="item_box-input">
         <el-input :type="widget.options.dataType" v-model="dataModel.value" :placeholder="widget.options.placeholder"></el-input>
@@ -72,13 +74,7 @@
     <template v-if="widget.type == 'markdown'">
       <x-markdown v-model="dataModel"></x-markdown>
     </template>
-    <template v-if="widget.type == 'checkBox'">
-      <el-checkbox v-model="dataModel"></el-checkbox>
-    </template>
-    <template v-if="widget.type == 'checkBoxList'">
-      <x-checkbox v-model="dataModel" :widget="widget">
-      </x-checkbox>
-    </template>
+
     <template v-if="widget.type == 'hidden'">
       <el-input v-model="dataModel" placeholder="请输入内容" type="hidden"></el-input>
     </template>

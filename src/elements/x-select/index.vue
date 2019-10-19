@@ -16,6 +16,7 @@
       multiple: {
         default: false
       },
+      apiUrl: {}, // Api网址，优先从Api中获取数据
       dataModel: {}
     },
     data () {
@@ -30,9 +31,15 @@
     methods: {
       async init () {
         if (this.keyValues === null) {
-          this.keyValues = await type.getKeyValues(this.type)
+          this.keyValues = await type.getKeyValues(this.type, this.apiUrl)
         }
-        this.viewModel = this.dataModel
+        if (this.dataModel === '00000000-0000-0000-0000-000000000000' || this.dataModel === '000000000000000000000000') {
+          if (this.viewModel.length > 0) {
+            this.viewModel = this.viewModel[0].key
+          }
+        } else {
+          this.viewModel = this.dataModel
+        }
       }
     },
     watch: {

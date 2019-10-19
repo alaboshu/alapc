@@ -12,6 +12,7 @@
     },
     props: {
       type: {},
+      apiUrl: {}, // Api网址，优先从Api中获取数据
       dataModel: {}
     },
     data () {
@@ -26,7 +27,7 @@
     methods: {
       async init () {
         if (this.keyValues === null) {
-          this.keyValues = await type.getKeyValues(this.type)
+          this.keyValues = await type.getKeyValues(this.type, this.apiUrl)
         }
         this.viewModel = this.dataModel
       }

@@ -14,6 +14,7 @@
     },
     props: {
       type: {},
+      apiUrl: {}, // Api网址，优先从Api中获取数据
       dataModel: {}
     },
     data () {
@@ -28,7 +29,7 @@
     methods: {
       async init () {
         if (this.keyValues === null) {
-          this.keyValues = await type.getKeyValues(this.type)
+          this.keyValues = await type.getKeyValues(this.type, this.apiUrl)
         }
         this.viewModel = this.dataModel
       }
@@ -45,14 +46,5 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-  .x-radio {
-    .el-radio {
-      padding: 8px 0px;
-    }
-    .el-radio__label {
-      font-size: 13px;
-      color: #575962;
-    }
-  }
 </style>
 
