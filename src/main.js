@@ -107,7 +107,7 @@ import zkCard from '@/components/themes/zk-card/index.vue'
 import zkCell from '@/components/themes/zk-cell/index.vue'
 import zkCountdown from '@/components/themes/zk-countdown/index.vue'
 import zkDialog from '@/components/themes/zk-dialog/index.vue'
-import zkFileImage from '@/components/themes/zk-file-image/index.vue'
+import zkFileManage from '@/components/themes/zk-file-manage/index.vue'
 import zkFoot from '@/components/themes/zk-foot/index.vue'
 import zkGridList from '@/components/themes/zk-grid-list/index.vue'
 import zkGrid from '@/components/themes/zk-grid/index.vue'
@@ -342,7 +342,7 @@ Vue.component('zk-card', zkCard)
 Vue.component('zk-cell', zkCell)
 Vue.component('zk-countdown', zkCountdown)
 Vue.component('zk-dialog', zkDialog)
-Vue.component('zk-file-image', zkFileImage)
+Vue.component('zk-file-manage', zkFileManage)
 Vue.component('zk-foot', zkFoot)
 Vue.component('zk-grid-list', zkGridList)
 Vue.component('zk-grid', zkGrid)

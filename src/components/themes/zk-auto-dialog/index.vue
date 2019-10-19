@@ -1,7 +1,7 @@
 <template>
   <div class="zk-auto-dialog">
     <el-dialog title="图片管理" :visible.sync="dialogVisible" :width="widget.width" :before-close="handleClose">
-      <zk-file-image @saveImage="saveImage" @fileManagerClose="handleClose" :isTenant="isTenant"></zk-file-image>
+      <zk-file-manage @saveImage="saveImage" @fileManagerClose="handleClose" :isTenant="isTenant"></zk-file-manage>
     </el-dialog>
     <zk-progress ref="progressDialog"></zk-progress>
   </div>
@@ -37,7 +37,7 @@
           })
           return
         }
-        if (data.name === 'zk-file-image') {
+        if (data.name === 'zk-file-manage') {
           this.viewModel = data
           if (this.viewModel) {
             this.dialogVisible.fileManage = true

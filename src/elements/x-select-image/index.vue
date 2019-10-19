@@ -26,6 +26,9 @@
         <i class="el-icon-plus"></i>
       </div>
     </div>
+    <el-dialog :visible="dialogVisible" top="8vh" :before-close="handleClose">
+      <zk-file-manage @autoDialogClose="handleClose" @selectFileChildEvent="selectFileChildEvent"></zk-file-manage>
+    </el-dialog>
   </div>
 </template>
 
@@ -38,16 +41,15 @@
     },
     data () {
       return {
+        dialogVisible: false,
         imgUrl: '',
         list: []
       }
     },
     props: {
-      // 默认图片数量1。如果count=1上传一张图片，返回string.如果大于1，多张图片,返回list
       count: {
-        default: 1
+        default: 1 // 默认图片数量1。如果count=1上传一张图片，返回string.如果大于1，多张图片,返回list
       },
-      // type=systemBackgoundManger 显示背景图片
       type: {},
       dataModel: {}
     },
@@ -64,20 +66,34 @@
           this.imageUrl = this.dataModel
         }
       },
+      handleClose () {
+        this.dialogVisible = false
+      },
+      selectFileChildEvent (data) {
+        this.currentIcon.name = data
+        this.changeIconEvent()
+      },
       showImage (index) {
-        var para = {
-          type: this.type
+        this.dialogVisible = true
+        //   this.$api.dialog('zk-file-manage', para, '60%', '图片管理')
+        //   this.$bus.$off('imageUrl').$on('imageUrl', (imageUrl) => {
+        //     if (this.count > 1) {
+        //       this.list.splice(index, 1, this.$base.clientHost() + imageUrl)
+        //       this.$emit('imgUrl', this.list)
+        //       return
+        //     }
+        //     this.imgUrl = this.$base.clientHost() + imageUrl
+        //     this.$emit('imgUrl', this.imgUrl)
+        //   })
+      }
+    },
+    watch: {
+      currentIcon: {
+        deep: true,
+        handler (val) {
+          this.$emit('change', this.currentIcon)
+          this.$emit('selectIconChild', this.currentIcon)
         }
-        this.$api.dialog('zk-file-image', para, '60%', '图片管理')
-        this.$bus.$off('imageUrl').$on('imageUrl', (imageUrl) => {
-          if (this.count > 1) {
-            this.list.splice(index, 1, this.$base.clientHost() + imageUrl)
-            this.$emit('imgUrl', this.list)
-            return
-          }
-          this.imgUrl = this.$base.clientHost() + imageUrl
-          this.$emit('imgUrl', this.imgUrl)
-        })
       }
     }
   }

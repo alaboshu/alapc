@@ -11,7 +11,8 @@ export default {
       }
       var response = await jsThis.$api.httpGet(
         'Api/StorageFile/QueryPageList',
-        para, jsThis.isTenant
+        para,
+        jsThis.isTenant
       )
       if (response.status === 1) {
         jsThis.totalCount = response.result.recordCount
@@ -60,7 +61,8 @@ export default {
         }
         var res = await jsThis.$api.httpDelete(
           'api/StorageFile/querydelete',
-          data, jsThis.isTenant
+          data,
+          jsThis.isTenant
         )
         if (res.status === 1) {
           jsThis.$message({
