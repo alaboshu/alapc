@@ -1,6 +1,6 @@
 <template>
-  <x-border :title="borderTitle" type="focus" icon="icon-5333-icon43">
-    <div style="background:#ffffff;" class="list_detail" v-if="!isAdd&&viewModel" v-loading="loading">
+  <x-border :title="setting.title" ref="xBorder" type="focus" icon="icon-5333-icon43">
+    <div style="background:#ffffff;" class="list_detail" v-if="!setting.isAdd&&viewModel" v-loading="loading">
       <div class="container">
         <div class="container-head">
           <el-breadcrumb separator="/" class="container-head_top">
@@ -40,7 +40,7 @@
         </el-dialog>
       </div>
     </div>
-    <add v-if="isAdd" @selectCategory="selectCategory" :filterType="$base.filter()"></add>
+    <add v-if="setting.isAdd" @selectCategory="selectCategory" :filterType="$base.filter()"></add>
   </x-border>
 </template>
 
@@ -71,9 +71,11 @@
       return {
         loading: true,
         product: {},
-        isAdd: true, // 判断是新增商品还是编辑商品
+        setting: {
+          isAdd: true, // 判断是新增商品还是编辑商品
+          title: '添加商品' // 标题
+        },
         categoryId: '', // 类目id
-        borderTitle: '添加商品', // 标题
         priceStyleId: null, // 商城模式Id
         category: {},
         saleConfigs: [],
@@ -98,12 +100,18 @@
           this.$api.alert('商城模式不正确,请在DIY系统中配置')
         }
         if (this.categoryId || this.$crud.getId()) {
-          this.isAdd = false
+          this.setting.isAdd = false
         }
-        if (this.isAdd === false) {
+        if (this.setting.isAdd === false) {
           this.loading = true
           this.viewModel = await service.getProductView(this.categoryId, this.priceStyleId)
-          this.borderTitle = this.viewModel.setting.title
+          this.setting = this.viewModel.setting
+          this.$nextTick(() => {
+            var border = {
+              title: this.setting.title
+            }
+            this.$refs.xBorder.init(border)
+          })
           console.info('商品ViewModel', this.viewModel)
         }
         this.loading = false
@@ -148,7 +156,7 @@
       // 新商品选择类目
       selectCategory (categoryId) {
         this.categoryId = categoryId
-        this.isAdd = false
+        this.setting.isAdd = false
         this.init()
       },
       goodsButton () {
