@@ -1,5 +1,5 @@
 <template>
-  <x-border :title="isAdd?'添加商品':'编辑商品'" v-loading="loading" type="focus">
+  <x-border :title="isAdd?'添加商品':'编辑商品'" v-loading="loading" type="focus" icon="icon-5333-icon43">
     <div style="background:#ffffff;" class="list_detail" v-if="!isAdd&&viewModel">
       <div class="container">
         <div class="container-head">
@@ -12,7 +12,6 @@
           </el-breadcrumb>
         </div>
         <div class="failText" v-if="operation()">操作信息:{{viewModel.productDetail.productDetailExtension.aidutMessage}}</div>
-        <!-- <div class="failText" v-if="rouerId&&viewModel.productDetail.productDetailExtension.aidutMessage!==''">操作信息:{{viewModel.productDetail.productDetailExtension.aidutMessage}}</div> -->
         <basic ref="basic" :productView="viewModel"></basic>
         <sale :productView="viewModel"></sale>
         <imagepic :productView="viewModel" @changeImage="changeImage"></imagepic>
@@ -38,7 +37,7 @@
         </el-dialog>
       </div>
     </div>
-    <add v-else @change="change" :filterType="$base.filter()"></add>
+    <add v-if="isAdd" @selectCategory="selectCategory" :filterType="$base.filter()"></add>
   </x-border>
 </template>
 
@@ -77,7 +76,7 @@
         productSkus: [],
         detail: null,
         images: [],
-        viewModel: '',
+        viewModel: null,
         dialogVisible: false,
         saveLoading: false
       }
@@ -111,6 +110,7 @@
       },
       async init () {
         this.isAdd = true
+        console.info('商品', this.categoryId)
         this.viewModel = await service.getProductView(this)
         this.loading = false
       },
@@ -128,8 +128,9 @@
           }
         }
       },
-      change (id) {
-        this.categoryId = id
+      // 新商品选择类目
+      selectCategory (categoryId) {
+        this.categoryId = categoryId
         this.init()
       },
       goodsButton () {

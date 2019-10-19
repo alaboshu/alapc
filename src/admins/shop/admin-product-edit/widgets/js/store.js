@@ -19,5 +19,18 @@ export default {
         type: 'error'
       })
     }
+  },
+  // 获取当前用户登录的店铺
+  async getStore () {
+    var response = await api.httpGet('/Api/Store/GetUserStore')
+    if (response.status === 1) {
+      return response.result
+    } else {
+      Vue.prototype.$notify({
+        title: '提示',
+        message: '店铺不存在' + response.message,
+        type: 'error'
+      })
+    }
   }
 }

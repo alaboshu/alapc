@@ -1,54 +1,51 @@
 <template>
-  <div>
-    <div class="mall-edit">
-      <div class="category-box">
-        <div class="choose-category">
-          <div class="category-list">
-            <div class="category-list_input">
-              <input @input="change" placeholder="请输入名称">
-            </div>
-            <ul class="category-list_ul">
-              <li class="category-list_li" v-for="(selectI,indexs) in selectList" :key="indexs" @click="addList(selectI)">
-                <div class="list-list-title">{{selectI.name}}</div>
-                <div class="list-list-icon">
-                  <i class="el-icon-arrow-right"></i>
-                </div>
-              </li>
-            </ul>
+  <div class="mall-edit">
+    <div class="category-box">
+      <div class="choose-category">
+        <div class="category-list">
+          <div class="category-list_input">
+            <input @input="change" placeholder="请输入名称">
           </div>
-          <div class="category-list" v-if="false">
-            <div class="category-list_input">
-              <input placeholder="请输入名称">
-            </div>
-            <ul class="category-list_ul">
-              <li class="category-list_li" v-for="(selectI,indexs) in selectList" :key="indexs">
-                <div class="list-list-title">{{selectI.name}}</div>
-                <div class="list-list-icon">
-                  <i class="el-icon-arrow-right"></i>
-                </div>
-              </li>
-            </ul>
+          <ul class="category-list_ul">
+            <li class="category-list_li" v-for="(selectI,indexs) in selectList" :key="indexs" @click="addList(selectI)">
+              <div class="list-list-title">{{selectI.name}}</div>
+              <div class="list-list-icon">
+                <i class="el-icon-arrow-right"></i>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="category-list" v-if="false">
+          <div class="category-list_input">
+            <input placeholder="请输入名称">
           </div>
+          <ul class="category-list_ul">
+            <li class="category-list_li" v-for="(selectI,indexs) in selectList" :key="indexs">
+              <div class="list-list-title">{{selectI.name}}</div>
+              <div class="list-list-icon">
+                <i class="el-icon-arrow-right"></i>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div class="prompt-dialog">
-          <div class="dialog-left">您当前选择的是:</div>
-          <div class="dialog-right" v-if="currentlySelected">
-            <span class="right-text">{{currentlySelected}}</span>
-            <router-link class="foot-edit edit" :to="'/admin/category/edit?category='+cuurrentId" v-if="filterType==3">编辑类目</router-link>
-            <span class="foot-edit" @click="detele" v-if="filterType==3">删除类目</span>
-          </div>
+      </div>
+      <div class="prompt-dialog">
+        <div class="dialog-left">您当前选择的是:</div>
+        <div class="dialog-right" v-if="selectCategory">
+          <span class="right-text">{{selectCategory.name}}</span>
+          <router-link class="foot-edit edit" :to="'/admin/category/edit?category='+selectCategory.id" v-if="filterType==3">编辑类目</router-link>
         </div>
-        <div class="prompt-foot">
-          <div class="foot-but" @click="goodsAdd">商品添加</div>
-          <div class="foot-but categoryadd" v-if="filterType==3">添加类目</div>
-        </div>
+      </div>
+      <div class="prompt-foot ">
+        <div class="foot-but" @click="goodsAdd">商品添加</div>
+        <router-link class="foot-edit edit" to="/admin/category/edit" v-if="filterType==3">添加类目</router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import category from './widgets/js/category'
+  import store from './widgets/js/store'
   export default {
     props: {
       filterType: {}
@@ -58,9 +55,7 @@
         categoryList: [{}],
         categoryChildList: [[]],
         selectList: '',
-        currentlySelected: '',
-        cuurrentId: '',
-        viewModel: ''
+        selectCategory: null // 当前选中的类目
       }
     },
     mounted () {
@@ -73,26 +68,23 @@
           index + 1,
           this.categoryChildList.length - index
         )
-        var childCatetories = category.getChildCategories(this.categoryList[index].id)
+        var childCatetories = store.getChildCategories(this.categoryList[index].id)
         this.categoryChildList.push(childCatetories)
         this.categoryList.push({})
       },
-      addList (conter) {
-        this.currentlySelected = conter.name
-        this.cuurrentId = conter.id
+      addList (category) {
+        this.selectCategory = category
       },
       goodsAdd () {
-        if (this.cuurrentId) {
-          this.$emit('change', this.cuurrentId)
+        if (this.selectCategory) {
+          this.$emit('selectCategory', this.selectCategory.id)
         } else {
-          this.$confirm('请选择商品类目', {
-            confirmButtonText: '确 定',
-            cancelButtonText: '取 消'
-          }).catch(() => { })
+          this.$api.alert('请选择类目')
         }
       },
       async init () {
-        var childCatetories = category.getChildCategories()
+        var childCatetories = await store.getChildCategories()
+        this.selectCategory = childCatetories[0]
         this.categoryChildList = childCatetories
         this.selectList = childCatetories
         this.data = childCatetories
@@ -107,21 +99,6 @@
         if (list.length > 0) {
           this.selectList = list
         }
-      },
-      detele () {
-        this.$confirm('此操作将删除此类目，是否继续？', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消'
-        }).then(() => {
-          this.httpDetele()
-        }).catch(() => { })
-      },
-      async httpDetele () {
-        var response = await this.$api.httpDelete('Api/Category/DeleteCategory?categoryId=' + this.cuurrentId)
-        if (response) {
-          this.$crud.message(response)
-        }
-        this.init()
       }
     }
   }

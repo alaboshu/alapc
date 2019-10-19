@@ -103,6 +103,17 @@
         margin: 0 auto;
         cursor: pointer;
       }
+      .foot-edit {
+        font-size: 11px;
+        color: #a160e6;
+        border-radius: 3px;
+        padding: 5px 10px;
+        cursor: pointer;
+
+        &.edit {
+          margin-left: 10px;
+        }
+      }
 
       .categoryadd {
         margin-left: 10px;
