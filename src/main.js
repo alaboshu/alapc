@@ -162,7 +162,6 @@ import xBorder from '@/elements/x-border/index.vue'
 import xCheckbox from '@/elements/x-checkbox/index.vue'
 import xCityPicker from '@/elements/x-city-picker/index.vue'
 import xClass from '@/elements/x-class/index.vue'
-import xClear from '@/elements/x-clear/index.vue'
 import xCode from '@/elements/x-code/index.vue'
 import xCol from '@/elements/x-col/index.vue'
 import xDataSelect from '@/elements/x-data-select/index.vue'
@@ -175,18 +174,14 @@ import xLabel from '@/elements/x-label/index.vue'
 import xLine from '@/elements/x-line/index.vue'
 import xMarkdown from '@/elements/x-markdown/index.vue'
 import xQrcode from '@/elements/x-qrcode/index.vue'
-import xRadioGroup from '@/elements/x-radio-group/index.vue'
 import xRadio from '@/elements/x-radio/index.vue'
-import xRow from '@/elements/x-row/index.vue'
+import xSelectImage from '@/elements/x-select-image/index.vue'
 import xSelect from '@/elements/x-select/index.vue'
-import xTab from '@/elements/x-tab/index.vue'
 import xTable from '@/elements/x-table/index.vue'
 import search from '@/elements/x-table/search/index.vue'
 import xTabs from '@/elements/x-tabs/index.vue'
 import xTags from '@/elements/x-tags/index.vue'
 import xUeditor from '@/elements/x-ueditor/index.vue'
-import xUploadFile from '@/elements/x-upload-file/index.vue'
-import xUploadList from '@/elements/x-upload-list/index.vue'
 import xUpload from '@/elements/x-upload/index.vue'
 import xWidget from '@/elements/x-widget/index.vue'
 import adminActivitySet from '@/admins/activity/admin-activity-set/index.vue'
@@ -402,7 +397,6 @@ Vue.component('x-border', xBorder)
 Vue.component('x-checkbox', xCheckbox)
 Vue.component('x-city-picker', xCityPicker)
 Vue.component('x-class', xClass)
-Vue.component('x-clear', xClear)
 Vue.component('x-code', xCode)
 Vue.component('x-col', xCol)
 Vue.component('x-data-select', xDataSelect)
@@ -415,18 +409,14 @@ Vue.component('x-label', xLabel)
 Vue.component('x-line', xLine)
 Vue.component('x-markdown', xMarkdown)
 Vue.component('x-qrcode', xQrcode)
-Vue.component('x-radio-group', xRadioGroup)
 Vue.component('x-radio', xRadio)
-Vue.component('x-row', xRow)
+Vue.component('x-select-image', xSelectImage)
 Vue.component('x-select', xSelect)
-Vue.component('x-tab', xTab)
 Vue.component('x-table', xTable)
 Vue.component('search', search)
 Vue.component('x-tabs', xTabs)
 Vue.component('x-tags', xTags)
 Vue.component('x-ueditor', xUeditor)
-Vue.component('x-upload-file', xUploadFile)
-Vue.component('x-upload-list', xUploadList)
 Vue.component('x-upload', xUpload)
 Vue.component('x-widget', xWidget)
 Vue.component('admin-activity-set', adminActivitySet)
