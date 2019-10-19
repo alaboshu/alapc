@@ -154,7 +154,8 @@
         this.uploadDialogVisible = false
       },
       // 选择图片
-      selectImage (listchen, Indeximg) {
+      selectImage (image, Indeximg) {
+        console.info('图片', image)
         this.hoverIndex = Indeximg
       },
       // 拖动文件上传框
