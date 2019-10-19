@@ -85,7 +85,6 @@ export default {
   },
   // 获取边框
   getBorder (typeBorder, widgetValue) {
-    console.info('typeBorder typeBorder ', typeBorder, widgetValue)
     var borderModel = {
       title: '',
       icon: '',
@@ -99,9 +98,11 @@ export default {
       borderModel = widgetValue
     }
     if (!borderModel.title) {
-      borderModel.title = api.vuexLocalGet('admin_current_menu').name
+      var currentMenu = api.vuexLocalGet('admin_current_menu')
+      if (currentMenu) {
+        borderModel.title = currentMenu.name
+      }
     }
-    console.info('borderModel', borderModel)
     return borderModel
   },
   // 获取URL中的ID

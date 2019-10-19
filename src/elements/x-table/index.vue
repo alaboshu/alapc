@@ -142,7 +142,6 @@
     methods: {
       // 表格初始,可以在父组件中使用refs来调用，具体的用法可参考admin-auto-table
       async init (type, columns) {
-        console.info('type', this.type)
         data.beforeInit(this, type, columns)
         await data.fetchDatas(this)
         // 表格加载完成后，调用父组件中的afterTableLoad事件，完成表格加载完后的其他操作，比如修改标题，修改颜色等

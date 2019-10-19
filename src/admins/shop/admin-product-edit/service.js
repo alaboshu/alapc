@@ -7,9 +7,14 @@ export default {
   async getProductView (categoryId, priceStyleId) {
     var para = {
       id: crud.getId(),
-      categoryId: categoryId,
       userId: user.id(),
       priceStyleId: priceStyleId
+    }
+    if (categoryId) {
+      para = {
+        ...para,
+        categoryId: categoryId
+      }
     }
     var response = await api.httpGet('/Api/ShopStore/GetProductView', para)
     if (response.status === 1) {

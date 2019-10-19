@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <x-table ref="xTable" type="ProductTable">
-    </x-table>
-  </div>
-
+  <x-table ref="xTable" type="ProductTable"> </x-table>
 </template>
 <script>
   export default {
@@ -34,7 +30,9 @@
         if (this.reload === false) {
           this.init()
           this.$nextTick(() => {
-            this.$refs.xTable.init('ProductTable')
+            if (this.$refs.xTable) {
+              this.$refs.xTable.init('ProductTable')
+            }
           })
         }
         this.reload = false // 解决刷新浏览器，数据加载两次的问题

@@ -79,7 +79,7 @@
       addGood () {
         this.dialogVisible = true
       },
-      async productEdit () {
+    async productEdit () {
         var data = {}
         await this.$api.httpPost('/Api/AdminBasic/Edit', data)
       },
