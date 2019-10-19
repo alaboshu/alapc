@@ -1,12 +1,15 @@
 <template>
-  <x-border :title="isAdd?'添加商品':'编辑商品'" v-loading="loading" type="focus" icon="icon-5333-icon43">
-    <div style="background:#ffffff;" class="list_detail" v-if="!isAdd&&viewModel">
+  <x-border :title="borderTitle" type="focus" icon="icon-5333-icon43">
+    <div style="background:#ffffff;" class="list_detail" v-if="!isAdd&&viewModel" v-loading="loading">
       <div class="container">
         <div class="container-head">
           <el-breadcrumb separator="/" class="container-head_top">
             <el-breadcrumb-item>店铺：{{viewModel.store.name}}</el-breadcrumb-item>
+            <el-breadcrumb-item>商城模式：{{viewModel.priceStyleConfig.name}}</el-breadcrumb-item>
             <el-breadcrumb-item>
               类目：{{viewModel.category.name}}
+            </el-breadcrumb-item>
+            <el-breadcrumb-item>
               <div class="categories" @click="isAdd = true">切换类目</div>
             </el-breadcrumb-item>
           </el-breadcrumb>
@@ -70,6 +73,7 @@
         product: {},
         isAdd: true, // 判断是新增商品还是编辑商品
         categoryId: '', // 类目id
+        borderTitle: '添加商品', // 标题
         priceStyleId: null, // 商城模式Id
         category: {},
         saleConfigs: [],
@@ -99,6 +103,8 @@
         if (this.isAdd === false) {
           this.loading = true
           this.viewModel = await service.getProductView(this.categoryId, this.priceStyleId)
+          this.borderTitle = this.viewModel.setting.title
+          console.info('商品ViewModel', this.viewModel)
         }
         this.loading = false
       },

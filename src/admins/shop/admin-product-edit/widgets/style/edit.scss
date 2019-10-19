@@ -46,13 +46,11 @@
             margin: 0 auto;
         }
         .categories {
-            display: inline-block;
-            background-color: #34bfa3;
-            color: #ffffff !important;
-            padding: 10px;
-            border-radius: 4px;
-            margin-left: 5px;
-            cursor: pointer !important;
+            font-size: 12px;
+        color: #a160e6;
+        border-radius: 3px;
+        padding: 5px 8px;
+        cursor: pointer;
         }
         .elstabls-list {
             .el-tabs__nav {
