@@ -41,7 +41,6 @@
         }
         this.widgetValue = this.widget.value
         this.table = this.widgetValue.table
-        console.info('表格信息', this.widgetValue)
       },
 
       // 表格加载完成事件
