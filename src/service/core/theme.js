@@ -106,15 +106,14 @@ export default {
         if (element.style.border) {
           var styleBorder = JSON.parse(element.style.border)
           element.border = styleBorder
-          if (!element.border) {
-            element.border = {}
-            element.border.show = false
-          } else {
-            if (element.border.name && element.border.name.length > 0) {
-              element.border.show = true
-            }
+          if (element.border.name && element.border.name.length > 0) {
+            element.border.show = true
           }
         }
+      }
+      if (!element.border) {
+        element.border = {}
+        element.border.show = false
       }
 
       if (api.isEmpty(element.layout)) {
