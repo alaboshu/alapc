@@ -91,7 +91,6 @@
       viewModel: {
         deep: true,
         handler (val) {
-          console.info('this.viewModel', this.viewModel)
           this.$emit('change', this.viewModel)
         }
       }

@@ -91,7 +91,6 @@
         if (this.setting.isAdd === false) {
           this.loading = true
           this.viewModel = await service.getProductView(this.categoryId, this.priceStyleId)
-          console.info('this.viewModel', this.viewModel)
           this.setting = this.viewModel.setting
           this.$nextTick(() => {
             var border = {
