@@ -20,6 +20,10 @@ export default {
     var widget = json
     widget.path = jsThis.$route.path
     widget.url = jsThis.$route.path
+    widget.border = {
+      show: false,
+      class: ''
+    }
     if (jsThis.$route.path.toLowerCase().endsWith('list')) {
       var type = this.getType(jsThis, 'list')
       widget.widgets[0].value.table.type = type
