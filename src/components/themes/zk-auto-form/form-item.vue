@@ -4,11 +4,11 @@
     <template v-if="widget.type == 'label'">
       <el-input type="input" v-model="dataModel" :disabled="true" :placeholder="widget.options.placeholder" :style="{width: widget.options.width}"></el-input>
     </template>
-    <template v-if="widget.type == 'checkBox'" x-verify="已验证">
+    <template v-if="widget.type == 'checkbox'" x-verify="已验证">
       <x-checkbox v-model="dataModel" :apiUrl="widget.dataSource"></x-checkbox>
     </template>
     <template v-if="widget.type=='radiobutton'" x-verify="已验证">
-      <x-radio v-model="dataModel" :widget="widget" :apiUrl="widget.dataSource"></x-radio>
+      <x-radio v-model="dataModel" :apiUrl="widget.dataSource"></x-radio>
     </template>
     <template v-if="widget.type == 'textbox'" x-verify="已验证">
       <el-input v-model="dataModel" :placeholder="widget.options.placeholder" :value="widget.value"></el-input>
@@ -17,7 +17,7 @@
       <el-input type="textarea" :rows="5" v-model="dataModel" :placeholder="widget.options.placeholder"></el-input>
     </template>
     <template v-if="widget.type == 'dropdownlist'" x-verify="已验证">
-      <x-select v-model="dataModel" :widget="widget" :apiUrl="widget.dataSource"></x-select>
+      <x-select v-model="dataModel" :apiUrl="widget.dataSource"></x-select>
     </template>
     <template v-if="widget.type=='switch'" x-verify="已验证">
       <el-switch v-model="dataModel" :disabled="widget.options.disabled">
@@ -29,7 +29,9 @@
     <template v-if="widget.type == 'decimal'" x-verify="已验证">
       <el-input-number v-model="dataModel" :min="0" :precision="2" :step="0.1" @change="handleChange" controls-position="right"></el-input-number>
     </template>
-
+    <template v-if="widget.type=='image'">
+      <x-select-image v-model="dataModel"></x-select-image>
+    </template>
     <template v-if="widget.type == 'x-json'">
       <x-json :widget="widget" v-model="dataModel"></x-json>
     </template>
@@ -55,9 +57,7 @@
     <template v-if="widget.type=='slider'">
       <el-slider v-model="dataModel" :min="widget.options.min" :max="widget.options.max" :disabled="widget.options.disabled" :step="widget.options.step" :show-input="widget.options.showInput" :range="widget.options.range" :style="{width: widget.options.width}"></el-slider>
     </template>
-    <template v-if="widget.type=='albumuploder'|| widget.model==='imageUrl'">
-      <x-select-image v-model="dataModel" :widget="widget"></x-select-image>
-    </template>
+
     <template v-if="widget.type=='icon'">
       <x-icon-input :icondata="dataModel" @itemForm="formiconmanagement"></x-icon-input>
     </template>
@@ -77,9 +77,6 @@
 
     <template v-if="widget.type == 'hidden'">
       <el-input v-model="dataModel" placeholder="请输入内容" type="hidden"></el-input>
-    </template>
-    <template v-if="widget.type == 'uploadImg'">
-      <x-upload-list v-model="dataModel" :widget="widget"></x-upload-list>
     </template>
     <template v-if="widget.type == 'area'">
       <x-city-picker v-model="dataModel" :widgetName="widgetName" :introHtml="widget.helpBlock" :requiredFool="widget.required" />

@@ -28,6 +28,7 @@
           type: this.$crud.getType()
         }
         var response = await this.$api.httpGet('/Api/Auto/Form', par)
+        console.info('标签预算', response.result)
         if (response.status === 1) {
           this.widgetModel = response.result
           this.$base.setTitle(this.widgetModel.name)
