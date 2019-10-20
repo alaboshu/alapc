@@ -1,9 +1,9 @@
 <template>
   <div class="x-select-image">
     <div v-if="count > 1" class="x-select-image-all">
-      <div v-for="(item,index) in count" :key="index" @click="showImage(index)" class="x-select-image-list">
-        <div v-if="list[index]" class="x-select-image-choice">
-          <img :src="list[index]" class="img" alt="">
+      <div v-for="(item,index) in count" :key="index" @click="selectImage(index)" class="x-select-image-list">
+        <div v-if="viewModel&&viewModel[index]" class="x-select-image-choice">
+          <img :src="$base.clientHost()+viewModel[index]" class="img" alt="">
           <div class="Mongolia" v-if="false">
             <i class="flaticon-search i-left"></i>
             <i class="el-icon-document i-right"></i>
@@ -14,9 +14,9 @@
         </div>
       </div>
     </div>
-    <div v-else @click="showImage()">
-      <div v-if="imgUrl" class="x-select-image-choice">
-        <img :src="imgUrl" class="img" alt="">
+    <div v-else @click="selectImage()">
+      <div v-if="viewModel" class="x-select-image-choice">
+        <img :src="$base.clientHost()+viewModel" class="img" :alt="viewModel">
         <div class="Mongolia" v-if="false">
           <i class="flaticon-search i-left"></i>
           <i class="el-icon-document i-right"></i>
@@ -38,14 +38,14 @@
   export default {
     directives: { elDragDialog },
     model: {
-      event: 'imgUrl',
+      event: 'change',
       prop: 'dataModel'
     },
     data () {
       return {
         dialogVisible: false,
-        imgUrl: '',
-        list: []
+        selectIndex: 0, // 当前选择的图片索引
+        viewModel: null // 监听视图 如果count=1上传一张图片，返回string.如果大于1，多张图片, 返回list
       }
     },
     props: {
@@ -60,41 +60,39 @@
     },
     methods: {
       init () {
-        if (this.dataModel !== undefined && this.dataModel !== null && this.dataModel !== '') {
+        if (this.dataModel) {
+          this.viewModel = this.dataModel
+        } else {
           if (this.count > 1) {
-            this.list = this.dataModel
-            return
+            this.viewModel = []
+          } else {
+            this.viewModel = ''
           }
-          this.imageUrl = this.dataModel
         }
       },
       handleClose () {
         this.dialogVisible = false
       },
-      selectFileChildEvent (data) {
-        this.currentIcon.name = data
-        this.changeIconEvent()
+      // 监听图片管理的选择事件
+      selectFileChildEvent (image) {
+        if (this.count > 1) {
+          this.viewModel.splice(this.selectIndex, 1, image.path)
+        } else {
+          this.viewModel = image.path
+        }
+        this.handleClose()
       },
-      showImage (index) {
+      selectImage (index) {
+        this.selectIndex = index
         this.dialogVisible = true
-        //   this.$api.dialog('zk-file-manage', para, '60%', '图片管理')
-        //   this.$bus.$off('imageUrl').$on('imageUrl', (imageUrl) => {
-        //     if (this.count > 1) {
-        //       this.list.splice(index, 1, this.$base.clientHost() + imageUrl)
-        //       this.$emit('imgUrl', this.list)
-        //       return
-        //     }
-        //     this.imgUrl = this.$base.clientHost() + imageUrl
-        //     this.$emit('imgUrl', this.imgUrl)
-        //   })
       }
     },
     watch: {
-      currentIcon: {
+      viewModel: {
         deep: true,
         handler (val) {
-          this.$emit('change', this.currentIcon)
-          this.$emit('selectIconChild', this.currentIcon)
+          console.info('this.viewModel', this.viewModel)
+          this.$emit('change', this.viewModel)
         }
       }
     }

@@ -155,8 +155,8 @@
       },
       // 选择图片
       selectImage (image, Indeximg) {
-        console.info('图片', image)
         this.hoverIndex = Indeximg
+        this.$emit('selectFileChildEvent', image)
       },
       // 拖动文件上传框
       drag (e) {
