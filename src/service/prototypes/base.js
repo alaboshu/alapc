@@ -11,7 +11,7 @@ export default {
     return router.history.current
   },
   route () {
-    return router.history.current
+    return router()
   },
   // 使用路由的方式推送链接
   push (url) {

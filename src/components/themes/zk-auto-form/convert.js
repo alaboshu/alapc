@@ -60,15 +60,15 @@ export default {
     return formConfig
   },
   async toNoTabConfig (serviceConfig) {
-    var activitySku = {}
-    activitySku.config = {
+    var autoConfig = {}
+    autoConfig.config = {
       bottonText: serviceConfig.bottonText,
       name: serviceConfig.name,
       title: serviceConfig.title,
       alertText: serviceConfig.alertText,
       buttomHelpText: serviceConfig.buttomHelpText
     }
-    activitySku.list = []
+    autoConfig.list = []
     serviceConfig.groups[0].items.forEach((item, itemIndex) => {
       var objectItem = {
         type: item.type,
@@ -93,10 +93,10 @@ export default {
         },
         required: item.required
       }
-      activitySku.list.push(objectItem)
+      autoConfig.list.push(objectItem)
     })
 
-    return activitySku
+    return autoConfig
   },
   // 获取图标
   geIcon () {
