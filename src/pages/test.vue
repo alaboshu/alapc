@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-select-image v-model="viewModel" :count="6"></x-select-image>
+    <x-select-image v-model="viewModel"></x-select-image>
     {{viewModel}}
   </div>
 
