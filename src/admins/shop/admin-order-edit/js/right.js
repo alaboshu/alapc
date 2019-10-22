@@ -48,7 +48,7 @@ export default {
     }
     if (jsThis.$refs.from_item.currt === 'UpdateExpressAmount') {
       var data = jsThis.$refs.from_item.freightData
-      data.loginUserId = jsThis.$user.id()
+      data.userId = jsThis.$user.id()
       var res = await jsThis.$api.httpPost('Api/Order/UpdateExpressAmount', data)
       jsThis.$crud.message(jsThis, res)
     }

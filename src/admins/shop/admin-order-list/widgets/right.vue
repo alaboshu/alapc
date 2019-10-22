@@ -220,7 +220,7 @@
         }
         if (this.$refs.from_item.currt === 'UpdateExpressAmount') {
           var data = this.$refs.from_item.freightData
-          data.loginUserId = this.$user.id()
+          data.userId = this.$user.id()
           var res = await this.$api.httpPost('Api/Order/UpdateExpressAmount', data)
           this.$crud.message(this, res)
         }

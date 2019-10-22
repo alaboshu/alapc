@@ -198,7 +198,7 @@
       async  init () {
         if (this.$user.isLogin()) {
           this.isLogin = true
-          this.productList.loginUserId = this.$user.loginUser().id
+          this.productList.userId = this.$user.loginUser().id
         }
         // this.widgetModel = await this.$api.themeWidget(this.widget)
         // 获取商品class名称

@@ -62,7 +62,7 @@
           loginUserId: ''
         }
         if (this.$user.loginUser() !== null) {
-          para.loginUserId = this.$user.loginUser().id
+          para.userId = this.$user.loginUser().id
         }
         var respoen = await this.$api.httpGet('/api/cart/getcart', para)
         if (respoen.status === 1) {
