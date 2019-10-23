@@ -54,33 +54,15 @@
         console.info('auto Form 表格结构', this.viewModel)
       },
       async saveForm (models) {
-        models.userId = this.$user.id()
-        if (this.$api.isEmpty(this.viewModel.service.postApi)) {
-          var type = this.$crud.getType()
-          if (this.widgetData.value && this.widgetData.value.type !== undefined) {
-            type = this.widgetData.value.type
-          } else if (this.widgetData.type) {
-            type = this.widgetData.type
-          }
-          if (this.$route.query.id) {
-            models.id = this.$route.query.id
-          }
-          let parameter = {
-            type: type,
-            userId: this.$user.id(),
-            model: JSON.stringify(models)
-          }
-          var response = await this.$api.httpPost('/api/auto/save', parameter)
-          this.$crud.message(response)
-        } else {
-          // 使用专用API接口保存
-          var para = {
-            userId: this.$user.id(),
-            ...models
-          }
-          response = await this.$api.httpPost(this.viewModel.service.postApi, para)
-          this.$crud.message(response)
+        if (this.$route.query.id) {
+          models.id = this.$crud.id()
         }
+        let parameter = {
+          type: this.viewModel.key,
+          model: JSON.stringify(models)
+        }
+        var response = await this.$api.httpPost('/api/auto/save', parameter)
+        this.$crud.message(response)
       },
       formLoad (val) {
         if (val) {
