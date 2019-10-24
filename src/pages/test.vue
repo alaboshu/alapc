@@ -1,7 +1,6 @@
 <template>
   <div>
-    <x-select-image v-model="viewModel"></x-select-image>
-    {{viewModel}}
+
   </div>
 
 </template>
@@ -16,7 +15,13 @@
       this.init()
     },
     methods: {
-      init () {
+      async   init () {
+        var para = {
+          mobile: '17727169875',
+          content: '设么时候归来吃饭？'
+        }
+        var respons = await this.$api.httpPost('/Api/Sms/SendRaw', para)
+        console(respons)
       }
     }
   }
