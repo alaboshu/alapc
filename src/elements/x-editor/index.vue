@@ -13,7 +13,7 @@
 
     model: {
       prop: 'textType',
-      event: 'value'
+      event: 'change'
     },
     components: {
       VueUeditorWrap
@@ -39,7 +39,7 @@
         }
       },
       change () {
-        this.$emit('value', this.ueditorWrap)
+        this.$emit('change', this.ueditorWrap)
       }
     },
     watch: {
@@ -47,7 +47,12 @@
       },
       event (val) {
       },
-      ueditorWrap: 'change'
+      ueditorWrap: {
+        deep: true,
+        handler (val) {
+          this.change()
+        }
+      }
     }
   }
 </script>

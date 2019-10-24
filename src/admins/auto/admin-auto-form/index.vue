@@ -55,7 +55,7 @@
       },
       async saveForm (models) {
         if (this.$route.query.id) {
-          models.id = this.$crud.id()
+          models.id = this.$crud.getId()
         }
         let parameter = {
           type: this.viewModel.key,
