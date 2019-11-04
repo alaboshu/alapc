@@ -1,0 +1,75 @@
+.admin-app {
+
+  .admin-app-select {
+    display: flex;
+
+    .input-select {
+      width: 300px;
+      margin-right: 10px;
+    }
+
+    .button-select {
+      height: 40px;
+      padding: 0 20px !important;
+    }
+
+    .el-input__inner {
+      height: 40px;
+    }
+  }
+
+  .admin-app-flex {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .admin-app-list {
+    width: 230px;
+    padding: 15px;
+    margin: 5px;
+    background-color: #f7f8fa;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .admin-app-icon,
+    .admin-app-cont {
+      height: 50px;
+      border-radius: 3px;
+    }
+
+    .admin-app-icon {
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      background: #ff8417;
+      text-align: center;
+
+      i {
+        color: #fff;
+      }
+    }
+
+    .admin-app-cont {
+      margin-left: 10px;
+
+      .admin-app-title {
+        height: 25px;
+        font-size: 16px;
+        color: #575962;
+      }
+
+      .admin-app-intro {
+        height: 25px;
+        line-height: 25px;
+        font-size: 12px;
+        color: #c0c4cc;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}

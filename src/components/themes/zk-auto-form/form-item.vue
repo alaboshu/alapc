@@ -1,8 +1,10 @@
 <template>
-
   <el-form-item :label="widgetName" :prop="widget.model" class="from-item" :rules="rulesInput" v-if="async&&widget.type !== 'hidden'">
-    <template v-if="widget.type == 'label'">
+    <!-- <template v-if="widget.type == 'label'">
       <el-input type="input" v-model="dataModel" :disabled="true" :placeholder="widget.options.placeholder" :style="{width: widget.options.width}"></el-input>
+    </template> -->
+    <template v-if="widget.type == 'label'">
+      <label>{{dataModel}}</label>
     </template>
     <template v-if="widget.type == 'checkbox'" x-verify="已验证">
       <x-checkbox v-model="dataModel" :apiUrl="widget.dataSource"></x-checkbox>
@@ -255,6 +257,7 @@
         deep: true,
         handler (val) {
           this.dataModel = val[this.widget.model]
+          this.$emit('viewForm', val)
         }
       }
     }

@@ -13,8 +13,8 @@
       },
       color: {},
       size: {
-        type: Number,
-        default: 20
+        type: [String, Number],
+        default: '20'
       },
       // 直接传图标对象
       icon: {},

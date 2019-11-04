@@ -5,22 +5,22 @@
     {
       "icon": "icon-zk-tornado",
       "name": "维度添加",
-      "url": "/Admin/RewardRule/Edit"
+      "url": "/Admin/RewardRule/Edit?moduleId=bd717f8d-ad00-44c9-9aa5-597e0ae55011"
     },
     {
       "icon": "icon-zk-jpy",
       "name": "维度管理",
+      "url": "/Admin/RewardRule/Item?moduleId=bd717f8d-ad00-44c9-9aa5-597e0ae55011"
+    },
+    {
+      "icon": "icon-zk-jpy",
+      "name": "所有配置",
       "url": "/Admin/RewardRule/List"
     },
     {
-      "icon": "icon-zk-redpacket",
-      "name": "分润数据",
-      "url": "/Admin/RewardRule/Data"
-    },
-    {
       "icon": "icon-zk-order",
-      "name": "数据报表",
-      "url": "/Admin/RewardRule/Report"
+      "name": "模式超市",
+      "url": "/Admin/Reward/Modules"
     }
   ]
 }

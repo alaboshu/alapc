@@ -4,7 +4,9 @@ import user from '@/service/prototypes/user'
 import base from '@/service/prototypes/base'
 import token from '@/service/core/token'
 import globalConfig from '@/service/config'
-var { apiBaseUrl } = globalConfig
+var {
+  apiBaseUrl
+} = globalConfig
 export default {
   //  Get方法：查
   async get (apiUrl, data) {

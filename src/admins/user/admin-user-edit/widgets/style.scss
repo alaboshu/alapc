@@ -1,198 +1,240 @@
-.user-management {
-    background-color: #F2F2F2;
-    display: flex;
-    .user-management_left {
-        width: 300px;
-        border: 1px solid #e5e5e5;
-        margin-right: 25px;
-        box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
-        background-color: #ffffff;
-        .user-left {
-            .edit-left {
-                .edit-left-top {
-                    width: 90%;
-                    margin: 0 auto;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    padding-bottom: 30px;
-                    .edit-user-img {
-                        margin-top: 40px;
-                        border: 2px solid #f4f5f8;
-                        border-radius: 50%;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        width: 100px;
-                        height: 100px;
-                        padding: 5px;
-                        img {
-                            border-radius: 50%;
-                            width: 100%;
-                            height: 100%;
-                        }
-                    }
-                    .edit-subscriber {
-                        display: flex;
-                        align-items: center;
-                        margin-top: 10px;
-                        .edit-user-top-title {
-                            font-size: 16px;
-                            margin-right: 5px;
-                        }
-                    }
-                    .edit-user-top-button {
-                        border-radius: 50px;
-                        background-color: #34bfa3;
-                        color: #ffffff;
-                        text-align: center;
-                        letter-spacing: 0.6px;
-                        font-size: 12px;
-                        padding: 3px 10px;
-                    }
-                    .edit-user-text {
-                        color: #7b7e8a;
-                        display: inline-block;
-                        padding: 6px 0 0 0;
-                        font-size: 10px;
-                        text-align: center;
-                    }
-                    .edit-user-buttom-button {
-                        margin-top: 10px;
-                        width: 100%;
-                        display: flex;
-                        justify-content: center;
-                        li {
-                            color: #ffffff;
-                            background: #34bfa3;
-                            font-size: 10px;
-                            text-align: center;
-                            border-radius: 20px;
-                            padding: 5px 12px;
-                            margin: 0px 5px;
-                            cursor: pointer;
-                            &:hover {
-                                opacity: 0.8;
-                            }
-                            &:nth-child(1) {
-                                background: #716aca;
-                            }
-                            &:nth-child(3) {
-                                background: #f4516c;
-                            }
-                        }
-                    }
-                }
-                .edit-left-center {
-                    border-top: 1px solid #f4f5f8;
-                    border-bottom: 1px solid #f4f5f8;
-                    padding: 20px 0px;
-                    li {
-                        padding: 13px 25px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-                        &:hover {
-                            background-color: #f7f8fa;
-                            .edit-left-list-left {
-                                color: #716aca;
-                                font-size: 12px;
-                            }
-                        }
-                        .edit-left-list-left {
-                            display: flex;
-                            align-items: center;
-                            color: #6f727d;
-                            i {
-                                margin-right: 5px;
-                                margin-top: -3px;
-                                color: #c1bfd0;
-                                font-size: 17px;
-                            }
-                        }
-                        .edit-left-list-right {
-                            display: flex;
-                            align-items: center;
-                            color: #716aca;
-                            font-size: 12px;
-                            i {
-                                color: #6f727d;
-                                margin-right: 5px;
-                                font-size: 12px;
-                            }
-                        }
-                    }
-                }
-                .team-list {
-                    padding: 25px;
-                    .team-list_ul {
-                        .team-list_li {
-                            border-bottom: 1px dashed #ebedf2;
-                            display: flex;
-                            align-items: center;
-                            padding: 15px 0px;
-                            .team-list_li-left {
-                                flex: 1;
-                                .left-title {
-                                    font-size: 14px;
-                                    color: #3f4047;
-                                    font-weight: 500;
-                                }
-                                .left-enit {
-                                    font-weight: 300;
-                                    color: #9699a2;
-                                    font-size: 12px;
-                                }
-                            }
-                            .right-number {
-                                font-size: 18px;
-                                font-weight: 600;
-                            }
-                            .number-noe {
-                                color: #716aca;
-                            }
-                            .number-two {
-                                color: #f4516c;
-                            }
-                            .number-three {
-                                color: #34bfa3;
-                            }
-                            .number-four {
-                                color: #f4516c;
-                            }
-                        }
-                    }
-                }
+.user-management-a {
+  background-color: #F2F2F2;
+  display: flex;
+  padding: 10px 0;
+
+  .user-management_left {
+    width: 300px;
+    border: 1px solid #e5e5e5;
+    margin-right: 10px;
+    box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+    background-color: #ffffff;
+
+    .user-left {
+      .edit-left {
+        .edit-left-top {
+          width: 90%;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding-bottom: 30px;
+
+          .edit-user-img {
+            margin-top: 40px;
+            border: 2px solid #f4f5f8;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+
+            img {
+              border-radius: 50%;
+              width: 100%;
+              height: 100%;
             }
+          }
+
+          .edit-subscriber {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+
+            .edit-user-top-title {
+              font-size: 16px;
+              margin-right: 5px;
+            }
+          }
+
+          .edit-user-top-button {
+            border-radius: 50px;
+            background-color: #34bfa3;
+            color: #ffffff;
+            text-align: center;
+            letter-spacing: 0.6px;
+            font-size: 12px;
+            padding: 3px 10px;
+          }
+
+          .edit-user-text {
+            color: #7b7e8a;
+            display: inline-block;
+            padding: 6px 0 0 0;
+            font-size: 10px;
+            text-align: center;
+          }
+
+          .edit-user-buttom-button {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            li {
+              color: #ffffff;
+              background: #34bfa3;
+              font-size: 10px;
+              text-align: center;
+              border-radius: 20px;
+              padding: 5px 12px;
+              margin: 0px 5px;
+              cursor: pointer;
+
+              &:hover {
+                opacity: 0.8;
+              }
+
+              &:nth-child(1) {
+                background: #716aca;
+              }
+
+              &:nth-child(3) {
+                background: #f4516c;
+              }
+            }
+          }
         }
-    }
-    .user-management_right {
-        flex: 1;
-        width: 100%;
-        border: 1px solid #e5e5e5;
-        box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
-        background-color: #ffffff;
-        .user-right {
-            .el-tabs__nav {
-                margin-left: 15px;
-                .el-tabs__item {
-                    height: 60px;
-                    line-height: 60px;
-                    font-size: 16px;
-                }
+
+        .edit-left-center {
+          border-top: 1px solid #f4f5f8;
+          border-bottom: 1px solid #f4f5f8;
+          padding: 20px 0px;
+
+          li {
+            padding: 13px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            &:hover {
+              background-color: #f7f8fa;
+
+              .edit-left-list-left {
+                color: #716aca;
+                font-size: 12px;
+              }
             }
-            .tab-pane-span {
-                font-size: 14px;
-                font-weight: 300;
-                i {
-                    font-size: 16px;
-                    font-weight: 300;
-                    margin-right: 5px;
-                    vertical-align: -1px;
-                }
+
+            .edit-left-list-left {
+              display: flex;
+              align-items: center;
+              color: #6f727d;
+
+              i {
+                margin-right: 5px;
+                margin-top: -3px;
+                color: #c1bfd0;
+                font-size: 17px;
+              }
             }
-            .tab-pane-box {}
+
+            .edit-left-list-right {
+              display: flex;
+              align-items: center;
+              color: #716aca;
+              font-size: 12px;
+
+              i {
+                color: #6f727d;
+                margin-right: 5px;
+                font-size: 12px;
+              }
+            }
+          }
         }
+
+        .team-list {
+          padding: 25px;
+
+          .team-list_ul {
+            .team-list_li {
+              border-bottom: 1px dashed #ebedf2;
+              display: flex;
+              align-items: center;
+              padding: 15px 0px;
+
+              .team-list_li-left {
+                flex: 1;
+
+                .left-title {
+                  font-size: 14px;
+                  color: #3f4047;
+                  font-weight: 500;
+                }
+
+                .left-enit {
+                  font-weight: 300;
+                  color: #9699a2;
+                  font-size: 12px;
+                }
+              }
+
+              .right-number {
+                font-size: 18px;
+                font-weight: 600;
+              }
+
+              .number-noe {
+                color: #716aca;
+              }
+
+              .number-two {
+                color: #f4516c;
+              }
+
+              .number-three {
+                color: #34bfa3;
+              }
+
+              .number-four {
+                color: #f4516c;
+              }
+            }
+          }
+        }
+      }
     }
+  }
+
+  .user-management_right {
+    flex: 1;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.1);
+    background-color: #ffffff;
+
+    .user-right {
+      .el-tabs__nav {
+        margin-left: 15px;
+
+        .el-tabs__item {
+          height: 60px;
+          line-height: 60px;
+          font-size: 16px;
+        }
+      }
+
+      .tab-pane-span {
+        font-size: 14px;
+        font-weight: 300;
+
+        i {
+          font-size: 16px;
+          font-weight: 300;
+          margin-right: 5px;
+          vertical-align: -1px;
+        }
+      }
+
+      .tab-pane-box {}
+    }
+  }
+}
+
+.el-tabs--top div:first-child {
+  color: #999a9c;
 }

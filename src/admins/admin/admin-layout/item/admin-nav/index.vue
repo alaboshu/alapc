@@ -5,7 +5,7 @@
     </el-header>
     <el-container>
       <el-aside :width="currentMenu.asideWidth">
-        <left :roleOutput="roleOutput" :isDiy="isDiy" :currentMenu="currentMenu" @clickMenu="clickMenu"></left>
+        <left :roleOutput="roleOutput" ref="leftAdmin" :isDiy="isDiy" :adminAppItem="adminAppItem" :currentMenu="currentMenu" @clickMenu="clickMenu"></left>
       </el-aside>
       <el-main>
         <transition mode="out-in">
@@ -27,7 +27,8 @@
     },
     data () {
       return {
-        currentMenu: {} // 当前访问的菜单
+        currentMenu: {}, // 当前访问的菜单
+        adminAppItem: null // 记录应用页面点击的选项
       }
     },
     props: {
@@ -37,6 +38,11 @@
     },
     mounted () {
       this.init()
+      this.$bus.$off('global_bus_admin_app_click').$on('global_bus_admin_app_click', (viewModel, item) => {
+        this.$admin.appEnums('link', viewModel, item)
+        this.adminAppItem = item
+        this.init()
+      })
     },
     methods: {
       init () {
@@ -47,9 +53,55 @@
         }
       },
       // 点击菜单
-      clickMenu (menu) {
+      clickMenu (menu, type) {
+        // 处理最近访问       
         this.currentMenu = menu
-        this.$admin.to(this.currentMenu, this.isDiy)
+        if (type) {
+          this.recentVisit(menu, this.roleOutput)
+        } else {
+          this.$admin.to(this.currentMenu, this.isDiy)
+        }
+      },
+      recentVisit (menu, data) {
+        var currItem = null
+        data.menus.forEach(element => {
+          if (element.id !== menu.id) {
+            if (element.menus !== null) {
+              element.menus.forEach(twoChild => {
+                if (twoChild.id !== menu.id) {
+                  if (twoChild.menus !== null) {
+                    twoChild.menus.forEach(threeChild => {
+                      if (threeChild.id === menu.id) {
+                        currItem = threeChild
+                      }
+                    })
+                  }
+                } else {
+                  currItem = twoChild
+                }
+              })
+            }
+          } else {
+            currItem = element
+          }
+        })
+        this.$refs.leftAdmin.to(currItem)
+      }
+    },
+    watch: {
+      '$route': {
+        deep: true,
+        handler (to, from) {
+          if (to.path === '/Admin/App') {
+            var currteItem = null
+            for (let i of this.roleOutput.menus) {
+              if (to.path === i.url) {
+                currteItem = i
+              }
+            }
+            this.$refs.leftAdmin.to(currteItem)
+          }
+        }
       }
     }
   }

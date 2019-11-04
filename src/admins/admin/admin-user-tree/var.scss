@@ -1,6 +1,18 @@
 .admin-user-tree {
-    width: 100%;
-    .admin-user-tree_container {
-        padding: 20px 0px;
+  width: 100%;
+
+
+  .admin-user-tree_container {
+    padding: 20px 0px;
+    line-height: 2rem;
+    margin-top: 20px;
+    min-height: 700px;
+    margin-left: 15px;
+    margin-bottom: 50px;
+
+  
+    .el-tree-node__content {
+      height: 34px;
     }
+  }
 }

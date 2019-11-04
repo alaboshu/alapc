@@ -1,7 +1,7 @@
 <template>
   <div class="form" v-if="async">
     <el-form-item label="获利会员用户类型">
-      <el-select v-if="this.type === 'orderUser'" v-model="viewModel.orderUserTypeId" @change="reqData(true)" filterable placeholder="请选择">
+      <el-select v-if="type === 'orderUser'" v-model="viewModel.orderUserTypeId" @change="reqData(true)" filterable placeholder="请选择">
         <el-option v-for="item in widgetModel" :key="item.value" :label="item.value" :value="item.key">
         </el-option>
       </el-select>
@@ -11,13 +11,14 @@
       </el-select>
       <div class="demo_intro">选择获利用户的用户类型，比如选择股东，则该条分润规则只针对股东有效。用户类型管理</div>
     </el-form-item>
+    <!--分割线-->
     <el-form-item label="是否限制获利用户等级">
-      <el-switch v-if="this.type === 'orderUser'" v-model="viewModel.isLimitOrderUserGrade" @change="headleChange(viewModel.isLimitOrderUserGrade, 'orderUser')"></el-switch>
+      <el-switch v-if="type === 'orderUser'" v-model="viewModel.isLimitOrderUserGrade" @change="headleChange(viewModel.isLimitOrderUserGrade, 'orderUser')"></el-switch>
       <el-switch v-else v-model="viewModel.isLimitShareUserGrade" @change="headleChange(viewModel.isLimitShareUserGrade, 'shareUser')"></el-switch>
       <div class="demo_intro">选择获利用户的用户类型等级。</div>
     </el-form-item>
     <el-form-item v-if="viewModel.isLimitOrderUserGrade || viewModel.isLimitShareUserGrade" :label="textIntro">
-      <el-select v-if="this.type === 'orderUser'" v-model="viewModel.orderUserGradeId" filterable placeholder="请选择">
+      <el-select v-if="type === 'orderUser'" v-model="viewModel.orderUserGradeId" filterable placeholder="请选择">
         <el-option v-for="item in selectData" :key="item.value" :label="item.value" :value="item.key">
         </el-option>
       </el-select>
@@ -106,6 +107,14 @@
           } else {
             this.viewModel.shareUserGradeId = response[0].key
           }
+        }
+      }
+    },
+    watch: {
+      'viewModel.orderUserTypeId': {
+        deep: true,
+        handler (val) {
+          console.info('就是男方了撒', val)
         }
       }
     }

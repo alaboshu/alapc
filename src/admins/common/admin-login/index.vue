@@ -2,7 +2,7 @@
   <div class="admin-login">
     <div class="admin-login_box">
       <div class="m-login__logo">
-        <img src="../../../../static/img/logo.png" />
+        <img src="../../../../static/img/009.png" />
       </div>
       <div class="m-login__signin">
         <h3>管理员登录</h3>

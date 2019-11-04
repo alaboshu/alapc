@@ -2,16 +2,17 @@
   <div class="zk-auto-form" v-if="formConfig&&async">
     <div v-if="serviceConfig.fromMessage==null">
       <el-alert v-if="formConfig.config && formConfig.config.alertText" :title="formConfig.config.alertText" show-icon type="success" :closable="false"></el-alert>
-      <el-form ref="generateForm" :model="models" :rules="rules" :label-width="formLabelWidth + 'px'">
+      <el-form ref="generateForm" :model="models" :rules="rules">
+        <!-- :label-width="formLabelWidth + 'px'" -->
         <template v-for="item in formConfig.list">
           <template v-if="item.type == 'grid'">
             <el-row :key="item.key" type="flex" :gutter="item.options.gutter ? item.options.gutter : 0" :justify="item.options.justify" :align="item.options.align">
               <el-col v-for="(col, colIndex) in item.columns" :key="colIndex" :span="col.span">
                 <template v-for="citem in col.list">
-                  <el-form-item v-if="citem.type=='blank'" :label="citem.name" :prop="citem.model" :key="citem.key">
+                  <el-form-item v-if="citem.type=='blank'" @viewForm="viewForm" :label="citem.name" :prop="citem.model" :key="citem.key">
                     <slot :name="citem.model" :model="models"></slot>
                   </el-form-item>
-                  <form-item v-else :key="citem.key" :models.sync="models" :rules="rules" :widgets="citem"></form-item>
+                  <form-item v-else :key="citem.key" @viewForm="viewForm" :models.sync="models" :rules="rules" :widgets="citem"></form-item>
                 </template>
               </el-col>
             </el-row>
@@ -21,7 +22,7 @@
               <el-tab-pane v-for="(col, colIndex) in item.columns" :key="colIndex" :label="col.name" :name="col.name">
                 <span slot="label" class="tab-list"><i class="glyph-icon" :class="tabIconList[colIndex]"></i> {{col.name}}</span>
                 <template v-for="citem in col.list">
-                  <el-form-item v-if="citem.type=='blank'" :prop="citem.model" :key="citem.key">
+                  <el-form-item v-if="citem.type=='blank'" @viewForm="viewForm" :prop="citem.model" :key="citem.key">
                     <slot :name="citem.model" :model="models"></slot>
                   </el-form-item>
                   <form-item :saveForm="saveForm" v-else :key="citem.key" :models.sync="models" :rules="rules" :widgets="citem"></form-item>
@@ -41,7 +42,7 @@
             <x-table :autoFormId="item.options.autoFormId" :key="item.options.autoFormId"></x-table>
           </template>
           <template v-else>
-            <form-item :key="item.key" :models.sync="models" :rules="rules" :widgets="item" :parament="parament"></form-item>
+            <form-item :key="item.key" :models.sync="models" @viewForm="viewForm" :rules="rules" :widgets="item" :parament="parament"></form-item>
           </template>
         </template>
         <template v-if="formConfig.config&&formConfig.config.buttomHelpText!==undefined &&formConfig.config.buttomHelpText!==null&&formConfig.config.buttomHelpText.length > 0">
@@ -50,7 +51,6 @@
               <li class="zkAutoFormList" v-for="(item, index) in formConfig.config.buttomHelpText" :key="index">{{index+1}}、 {{item}}</li>
             </ul>
           </x-line>
-
         </template>
       </el-form>
       <div class="auto-btn-box" v-if="showBotton">
@@ -247,6 +247,9 @@
             }
           })
         })
+      },
+      viewForm (data) {
+        this.$emit('viewForm', data)
       }
     },
     watch: {

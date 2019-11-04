@@ -7,7 +7,6 @@ import api from '@/service/prototypes/api'
 import crud from '@/service/prototypes/crud'
 export default {
   beforeInit (jsThis, type, columns) {
-    console.info('before init')
     // 数据初始化
     jsThis.dataResult = {
       tableActions: [],
@@ -57,7 +56,9 @@ export default {
       return
     }
     jsThis.loading = true
-    let { fetchHandlersPara } = jsThis
+    let {
+      fetchHandlersPara
+    } = jsThis
     let apiUrl = '/Api/Auto/Table'
 
     var parameters = {}
@@ -70,7 +71,6 @@ export default {
       type: jsThis.dataSourceConfig.type,
       ...crud.routeToObject()
     }
-    console.info('szzzzzz')
     var response = await api.httpGet(apiUrl, fetchHandlersPara)
     console.info('表格参数结果：', fetchHandlersPara, response)
     if (jsThis.$base.isBuild() === false) {
@@ -87,6 +87,7 @@ export default {
         jsThis.$refs.searchForm.init(jsThis.dataResult.searchOptions)
       })
       convert.apply(jsThis)
+      convert.handle(jsThis)
     } else {
       jsThis.$notify({
         title: '操作失败',

@@ -1,5 +1,5 @@
 <template>
-  <img v-lazy="imageUrl" :width="imageWidth" :height="imageWidth" v-if="imageUrl" />
+  <img :src="imageUrl" :width="imageWidth" :height="imageWidth" v-if="imageUrl" />
 </template>
 <script>
   export default {

@@ -1,7 +1,8 @@
 <template>
   <div class="layout-container_head">
     <div class="head-portrait">
-      <img class="head-portrait_img" src="../../../../../../static/img/logo.png" />
+      <!--<img class="head-portrait_img" src="http://test.api.szwft.me/wwwroot/uploads/api/375-431-798/2019-10-30/5db9559598dea72ec88089cd.png" />-->
+      <img class="head-portrait_img" src="../../../../../../static/img/009.png" />
     </div>
     <div class="wb-header">
       <div class="wb-header_left">
@@ -168,7 +169,8 @@
         }
       },
       to (item) {
-        this.$emit('clickMenu', item)
+        this.$emit('clickMenu', item, 'click')
+        // 就是你了
       },
       querySearch (queryString, cb) {
         var restaurants = Array.from(this.allMenus)

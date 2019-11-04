@@ -1,5 +1,5 @@
 {
-  "name": "zkpc",
+  "name": "wfsbpc",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "aes": "^0.1.0",
+    "axios": "^0.19.0",
     "crypto-js": "^3.1.9-1",
     "crypto-js-aes": "^1.0.1",
     "echarts": "^4.2.0-rc.2",
@@ -52,7 +53,7 @@
     "cross-env": "^5.2.0",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.13.0",
     "rollup": "^0.57.1",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-buble": "^0.19.2",

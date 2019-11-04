@@ -155,6 +155,6 @@ export default {
     if (title) {
       name = title
     }
-    document.title = `${name}--${site.site.companyName}  阿拉伯数提供技术支持`
+    document.title = `${name}--${site.site.companyName}  咚巴拉提供技术支持`
   }
 }

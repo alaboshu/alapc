@@ -107,7 +107,7 @@
     },
     mounted () {
       this.initListener()
-      this.postMessage('clientIframeLoadRequest', 'zkPc')
+      this.postMessage('clientIframeLoadRequest', 'wfsbpc')
     },
     methods: {
 

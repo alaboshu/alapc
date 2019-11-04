@@ -1,6 +1,6 @@
 <template>
   <x-border title="会员管理" icon="el-icon-setting" type="accent" v-if="viewModel">
-    <div class="user-management">
+    <div class="user-management-a">
       <div class="user-management_left">
         <left :viewModel="viewModel"></left>
       </div>

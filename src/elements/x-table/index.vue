@@ -38,12 +38,16 @@
             <column-image v-else-if="column.style.type  === 'image'" :url="scope.row[column.prop]">
             </column-image>
             <x-label v-else-if="column.style.type  === 'label'" :color='column.style.parameter'>{{scope.row[column.prop]}}</x-label>
-            <x-code v-else-if="column.style.type  === 'code'">{{scope.row[column.prop]}}</x-code>
+            <x-autoconfig v-else-if="column.style.type==='autoconfig'" v-model="scope.row[column.prop]"></x-autoconfig>
+            <x-code v-else-if="column.style.type  === 'code' || column.style.type.substr(0, 4) === 'code'">{{scope.row[column.prop]}}</x-code>
             <div v-else-if="column.style.type  === 'bool'">
               <x-label :color="scope.row[column.prop]?'success':'danger'">{{scope.row[column.prop]?'是':'否'}}</x-label>
             </div>
+            <div v-else-if="column.style.type === 'grade'">
+              <x-grade :id="scope.row[column.prop]" v-model="scope.row[column.prop]"></x-grade>
+            </div>
             <x-enum v-else-if="column.style.type  === 'enum'" :type='column.style.parameter' :value='scope.row[column.prop]'></x-enum>
-            <el-button v-else-if="column.style.type  === 'button'" type="primary" @click.native="action(scope.row[column.prop], scope.row)">{{scope.row[column.prop]}}</el-button>
+            <x-table-button v-else-if="column.style.type  === 'button'" @click="init" v-model="scope.row[column.prop]" :scope="scope.row"></x-table-button>
             <el-switch v-else-if="column.style.type  === 'switch'" v-model="scope.row[column.prop]" active-color="#13ce66" inactive-color="#ff4949" :disabled="true">
             </el-switch>
             <div v-else-if="column.style.type==='action'" fixed="right" class="btn-group" @mouseenter="enter(scope.row)" @mouseleave="leave(scope.row)">

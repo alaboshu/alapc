@@ -1,6 +1,7 @@
 <template>
-  <x-line :border="true" :title="data.name" :icon="data.icon" v-if="async">
-    <ul class="activity-edit" v-if="false">
+  <div v-if="async">
+    <x-line :border="true" :title="data.name" :icon="data.icon"></x-line>
+    <ul class="activity-edit">
       <li>
         <div class="activity-text">活动时间<span>*</span></div>
         <div class="activity-calendar">
@@ -12,7 +13,7 @@
       <li>
         <div class="activity-text">最大库存<span>*</span></div>
         <div class="activity-calendar">
-          <el-input v-model="this.viewModel.activityRules.buyerCount"></el-input>
+          <el-input v-model="viewModel.activityRules.buyerCount"></el-input>
           <div>0则表示不限制库存、活动的最大库存，当活动使用的库存量超过库存时，活动自动停止</div>
         </div>
       </li>
@@ -28,7 +29,7 @@
     <div class="activity-line">
       <zk-auto-form :serviceConfig="viewModel.autoForm" v-if="async" @saveForm="saveForm"></zk-auto-form>
     </div>
-  </x-line>
+  </div>
 </template>
 
 
@@ -39,9 +40,14 @@
     data () {
       return {
         async: false,
-        viewModel: '',
+        viewModel: {
+          activityRules: {
+            buyerCount: 0
+          }
+        },
         activity: {
-          dataTime: [], buyerCount: 0
+          dataTime: [],
+          buyerCount: 0
         }
       }
     },
@@ -61,6 +67,7 @@
           this.activity.dataTime.push(this.viewModel.activity.endTime)
           this.async = true
         }
+        console.info('表单结构', this.viewModel.autoForm)
       },
       async saveForm (model) {
         this.viewModel.activity.createTime = this.activity.dataTime[0]

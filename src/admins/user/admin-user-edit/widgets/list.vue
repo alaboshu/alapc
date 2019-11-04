@@ -7,7 +7,7 @@
       </div>
       <div class="edit-left-list-right">
         <i class="icon iconfont"></i>
-        <span>{{viewModel.user.userGradeConfig.name}}</span>
+        <span>{{viewModel.userGradeConfig.name}}</span>
       </div>
     </li>
     <li>

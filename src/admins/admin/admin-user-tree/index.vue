@@ -1,6 +1,6 @@
 <template>
   <div class="admin-user-tree" v-if="async" v-cloak>
-    <x-border :title="title">
+    <x-border :title="title" name="icon-5333-beifen16" type="primary">
       <div class="admin-user-tree_container">
         <el-tree :data="data" :props="defaultProps" :highlight-current="true" :load="loadNodeList" lazy></el-tree>
       </div>
@@ -39,7 +39,7 @@
           id: this.$user.id(),
           isFirst: 'YES'
         }
-        var res = await this.$api.httpGet('/api/UserAdmin/GetUserTree', para)
+        var res = await this.$api.httpGet('/api/UserTree/GetUserTree', para)
         if (res.status === 1) {
           this.widgetModel = res.result
         }
@@ -55,7 +55,7 @@
           var para = {
             id: node.data.id
           }
-          var res = await this.$api.httpGet('/api/UserAdmin/GetUserTree', para)
+          var res = await this.$api.httpGet('/api/UserTree/GetUserTree', para)
           if (res.status === 1) {
             val = res.result
           }
@@ -68,7 +68,7 @@
         var para = {
           id: data.id
         }
-        var res = await this.$api.httpGet('/api/UserAdmin/GetUserTree', para)
+        var res = await this.$api.httpGet('/api/UserTree/GetUserTree', para)
         var _this = this
         if (res.status === 1) {
           if (res.result.length > 0) {
@@ -102,6 +102,7 @@
   .admin-user-tree {
     .admin-user-tree_container {
       padding: 0px 20px;
+      padding-bottom: 20px;
     }
   }
 </style>

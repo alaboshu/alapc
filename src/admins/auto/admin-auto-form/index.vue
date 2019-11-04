@@ -1,5 +1,5 @@
 <template>
-  <x-border v-if="async" v-loading="loading" ref="xBorder" icon="flaticon-settings">
+  <x-border v-if="async" v-loading="loading" ref="xBorder" :title="widgetModel.title" :type="widgetModel.themeColor" :icon="widgetModel.icon.name">
     <zk-auto-form @formLoad="formLoad" :serviceConfig="viewModel" @saveForm="saveForm" ref="zkAutoForm"></zk-auto-form>
   </x-border>
 </template>
@@ -16,7 +16,8 @@
         async: false,
         viewModel: null,
         loading: true,
-        firstLoad: true // 首次加载
+        firstLoad: true, // 首次加载
+        widgetModel: null
       }
     },
     mounted () {
@@ -25,8 +26,9 @@
     methods: {
       async  init () {
         var type = this.$crud.getType()
-        if (this.widgetData.value !== undefined && this.widgetData.value !== null && this.widgetData.value.type !== undefined) {
-          type = this.widgetData.value.type
+        if (this.widgetData.value !== undefined && this.widgetData.value !== null && this.widgetData.value.form.type !== undefined) {
+          type = this.widgetData.value.form.type
+          this.widgetModel = this.widgetData.value.form.border
         }
         var para = {
           type: type,

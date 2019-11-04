@@ -2,7 +2,7 @@
   <div class="zk-product-top">
     <div class="top-nav">
       <div class="top-nav_left">
-        <div class="friendly-reminder">您好！欢迎光临<span class="friendly-reminder_span">阿拉博数</span></div>
+        <div class="friendly-reminder">您好！欢迎光临<span class="friendly-reminder_span">咚巴拉</span></div>
         <div class="log-words" v-if="!loginTool">
           <div @click="loginTo" class="log-words_color words-after">登录</div>
           <!-- <router-link to="/login" class="log-words_color words-after">登录</router-link> -->

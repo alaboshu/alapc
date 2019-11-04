@@ -1,6 +1,6 @@
 <template>
-  <x-border ref="xBorder" icon="flaticon-settings">
-    <x-table ref="xTable" :type="table.type" @afterTableLoad="afterTableLoad" :columns="table.columns" v-if="table.type">
+  <x-border ref="xBorder" icon="flaticon-settings" v-if="async">
+    <x-table ref="xTable" :type="table.type" @afterTableLoad="afterTableLoad">
     </x-table>
     <div v-if="$base.filter() === 3" class="derived-box" slot="headerRight">
       <el-popover placement="bottom-end" trigger="hover">
@@ -27,11 +27,9 @@
     data () {
       return {
         reload: true, // 是否刷新
-        table: {
-          type: null,
-          columns: null
-        },
-        widgetValue: ''
+        table: null,
+        widgetValue: '',
+        async: false
       }
     },
     methods: {
@@ -41,6 +39,7 @@
         }
         this.widgetValue = this.widget.value
         this.table = this.widgetValue.table
+        this.async = true
       },
 
       // 表格加载完成事件

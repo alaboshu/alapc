@@ -1,12 +1,13 @@
 <template>
   <div class="admin-reward">
-    <x-border title="分润编辑" type="accent">
-      <el-form label-position="right" label-width="160px">
+    <admin-reward-sidebar></admin-reward-sidebar>
+    <x-border title="分润编辑" type="accent" icon="dicon-5333-biyrer" style="margin-left: 110px" v-loading="isLoading">
+      <el-form label-position="right">
         <el-tabs class="admin-reward_tabs">
           <el-tab-pane>
             <span slot="label" class="tab-pane-span"><i class="el-icon-chat-line-round"></i>基本信息</span>
             <div class="tab-pane-boxs">
-              <edit-base :viewModel="viewModel" v-if="viewModel"> </edit-base>
+              <edit-base :viewModel="viewModel" v-model="viewModel" v-if="viewModel"> </edit-base>
             </div>
           </el-tab-pane>
           <el-tab-pane>
@@ -34,14 +35,14 @@
             </div>
           </el-tab-pane>
         </el-tabs>
-        <el-form-item class="form-buttom">
+        <el-form-item class="form-buttom" label-width="70px">
           <el-button type="primary" @click="dialogVisible = true">保存</el-button>
         </el-form-item>
       </el-form>
-      <el-dialog title="保存分润规则" :visible.sync="dialogVisible">
+      <el-dialog title="保存分润规则" :visible.sync="dialogVisible" v-if="viewModel">
         <div class="admin-reward_dialog">
           <div class="modal-body">修改分润规则可能会对市场造成一定的影响，同时可能导致数据出现不可修复的错误。请慎重！保存之前请确保您已详细阅读《服务条款&免责声明》</div>
-          <el-form label-width="150px" class="reward_dialog-form">
+          <el-form class="reward_dialog-form">
             <el-form-item label="支付密码" :required="true">
               <el-input type="password" v-model="viewModel.payPassword"></el-input>
             </el-form-item>
@@ -71,10 +72,12 @@
     },
     data () {
       return {
+        async: false,
         viewModel: null,
         dialogVisible: false,
         password: '',
-        loading: false
+        loading: false,
+        isLoading: true
       }
     },
     mounted () {
@@ -89,19 +92,21 @@
         var response = await this.$api.httpGet('/Api/RewardRule/GetEditView', para)
         if (response.status === 1) {
           this.viewModel = response.result
+          this.isLoading = false
+        } else {
+          this.$api.alert(response.message)
+        }
+        if (this.$route.query.copy === 'true' || this.$route.query.copy === true) {
+          this.viewModel.id = '000000000000000000000000'
         }
       },
       // 保存
       async onSubmit () {
         this.loading = true
-        var response = await this.$api.httpPost('/Api/RewardRule/GetEditView', this.viewModel)
+        var response = await this.$api.httpPost('/Api/RewardRule/Save', this.viewModel)
         if (response.status === 1) {
-          this.$notify({
-            title: '成功',
-            message: '操作成功',
-            type: 'success'
-          })
           this.dialogVisible = false
+          this.$crud.message(response)
         } else {
           this.$notify.error({
             title: '错误',

@@ -1,60 +1,30 @@
 <template>
   <div class="detailed" v-if="viewModel&&viewModel.user">
-    <ul class="detailed-list">
-      <li>
-        <div class="detailed-text gender">
-          性别
-          <span>*</span>
-        </div>
-        <div class="detailed-input">
-          <div class="detailed-radio">
-            <el-radio-group v-model="genderType" v-for="(item, index) in gender" :key="index">
-              <el-radio :label="item">{{item}}</el-radio>
-            </el-radio-group>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="detailed-text">所属门店</div>
-        <div class="detailed-input">
-          <el-input v-model="viewModel.serviceCenterUserName"></el-input>
-          <div>请输入门店所属人的用户名</div>
-        </div>
-      </li>
-      <li>
-        <div class="detailed-text">所在区域</div>
-        <div class="detailed-input">
-          <x-city-picker v-model="viewModel.userDetail.regionId"></x-city-picker>
-        </div>
-      </li>
-      <li>
-        <div class="detailed-text">详细地址</div>
-        <div class="detailed-input">
-          <el-input value="fdsklaj" v-model="viewModel.address"></el-input>
-        </div>
-      </li>
-      <li>
-        <div class="detailed-text">
-          出生日期
-          <span>*</span>
-        </div>
-        <div class="detailed-input">
-          <el-date-picker type="date" v-model="viewModel.userDetail.birthday" placeholder="选择日期"></el-date-picker>
-        </div>
-      </li>
-      <li>
-        <div class="detailed-text">备注</div>
-        <div class="detailed-input">
-          <el-input type="textarea" v-model="viewModel.userDetail.remark"></el-input>
-        </div>
-      </li>
-      <li class="detailed-buttom">
-        <div class="detailed-text"></div>
-        <div class="detailed-input">
-          <el-button type="primary" @click="save">保存</el-button>
-        </div>
-      </li>
-    </ul>
+    <el-form ref="form">
+      <el-form-item label="性别" v-if="false">
+        <x-radio type="Sex" v-model="viewModel.sex"></x-radio>
+        <div class="detail-user-base-tips">请选择性别</div>
+      </el-form-item>
+      <el-form-item label="所在区域">
+        <x-city-picker v-model="viewModel.userDetail.regionId"></x-city-picker>
+        <div class="detail-user-base-tips">请选择您所在的区域</div>
+      </el-form-item>
+      <el-form-item label="详细地址">
+        <el-input value="fdsklaj" v-model="viewModel.address"></el-input>
+        <div class="detail-user-base-tips">请输入您所在区域的详细地址</div>
+      </el-form-item>
+      <el-form-item label="出生日期" :rules="[{ required: true, message: '出生日期不能为空'}]">
+        <el-date-picker type="date" v-model="viewModel.userDetail.birthday" placeholder="选择日期"></el-date-picker>
+        <div class="detail-user-base-tips">请选择您的生日</div>
+      </el-form-item>
+      <el-form-item label="备注">
+        <el-input type="textarea" v-model="viewModel.userDetail.remark"></el-input>
+        <div class="detail-user-base-tips">请填写该备注</div>
+      </el-form-item>
+      <el-form-item size="large" label-width="240px">
+        <el-button type="primary" @click="save">保存</el-button>
+      </el-form-item>
+    </el-form>
   </div>
 </template>
 
@@ -62,11 +32,9 @@
 
 <script>
   export default {
-    props: ['viewModel', 'actives'],
+    props: ['viewModel'],
     data () {
       return {
-        gender: ['男', '女', '保密'],
-        genderType: this.actives.getEmun('Sex', this.viewModel.sex)
       }
     },
     methods: {
@@ -78,7 +46,6 @@
             UserName: this.viewModel.user.userName
           },
           Sex: this.viewModel.Sex,
-          ServiceCenterUserName: this.viewModel.serviceCenterUserName,
           ProvinceRegionId: Number.parseInt(Region.substr(0, 2) + '0000'),
           CityId: Number.parseInt(Region.substr(0, 4) + '00'),
           RegionId: Number.parseInt(Region),
@@ -99,11 +66,6 @@
 </script>
 
 
-
-<style lang="scss" scoped>
-  @import "./styles/detailed.scss";
-</style>
-
 <style lang="scss">
   .detailed {
     .el-textarea__inner {
@@ -114,6 +76,10 @@
     }
     .el-radio__label {
       margin-left: 5px;
+    }
+    .detail-user-base-tips {
+      height: 20px;
+      line-height: 20px;
     }
   }
 </style>

@@ -8,9 +8,9 @@ export default {
       para.style = dataReport.style
       para.condition = dataReport.condition
     }
-    var response = await jsThis.$api.httpPost('/api/Report/GetSingleReport', para)
-    if (response) {
-      return response.result
-    }
+    // var response = await jsThis.$api.httpPost('/api/Report/GetSingleReport', para)
+    // if (response) {
+    //   return response.result
+    // }
   }
 }

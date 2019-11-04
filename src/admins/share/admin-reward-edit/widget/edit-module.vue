@@ -1,9 +1,10 @@
 <template>
   <div>
-    <el-alert style="margin-bottom:5px" :title="viewModel.base.title" type="success" :description="viewModel.base.intro" :closable="false" show-icon>
+    <el-alert v-if="viewModel.moduleConfig" style="margin-bottom:5px" :title="viewModel.moduleConfig.title" type="success" :description="viewModel.moduleConfig.intro" :closable="false" show-icon>
     </el-alert>
-    <x-line :border="true" :title="viewModel.base.title+'规则配置'" type="metal" icon="flaticon-security" style="padding:0px 15px;"></x-line>
-    <zk-auto-form :serviceConfig="viewModel.autoForm" :showBotton="false"></zk-auto-form>
+    <!--viewModel.base && viewModel.base.title-->
+    <x-line :border="true" :title="'规则配置'" type="metal" icon="flaticon-security" style="padding:0px 15px;"></x-line>
+    <zk-auto-form :serviceConfig="viewModel.autoForm" :showBotton="false" @viewForm="viewForm"></zk-auto-form>
   </div>
 </template>
 <script>
@@ -13,6 +14,11 @@
     },
     data () {
       return {
+      }
+    },
+    methods: {
+      viewForm (data) {
+        this.viewModel.value = JSON.stringify(data)
       }
     }
   }

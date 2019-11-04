@@ -6,16 +6,25 @@
     width: 90px;
     background-color: #282a3c;
     overflow: auto;
+    position: relative;
+    .stair-navigation-list {
+      position: fixed;
+      top: 50px;
+      left: 0;
+      width: 90px;
+    }
     .stair-ul {
       .stair-li {
         height: 40px;
         line-height: 40px;
         padding-left: 14px;
         cursor: pointer;
+
         .stair-box {
           font-size: 14px;
           color: #c8c9cc;
           font-weight: 300;
+
           i {
             font-size: 15px;
             color: #c8c9cc;
@@ -23,31 +32,43 @@
           }
         }
       }
+
       .stair_active {
         background-color: #ffffff;
+
         .stair-box {
           color: #323233;
           font-weight: 300;
+
           i {
             color: #323233;
           }
         }
       }
     }
+
     .stair-navigation::-webkit-scrollbar {
       display: none;
     }
   }
+
   .shared-second-sidebar {
     width: 110px;
     display: flex;
     flex-direction: row;
     background-color: #ffffff;
     border-right: 1px solid #f0f0f0;
+
     .shared-second-sidebar-nav {
       flex: 1;
       height: 100%;
       overflow: auto;
+      .shared-second-sidebar-nav-list {
+        position: fixed;
+        top: 50px;
+        left: 90px;
+        width: 110px;
+      }
       .sidebar-nav_ul {
         .sidebar-nav_li {
           .sidebar-nav_box {
@@ -58,11 +79,13 @@
             display: flex;
             align-items: center;
             cursor: pointer;
+
             i {
               font-size: 12px;
               font-weight: 600;
               transition: 0.2s all;
             }
+
             .sidebar_title {
               flex: 1;
               min-width: 0;
@@ -72,24 +95,29 @@
               white-space: nowrap;
             }
           }
+
           .nav_box {
             background: #ebedf0;
           }
+
           .sidebar-nav_box-span {
             display: inline-block;
             width: 15px;
             height: 35px;
             line-height: 35px;
           }
+
           .avtice_nav {
             i {
               transform: rotate(90deg);
             }
           }
+
           .sidebar-nav_drop-down {
             max-height: 0px;
             overflow: hidden;
             transition: 0.5s max-height ease;
+
             .drop-down_li {
               font-size: 13px;
               color: #323233;
@@ -102,10 +130,12 @@
               overflow: hidden;
               text-overflow: ellipsis;
               white-space: nowrap;
+
               &:hover {
                 color: #38f;
               }
             }
+
             .three-menu-active {
               background-color: #ebedf0;
               color: #333;
@@ -117,11 +147,13 @@
               }
             }
           }
+
           .drop-down_active {
             max-height: 200px;
           }
         }
       }
+
       &::-webkit-scrollbar {
         display: none;
       }

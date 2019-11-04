@@ -1,77 +1,98 @@
 .admin-reward-sidebar {
+  border: 1px solid #f0f0f0;
+  border-top: 1px solid transparent;
+  // box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+  background: white;
+  width: 110px;
+  height: 94.6%;
+  top: 50px;
+  left: 90px;
+  position: absolute;
+  .reward-sidebar_head {
+    border-bottom: 1px solid #f0f0f0;
+    height: 50px;
     width: 100%;
-    border: 1px solid #f0f0f0;
-    box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
-    .reward-sidebar_head {
-        border-bottom: 1px solid #f0f0f0;
-        height: 50px;
-        padding: 0px 20px;
-        display: flex;
-        align-items: center;
+    // padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 20px;
+      color: #706ac4;
+      margin-right: 8px;
+    }
+    .head-title {
+      margin: 0 auto;
+      font-size: 14px;
+      color: #766ecd;
+      font-weight: 500;
+      line-height: 18px;
+    }
+  }
+  .reward-sidebar_ul {
+    padding: 10px 5px;
+    .reward-sidebar_li {
+      // border-bottom: 1px dashed #f7f8fa;
+      display: flex;
+      align-items: center;
+      padding: 8px 5px;
+      justify-content: center;
+      cursor: pointer;
+      i {
+        color: #c0bfcf;
+        margin-right: 15px;
+        font-size: 18px;
+      }
+      .reward-sidebar_text {
+        color: #666666;
+        font-size: 13px;
+      }
+      &:hover {
+        // background-color: #f7f8fa;
         i {
-            font-size: 20px;
-            color: #706AC4;
-            margin-right: 8px;
+          color: #38f;
         }
-        .head-title {
-            font-size: 14px;
-            color: #766ECD;
-            font-weight: 500;
-            line-height: 18px;
+        .reward-sidebar_text {
+          color: #38f;
         }
+      }
     }
-    .reward-sidebar_ul {
-        padding: 10px 0px;
-        .reward-sidebar_li {
-            border-bottom: 1px dashed #F7F8FA;
-            display: flex;
-            align-items: center;
-            padding: 8px 20px;
-            cursor: pointer;
-            i {
-                color: #C0BFCF;
-                margin-right: 15px;
-                font-size: 18px;
-            }
-            .reward-sidebar_text {
-                color: #666666;
-                font-size: 13px;
-            }
-            &:hover {
-                background-color: #f7f8fa;
-                i {
-                    color: #766ECD;
-                }
-                .reward-sidebar_text {
-                    color: #766ECD;
-                }
-            }
+    .actions-list {
+      background-color: #ebedf0;
+      color: #333;
+      border-radius: 4px;
+      &:hover {
+        background-color: #52a3f5;
+        .reward-sidebar_text,
+        i {
+          color: #fff !important;
         }
+      }
     }
-    .configuration_ul {
-        padding: 10px 20px;
-        .configuration_li {
-            border-bottom: 1px dashed #F7F8FA;
-            padding: 8px 0px;
-            display: flex;
-            align-items: center;
-            .configuration_left {
-                flex: 1;
-                min-width: 0;
-                .one-p {
-                    font-size: 14px;
-                    color: #333333;
-                }
-                .two-p {
-                    font-size: 12px;
-                    color: #999999;
-                }
-            }
-            .configuration_right {
-                font-size: 14px;
-                color: red;
-                font-weight: 600;
-            }
+  }
+  .configuration_ul {
+    padding: 10px 20px;
+    .configuration_li {
+      // border-bottom: 1px dashed #f7f8fa;
+      padding: 8px 0px;
+      display: flex;
+      align-items: center;
+      .configuration_left {
+        flex: 1;
+        min-width: 0;
+        .one-p {
+          font-size: 14px;
+          color: #333333;
         }
+        .two-p {
+          font-size: 12px;
+          color: #999999;
+        }
+      }
+      .configuration_right {
+        font-size: 14px;
+        color: red;
+        font-weight: 600;
+      }
     }
+  }
 }

@@ -1,0 +1,23 @@
+.x-grade {
+  display: inline-block;
+
+  .x-grade-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eaeaea;
+    border-radius: 3px;
+    padding: 0 5px;
+  }
+
+  .grade-image {
+    width: 20px;
+    height: 20px;
+  }
+
+  .grade-name {
+    height: 20px;
+    line-height: 20px;
+    margin-left: 5px;
+  }
+}

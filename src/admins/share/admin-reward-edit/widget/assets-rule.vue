@@ -6,33 +6,33 @@
       </div>
     </div>
     <x-line :border="true" title="不同的分润维度，可以分配到不同的资产账户，总比例必须等于1" type="brand" icon="null" style="padding:0px 15px;">
-      <div class="asset_table">
-        <el-table :data="viewModel.ruleItems" style="width: 100%">
-          <el-table-column prop="moneyTypeId">
-            <template slot="header" slot-scope="scope">
-              <span v-if="scope" />
-            </template>
-            <template slot-scope="scope">
-              <x-select v-model="scope.row.moneyTypeId" type="moneytypeconfig" :value="viewModel.ruleItems.moneyTypeId"></x-select>
-            </template>
-          </el-table-column>
-          <el-table-column prop="ratio">
-            <template slot="header" slot-scope="scope">
-              <span v-if="scope" />
-            </template>
-            <template slot-scope="scope">
-              <el-input-number v-model="scope.row.ratio" :precision="4" :max="1" :min="0" :step="0.01"></el-input-number>
-            </template>
-          </el-table-column>
-          <el-table-column label="操作" width="180">
-            <template slot-scope="scope">
-              <div class="actions_but" @click="actionsDete(scope.$index)">删除</div>
-            </template>
-          </el-table-column>
-        </el-table>
-        <div class="actions_add" @click="actionsAdd">新增数据</div>
-      </div>
     </x-line>
+    <div class="asset_table">
+      <el-table :data="viewModel.assetsRules" style="width: 100%">
+        <el-table-column prop="moneyTypeId" label="货币类型">
+          <template slot="header" slot-scope="scope">
+            <span v-if="scope" />
+          </template>
+          <template slot-scope="scope">
+            <x-select v-model="scope.row.moneyTypeId" type="moneytypeconfig"></x-select>
+          </template>
+        </el-table-column>
+        <el-table-column prop="ratio" label="分配比例">
+          <template slot="header" slot-scope="scope">
+            <span v-if="scope" />
+          </template>
+          <template slot-scope="scope">
+            <el-input-number v-model="scope.row.ratio" :precision="4" :max="1" :min="0" :step="0.01"></el-input-number>
+          </template>
+        </el-table-column>
+        <el-table-column label="操作" width="180">
+          <template slot-scope="scope">
+            <div class="actions_but" @click="actionsDete(scope.$index)">删除</div>
+          </template>
+        </el-table-column>
+      </el-table>
+      <div class="actions_add" @click="actionsAdd">新增数据</div>
+    </div>
   </div>
 </template>
 <script>
@@ -52,11 +52,11 @@
           confirmButtonText: '确定',
           cancelButtonText: '取消'
         }).then(() => {
-          this.viewModel.ruleItems.splice(index, 1)
+          this.viewModel.assetsRules.splice(index, 1)
         }).catch(() => { })
       },
       async actionsAdd () {
-        this.viewModel.ruleItems.push({
+        this.viewModel.assetsRules.push({
           moneyTypeId: '',
           ratio: ''
         })

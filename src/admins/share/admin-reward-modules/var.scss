@@ -1,18 +1,25 @@
 .admin-reward-modules {
+  background-color: #ffffff;
+  border: 1px solid #f0f0f0;
+  padding-bottom: 20px;
+  min-height: 600px;
+
   .modules-search {
     display: flex;
     align-items: center;
     padding: 15px 13px 4px 13px;
+
     .el-input {
       width: 480px;
+
       .el-input__inner {
         height: 35px;
         border-radius: 0px;
-        background-color: #f4f5f8;
         border-top-left-radius: 3px;
         border-bottom-left-radius: 3px;
       }
     }
+
     .search-buttom {
       width: 60px;
       line-height: 35px;
@@ -24,19 +31,23 @@
       border-bottom-right-radius: 3px;
       cursor: pointer;
       transition: 0.5s all;
+
       &:hover {
         opacity: 0.9;
       }
     }
   }
+
   .reward-modules_ul {
     display: flex;
     flex-wrap: wrap;
     padding: 5px;
+
     .reward-modules_li {
       width: 25%;
       height: 180px;
       padding: 8px;
+
       .reward-modules_box {
         width: 100%;
         height: 100%;
@@ -47,9 +58,11 @@
         box-shadow: 0px 1px 10px 1px rgba(69, 65, 78, 0.08);
         background-color: #ffffff;
       }
+
       .modules_li-left {
         flex: 1;
         min-width: 0;
+
         .modules-title {
           font-size: 15px;
           font-weight: 600;
@@ -58,10 +71,11 @@
           text-overflow: ellipsis;
           white-space: nowrap;
         }
+
         .modules-intro {
           height: 50px;
           font-size: 12px;
-          color: #456684;
+          color: #999999;
           display: -webkit-box;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 3;
@@ -69,6 +83,7 @@
           font-weight: 500;
           margin-top: 10px;
         }
+
         .modules-buttom {
           width: 75px;
           display: block;
@@ -82,13 +97,15 @@
           cursor: pointer;
         }
       }
+
       .modules_li-right {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
         margin-left: 20px;
+        margin-top: 10px;
+
         i {
-          font-size: 75px;
           color: #e8dbf5;
         }
       }

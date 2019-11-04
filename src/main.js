@@ -157,6 +157,7 @@ import zkUserBase from '@/components/user/zk-user-base/index.vue'
 import zkUserNav from '@/components/user/zk-user-nav/index.vue'
 import zkUserView from '@/components/user/zk-user-view/index.vue'
 import zkUsersIndex from '@/components/user/zk-users-index/index.vue'
+import xAutoconfig from '@/elements/x-autoconfig/index.vue'
 import xBadge from '@/elements/x-badge/index.vue'
 import xBorder from '@/elements/x-border/index.vue'
 import xCheckbox from '@/elements/x-checkbox/index.vue'
@@ -167,6 +168,7 @@ import xCol from '@/elements/x-col/index.vue'
 import xDataSelect from '@/elements/x-data-select/index.vue'
 import xEditor from '@/elements/x-editor/index.vue'
 import xEnum from '@/elements/x-enum/index.vue'
+import xGrade from '@/elements/x-grade/index.vue'
 import xIcon from '@/elements/x-icon/index.vue'
 import xImage from '@/elements/x-image/index.vue'
 import xJson from '@/elements/x-json/index.vue'
@@ -177,6 +179,7 @@ import xQrcode from '@/elements/x-qrcode/index.vue'
 import xRadio from '@/elements/x-radio/index.vue'
 import xSelectImage from '@/elements/x-select-image/index.vue'
 import xSelect from '@/elements/x-select/index.vue'
+import xTableButton from '@/elements/x-table-button/index.vue'
 import xTable from '@/elements/x-table/index.vue'
 import search from '@/elements/x-table/search/index.vue'
 import xTabs from '@/elements/x-tabs/index.vue'
@@ -186,6 +189,7 @@ import xUpload from '@/elements/x-upload/index.vue'
 import xWidget from '@/elements/x-widget/index.vue'
 import adminActivitySet from '@/admins/activity/admin-activity-set/index.vue'
 import adminAppPublish from '@/admins/admin/admin-app-publish/index.vue'
+import adminApp from '@/admins/admin/admin-app/index.vue'
 import adminLayout from '@/admins/admin/admin-layout/index.vue'
 import adminMessage from '@/admins/admin/admin-message/index.vue'
 import adminSmartHand from '@/admins/admin/admin-smart-hand/index.vue'
@@ -231,6 +235,7 @@ import adminMerchantProduct from '@/admins/merchant/admin-merchant-product/index
 import adminRewardAdd from '@/admins/share/admin-reward-add/index.vue'
 import adminRewardEdit from '@/admins/share/admin-reward-edit/index.vue'
 import adminRewardModules from '@/admins/share/admin-reward-modules/index.vue'
+import adminRewardRule from '@/admins/share/admin-reward-rule/index.vue'
 import adminRewardSidebar from '@/admins/share/admin-reward-sidebar/index.vue'
 import adminCategoryEdit from '@/admins/shop/admin-category-edit/index.vue'
 import adminDeliveryEdit from '@/admins/shop/admin-delivery-edit/index.vue'
@@ -250,7 +255,6 @@ import adminSupplierOrder from '@/admins/store/admin-supplier-order/index.vue'
 import adminRoleEdit from '@/admins/user/admin-role-edit/index.vue'
 import adminRoleOpen from '@/admins/user/admin-role-open/index.vue'
 import adminUserEdit from '@/admins/user/admin-user-edit/index.vue'
-import adminUserView from '@/admins/user/admin-user-view/index.vue'
 Vue.component('zk-groupbuy', zkGroupbuy)
 Vue.component('zk-aritcle-detail', zkAritcleDetail)
 Vue.component('zk-ariticle-image-list', zkAriticleImageList)
@@ -392,6 +396,7 @@ Vue.component('zk-user-base', zkUserBase)
 Vue.component('zk-user-nav', zkUserNav)
 Vue.component('zk-user-view', zkUserView)
 Vue.component('zk-users-index', zkUsersIndex)
+Vue.component('x-autoconfig', xAutoconfig)
 Vue.component('x-badge', xBadge)
 Vue.component('x-border', xBorder)
 Vue.component('x-checkbox', xCheckbox)
@@ -402,6 +407,7 @@ Vue.component('x-col', xCol)
 Vue.component('x-data-select', xDataSelect)
 Vue.component('x-editor', xEditor)
 Vue.component('x-enum', xEnum)
+Vue.component('x-grade', xGrade)
 Vue.component('x-icon', xIcon)
 Vue.component('x-image', xImage)
 Vue.component('x-json', xJson)
@@ -412,6 +418,7 @@ Vue.component('x-qrcode', xQrcode)
 Vue.component('x-radio', xRadio)
 Vue.component('x-select-image', xSelectImage)
 Vue.component('x-select', xSelect)
+Vue.component('x-table-button', xTableButton)
 Vue.component('x-table', xTable)
 Vue.component('search', search)
 Vue.component('x-tabs', xTabs)
@@ -421,6 +428,7 @@ Vue.component('x-upload', xUpload)
 Vue.component('x-widget', xWidget)
 Vue.component('admin-activity-set', adminActivitySet)
 Vue.component('admin-app-publish', adminAppPublish)
+Vue.component('admin-app', adminApp)
 Vue.component('admin-layout', adminLayout)
 Vue.component('admin-message', adminMessage)
 Vue.component('admin-smart-hand', adminSmartHand)
@@ -466,6 +474,7 @@ Vue.component('admin-merchant-product', adminMerchantProduct)
 Vue.component('admin-reward-add', adminRewardAdd)
 Vue.component('admin-reward-edit', adminRewardEdit)
 Vue.component('admin-reward-modules', adminRewardModules)
+Vue.component('admin-reward-rule', adminRewardRule)
 Vue.component('admin-reward-sidebar', adminRewardSidebar)
 Vue.component('admin-category-edit', adminCategoryEdit)
 Vue.component('admin-delivery-edit', adminDeliveryEdit)
@@ -485,7 +494,6 @@ Vue.component('admin-supplier-order', adminSupplierOrder)
 Vue.component('admin-role-edit', adminRoleEdit)
 Vue.component('admin-role-open', adminRoleOpen)
 Vue.component('admin-user-edit', adminUserEdit)
-Vue.component('admin-user-view', adminUserView)
 
 
 Vue.use(mavonEditor)

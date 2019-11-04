@@ -1,0 +1,11 @@
+.admin-reward-rule {
+  display: flex;
+  .admin-reward-left {
+    width: 0;
+    box-sizing: border-box;
+    background-color: rgb(17, 12, 12);
+  }
+  .admin-reward-right {
+    margin-left: 110px;
+  }
+}

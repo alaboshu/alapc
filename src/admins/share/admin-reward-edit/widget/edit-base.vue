@@ -16,16 +16,19 @@
       </div>
     </el-form-item>
     <el-form-item label="是否启用">
-      <el-switch v-model="viewModel.base.templateRule.isEnable"></el-switch>
+      <el-switch v-model="viewModel.base.isEnable"></el-switch>
+      <!--<el-switch v-model="viewModel.base.templateRule.isEnable"></el-switch>-->
       <div class="demo_intro">关闭以后，该维度将不在产生分润</div>
     </el-form-item>
     <el-form-item label="是否开启短信通知">
       <el-switch v-model="viewModel.base.templateRule.smsNotification"></el-switch>
       <div class="demo_intro">开启后所有分润操作将会有短信通知</div>
     </el-form-item>
-    <el-form-item label="短信模板">
+    <el-form-item label="短信模板" v-if="viewModel.base.templateRule.smsNotification">
       <el-input v-model="viewModel.base.templateRule.smsTemplate"></el-input>
-      <div class="demo_intro">可选参数:订单会员：{OrderUserName} 订单编号：{OrderId} 消费账户：{AccountName} 消费金额：{OrderPrice} 获利会员：{ShareUserName} 分润金额：{ShareAmount} 程序配置：{ConfigName}</div>
+      <div class="demo_intro">
+        可选参数:订单会员：<span class="demo_intro-color">{OrderUserName}</span> 订单编号：<span class="demo_intro-color">{OrderId}</span> 消费账户：<span class="demo_intro-color">{AccountName}</span> 消费金额：<span class="demo_intro-color">{OrderPrice}</span> 获利会员：<span class="demo_intro-color">{ShareUserName}</span> 分润金额：<span class="demo_intro-color">{ShareAmount}</span> 程序配置：<span class="demo_intro-color">{ConfigName}</span>
+      </div>
     </el-form-item>
     <div class="base-dialong">
       <el-dialog title="选择分润日志模板" :visible.sync="dialogVisible">

@@ -1,5 +1,4 @@
 <template>
-  <!-- <admin-lightapp-table></admin-lightapp-table> -->
   <div class="admin-lightapp-form" v-if="async">
     <x-border :title="borderTitle" ref="xBorder">
       <zk-auto-form @formLoad="formLoad" :serviceConfig="viewModel" ref="zkAutoForm" :notConvert="true" @saveForm="saveForm"></zk-auto-form>
@@ -10,7 +9,6 @@
 <script>
   import './var.scss'
   import './styles'
-  // import dataJson from './data.json'
 
   export default {
     name: 'admin-lightapp-form',

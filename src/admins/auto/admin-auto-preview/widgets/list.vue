@@ -33,16 +33,6 @@
     <li>
       <div class="edit-left-list-left">
         <i class="icon iconfont"></i>
-        <span>门店？</span>
-      </div>
-      <div class="edit-left-list-right">
-        <i class="icon iconfont"></i>
-        <span>{{viewModel.serviceCenterName}}</span>
-      </div>
-    </li>
-    <li>
-      <div class="edit-left-list-left">
-        <i class="icon iconfont"></i>
         <span>性别</span>
       </div>
       <div class="edit-left-list-right">

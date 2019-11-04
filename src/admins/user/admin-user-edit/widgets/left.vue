@@ -7,7 +7,7 @@
         </div>
         <div class="edit-subscriber">
           <div class="edit-user-top-title">{{viewModel.user.userName}}({{viewModel.user.name}})</div>
-          <div class="edit-user-top-button">{{actives.getEmun('Status', viewModel.user.status)}}</div>
+          <div class="edit-user-top-button" v-if="false">{{actives.getEmun('Status', viewModel.user.status)}}</div>
         </div>
         <div class="edit-user-text">18269326776@5ug.com&nbsp;&nbsp;&nbsp;&nbsp;18269326776</div>
         <!-- <ul class="edit-user-buttom-button">
@@ -56,6 +56,7 @@
 <script>
   import list from './edit.json'
   import List from './list.vue'
+  import actions from '../actives'
   export default {
     props: ['viewModel'],
     components: {
@@ -63,7 +64,8 @@
     },
     data () {
       return {
-        list: list.list
+        list: list.list,
+        actives: actions
       }
     }
   }

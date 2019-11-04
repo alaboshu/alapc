@@ -127,13 +127,13 @@
         }
       },
       async testValue () {
-        var response = await this.$api.httpPost('/api/Report/GetSingleReport', this.viewModel)
-        if (response.status === 1) {
-          var value = response.result
-          this.$alert(value, '统计结果', {
-            confirmButtonText: '确定'
-          })
-        }
+        // var response = await this.$api.httpPost('/api/Report/GetSingleReport', this.viewModel)
+        // if (response.status === 1) {
+        //   var value = response.result
+        //   this.$alert(value, '统计结果', {
+        //     confirmButtonText: '确定'
+        //   })
+        // }
       },
       async submit () {
         var submitValue = await this.$api.httpPost('/api/SingleReport/Edit', this.viewModel)
