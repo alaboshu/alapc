@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="center_box">
-        <div class="center_box-title">咚巴拉</div>
+        <div class="center_box-title">阿拉博数</div>
         <div class="center_box-intro">网易原创生活类电商品牌，秉承网易一贯的严谨态度，我们深入世界各地，从源头全程严格把控商品生产环节，力求帮消费者甄选到优质的商品</div>
         <div class="center_box-attention">
           <div class="attention-text">关注我们：</div>
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="right_box">
-        <div class="right_box-title">扫码下载咚巴拉APP</div>
+        <div class="right_box-title">扫码下载阿拉博数APP</div>
         <div class="right_box-img">
           <img src="http://img4.imgtn.bdimg.com/it/u=4223115080,1535487132&fm=26&gp=0.jpg" />
         </div>

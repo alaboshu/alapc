@@ -6,7 +6,7 @@
           <li class="left_box_li">
             <x-icon src="alert1" size="12"></x-icon>
           </li>
-          <li class="left_box_li">欢迎来到咚巴拉
+          <li class="left_box_li">欢迎来到阿拉博数
             <router-link to="/user/login" v-if="isLoginUser" class="login-link left_box_a">
               请登录
             </router-link>

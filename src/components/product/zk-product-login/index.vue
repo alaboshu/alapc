@@ -23,7 +23,7 @@
           </div>
           <div class="user_aggrement" v-if="false">
             <el-checkbox v-model="checked"></el-checkbox>
-            我同意《服务条款》和《咚巴拉隐私政策》
+            我同意《服务条款》和《阿拉博数隐私政策》
           </div>
         </div>
         <div v-show="Cindex===1" class="user_news">
@@ -38,7 +38,7 @@
           <div class="user_login_btn">登录</div>
           <div class="user_aggrement" v-if="false">
             <el-checkbox v-model="checked"></el-checkbox>
-            我同意《服务条款》和《咚巴拉隐私政策》
+            我同意《服务条款》和《阿拉博数隐私政策》
           </div>
         </div>
       </div>
