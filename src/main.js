@@ -223,6 +223,9 @@ import adminRelationTag from '@/admins/common/admin-relation-tag/index.vue'
 import adminTaskAction from '@/admins/common/admin-task-action/index.vue'
 import adminCouponEdit from '@/admins/coupon/admin-coupon-edit/index.vue'
 import adminCouponSend from '@/admins/coupon/admin-coupon-send/index.vue'
+import adminDiyAdmin from '@/admins/diy/admin-diy-admin/index.vue'
+import adminDiyH5 from '@/admins/diy/admin-diy-h5/index.vue'
+import adminPublishWechatlite from '@/admins/diy/admin-publish-wechatlite/index.vue'
 import adminAccountEdit from '@/admins/finance/admin-account-edit/index.vue'
 import adminAccountRecharge from '@/admins/finance/admin-account-recharge/index.vue'
 import adminAccountWallet from '@/admins/finance/admin-account-wallet/index.vue'
@@ -462,6 +465,9 @@ Vue.component('admin-relation-tag', adminRelationTag)
 Vue.component('admin-task-action', adminTaskAction)
 Vue.component('admin-coupon-edit', adminCouponEdit)
 Vue.component('admin-coupon-send', adminCouponSend)
+Vue.component('admin-diy-admin', adminDiyAdmin)
+Vue.component('admin-diy-h5', adminDiyH5)
+Vue.component('admin-publish-wechatlite', adminPublishWechatlite)
 Vue.component('admin-account-edit', adminAccountEdit)
 Vue.component('admin-account-recharge', adminAccountRecharge)
 Vue.component('admin-account-wallet', adminAccountWallet)
