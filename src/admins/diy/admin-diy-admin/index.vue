@@ -20,7 +20,7 @@
     },
     methods: {
       async init () {
-        this.widgetModel = await this.$api.themeWidget(this.widget)
+
       }
     }
   }

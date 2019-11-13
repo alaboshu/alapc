@@ -1,10 +1,10 @@
 <template>
-  <view class="admin-publish-wechatlite">{{widgetModel}}</view>
+  <admin-app-publish></admin-app-publish>
 </template>
 
 <script>
   import './var.scss'
-  
+
   export default {
     data () {
       return {
@@ -19,7 +19,7 @@
     },
     methods: {
       async init () {
-        this.widgetModel = await this.$api.themeWidget(this.widget)
+
       }
     }
   }

@@ -128,7 +128,6 @@ import zkPreview from '@/components/themes/zk-preview/index.vue'
 import zkQrcodeList from '@/components/themes/zk-qrcode-list/index.vue'
 import zkQuickAction from '@/components/themes/zk-quick-action/index.vue'
 import zkRankReport from '@/components/themes/zk-rank-report/index.vue'
-import zkReportEdit from '@/components/themes/zk-report-edit/index.vue'
 import zkReports from '@/components/themes/zk-reports/index.vue'
 import zkResult from '@/components/themes/zk-result/index.vue'
 import zkRightbar from '@/components/themes/zk-rightbar/index.vue'
@@ -370,7 +369,6 @@ Vue.component('zk-preview', zkPreview)
 Vue.component('zk-qrcode-list', zkQrcodeList)
 Vue.component('zk-quick-action', zkQuickAction)
 Vue.component('zk-rank-report', zkRankReport)
-Vue.component('zk-report-edit', zkReportEdit)
 Vue.component('zk-reports', zkReports)
 Vue.component('zk-result', zkResult)
 Vue.component('zk-rightbar', zkRightbar)
