@@ -3,7 +3,6 @@
     <div v-if="serviceConfig.fromMessage==null">
       <el-alert v-if="formConfig.config && formConfig.config.alertText" :title="formConfig.config.alertText" show-icon type="success" :closable="false"></el-alert>
       <el-form ref="generateForm" :model="models" :rules="rules">
-        <!-- :label-width="formLabelWidth + 'px'" -->
         <template v-for="item in formConfig.list">
           <template v-if="item.type == 'grid'">
             <el-row :key="item.key" type="flex" :gutter="item.options.gutter ? item.options.gutter : 0" :justify="item.options.justify" :align="item.options.align">
