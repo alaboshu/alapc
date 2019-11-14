@@ -1,6 +1,7 @@
 <template>
   <div>
-    <zk-count-report></zk-count-report>
+    <!-- <zk-count-report></zk-count-report> -->
+    <x-border-report></x-border-report>
   </div>
 </template>
 <script>

@@ -158,6 +158,7 @@ import zkUserView from '@/components/user/zk-user-view/index.vue'
 import zkUsersIndex from '@/components/user/zk-users-index/index.vue'
 import xAutoconfig from '@/elements/x-autoconfig/index.vue'
 import xBadge from '@/elements/x-badge/index.vue'
+import xBorderReport from '@/elements/x-border-report/index.vue'
 import xBorder from '@/elements/x-border/index.vue'
 import xCheckbox from '@/elements/x-checkbox/index.vue'
 import xCityPicker from '@/elements/x-city-picker/index.vue'
@@ -399,6 +400,7 @@ Vue.component('zk-user-view', zkUserView)
 Vue.component('zk-users-index', zkUsersIndex)
 Vue.component('x-autoconfig', xAutoconfig)
 Vue.component('x-badge', xBadge)
+Vue.component('x-border-report', xBorderReport)
 Vue.component('x-border', xBorder)
 Vue.component('x-checkbox', xCheckbox)
 Vue.component('x-city-picker', xCityPicker)
