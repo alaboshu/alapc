@@ -1,29 +1,24 @@
 <template>
   <div>
-    <x-icon name="icon-5333-gongju"></x-icon>
+    <zk-count-report></zk-count-report>
   </div>
 </template>
 <script>
-export default {
-  data () {
-    return {
-      viewModel: null
-    }
-  },
-  mounted () {
-    this.init()
-  },
-  methods: {
-    async init () {
-      var para = {
-        mobile: '17727169875',
-        content: '回家吃饭了吗？'
+  export default {
+    data () {
+      return {
+        viewModel: null
       }
-      var respons = await this.$api.httpPost('/Api/Sms/SendRaw', para)
-      console(respons)
+    },
+    mounted () {
+      this.init()
+    },
+    methods: {
+      async init () {
+
+      }
     }
   }
-}
 </script>
 
 <style rel="stylesheet/scss" lang="scss"></style>
