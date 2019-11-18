@@ -53,8 +53,8 @@
           this.viewModel = this.widget.value
           this.chartSettings.type = this.viewModel.reportChartType
           this.grid.backgroundColor = this.viewModel.reportBgColor
-          if (this.widget.value.dataReport) {
-            var widgetValue = this.widget.value.dataReport
+          if (this.widget.value.countReportForm) {
+            var widgetValue = this.widget.value.countReportForm.dataCouse
             para.field = widgetValue.field
             para.fields = widgetValue.fields
             para.entityType = widgetValue.entityType
@@ -73,7 +73,8 @@
         }
         var res = await this.$api.httpPost('/api/Report/GetCountReport', para)
         if (res.status === 1) {
-          if (res.result !== []) {
+          console.info('aaaaaaaaaaaaaa', res)
+          if (res.result) {
             this.chartData.columns = res.result[0].autoReportChart.columns
             this.chartData.rows = res.result[0].autoReportChart.rows
           }
