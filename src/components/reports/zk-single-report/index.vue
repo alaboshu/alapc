@@ -63,7 +63,7 @@
     },
     methods: {
       async init () {
-        var para = {}
+        var para
         this.viewModel = this.widget.value.reportValues
         if (this.widget && this.widget.value && this.widget.value.dataReport) {
           var dataReport = this.widget.value.dataReport
@@ -72,8 +72,8 @@
           para.style = dataReport.style
           para.condition = dataReport.condition
         }
-        // var response = await this.$api.httpPost('/api/Report/GetSingleReport', this.widget.value.singleReportForm[0].dataCouse)
-        this.async = true
+        var response = await this.$api.httpPost('/api/Report/GetSingleReport', this.widget.value.singleReportForm[0].dataCouse)
+        console.info('res', response, this.viewModel)
       }
     }
   }
