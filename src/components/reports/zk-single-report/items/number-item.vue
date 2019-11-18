@@ -27,11 +27,6 @@
       count: {
         default: 4
       }
-    },
-    mounted () {
-      console.info('7')
-      console.info('hahhaha', this.viewModel)
-      // this.init()
     }
   }
 </script>
