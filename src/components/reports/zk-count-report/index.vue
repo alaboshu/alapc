@@ -73,7 +73,6 @@
         }
         var res = await this.$api.httpPost('/api/Report/GetCountReport', para)
         if (res.status === 1) {
-          console.info('aaaaaaaaaaaaaa', res)
           if (res.result) {
             this.chartData.columns = res.result[0].autoReportChart.columns
             this.chartData.rows = res.result[0].autoReportChart.rows

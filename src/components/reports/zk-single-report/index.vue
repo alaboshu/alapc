@@ -82,7 +82,9 @@
                   id: element.id,
                   count: response.result,
                   icon: element.icon,
-                  bgcolor: element.bgcolor
+                  bgcolor: element.bgColor,
+                  color: element.color,
+                  account: element.account
                 }
                 data.time = this.getDate()
                 this.$api.localSet('single_data_' + element.id, data)
@@ -92,7 +94,6 @@
           })
         }
         this.async = true
-        console.info('不升息哦啊啊', this.widget.value.styleItem)
       },
       getDate () {
         var date = new Date()

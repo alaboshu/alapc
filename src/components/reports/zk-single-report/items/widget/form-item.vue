@@ -3,7 +3,7 @@
   <div>
     <div v-if="type === 'number-item'">
       <template>
-        <div class="item" :style="{background:widget.color}">
+        <div class="item" :style="{background:widget.bgcolor}">
           <div class="item-box" :style="'color:'+widget.fontColor+';'">
             <span class="item-count">{{widgetValue}}</span>
             <span class="item-title">{{widget.name}}</span>
