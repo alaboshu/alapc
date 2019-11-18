@@ -39,6 +39,7 @@
       }
     },
     mounted () {
+      console.info('2')
       this.init()
     },
     methods: {

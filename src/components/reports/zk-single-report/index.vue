@@ -1,17 +1,17 @@
 <template>
   <div class="zk-single-report" v-if="async">
-    <number-item v-if="widget.value.styleItem===1" :widget="widget.value.reportValues" :count="widget.value.count"></number-item>
-    <tabs-item v-if="widget.value.styleItem===2" :widget="widget.value.reportValues" :count="widget.value.count"></tabs-item>
-    <amount-item v-if="widget.value.styleItem===3" :widget="widget.value.reportValues" :count="widget.value.count"></amount-item>
-    <mount-item v-if="widget.value.styleItem===4" :widget="widget.value.reportValues" :count="widget.value.count"></mount-item>
-    <general-item v-if="widget.value.styleItem===5" :widget="widget.value.reportValues" :count="widget.value.count"></general-item>
-    <growing-item v-if="widget.value.styleItem===6" :widget="widget.value.reportValues" :count="widget.value.count"></growing-item>
-    <introduce-item v-if="widget.value.styleItem===7" :widget="widget.value.reportValues" :count="widget.value.count"></introduce-item>
-    <member-item v-if="widget.value.styleItem===8" :widget="widget.value.reportValues" :count="widget.value.count"></member-item>
-    <ratio-item v-if="widget.value.styleItem===9" :widget="widget" :count="widget.value.count"></ratio-item>
-    <states-item v-if="widget.value.styleItem===10" :widget="widget.value.reportValues" :count="widget.value.count"></states-item>
-    <total-item v-if="widget.value.styleItem===11" :widget="widget.value.reportValues" :count="widget.value.count"></total-item>
-    <omit-item v-if="widget.value.styleItem===12" :widget="widget.value.reportValues" :count="widget.value.count"></omit-item>
+    <number-item v-if="widget.value.styleItem==1" :viewModel="viewModel" :count="widget.value.count"></number-item>
+    <tabs-item v-if="widget.value.styleItem==2" :viewModel="viewModel" :count="widget.value.count"></tabs-item>
+    <amount-item v-if="widget.value.styleItem==3" :viewModel="viewModel" :count="widget.value.count"></amount-item>
+    <mount-item v-if="widget.value.styleItem==4" :viewModel="viewModel" :count="widget.value.count"></mount-item>
+    <general-item v-if="widget.value.styleItem==5" :viewModel="viewModel" :count="widget.value.count"></general-item>
+    <growing-item v-if="widget.value.styleItem==6" :viewModel="viewModel" :count="widget.value.count"></growing-item>
+    <introduce-item v-if="widget.value.styleItem==7" :viewModel="viewModel" :count="widget.value.count"></introduce-item>
+    <member-item v-if="widget.value.styleItem==8" :viewModel="viewModel" :count="widget.value.count"></member-item>
+    <ratio-item v-if="widget.value.styleItem==9" :viewModel="viewModel"></ratio-item>
+    <states-item v-if="widget.value.styleItem==10" :viewModel="viewModel" :count="widget.value.count"></states-item>
+    <total-item v-if="widget.value.styleItem==11" :viewModel="viewModel" :count="widget.value.count"></total-item>
+    <omit-item :viewModel="viewModel" v-if="widget.value.styleItem ==12" :count="widget.value.count"></omit-item>
   </div>
 </template>
 
@@ -51,7 +51,7 @@
       return {
         widgetModel: {},
         async: false,
-        viewModel: '',
+        viewModel: [],
         styleType: ''
       }
     },
@@ -71,7 +71,7 @@
             if (localData) {
               isRequset = this.compareTime(localData.time)
               if (!isRequset) {
-                this.viewModel = localData
+                this.viewModel.push(localData)
               }
             }
             if (isRequset) {
@@ -86,11 +86,13 @@
                 }
                 data.time = this.getDate()
                 this.$api.localSet('single_data_' + element.id, data)
-                this.viewModel = data
+                this.viewModel.push(data)
               }
             }
           })
         }
+        this.async = true
+        console.info('不升息哦啊啊', this.widget.value.styleItem)
       },
       getDate () {
         var date = new Date()

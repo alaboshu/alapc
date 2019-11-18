@@ -37,6 +37,7 @@
       }
     },
     mounted () {
+      console.info('6')
       this.init()
     },
     methods: {

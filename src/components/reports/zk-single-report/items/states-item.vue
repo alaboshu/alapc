@@ -36,6 +36,7 @@
       widget: {}
     },
     mounted () {
+      console.info('8')
       this.init()
     },
     methods: {

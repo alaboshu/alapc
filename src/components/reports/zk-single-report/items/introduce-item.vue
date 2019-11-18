@@ -24,6 +24,7 @@
       widget: {}
     },
     mounted () {
+      console.info('4')
       this.init()
     },
     methods: {

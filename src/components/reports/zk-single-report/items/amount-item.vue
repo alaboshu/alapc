@@ -33,6 +33,7 @@
       }
     },
     mounted () {
+      console.info('1')
       this.init()
     },
     methods: {
