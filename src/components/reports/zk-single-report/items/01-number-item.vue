@@ -49,7 +49,7 @@
       border-radius: 3px;
     }
     .item-box {
-      padding: 10px 20px;
+      padding: 10px 30px;
       i {
         transition: all 0.3s linear;
         position: absolute;
