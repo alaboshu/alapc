@@ -63,17 +63,69 @@
     },
     methods: {
       async init () {
-        var para
-        this.viewModel = this.widget.value.reportValues
-        if (this.widget && this.widget.value && this.widget.value.dataReport) {
-          var dataReport = this.widget.value.dataReport
-          para.entityType = dataReport.entityType
-          para.field = dataReport.field
-          para.style = dataReport.style
-          para.condition = dataReport.condition
+        var singleData = this.widget.value
+        var isRequset = true
+        if (singleData && singleData.singleReportForm) {
+          singleData.singleReportForm.forEach(async (element, index) => {
+            var localData = this.$api.localGet('single_data_' + element.id)
+            if (localData) {
+              isRequset = this.compareTime(localData.time)
+              if (!isRequset) {
+                this.viewModel = localData
+              }
+            }
+            if (isRequset) {
+              var response = await this.$api.httpPost('/api/Report/GetSingleReport', element.dataCouse)
+              if (response.status === 1) {
+                var data = {
+                  name: element.account,
+                  id: element.id,
+                  count: response.result,
+                  icon: element.icon,
+                  bgcolor: element.bgcolor
+                }
+                data.time = this.getDate()
+                this.$api.localSet('single_data_' + element.id, data)
+                this.viewModel = data
+              }
+            }
+          })
         }
-        var response = await this.$api.httpPost('/api/Report/GetSingleReport', this.widget.value.singleReportForm[0].dataCouse)
-        console.info('res', response, this.viewModel)
+      },
+      getDate () {
+        var date = new Date()
+        var years = date.getFullYear()
+        var mounth = date.getMonth()
+        var day = date.getDate()
+        var hours = date.getHours()
+        var minutes = date.getMinutes()
+        return years + '-' + (mounth + 1) + '-' + day + ' ' + hours + ':' + minutes
+      },
+      compareTime (localTime) {
+        // 比较双方时间是否超过十分钟，最大范围到天
+        var nowTimeDay = this.getDate().split('-')[2].split(' ')[0]
+        var nowTimeHouers = this.getDate().split(' ')[1].split(':')[0]
+        var nowTimeMinutes = this.getDate().split(' ')[1].split(':')[1]
+        var localDay = localTime.split('-')[2].split(' ')[0]
+        var localHouers = localTime.split(' ')[1].split(':')[0]
+        var localMinutes = localTime.split(' ')[1].split(':')[1]
+        // 天数，小时相等比较分钟
+        if (nowTimeDay === localDay && nowTimeHouers === localHouers) {
+          if (nowTimeMinutes - localMinutes > 10) {
+            return true
+          }
+          // 天数，相等小时不一样折算小时为分钟
+        } else if (nowTimeDay === localDay && nowTimeHouers !== localHouers) {
+          var exceedHouers = (nowTimeHouers - localHouers) * 60
+          nowTimeMinutes += exceedHouers
+          if (nowTimeMinutes - localMinutes > 10) {
+            return true
+          }
+          // 天数不想等
+        } else if (nowTimeDay !== localDay) {
+          return true
+        }
+        return false
       }
     }
   }
