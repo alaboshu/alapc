@@ -67,7 +67,6 @@
         var isRequset = true
         if (singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
-            console.info('aaaaaaaaaaaaaaaaa', element)
             var localData = this.$api.localGet('single_data_' + element.id)
             if (localData) {
               isRequset = this.compareTime(localData.time)
@@ -84,7 +83,8 @@
                   count: response.result,
                   icon: element.icon,
                   bgcolor: element.bgColor,
-                  color: element.color
+                  color: element.color,
+                  account: element.account
                 }
                 data.time = this.getDate()
                 this.$api.localSet('single_data_' + element.id, data)
@@ -94,8 +94,6 @@
           })
         }
         this.async = true
-        console.info('this.viewModel', this.viewModel)
-        console.info('不升息哦啊啊', this.widget.value.styleItem)
       },
       getDate () {
         var date = new Date()

@@ -12,18 +12,13 @@
               <span class="item-count">{{item.count}}</span>
             </div>
           </div>
-          <form-item :widget="item" type="mount-item" :widgetModel="widgetModel"></form-item>
         </router-link>
       </div>
     </div>
   </div>
 </template>
 <script>
-  import formItem from './widget/form-item'
   export default {
-    components: {
-      formItem
-    },
     data () {
       return {
         widgetModel: '',
@@ -34,14 +29,6 @@
       viewModel: {},
       count: {
         default: 4
-      }
-    },
-    mounted () {
-      this.init()
-    },
-    methods: {
-      async  init () {
-        this.widgetModel = this.widget
       }
     }
   }

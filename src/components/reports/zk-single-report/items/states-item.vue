@@ -4,39 +4,33 @@
       <span class="m-widget25__price m--font-brand">$237,650</span>
       <span class="m-widget25__desc">Total Revenue This Month</span>
       <div class="m-widget25--progress">
-        <div class="m-widget25__progress" v-for="(item,index) in widgetModel" :key="index">
-          <!-- <span class="m-widget25__progress-number">
+        <div class="m-widget25__progress" v-for="(item,index) in viewModel" :key="index">
+          <span class="m-widget25__progress-number">
             {{item.name}}
           </span>
           <div class="m--space-10"></div>
           <div class="progress m-progress--sm">
-            <div class="progress-bar m--bg-danger" role="progressbar" :style="{width: item.value.condition.value+'%;',background:item.color}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar m--bg-danger" role="progressbar" :style="{width: 25+'%;',background:item.bgcolor}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
           <span class="m-widget25__progress-sub">
-            {{item.intro}}必须不能保存云
-          </span> -->
-          <form-item :widget="item" type="states-item" :widgetModel="widgetModel"></form-item>
+            {{item.account}}必须不能保存云
+          </span>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-  import formItem from './widget/form-item'
   export default {
-    components: {
-      formItem
-    },
     data () {
       return {
         widgetModel: ''
       }
     },
     props: {
-      widget: {}
+      viewModel: {}
     },
     mounted () {
-      console.info('8')
       this.init()
     },
     methods: {

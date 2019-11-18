@@ -11,16 +11,11 @@
           <p class="item-more">更多<i class="el-icon-arrow-right"></i></p>
         </router-link>
       </div>
-      <!-- <form-item :widget="item" type="number-item" :widgetModel="viewModel"></form-item> -->
     </div>
   </div>
 </template>
 <script>
-  import formItem from './widget/form-item'
   export default {
-    components: {
-      formItem
-    },
     data () {
       return {
         widgetModel: '',
