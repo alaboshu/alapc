@@ -17,7 +17,7 @@
 
 <script>
 
-  import numberItem from './items/number-item.vue'
+  import numberItem from './items/01-number-item.vue'
   import tabsItem from './items/tabs-item.vue'
   import amountItem from './items/amount-item.vue'
   import mountItem from './items/mount-item.vue'
