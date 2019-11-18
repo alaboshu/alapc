@@ -1,5 +1,5 @@
 <template>
-  <el-checkbox-group v-model="viewModel">
+  <el-checkbox-group v-model="viewModel" :min="min" :max="max">
     <el-checkbox v-for="(item,index) in keyValues" :key="index" :label="item.key">{{item.value}}</el-checkbox>
   </el-checkbox-group>
 </template>
@@ -14,6 +14,12 @@
     },
     props: {
       type: {},
+      min: {
+        default: 0
+      },
+      max: {
+        default: 0
+      },
       apiUrl: {}, // Api网址，优先从Api中获取数据
       dataModel: {}
     },
