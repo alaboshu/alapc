@@ -40,7 +40,17 @@
     },
     methods: {
       async  init () {
-        this.widgetModel = this.widget
+        var para
+        this.viewModel = this.widget.value.reportValues
+        if (this.widget && this.widget.value && this.widget.value.dataReport) {
+          var dataReport = this.widget.value.dataReport
+          para.entityType = dataReport.entityType
+          para.field = dataReport.field
+          para.style = dataReport.style
+          para.condition = dataReport.condition
+        }
+        var response = await this.$api.httpPost('/api/Report/GetSingleReport', this.widget.value.singleReportForm[0].dataCouse)
+        console.info('res', response)
       }
     }
   }

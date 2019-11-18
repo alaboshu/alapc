@@ -1,6 +1,6 @@
 <template>
   <div class="zk-quick-action">
-    <tab-item v-if="widget.value.styleItem===1" :widget="widget.value.reportValues"></tab-item>
+    <tab-item v-if="widget.value.styleItem===1" :widget="widget.value.quickForm"></tab-item>
     <rank-item v-if="widget.value.styleItem===2" :widget="widget.value.reportValues"></rank-item>
     <guide-item v-if="widget.value.styleItem===3" :widget="widget.value.reportValues"></guide-item>
     <common-item v-if="widget.value.styleItem===4" :widget="widget.value.reportValues"></common-item>

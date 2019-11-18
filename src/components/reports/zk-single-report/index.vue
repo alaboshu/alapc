@@ -8,7 +8,7 @@
     <growing-item v-if="widget.value.styleItem===6" :widget="widget.value.reportValues" :count="widget.value.count"></growing-item>
     <introduce-item v-if="widget.value.styleItem===7" :widget="widget.value.reportValues" :count="widget.value.count"></introduce-item>
     <member-item v-if="widget.value.styleItem===8" :widget="widget.value.reportValues" :count="widget.value.count"></member-item>
-    <ratio-item v-if="widget.value.styleItem===9" :widget="widget.value.reportValues" :count="widget.value.count"></ratio-item>
+    <ratio-item v-if="widget.value.styleItem===9" :widget="widget" :count="widget.value.count"></ratio-item>
     <states-item v-if="widget.value.styleItem===10" :widget="widget.value.reportValues" :count="widget.value.count"></states-item>
     <total-item v-if="widget.value.styleItem===11" :widget="widget.value.reportValues" :count="widget.value.count"></total-item>
     <omit-item v-if="widget.value.styleItem===12" :widget="widget.value.reportValues" :count="widget.value.count"></omit-item>
@@ -72,7 +72,7 @@
           para.style = dataReport.style
           para.condition = dataReport.condition
         }
-        // var response = await this.$api.httpPost('/api/Report/GetSingleReport', para)
+        // var response = await this.$api.httpPost('/api/Report/GetSingleReport', this.widget.value.singleReportForm[0].dataCouse)
         this.async = true
       }
     }
