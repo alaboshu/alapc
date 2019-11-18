@@ -3,7 +3,7 @@
     <div v-for="(item,index) in viewModel" :key="index" :style="'width:'+100/count+'%;'+'display: inline-block;'">
       <div class="item" :style="{background:item.bgcolor}">
         <div class="item-box" :style="'color:' +item.color +';'">
-          <span class="item-count">{{getDate(item.count)}}</span>
+          <span class="item-count">{{getDate(item.count)}}{{viewNum}}</span>
           <i class="icon iconfont " :class="item.icon.name"></i>
         </div>
         <p class="item-more" :style="'color:' +item.color +';'">{{item.name}}</p>
@@ -12,22 +12,20 @@
   </div>
 </template>
 <script>
+  import minx from './minx/index'
   export default {
+    mixins: [minx],
     data () {
       return {
         widgetModel: '',
-        span: 6
+        span: 6,
+        viewNum: null
       }
     },
     props: {
       viewModel: {},
       count: {
         default: 4
-      }
-    },
-    methods: {
-      getDate (data) {
-
       }
     }
   }
