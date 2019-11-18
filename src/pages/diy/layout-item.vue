@@ -53,7 +53,7 @@
     },
     methods: {
       handleCheck (widget) {
-        if (this.$refs.moduleId.$el) {
+        if (this.$refs.moduleId.$el && widget.style) {
           widget.style.styleId = this.$refs.moduleId.$el.id
         }
         let value = {
