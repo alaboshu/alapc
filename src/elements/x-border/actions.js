@@ -95,17 +95,17 @@ export default {
       para.startTime = timer.timeFormat(ev[0])
       para.endTime = timer.timeFormat(ev[1])
     }
-    console.info('看一下触发几次', para, jsThis.activeName)
 
     // 获取slot下组件实例
-    // var data = jsThis.$slots.default[0].context
-    // data.activeName = jsThis.activeName
-    // data.obtainTime = para
-    // if (para.startTime !== undefined) {
-    //   data.inshow = false
-    //   data.loading = true
-    //   data.init()
-    // }
+    var data = jsThis.$slots.default[0].context
+    var refsData = data.$refs[jsThis.reportType]
+    if (para.startTime !== undefined) {
+      refsData.dataModel.condition = {
+        ...refsData.dataModel.condition,
+        ...para
+      }
+      refsData.init()
+    }
   },
   // 日期选择组件的快捷按钮
   shortcut () {

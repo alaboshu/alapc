@@ -10,14 +10,14 @@
       </h3>
       <div class="header-right">
         <div v-if="isDate">
-          <el-tabs v-model="activeName" @tab-click="handleClick(null)">
+          <el-tabs v-model="activeName">
             <el-tab-pane v-for="(item,index) in tabsList" :key="index" :name="item.key">
               <span slot="label">
-                <span v-if="item.key !== 'appoint'"> {{item.name}}</span>
+                <span v-if="item.key !== 'appoint'" @click="handleClick(null)" style="height: 100%; display:inline-block"> {{item.name}}</span>
                 <el-popover placement="bottom-end" v-else trigger="click">
-                  <el-date-picker @input="handleClick" :picker-options="pickerOptions" v-model="value1" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+                  <el-date-picker @input="handleClick" :clearable="false" :picker-options="pickerOptions" v-model="value1" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
                   </el-date-picker>
-                  <span slot="reference">{{item.name}}</span>
+                  <span slot="reference" style="height: 100%; display:inline-block">{{item.name}}</span>
                 </el-popover>
               </span>
             </el-tab-pane>
@@ -78,6 +78,10 @@
       isDate: {
         type: Boolean,
         default: false
+      },
+      // 报表类型，仅限于报表中使用
+      reportType: {
+        type: String
       }
     },
     mounted () {
