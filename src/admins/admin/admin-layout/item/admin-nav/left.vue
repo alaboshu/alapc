@@ -55,14 +55,16 @@
     methods: {
       async init () {
         this.leftCurrentMenu = await this.$api.vuexLocalGet('admin_current_menu')
-        this.secondMenus = this.roleOutput.menus[this.leftCurrentMenu.oneIndex].menus
-        var menuData = this.$api.localGet('adminRoleOutput')
-        var threeMenu = this.$api.localGet('admin_current_menu')
-        menuData.menus.forEach(element => {
-          if (element.url === '/Admin/App') {
-            this.isAdminItem(threeMenu, element)
-          }
-        })
+        if (this.leftCurrentMenu) {
+          this.secondMenus = this.roleOutput.menus[this.leftCurrentMenu.oneIndex].menus
+          var menuData = this.$api.localGet('adminRoleOutput')
+          var threeMenu = this.$api.localGet('admin_current_menu')
+          menuData.menus.forEach(element => {
+            if (element.url === '/Admin/App') {
+              this.isAdminItem(threeMenu, element)
+            }
+          })
+        }
       },
       to (threeMenu) {
         this.$emit('clickMenu', threeMenu)
