@@ -29,10 +29,8 @@
   import statesItem from './items/states-item.vue'
   import totalItem from './items/total-item.vue'
   import omitItem from './items/omit-item.vue'
-  // import './var.scss'
 
   export default {
-
     components: {
       numberItem,
       tabsItem,
@@ -64,45 +62,43 @@
     methods: {
       async init () {
         var singleData = this.widget.value
-        var isRequset = true
         if (singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
-            var localData = this.$api.localGet('single_data_' + element.id)
-            if (localData) {
-              isRequset = this.compareTime(localData.time)
-              if (!isRequset) {
-                this.viewModel.push(localData)
-              }
+            var localDataReports = this.$api.vuexLocalGet('single_data_reports')
+            if (!localDataReports) {
+              localDataReports = []
             }
-            if (isRequset) {
+            var isRequest = true
+            var find = localDataReports.find(r => r.id === element.id)
+            console.info('find', find)
+            if (find && find.time > Math.round(new Date().getTime() / 1000)) {
+              isRequest = false
+            }
+            if (isRequest === true) {
+              localDataReports = localDataReports.filter(r => r.id !== element.id)
               var response = await this.$api.httpPost('/api/Report/GetSingleReport', element.dataCouse)
               if (response.status === 1) {
                 var data = {
-                  name: element.account,
+                  name: element.name,
                   id: element.id,
-                  count: response.result,
+                  value: response.result,
                   icon: element.icon,
                   bgcolor: element.bgColor,
                   color: element.color,
-                  account: element.account,
-                  time: new Date(new Date().getTime() + 600000) // 保存10分钟后的时间
+                  intro: element.intro,
+                  time: Math.round(new Date(new Date().getTime() + 600000) / 1000) // 保存10分钟后的时间
                 }
-                this.$api.localSet('single_data_' + element.id, data)
+                console.info('data', data)
                 this.viewModel.push(data)
+                localDataReports.push(data)
+                this.$api.vuexLocalSet('single_data_reports', localDataReports)
               }
             }
           })
         }
-        this.widget.value.styleItem = 2
+        this.widget.value.styleItem = 1
+        console.info('this.viewModel', this.viewModel)
         this.async = true
-      },
-      // 时间比较 
-      compareTime (localTime) {
-        var now = Math.round(new Date().getTime() / 1000)
-        if (now < localTime) {
-          return true
-        }
-        return false
       }
     }
   }
