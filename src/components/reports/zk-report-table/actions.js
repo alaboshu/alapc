@@ -5,7 +5,9 @@ export default {
   handleClick (jsThis, ev) {
     console.info('ev', ev)
     var date = new Date()
-    var para = {}
+    var para = {
+      timeType: ev.key
+    }
     if (jsThis.activeName !== 'appoint') {
       if (jsThis.activeName === 'toDay') {
         para.startTime = timer.timeFormat(date)
