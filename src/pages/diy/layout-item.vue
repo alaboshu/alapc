@@ -54,6 +54,7 @@
     methods: {
       handleCheck (widget) {
         if (this.$refs.moduleId.$el && widget.style) {
+          console.info('进来这里不', widget)
           widget.style.styleId = this.$refs.moduleId.$el.id
         }
         let value = {
