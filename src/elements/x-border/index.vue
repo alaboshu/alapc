@@ -62,9 +62,6 @@
       async init (border) {
         actions.init(this, border)
         this.async = true
-      },
-      handleClick (ev) {
-        actions.handleClick(this, ev)
       }
     }
   }

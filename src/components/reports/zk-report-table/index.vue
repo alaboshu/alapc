@@ -58,6 +58,9 @@
         if (this.widget && this.widget.value) {
           this.widgetModel = this.widget.value.countReportForm
         }
+      },
+      handleClick (ev) {
+        actions.handleClick(this, ev)
       }
     }
   }
