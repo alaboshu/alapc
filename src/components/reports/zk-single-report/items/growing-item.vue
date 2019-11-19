@@ -10,7 +10,12 @@
             {{item.count}}
           </span>
           <span class="m-widget24__stats m--font-brand" :style="{color:item.color}">
-            ￥<single-value :widget="item.count" :color="item.color" :size="20" :fontWeight="600"></single-value>
+            <div class="single-value" v-if="async">
+              <el-button :loading="loadingSave">
+                <span :style="'color:'+color+';'+'font-size:'+size+'px;'+'font-weight:'+fontWeight+';'">{{widget}}</span>
+              </el-button>
+            </div>
+            <!-- ￥<single-value :widget="item.count" :color="item.color" :size="20" :fontWeight="600"></single-value> -->
           </span>
           <div class="m--space-10"></div>
           <div class="progress m-progress--sm">
@@ -31,11 +36,7 @@
   </div>
 </template>
 <script>
-  import singleValue from '../single-value.vue'
   export default {
-    components: {
-      singleValue
-    },
     data () {
       return {
         widgetModel: ''
