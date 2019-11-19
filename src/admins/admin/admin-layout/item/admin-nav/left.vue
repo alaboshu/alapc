@@ -57,6 +57,7 @@
         this.leftCurrentMenu = await this.$api.vuexLocalGet('admin_current_menu')
         if (this.leftCurrentMenu) {
           this.secondMenus = this.roleOutput.menus[this.leftCurrentMenu.oneIndex].menus
+          console.info('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
           var menuData = this.$api.localGet('adminRoleOutput')
           var threeMenu = this.$api.localGet('admin_current_menu')
           menuData.menus.forEach(element => {
