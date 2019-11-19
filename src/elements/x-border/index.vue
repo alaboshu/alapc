@@ -4,26 +4,11 @@
     <div class="widget-header" :style="{background:backGroundColor}">
       <span class="more"></span>
       <h3 class="widget-header-title" :style="{color:fontColor}">
-        <x-icon class="iconver" :name="viewModel.icon" :color="fontColor"></x-icon>
-        {{viewModel.title}}
+        <x-icon class="iconver" :name="viewModel.icon" :color="fontColor"></x-icon> {{viewModel.title}}
         <div class="widget-header-desc">{{viewModel.description}}</div>
       </h3>
       <div class="header-right">
-        <div v-if="isDate" class="header-date">
-          <el-tabs v-model="activeName">
-            <el-tab-pane v-for="(item,index) in tabsList" :key="index" :name="item.key">
-              <span slot="label">
-                <span v-if="item.key !== 'appoint'" @click="handleClick(null)" style="height: 100%; display:inline-block"> {{item.name}}</span>
-                <el-popover placement="bottom-end" v-else trigger="click">
-                  <el-date-picker @input="handleClick" :clearable="false" :picker-options="pickerOptions" v-model="value1" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
-                  </el-date-picker>
-                  <span slot="reference" style="height: 100%; display:inline-block">{{item.name}}</span>
-                </el-popover>
-              </span>
-            </el-tab-pane>
-          </el-tabs>
-        </div>
-        <slot v-else name="headerRight"></slot>
+        <slot name="headerRight"></slot>
       </div>
     </div>
     <div class="widget-body">
@@ -35,7 +20,6 @@
   </div>
 </template>
 <script>
-  import json from './index.json'
   import actions from './actions'
   export default {
     data () {
@@ -47,11 +31,7 @@
         },
         backGroundColor: '#ffffff',
         fontColor: '#575962',
-        async: false,
-        tabsList: json.links,
-        pickerOptions: actions.shortcut(),
-        activeName: 'mounth',
-        value1: ''
+        async: false
       }
     },
     props: {
@@ -73,16 +53,7 @@
         default: null
       },
       // 图标对象
-      border: {},
-      // 判断是否使用日期
-      isDate: {
-        type: Boolean,
-        default: false
-      },
-      // 报表类型，仅限于报表中使用
-      reportType: {
-        type: String
-      }
+      border: {}
     },
     mounted () {
       this.init(this.border)
