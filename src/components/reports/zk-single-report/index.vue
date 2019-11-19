@@ -2,16 +2,18 @@
   <div class="zk-single-report" v-if="async">
     <number-item v-if="widget.value.styleItem==1" :viewModel="viewModel" :count="widget.value.count"></number-item>
     <tabs-item v-if="widget.value.styleItem==2" :viewModel="viewModel" :count="widget.value.count"></tabs-item>
-    <amount-item v-if="widget.value.styleItem==3" :viewModel="viewModel" :count="widget.value.count"></amount-item>
-    <mount-item v-if="widget.value.styleItem==4" :viewModel="viewModel" :count="widget.value.count"></mount-item>
+    <omit-item :viewModel="viewModel" v-if="widget.value.styleItem ==3" :count="widget.value.count"></omit-item>
+
+    <mount-item v-if="widget.value.styleItem==10" :viewModel="viewModel" :count="widget.value.count"></mount-item>
     <general-item v-if="widget.value.styleItem==5" :viewModel="viewModel" :count="widget.value.count"></general-item>
     <growing-item v-if="widget.value.styleItem==6" :viewModel="viewModel" :count="widget.value.count"></growing-item>
     <introduce-item v-if="widget.value.styleItem==7" :viewModel="viewModel" :count="widget.value.count"></introduce-item>
     <member-item v-if="widget.value.styleItem==8" :viewModel="viewModel" :count="widget.value.count"></member-item>
     <ratio-item v-if="widget.value.styleItem==9" :viewModel="viewModel"></ratio-item>
-    <states-item v-if="widget.value.styleItem==10" :viewModel="viewModel" :count="widget.value.count"></states-item>
+    <states-item v-if="widget.value.styleItem==100" :viewModel="viewModel" :count="widget.value.count"></states-item>
     <total-item v-if="widget.value.styleItem==11" :viewModel="viewModel" :count="widget.value.count"></total-item>
-    <omit-item :viewModel="viewModel" v-if="widget.value.styleItem ==12" :count="widget.value.count"></omit-item>
+
+    <amount-item v-if="widget.value.styleItem==30" :viewModel="viewModel" :count="widget.value.count"></amount-item>
   </div>
 </template>
 
@@ -19,8 +21,9 @@
 
   import numberItem from './items/01-number-item.vue'
   import tabsItem from './items/02-tabs-item.vue'
+  import mountItem from './items/10-mount-item.vue'
+  import omitItem from './items/03-omit-item.vue'
   import amountItem from './items/amount-item.vue'
-  import mountItem from './items/mount-item.vue'
   import generalItem from './items/general-item.vue'
   import growingItem from './items/growing-item.vue'
   import introduceItem from './items/introduce-item.vue'
@@ -28,7 +31,6 @@
   import ratioItem from './items/ratio-item.vue'
   import statesItem from './items/states-item.vue'
   import totalItem from './items/total-item.vue'
-  import omitItem from './items/omit-item.vue'
 
   export default {
     components: {
@@ -111,7 +113,7 @@
           }
         })
 
-        this.widget.value.styleItem = 2
+        this.widget.value.styleItem = 3
         this.async = true
       }
     }
