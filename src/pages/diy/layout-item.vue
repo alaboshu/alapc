@@ -4,9 +4,9 @@
     <template v-if="widget.status !== 'small'">
       <div v-if="widget.border.show">
         <div class="border-header">
-          <x-icon class="border-header-icon" v-if="widget.border.icon" :icon="widget.border.icon"></x-icon>
-          <div class="border-header-title">{{widget.border.title}}</div>
-          <div class="border-header-desc">{{widget.border.intro}}</div>
+          <x-icon class="border-header-icon" :color="widget.border.fontColor" v-if="widget.border.icon" :icon="widget.border.icon"></x-icon>
+          <div class="border-header-title" :style="'color:'+widget.border.fontColor">{{widget.border.title}}</div>
+          <div class="border-header-desc" :style="'color:'+widget.border.fontColor">{{widget.border.intro}}</div>
           <div class="border-header-tools"></div>
         </div>
         <div class="border-body">
@@ -41,6 +41,7 @@
       testType: {}
     },
     mounted () {
+      console.info('aaaaaaaaaaaaaa', this.widget)
       this.$nextTick(() => {
         this.$bus.$on('layoutItemCheck', (index) => {
           if (index === this.removeIndex) {
@@ -54,7 +55,6 @@
     methods: {
       handleCheck (widget) {
         if (this.$refs.moduleId.$el && widget.style) {
-          console.info('进来这里不', widget)
           widget.style.styleId = this.$refs.moduleId.$el.id
         }
         let value = {
