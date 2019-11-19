@@ -65,6 +65,7 @@
       async init () {
         var singleData = this.widget.value
         var isRequset = true
+        var dataList = []
         if (singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
             var localData = this.$api.localGet('single_data_' + element.id)
@@ -91,7 +92,13 @@
                 this.viewModel.push(data)
               }
             }
+
+            // 给数组重新排序
+            if (singleData.singleReportForm[index].id === this.viewModel[index].id) {
+              dataList.splice(index, 0, this.viewModel[index])
+            }
           })
+          this.viewModel = dataList
         }
         this.async = true
       },
