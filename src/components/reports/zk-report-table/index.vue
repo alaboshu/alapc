@@ -10,7 +10,7 @@
         <el-tabs v-model="activeName">
           <el-tab-pane v-for="(item,index) in tabsList" :key="index" :name="item.key">
             <span slot="label">
-              <span v-if="item.key !== 'appoint'" @click="handleClick(null)" style="height: 100%; display:inline-block"> {{item.name}}</span>
+              <span v-if="item.key !== 'customer'" @click="handleClick(item)" style="height: 100%; display:inline-block"> {{item.name}}</span>
               <el-popover placement="bottom-end" v-else trigger="click">
                 <el-date-picker @input="handleClick" :clearable="false" :picker-options="pickerOptions" v-model="value1" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
                 </el-date-picker>
@@ -46,7 +46,7 @@
         widgetModel: null,
         tabsList: json.links,
         pickerOptions: actions.shortcut(),
-        activeName: 'mounth',
+        activeName: 'all',
         value1: ''
       }
     },

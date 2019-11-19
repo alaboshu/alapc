@@ -1,27 +1,12 @@
 import timer from './timer'
 export default {
 
-
   handleClick (jsThis, ev) {
-    var date = new Date()
-    var para = {}
-    if (jsThis.activeName !== 'appoint') {
-      if (jsThis.activeName === 'toDay') {
-        para.startTime = timer.timeFormat(date)
-        para.endTime = timer.timeFormat(date)
-      } else if (jsThis.activeName === 'yesterDay') {
-        para.startTime = timer.timeFormat(new Date(date.getTime() - 24 * 60 * 60 * 1000))
-        para.endTime = timer.timeFormat(new Date(date.getTime() - 24 * 60 * 60 * 1000))
-      } else if (jsThis.activeName === 'event') {
-        para.startTime = ''
-        para.endTime = ''
-      } else {
-        para.endTime = timer.timeFormat(date)
-        para.startTime = timer.getTime(date, jsThis.activeName)
-      }
+    var para = {
+      timeType: ev.key
     }
     // 自定义时间
-    if (jsThis.activeName === 'appoint' && ev !== null) {
+    if (jsThis.activeName === 'customer' && ev !== null) {
       para.startTime = timer.timeFormat(ev[0])
       para.endTime = timer.timeFormat(ev[1])
     }
