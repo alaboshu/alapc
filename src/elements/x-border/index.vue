@@ -9,7 +9,7 @@
         <div class="widget-header-desc">{{viewModel.description}}</div>
       </h3>
       <div class="header-right">
-        <div v-if="isDate">
+        <div v-if="isDate" class="header-date">
           <el-tabs v-model="activeName">
             <el-tab-pane v-for="(item,index) in tabsList" :key="index" :name="item.key">
               <span slot="label">
