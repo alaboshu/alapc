@@ -18,7 +18,7 @@
 <script>
 
   import numberItem from './items/01-number-item.vue'
-  import tabsItem from './items/tabs-item.vue'
+  import tabsItem from './items/02-tabs-item.vue'
   import amountItem from './items/amount-item.vue'
   import mountItem from './items/mount-item.vue'
   import generalItem from './items/general-item.vue'
@@ -93,6 +93,7 @@
             }
           })
         }
+        this.widget.value.styleItem = 2
         this.async = true
       },
       // 时间比较 
