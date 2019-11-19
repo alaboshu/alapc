@@ -111,7 +111,7 @@
           }
         })
 
-        this.widget.value.styleItem = 1
+        this.widget.value.styleItem = 2
         this.async = true
       }
     }
