@@ -112,8 +112,6 @@
             this.viewModel.push(dataItem)
           }
         })
-
-        this.widget.value.styleItem = 3
         this.async = true
       }
     }

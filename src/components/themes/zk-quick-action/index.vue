@@ -1,13 +1,14 @@
 <template>
   <div class="zk-quick-action">
     <tab-item v-if="widget.value.styleItem===1" :widget="widget.value.quickForm"></tab-item>
-    <rank-item v-if="widget.value.styleItem===2" :widget="widget.value.reportValues"></rank-item>
-    <guide-item v-if="widget.value.styleItem===3" :widget="widget.value.reportValues"></guide-item>
-    <common-item v-if="widget.value.styleItem===4" :widget="widget.value.reportValues"></common-item>
-    <recommend-item v-if="widget.value.styleItem===5" :widget="widget.value.reportValues"></recommend-item>
-    <exchange-item v-if="widget.value.styleItem===6" :widget="widget.value.reportValues" :count="widget.value.count"></exchange-item>
-    <more-item v-if="widget.value.styleItem===7" :widget="widget.value.reportValues"></more-item>
-    <adcolumn-item v-if="widget.value.styleItem===8" :widget="widget.value.reportValues"></adcolumn-item>
+    <common-item v-if="widget.value.styleItem===2" :widget="widget.value.reportValues"></common-item>
+    <recommend-item v-if="widget.value.styleItem===3" :widget="widget.value.reportValues"></recommend-item>
+    <more-item v-if="widget.value.styleItem===4" :widget="widget.value.reportValues"></more-item>
+
+    <!-- <adcolumn-item v-if="widget.value.styleItem===1" :widget="widget.value.reportValues"></adcolumn-item> -->
+    <!-- <exchange-item v-if="widget.value.styleItem===1" :widget="widget.value.reportValues" :count="widget.value.count"></exchange-item> -->
+    <!-- <rank-item v-if="widget.value.styleItem===2" :widget="widget.value.reportValues"></rank-item> -->
+    <!-- <guide-item v-if="widget.value.styleItem===1" :widget="widget.value.reportValues"></guide-item> -->
   </div>
 </template>
 
@@ -48,6 +49,7 @@
     },
     methods: {
       async init () {
+
       }
     }
   }
