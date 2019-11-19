@@ -3,7 +3,7 @@
     <div class="stair-navigation" v-if="roleOutput">
       <div class="stair-navigation-list">
         <ul class="stair-ul">
-          <li class="stair-li" :class="{'stair_active':index===leftCurrentMenu.oneIndex}" v-for="(item,index) in roleOutput.menus" :key="index" @click="to(item)" v-show="item.isEnable">
+          <li class="stair-li" :class="{'stair_active':leftCurrentMenu &&index===leftCurrentMenu.oneIndex}" v-for="(item,index) in roleOutput.menus" :key="index" @click="to(item)" v-show="item.isEnable">
             <div class="stair-box">
               <i :class="item.icon"></i>
               {{item.name}}
@@ -12,7 +12,7 @@
         </ul>
       </div>
     </div>
-    <div class="shared-second-sidebar" v-show="leftCurrentMenu.showChildMenu ">
+    <div class="shared-second-sidebar" v-show="leftCurrentMenu && leftCurrentMenu.showChildMenu ">
       <div class="shared-second-sidebar-nav">
         <div class="shared-second-sidebar-nav-list">
           <ul class="sidebar-nav_ul" v-show="secondMenus">
@@ -57,7 +57,6 @@
         this.leftCurrentMenu = await this.$api.vuexLocalGet('admin_current_menu')
         if (this.leftCurrentMenu) {
           this.secondMenus = this.roleOutput.menus[this.leftCurrentMenu.oneIndex].menus
-          console.info('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
           var menuData = this.$api.localGet('adminRoleOutput')
           var threeMenu = this.$api.localGet('admin_current_menu')
           menuData.menus.forEach(element => {
