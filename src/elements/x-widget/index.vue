@@ -4,9 +4,9 @@
       <template v-if="widget.status !== 'small'">
         <div v-if="widget.border&& widget.border.show===true">
           <div class="border-header">
-            <x-icon class="border-header-icon" v-if="widget.border.icon" :icon="widget.border.icon"></x-icon>
-            <div class="border-header-title">{{widget.border.title}}</div>
-            <div class="border-header-desc">{{widget.border.intro}}</div>
+            <x-icon class="border-header-icon" :color="widget.border.fontColor" v-if="widget.border.icon" :icon="widget.border.icon"></x-icon>
+            <div class="border-header-title" :style="'color:'+widget.border.fontColor">{{widget.border.title}}</div>
+            <div class="border-header-desc" :style="'color:'+widget.border.fontColor">{{widget.border.intro}}</div>
             <div class="border-header-tools"></div>
           </div>
           <div class="border-body">
