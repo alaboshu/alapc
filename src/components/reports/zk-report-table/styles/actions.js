@@ -20,15 +20,9 @@ export default {
     para.pageIndex = 1
     var tableresponse = await jsThis.$api.httpPost(jsThis.tableApi, para)
     if (tableresponse.status === 1) {
-      for (let i in tableresponse.result.columns) {
-        if (tableresponse.result.columns[i] === '比率') {
-          tableresponse.result.columns.splice(0, 0, tableresponse.result.columns.splice(i, 1)[0])
-        }
-        if (tableresponse.result.columns[i] === '日期') {
-          tableresponse.result.columns.splice(1, 0, tableresponse.result.columns.splice(i, 1)[0])
-        }
-      }
+      this.getTableList(tableresponse.result.columns)
       jsThis.tableData = tableresponse.result
+      // jsThis.$set(jsThis.tableData, tableresponse.result)
     } else {
       jsThis.$alert('配置出错，数据请求不成功，请重新配置')
     }
@@ -43,11 +37,28 @@ export default {
     para.pageIndex = ev
     var tableresponse = await jsThis.$api.httpPost('/api/Report/GetCountTable', para)
     if (tableresponse.status === 1) {
+      this.getTableList(tableresponse.result.columns)
       jsThis.tableData = tableresponse.result
     } else {
       jsThis.$alert('配置出错，数据请求不成功，请重新配置')
     }
   },
+
+  // 处理表格数据
+  getTableList (data) {
+    if (data && data.length > 0) {
+      for (let i in data) {
+        if (data[i] === '比率') {
+          data.splice(0, 0, data.splice(i, 1)[0])
+        }
+        if (data[i] === '日期') {
+          data.splice(1, 0, data.splice(i, 1)[0])
+        }
+      }
+    }
+  },
+
+
   chartType (type) {
     switch (type) {
       case 0:

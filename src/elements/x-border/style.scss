@@ -65,32 +65,36 @@
   }
 
 
-  .el-tabs--top {
-    margin: 0;
-    height: 60px;
+  .header-date {
+    .el-tabs--top {
+      margin: 0;
+      height: 60px;
+    }
+
+    .el-tabs__header {
+      margin: 0;
+    }
+
+    .el-tabs__item {
+      height: 60px;
+      line-height: 60px;
+      color: #fff;
+    }
+
+    .el-tabs__item.is-active {
+      color: #e95a40;
+    }
+
+    .el-tabs__item {
+      padding: 0 8px;
+    }
+
+    .el-date-editor {
+      .el-range-separator {
+        width: 34px;
+      }
+    }
   }
 
-  .el-tabs__header {
-    margin: 0;
-  }
 
-  .el-tabs__item {
-    height: 60px;
-    line-height: 60px;
-    color: #fff;
-  }
-
-  .el-tabs__item.is-active {
-    color: #e95a40;
-  }
-}
-
-.el-tabs__item {
-  padding: 0 8px;
-}
-
-.el-date-editor {
-  .el-range-separator {
-    width: 34px;
-  }
 }
