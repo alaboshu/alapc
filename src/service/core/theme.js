@@ -87,8 +87,7 @@ export default {
       parameter = await this.getWidgetValueByApiUrl(parameter, para)
       if (parameter.value === null || parameter.value === undefined) {
         // 从数据库中获取数据
-        if (parameter.apiUrl === null) {
-        } else {
+        if (parameter.apiUrl === null) {} else {
           parameter = await this.getWidgetValueByApiUrl(parameter, para)
         }
       }
@@ -149,9 +148,9 @@ export default {
         var element = allPageInfo.pageList[i]
         if (
           path
-            .substring(0, 6)
-            .toLowerCase()
-            .indexOf('admin') !== -1 &&
+          .substring(0, 6)
+          .toLowerCase()
+          .indexOf('admin') !== -1 &&
           type !== undefined
         ) {
           if (path.toLowerCase() === element.path.toLowerCase()) {

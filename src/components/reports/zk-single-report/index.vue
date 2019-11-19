@@ -84,9 +84,9 @@
                   icon: element.icon,
                   bgcolor: element.bgColor,
                   color: element.color,
-                  account: element.account
+                  account: element.account,
+                  time: new Date(new Date().getTime() + 600000) // 保存10分钟后的时间
                 }
-                data.time = this.getDate()
                 this.$api.localSet('single_data_' + element.id, data)
                 this.viewModel.push(data)
               }
@@ -95,37 +95,10 @@
         }
         this.async = true
       },
-      getDate () {
-        var date = new Date()
-        var years = date.getFullYear()
-        var mounth = date.getMonth()
-        var day = date.getDate()
-        var hours = date.getHours()
-        var minutes = date.getMinutes()
-        return years + '-' + (mounth + 1) + '-' + day + ' ' + hours + ':' + minutes
-      },
+      // 时间比较 
       compareTime (localTime) {
-        // 比较双方时间是否超过十分钟，最大范围到天
-        var nowTimeDay = this.getDate().split('-')[2].split(' ')[0]
-        var nowTimeHouers = this.getDate().split(' ')[1].split(':')[0]
-        var nowTimeMinutes = this.getDate().split(' ')[1].split(':')[1]
-        var localDay = localTime.split('-')[2].split(' ')[0]
-        var localHouers = localTime.split(' ')[1].split(':')[0]
-        var localMinutes = localTime.split(' ')[1].split(':')[1]
-        // 天数，小时相等比较分钟
-        if (nowTimeDay === localDay && nowTimeHouers === localHouers) {
-          if (nowTimeMinutes - localMinutes > 10) {
-            return true
-          }
-          // 天数，相等小时不一样折算小时为分钟
-        } else if (nowTimeDay === localDay && nowTimeHouers !== localHouers) {
-          var exceedHouers = (nowTimeHouers - localHouers) * 60
-          nowTimeMinutes += exceedHouers
-          if (nowTimeMinutes - localMinutes > 10) {
-            return true
-          }
-          // 天数不想等
-        } else if (nowTimeDay !== localDay) {
+        var now = Math.round(new Date().getTime() / 1000)
+        if (now < localTime) {
           return true
         }
         return false
