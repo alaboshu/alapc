@@ -73,6 +73,7 @@
             console.info('find', find)
             if (find && find.time > Math.round(new Date().getTime() / 1000)) {
               isRequest = false
+              this.viewModel.push(find)
             }
             if (isRequest === true) {
               localDataReports = localDataReports.filter(r => r.id !== element.id)
