@@ -62,6 +62,7 @@
     methods: {
       async init () {
         var singleData = this.widget.value
+        var dataList = []
         if (singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
             var localDataReports = this.$api.vuexLocalGet('single_data_reports')
@@ -95,7 +96,13 @@
                 this.$api.vuexLocalSet('single_data_reports', localDataReports)
               }
             }
+
+            // 给数组重新排序
+            if (singleData.singleReportForm[index].id === this.viewModel[index].id) {
+              dataList.splice(index, 0, this.viewModel[index])
+            }
           })
+          this.viewModel = dataList
         }
         this.widget.value.styleItem = 1
         console.info('this.viewModel', this.viewModel)
