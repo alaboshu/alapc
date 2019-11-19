@@ -62,19 +62,22 @@
     methods: {
       async init () {
         var singleData = this.widget.value
-        var dataList = []
+        var idList = []
+        var reportArray = []
+        var localDataReports = this.$api.vuexLocalGet('single_data_reports')
+
+
         if (singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
-            var localDataReports = this.$api.vuexLocalGet('single_data_reports')
+            idList.push(element.id)
             if (!localDataReports) {
               localDataReports = []
             }
             var isRequest = true
             var find = localDataReports.find(r => r.id === element.id)
-            console.info('find', find)
             if (find && find.time > Math.round(new Date().getTime() / 1000)) {
               isRequest = false
-              this.viewModel.push(find)
+              reportArray.push(find)
             }
             if (isRequest === true) {
               localDataReports = localDataReports.filter(r => r.id !== element.id)
@@ -90,22 +93,25 @@
                   intro: element.intro,
                   time: Math.round(new Date(new Date().getTime() + 600000) / 1000) // 保存10分钟后的时间
                 }
-                console.info('data', data)
-                this.viewModel.push(data)
+                if (this.$api.isEmpty(data.color)) {
+                  data.color = '#ffffff'
+                }
+                reportArray.push(data)
                 localDataReports.push(data)
                 this.$api.vuexLocalSet('single_data_reports', localDataReports)
               }
             }
-
-            // 给数组重新排序
-            if (singleData.singleReportForm[index].id === this.viewModel[index].id) {
-              dataList.splice(index, 0, this.viewModel[index])
-            }
           })
-          this.viewModel = dataList
         }
+
+        idList.forEach(element => {
+          var dataItem = reportArray.find(r => r.id === element)
+          if (dataItem) {
+            this.viewModel.push(dataItem)
+          }
+        })
+
         this.widget.value.styleItem = 1
-        console.info('this.viewModel', this.viewModel)
         this.async = true
       }
     }
