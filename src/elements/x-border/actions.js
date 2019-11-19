@@ -89,11 +89,14 @@ export default {
         para.startTime = timer.getTime(date, jsThis.activeName)
       }
     }
+
     // 自定义时间
     if (jsThis.activeName === 'appoint' && ev !== null) {
       para.startTime = timer.timeFormat(ev[0])
       para.endTime = timer.timeFormat(ev[1])
     }
+    console.info('看一下触发几次', para, jsThis.activeName)
+
     // 获取slot下组件实例
     // var data = jsThis.$slots.default[0].context
     // data.activeName = jsThis.activeName
