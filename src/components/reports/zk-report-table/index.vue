@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <count-report></count-report>
-    <total-count-report></total-count-report>
-    <sum-report></sum-report>
+  <div v-if="widgetModel">
+    <count-report v-model="widgetModel" v-if="widgetModel.reportTypeRadio == 'countReport'"></count-report>
+    <total-count-report v-model="widgetModel" v-if="widgetModel.reportTypeRadio == 'totalCountReport'"></total-count-report>
+    <sum-report v-model="widgetModel" v-if="widgetModel.reportTypeRadio == 'sumReport'"></sum-report>
   </div>
 </template>
 
@@ -20,12 +20,20 @@
     props: {
       widget: {}
     },
+    data () {
+      return {
+        viewModel: null,
+        widgetModel: null
+      }
+    },
     mounted () {
       this.init()
     },
     methods: {
       init () {
-        console.info('aaaaaaaaaaa', this.widget)
+        if (this.widget && this.widget.value) {
+          this.widgetModel = this.widget.value.countReportForm
+        }
       }
     }
   }
