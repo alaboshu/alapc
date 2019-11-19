@@ -6,7 +6,7 @@
         <total-count-report v-model="widgetModel" ref="countTotalReport" v-if="widgetModel.reportTypeRadio == 'countTotalReport'"></total-count-report>
         <sum-report v-model="widgetModel" ref="sumReport" v-if="widgetModel.reportTypeRadio == 'sumReport'"></sum-report>
       </div>
-      <div slot="headerRight">
+      <div slot="headerRight" v-if="tabsList">
         <el-tabs v-model="activeName">
           <el-tab-pane v-for="(item,index) in tabsList" :key="index" :name="item.key">
             <span slot="label">
@@ -44,9 +44,10 @@
       return {
         viewModel: null,
         widgetModel: null,
-        tabsList: json.links,
+        tabsList: [],
+        links: json,
         pickerOptions: actions.shortcut(),
-        activeName: 'all',
+        activeName: 'noLimit',
         value1: ''
       }
     },
@@ -57,6 +58,12 @@
       init () {
         if (this.widget && this.widget.value) {
           this.widgetModel = this.widget.value.countReportForm
+        }
+        console.info(this.widgetModel, json)
+        if (this.widgetModel.reportTypeRadio === 'sumReport') {
+          this.tabsList = this.links
+        } else {
+          this.tabsList = this.links.filter(r => r.show)
         }
       },
       handleClick (ev) {

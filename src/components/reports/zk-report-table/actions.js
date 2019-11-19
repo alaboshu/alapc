@@ -9,15 +9,14 @@ export default {
     if (jsThis.activeName === 'customer' && ev !== null) {
       para.startTime = timer.timeFormat(ev[0])
       para.endTime = timer.timeFormat(ev[1])
+      para.timeType = 'customer'
     }
     var refsData = jsThis.$refs[jsThis.widgetModel.reportTypeRadio]
-    if (para.startTime !== undefined) {
-      refsData.dataModel.condition = {
-        ...refsData.dataModel.condition,
-        ...para
-      }
-      refsData.init()
+    refsData.dataModel.condition = {
+      ...refsData.dataModel.condition,
+      ...para
     }
+    refsData.init()
   },
   // 日期选择组件的快捷按钮
   shortcut () {
