@@ -6,7 +6,6 @@ export default {
     }
     var response = await jsThis.$api.httpPost(jsThis.reportApi, para)
     if (response.status === 1) {
-      console.info('数据报表', response)
       jsThis.chartData = response.result
       jsThis.chartSettings.type = response.result.type
     } else {
@@ -21,7 +20,6 @@ export default {
     para.pageIndex = 1
     var tableresponse = await jsThis.$api.httpPost(jsThis.tableApi, para)
     if (tableresponse.status === 1) {
-      console.info('表格统计', tableresponse.result)
       for (let i in tableresponse.result.columns) {
         if (tableresponse.result.columns[i] === '比率') {
           tableresponse.result.columns.splice(0, 0, tableresponse.result.columns.splice(i, 1)[0])
