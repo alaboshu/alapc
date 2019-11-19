@@ -4,17 +4,16 @@
       <div class="item" :style="{background:item.bgcolor}">
         <div>
           <div class="item-header">
-            <p>{{getDate(item.count)}}</p>
+
           </div>
           <div class="item-body">
-            <span>{{item.count}}</span>
+            <span :style="'color:' +item.color +';'">{{getDate(item.value)}} {{viewNum}}</span>
           </div>
           <div class="item-footer">
-            <span>{{item.count}}</span>
-            <p>{{item.intro}}</p>
+            <span :style="'color:' +item.color +';'">{{item.name}}</span>
           </div>
           <p class="item-tip">
-            <i class="icon iconfont" :class="item.icon"></i>
+            <i class="icon iconfont " :class="item.icon.name"></i>
           </p>
         </div>
       </div>
@@ -28,7 +27,7 @@
     data () {
       return {
         widgetModel: '',
-        span: 8
+        viewNum: null
       }
     },
     props: {
@@ -58,9 +57,9 @@
     }
     .item {
       position: relative;
-      margin: 15px;
-      padding: 12px;
-      height: 160px;
+      margin: 8px;
+      padding: 6px;
+      height: 100px;
       border-radius: 4px;
       box-sizing: border-box;
       overflow: hidden;
@@ -119,7 +118,6 @@
       }
     }
     .item-tip {
-      display: flex;
       align-items: center;
       justify-content: center;
       position: absolute;
@@ -129,11 +127,12 @@
       right: 10px;
       border: 2px solid #fff;
       border-radius: 100%;
-      font-size: 48px;
+      font-size: 50px;
       transform: rotate(-40deg);
       opacity: 0.1;
       i {
-        font-size: 38px;
+        font-size: 60px;
+        padding-left: 5px;
         color: #fff;
       }
     }

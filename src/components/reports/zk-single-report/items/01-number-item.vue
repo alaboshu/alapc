@@ -72,11 +72,12 @@
       position: relative;
       text-align: left;
       padding: 3px 0;
+      padding-left: 10px;
       color: #fff;
       color: rgba(61, 32, 32, 0.8);
       display: block;
       z-index: 10;
-      font-size: 14px;
+      font-size: 12px;
       letter-spacing: 2px;
       background: rgba(0, 0, 0, 0.1);
       text-decoration: none;
