@@ -4,7 +4,7 @@
       "key": "noLimit"
     }, {
       "name": "今天",
-      "key": "toDay"
+      "key": "day"
     },
     {
       "name": "昨天",
@@ -19,12 +19,24 @@
       "key": "mounth"
     },
     {
+      "name": "本季度",
+      "key": "quarter"
+    },
+    {
+      "name": "半年",
+      "key": "halfYear"
+    },
+    {
       "name": "本年",
       "key": "year"
     },
     {
+      "name": "一小时内",
+      "key": "hours"
+    },
+    {
       "name": "指定时间",
-      "key": "appoint"
+      "key": "customer"
     }
   ]
 }
