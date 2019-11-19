@@ -1,5 +1,8 @@
 {
   "links": [{
+      "name": "所有",
+      "key": "all"
+    }, {
       "name": "今天",
       "key": "toDay"
     },
@@ -18,10 +21,6 @@
     {
       "name": "本年",
       "key": "year"
-    },
-    {
-      "name": "所有",
-      "key": "event"
     },
     {
       "name": "指定时间",

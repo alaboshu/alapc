@@ -3,6 +3,7 @@ export default {
 
 
   handleClick (jsThis, ev) {
+    console.info('ev', ev)
     var date = new Date()
     var para = {}
     if (jsThis.activeName !== 'appoint') {
