@@ -15,26 +15,26 @@
 <script>
 
   import tabItem from './items/tab-item'
-  import rankItem from './items/rank-item'
-  import guideItem from './items/guide-item'
+  // import rankItem from './items/rank-item'
+  // import guideItem from './items/guide-item'
   import commonItem from './items/common-item'
   import recommendItem from './items/recommend-item'
-  import exchangeItem from './items/exchange-item'
+  // import exchangeItem from './items/exchange-item'
   import moreItem from './items/more-item'
-  import adcolumnItem from './items/adcolumn-item'
+  // import adcolumnItem from './items/adcolumn-item'
   import './var.scss'
 
   export default {
 
     components: {
       tabItem,
-      rankItem,
-      guideItem,
+      // rankItem,
+      // guideItem,
       commonItem,
       recommendItem,
-      exchangeItem,
-      moreItem,
-      adcolumnItem
+      // exchangeItem,
+      moreItem
+      // adcolumnItem
     },
     data () {
       return {
