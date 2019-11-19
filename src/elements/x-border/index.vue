@@ -9,7 +9,21 @@
         <div class="widget-header-desc">{{viewModel.description}}</div>
       </h3>
       <div class="header-right">
-        <slot name="headerRight"></slot>
+        <div v-if="false">
+          <el-tabs v-model="activeName" @tab-click="handleClick(null)">
+            <el-tab-pane v-for="(item,index) in tabsList" :key="index" :name="item.key">
+              <span slot="label">
+                <span v-if="item.key !== 'appoint'"> {{item.name}}</span>
+                <el-popover placement="bottom-end" v-else trigger="click">
+                  <el-date-picker @input="handleClick" :picker-options="pickerOptions" v-model="value1" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+                  </el-date-picker>
+                  <span slot="reference">{{item.name}}</span>
+                </el-popover>
+              </span>
+            </el-tab-pane>
+          </el-tabs>
+        </div>
+        <slot v-else name="headerRight"></slot>
       </div>
     </div>
     <div class="widget-body">
@@ -21,6 +35,8 @@
   </div>
 </template>
 <script>
+  import json from './index.json'
+  import actions from './actions'
   export default {
     data () {
       return {
@@ -31,7 +47,8 @@
         },
         backGroundColor: '#ffffff',
         fontColor: '#575962',
-        async: false
+        async: false,
+        tabsList: json.links
       }
     },
     props: {
@@ -60,76 +77,11 @@
     },
     methods: {
       async init (border) {
-        if (this.icon) {
-          this.viewModel.icon = this.icon
-        }
-
-        if (this.title) {
-          this.viewModel.title = this.title
-        }
-        if (this.desc) {
-          this.viewModel.description = this.desc
-        }
-        if (border) {
-          if (border.title) {
-            this.viewModel.title = border.title
-          }
-          if (border.description) {
-            this.viewModel.description = border.description
-          }
-          if (border.icon) {
-            if (border.icon.name.includes('fa-') !== -1) {
-              this.viewModel.icon = border.icon.name
-            }
-          }
-        }
-
-        if (!this.viewModel.icon) {
-          this.viewModel.icon = this.$random.icon()
-        }
-
-        var borderType = this.type
-        if (border && border.type) {
-          borderType = border.type
-        }
-        this.convert(borderType)
+        actions.init(this, border)
         this.async = true
       },
-      convert (type) {
-        if (type === 'brand') {
-          this.backGroundColor = '#716aca'
-          this.fontColor = '#ffffff'
-        } else if (type === 'info') {
-          this.backGroundColor = '#36a3f7'
-          this.fontColor = '#ffffff'
-        } else if (type === 'metal') {
-          this.backGroundColor = '#575962'
-          this.fontColor = '#ffffff'
-        } else if (type === 'primary') {
-          this.backGroundColor = '#5867dd'
-          this.fontColor = '#ffffff'
-        } else if (type === 'success') {
-          this.backGroundColor = '#34bfa3'
-          this.fontColor = '#ffffff'
-        } else if (type === 'warning') {
-          this.backGroundColor = '#ffb822'
-          this.fontColor = '#ffffff'
-        } else if (type === 'focus') {
-          this.backGroundColor = '#9816f4'
-          this.fontColor = '#ffffff'
-        } else if (type === 'accent') {
-          this.backGroundColor = '#00c5dc'
-          this.fontColor = '#ffffff'
-        } else if (type === 'danger') {
-          this.backGroundColor = '#f4516c'
-          this.fontColor = '#ffffff'
-        } else if (type === 'light') {
-          this.backGroundColor = '#ffffff'
-          this.fontColor = '#575962'
-        } else {
-          this.backGroundColor = '#ffffff'
-          this.fontColor = '#575962'
-        }
+      handleClick (ev) {
+        actions.handleClick(this, ev)
       }
     }
   }
