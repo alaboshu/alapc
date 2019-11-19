@@ -41,7 +41,6 @@
       testType: {}
     },
     mounted () {
-      console.info('aaaaaaaaaaaaaa', this.widget)
       this.$nextTick(() => {
         this.$bus.$on('layoutItemCheck', (index) => {
           if (index === this.removeIndex) {
