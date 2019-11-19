@@ -10,6 +10,7 @@
   left: 15px;
   top: -12px;
   z-index: 999;
+
   .fast-list {
     padding-top: 5px;
     padding-left: 5px;
@@ -18,6 +19,7 @@
     border-right: 1px solid #efefef;
     display: flex;
     flex-direction: column;
+
     .fast-list_title {
       font-size: 14px;
       line-height: 28px;
@@ -27,11 +29,13 @@
       color: #666666;
       text-align: left;
     }
+
     .recent-visit {
       flex: 1;
       min-height: 0;
       height: 100%;
       overflow: auto;
+
       .fast-list_p {
         line-height: 30px;
         padding-left: 10px;
@@ -42,15 +46,18 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+
         &:hover {
           background-color: #52a3f5;
         }
       }
+
       .fast-list_p-active {
         background: #ebedf0;
       }
     }
   }
+
   .history {
     flex: 1;
     min-width: 0;
@@ -59,6 +66,7 @@
     flex-wrap: wrap;
     align-content: flex-start;
     overflow-y: auto;
+
     .history-list {
       width: 120px;
       line-height: 28px;
@@ -71,6 +79,7 @@
       cursor: pointer;
       text-overflow: ellipsis;
       white-space: nowrap;
+
       &:hover {
         background-color: #52a3f5;
         color: #ffffff;
@@ -84,6 +93,7 @@
   font-size: 16px;
   font-weight: 500;
 }
+
 .layout-container_head {
   width: 100%;
   height: 50px;
@@ -93,11 +103,13 @@
   left: 0px;
   top: 0px;
   z-index: 999;
+
   .head-portrait {
     width: 90px;
     height: 50px;
     text-align: center;
     background-color: #282a3c;
+
     .head-portrait_img {
       margin-top: 5px;
       width: 48px;
@@ -105,17 +117,20 @@
       border-radius: 0px;
     }
   }
+
   .wb-header {
     flex: 1;
     min-width: 0;
     border-bottom: 1px solid #f0f0f0;
     display: flex;
     align-items: center;
+
     .wb-header_left {
       flex: 1;
       min-width: 0;
       display: flex;
       align-items: center;
+
       .wb-header_icon {
         width: 55px;
         height: 50px;
@@ -124,32 +139,38 @@
         border-right: 1px solid #f0f0f0;
         cursor: pointer;
         position: relative;
+
         .wb-header_ibox {
           width: 55px;
           display: block;
           height: 50px;
           line-height: 55px;
         }
+
         i {
           font-size: 18px;
           color: #333333;
         }
       }
+
       .input-group {
         display: flex;
         align-items: center;
         width: 320px;
         position: relative;
+
         .input-group_box {
           flex: 1;
           min-width: 0;
           outline: none;
           padding: 0px 15px;
+
           .el-input__inner {
             border: none;
             padding: 0px;
           }
         }
+
         .input-group_icon {
           width: 50px;
           height: 50px;
@@ -157,10 +178,12 @@
           line-height: 55px;
           border-right: 1px solid #f0f0f0;
           cursor: pointer;
+
           i {
             font-size: 16px;
           }
         }
+
         .wb-search-result {
           width: 400px;
           background-color: #ffffff;
@@ -169,12 +192,14 @@
           left: 0px;
           top: 60px;
           z-index: 999;
+
           .wb-search-result_list {
             line-height: 35px;
             padding-left: 15px;
             font-size: 12px;
             color: #666;
             cursor: pointer;
+
             &:hover {
               background-color: #52a3f5;
               color: #ffffff;
@@ -183,8 +208,10 @@
         }
       }
     }
+
     .head-buttom {
       padding: 0px 15px;
+
       .zent-sop-entry-inner {
         width: 42px;
         height: 30px;
@@ -193,26 +220,27 @@
         line-height: 30px;
         text-align: center;
         cursor: pointer;
+
         .entry-inner_img {
           width: 20px;
           height: 15px;
         }
       }
+
       .entry-inner_active {
         background-color: #f2f2f2;
       }
     }
+
     .back-stage {
       padding: 0px 20px;
 
       .back-stage_icon {
-        background: linear-gradient(
-          180deg,
-          #ad5beb 25%,
-          #c678db 50%,
-          #da6ea9 75%,
-          #e76e92 100%
-        );
+        background: linear-gradient(180deg,
+            #ad5beb 25%,
+            #c678db 50%,
+            #da6ea9 75%,
+            #e76e92 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         cursor: pointer;
@@ -223,8 +251,10 @@
         }
       }
     }
+
     .nav-portrait {
       margin: 0px 10px;
+
       .nav-portrait_img {
         width: 35px;
         height: 35px;
@@ -232,6 +262,7 @@
         border: 1px solid #f0f0f0;
         overflow: hidden;
         cursor: pointer;
+
         img {
           width: 100%;
           height: 100%;
@@ -243,40 +274,47 @@
 
 .popover-userinfo {
   width: 330px;
+
   .popover-userinfo_head {
     width: 100%;
     height: 100px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    background: url('http://s-test.qiniuniu99.com/wwwroot/assets/admin/dist/app/media/img/misc/user_profile_bg.jpg')
-      no-repeat 100% 100%;
+    background: url('http://diyapi.5ug.com/wwwroot/assets/admin/dist/app/media/img/misc/user_profile_bg.jpg') no-repeat 100% 100%;
+
     .userinfo-content {
       display: flex;
       align-items: center;
       padding-top: 20px;
       padding-left: 25px;
+
       .userinfo_img {
         width: 60px;
         height: 60px;
         background: #ffffff;
         border: 1px solid #f0f0f0;
         border-radius: 70px;
+
         img {
           width: 100%;
           height: 100%;
           border-radius: 70px;
         }
       }
+
       .userinfo_right {
         margin-left: 15px;
+
         p {
           color: #d9dae3;
           font-size: 16px;
         }
+
         .userinfo_right-number {
           font-size: 12px;
           color: #8284a1;
           cursor: pointer;
+
           &:hover {
             color: #7b7e8a;
             text-decoration: underline;
@@ -285,29 +323,35 @@
       }
     }
   }
+
   .userinfo-listbox {
     padding: 12px 20px;
     border-bottom: 1px solid #f0f0f0;
+
     ul {
       li {
         display: flex;
         align-items: center;
         padding: 8px 0px;
         cursor: pointer;
+
         .userinfo-listbox_i {
           color: #c1bfd0;
           margin-right: 15px;
+
           i {
             font-size: 18px;
             vertical-align: -2px;
           }
         }
+
         .userinfo-listbox_text {
           font-size: 13px;
           color: #6f727d;
           font-weight: 400;
           flex: 1;
         }
+
         .corner-mark {
           span {
             display: inline-block;
@@ -318,6 +362,7 @@
             padding: 0px 5px;
           }
         }
+
         .corner-mark_2 {
           span {
             display: inline-block;
@@ -328,7 +373,9 @@
             padding: 0px 5px;
           }
         }
+
         &:hover {
+
           .userinfo-listbox_i,
           .userinfo-listbox_text {
             color: #716aca;
@@ -337,8 +384,10 @@
       }
     }
   }
+
   .userinfo-exit {
     padding: 12px 20px;
+
     .userinfo-but {
       display: inline-block;
       border: 1px solid #ebedf2;
@@ -348,6 +397,7 @@
       padding: 8px 24px;
       border-radius: 100px;
       cursor: pointer;
+
       &:hover {
         background: #ebedf2;
       }
@@ -364,8 +414,7 @@
     height: 60px;
     line-height: 60px;
     text-align: center;
-    background: url('http://s-test.qiniuniu99.com/wwwroot/uploads/api/2019-07-17/5d2ebd9ae57f0306cc3bdf88.jpg')
-      no-repeat;
+    background: url('http://diyapi.5ug.com//wwwroot/assets/admin/dist/app/media/img/misc/user_profile_bg.jpg') no-repeat;
     background-size: cover;
     color: #ffffff;
     font-size: 13px;
