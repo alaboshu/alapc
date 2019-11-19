@@ -1,6 +1,6 @@
 import timer from './timer'
 export default {
-  
+
 
   handleClick (jsThis, ev) {
     var date = new Date()
@@ -25,9 +25,7 @@ export default {
       para.startTime = timer.timeFormat(ev[0])
       para.endTime = timer.timeFormat(ev[1])
     }
-    // 获取slot下组件实例
-    var data = jsThis.$slots.default[0].context
-    var refsData = data.$refs[jsThis.reportType]
+    var refsData = jsThis.$refs[jsThis.widgetModel.reportTypeRadio]
     if (para.startTime !== undefined) {
       refsData.dataModel.condition = {
         ...refsData.dataModel.condition,

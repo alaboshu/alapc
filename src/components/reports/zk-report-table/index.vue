@@ -1,5 +1,5 @@
 <template>
-  <div v-if="widgetModel">
+  <div v-if="widgetModel" class="zk-report-table">
     <x-border :border="widgetModel.border" :isDate="widgetModel.isDate" :reportType="widgetModel.reportTypeRadio">
       <div style="padding: 20px;">
         <count-report v-model="widgetModel" ref="countReport" v-if="widgetModel.reportTypeRadio == 'countReport'"></count-report>
@@ -65,3 +65,7 @@
     }
   }
 </script>
+
+<style lang="scss">
+  @import "./var.scss";
+</style>
