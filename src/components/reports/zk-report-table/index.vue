@@ -1,8 +1,12 @@
 <template>
   <div v-if="widgetModel">
-    <count-report v-model="widgetModel" v-if="widgetModel.reportTypeRadio == 'countReport'"></count-report>
-    <total-count-report v-model="widgetModel" v-if="widgetModel.reportTypeRadio == 'totalCountReport'"></total-count-report>
-    <sum-report v-model="widgetModel" v-if="widgetModel.reportTypeRadio == 'sumReport'"></sum-report>
+    <x-border :border="widgetModel.border" :isDate="widgetModel.isDate">
+      <div style="padding: 20px;">
+        <count-report v-model="widgetModel" v-if="widgetModel.reportTypeRadio == 'countReport'"></count-report>
+        <total-count-report v-model="widgetModel" v-if="widgetModel.reportTypeRadio == 'countTotalReport'"></total-count-report>
+        <sum-report v-model="widgetModel" v-if="widgetModel.reportTypeRadio == 'sumReport'"></sum-report>
+      </div>
+    </x-border>
   </div>
 </template>
 
@@ -34,6 +38,7 @@
         if (this.widget && this.widget.value) {
           this.widgetModel = this.widget.value.countReportForm
         }
+        console.info('33333333333', this.widgetModel)
       }
     }
   }

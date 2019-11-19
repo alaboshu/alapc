@@ -95,13 +95,47 @@ export default {
       para.endTime = timer.timeFormat(ev[1])
     }
     // 获取slot下组件实例
-    var data = jsThis.$slots.default[0].context
-    data.activeName = jsThis.activeName
-    data.obtainTime = para
-    if (para.startTime !== undefined) {
-      data.inshow = false
-      data.loading = true
-      data.init()
+    // var data = jsThis.$slots.default[0].context
+    // data.activeName = jsThis.activeName
+    // data.obtainTime = para
+    // if (para.startTime !== undefined) {
+    //   data.inshow = false
+    //   data.loading = true
+    //   data.init()
+    // }
+  },
+  // 日期选择组件的快捷按钮
+  shortcut () {
+    var pickerOptions = {
+      shortcuts: [{
+        text: '最近一周',
+        onClick (picker) {
+          const end = new Date()
+          const start = new Date()
+          start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+          picker.$emit('pick', [start, end])
+        }
+      }, {
+        text: '最近一个月',
+        onClick (picker) {
+          const end = new Date()
+          const start = new Date()
+          start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+          picker.$emit('pick', [start, end])
+        }
+      }, {
+        text: '最近半年',
+        onClick (picker) {
+          const end = new Date()
+          const start = new Date()
+          start.setTime(start.getTime() - 3600 * 1000 * 24 * 180)
+          picker.$emit('pick', [start, end])
+        }
+      }],
+      disabledDate (time) {
+        return time.getTime() > Date.now() - 8.64e6 // 如果没有后面的-8.64e6就是不可以选择今天的
+      }
     }
+    return pickerOptions
   }
 }

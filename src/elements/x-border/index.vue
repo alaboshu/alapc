@@ -9,7 +9,7 @@
         <div class="widget-header-desc">{{viewModel.description}}</div>
       </h3>
       <div class="header-right">
-        <div v-if="false">
+        <div v-if="isDate">
           <el-tabs v-model="activeName" @tab-click="handleClick(null)">
             <el-tab-pane v-for="(item,index) in tabsList" :key="index" :name="item.key">
               <span slot="label">
@@ -48,7 +48,10 @@
         backGroundColor: '#ffffff',
         fontColor: '#575962',
         async: false,
-        tabsList: json.links
+        tabsList: json.links,
+        pickerOptions: actions.shortcut(),
+        activeName: 'mounth',
+        value1: ''
       }
     },
     props: {
@@ -70,7 +73,12 @@
         default: null
       },
       // 图标对象
-      border: {}
+      border: {},
+      // 判断是否使用日期
+      isDate: {
+        type: Boolean,
+        default: false
+      }
     },
     mounted () {
       this.init(this.border)
