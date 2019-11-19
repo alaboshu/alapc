@@ -6,9 +6,8 @@
           <div class="omit-item_title">{{item.name}}</div>
           <div class="omit-item_intro">{{item.intro}}</div>
         </div>
-        <div class="omit-item_right" :style="'color:'+item.fontColor+';'">{{getDate(item.value)}} {{viewNum}}</div>
+        <div class="omit-item_right" :style="'color:' +item.bgcolor +';'">{{getDate(item.value)}} {{viewNum}}</div>
       </div>
-      <!-- <form-item :widget="item" type="omit-item" :widgetModel="viewModel"></form-item> -->
     </div>
   </div>
 </template>
@@ -33,6 +32,7 @@
 </script>
 <style rel="stylesheet/scss" lang="scss">
   .omit-item {
+    background: #ffffff;
     display: flex;
     flex-wrap: wrap;
     .omit-item_list {
@@ -53,7 +53,7 @@
           }
           .omit-item_intro {
             font-size: 12px;
-            color: #999999;
+            color: #9699a2;
             line-height: 20px;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -61,7 +61,7 @@
           }
         }
         .omit-item_right {
-          font-size: 18px;
+          font-size: 1.5rem;
           font-weight: 600;
         }
       }
