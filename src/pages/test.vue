@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <zk-sum-report></zk-sum-report>
+  <div style="background:{color: #000}">
+    试验
+    <!-- <zk-sum-report></zk-sum-report> -->
   </div>
 </template>
 <script>
