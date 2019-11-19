@@ -120,7 +120,6 @@
           masterPageIndex: this.masterPageIndex
         }
         this.viewModel = theme.filerPageInfo(this.viewModel)
-        console.info('唉就是你了')
         this.postMessage('clientIframeLoadSuccessful', true)
       },
       initListener () {
