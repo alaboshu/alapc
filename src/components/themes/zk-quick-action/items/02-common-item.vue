@@ -3,7 +3,7 @@
     <div class="common-item_li" v-for="(item,index) in widget" :key="index">
       <div class="common-item_li-box" @click="$router.push(item.url.value)">
         <div class="common-item_icon" :style="'background:'+item.backGroundColor+';'">
-          <x-icon :src="item.icon.name" :size="item.icon.size" :color="item.icon.iconSecondColor"></x-icon>
+          <x-icon :icon="item.icon" :size="25"></x-icon>
         </div>
         <div class="common-item_title">{{item.name}}</div>
       </div>

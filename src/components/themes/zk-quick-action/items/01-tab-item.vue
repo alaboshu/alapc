@@ -2,7 +2,7 @@
   <div class="tab-item">
     <div class="tab-item_li" v-for="(item,index) in widget" :key="index" :style="'background:'+item.bgColor+';'" @click="$router.push(item.url.value)">
       <div class="tab-item_li-icon">
-        <x-icon :src="item.icon.name" :size="item.icon.size" :color="item.icon.iconSecondColor"></x-icon>
+        <x-icon :icon="item.icon" :size="25" :color="item.icon.iconSecondColor"></x-icon>
       </div>
       <div class="tab-item_li-text">{{item.link.name}}</div>
     </div>
@@ -18,6 +18,7 @@
     },
     methods: {
       async init () {
+        console.info('widget', this.widget)
       }
     }
   }

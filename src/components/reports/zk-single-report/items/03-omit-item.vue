@@ -6,7 +6,8 @@
           <div class="omit-item_title">{{item.name}}</div>
           <div class="omit-item_intro">{{item.intro}}</div>
         </div>
-        <div class="omit-item_right" :style="'color:' +item.bgcolor +';'">{{getDate(item.value)}} {{viewNum}}</div>
+        <!-- {{getDate(item.value)}} -->
+        <div class="omit-item_right" :style="'color:' +item.bgcolor +';'"> - {{viewNum}}</div>
       </div>
     </div>
   </div>
