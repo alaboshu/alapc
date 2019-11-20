@@ -1,7 +1,7 @@
 <template>
   <div class="recommend-item">
     <div class="recommend-item_li" v-for="(item,index) in widget" :key="index">
-      <div class="recommend-item_li-box" :style="'background:'+item.bgColor+';'" @click="$router.push(item.url.value)">
+      <div class="recommend-item_li-box" :style="'background:'+item.bgColor+';'" @click="$router.push(item.link.url)">
         <div class="recommend-item_center">
           <div class="recommend-item_title">{{item.link.name}}</div>
           <div class="recommend-item_intro">{{item.prompt}}</div>
