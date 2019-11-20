@@ -102,14 +102,15 @@
               }
             }
           })
+          setTimeout(() => {
+            idList.forEach(element => {
+              var dataItem = reportArray.find(r => r.id === element)
+              if (dataItem) {
+                this.viewModel.push(dataItem)
+              }
+            })
+          }, 1000)
         }
-
-        idList.forEach(element => {
-          var dataItem = reportArray.find(r => r.id === element)
-          if (dataItem) {
-            this.viewModel.push(dataItem)
-          }
-        })
         this.async = true
       }
     }
