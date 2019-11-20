@@ -56,7 +56,6 @@
     },
     methods: {
       init () {
-        console.info('触发 init ', this.dataModel)
         if (this.dataModel.style !== 2) {
           actions.getReport(this, this.dataModel)
         }
