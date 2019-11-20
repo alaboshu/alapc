@@ -3,7 +3,6 @@
     <number-item v-if="widget.value.styleItem==1" :viewModel="viewModel" :count="widget.value.count"></number-item>
     <tabs-item v-if="widget.value.styleItem==2" :viewModel="viewModel" :count="widget.value.count"></tabs-item>
     <omit-item v-if="widget.value.styleItem ==3" :viewModel="viewModel" :count="widget.value.count"></omit-item>
-
     <mount-item v-if="widget.value.styleItem==4" :viewModel="viewModel" :count="widget.value.count"></mount-item>
     <general-item v-if="widget.value.styleItem==5" :viewModel="viewModel" :count="widget.value.count"></general-item>
     <growing-item v-if="widget.value.styleItem==6" :viewModel="viewModel" :count="widget.value.count"></growing-item>
@@ -62,7 +61,8 @@
       this.init()
     },
     methods: {
-      async init () {
+      // 数据完成以后请求
+      async initAfter () {
         var singleData = this.widget.value
         var idList = []
         var reportArray = []
@@ -102,16 +102,55 @@
               }
             }
           })
-          setTimeout(() => {
-            idList.forEach(element => {
-              var dataItem = reportArray.find(r => r.id === element)
-              if (dataItem) {
-                this.viewModel.push(dataItem)
+          idList.forEach(element => {
+            var dataItem = reportArray.find(r => r.id === element)
+            if (dataItem) {
+              this.viewModel.push(dataItem)
+            }
+          })
+        }
+      },
+      // 不请求Api接口
+      async init () {
+        var singleData = this.widget.value
+        var idList = []
+        var reportArray = []
+        var localDataReports = this.$api.vuexLocalGet('single_data_reports')
+        if (singleData && singleData.singleReportForm) {
+          singleData.singleReportForm.forEach(async (element, index) => {
+            idList.push(element.id)
+            if (!localDataReports) {
+              localDataReports = []
+            }
+            var isRequest = true
+            var find = localDataReports.find(r => r.id === element.id)
+            if (find && find.time > Math.round(new Date().getTime() / 1000)) {
+              isRequest = false
+              reportArray.push(find)
+            }
+            if (isRequest === true) {
+              localDataReports = localDataReports.filter(r => r.id !== element.id)
+              var data = {
+                name: element.name,
+                id: element.id,
+                value: 0,
+                icon: element.icon,
+                bgcolor: element.bgColor,
+                color: element.color,
+                intro: element.intro,
+                time: Math.round(new Date(new Date().getTime() - 600000) / 1000) // 保存10分钟后的时间
               }
-            })
-          }, 1000)
+              if (this.$api.isEmpty(data.color)) {
+                data.color = '#ffffff'
+              }
+              reportArray.push(data)
+              localDataReports.push(data)
+              this.$api.vuexLocalSet('single_data_reports', localDataReports)
+            }
+          })
         }
         this.async = true
+        //  this.initAfter()
       }
     }
   }
