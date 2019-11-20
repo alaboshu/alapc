@@ -96,6 +96,11 @@
                 if (this.$api.isEmpty(data.color)) {
                   data.color = '#ffffff'
                 }
+                for (let i in this.viewModel) {
+                  if (this.viewModel[i].id === element.id) {
+                    this.$set(this.viewModel[i], 'value', response.result)
+                  }
+                }
                 reportArray.push(data)
                 localDataReports.push(data)
                 this.$api.vuexLocalSet('single_data_reports', localDataReports)
@@ -105,7 +110,7 @@
           idList.forEach(element => {
             var dataItem = reportArray.find(r => r.id === element)
             if (dataItem) {
-              this.viewModel.push(dataItem)
+              // this.viewModel.push(dataItem)
             }
           })
         }
@@ -113,44 +118,28 @@
       // 不请求Api接口
       async init () {
         var singleData = this.widget.value
-        var idList = []
-        var reportArray = []
-        var localDataReports = this.$api.vuexLocalGet('single_data_reports')
         if (singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
-            idList.push(element.id)
-            if (!localDataReports) {
-              localDataReports = []
+            var data = {
+              name: element.name,
+              id: element.id,
+              value: 0,
+              icon: element.icon,
+              bgcolor: element.bgColor,
+              color: element.color,
+              intro: element.intro,
+              time: Math.round(new Date(new Date().getTime() + 600000) / 1000) // 保存10分钟后的时间
             }
-            var isRequest = true
-            var find = localDataReports.find(r => r.id === element.id)
-            if (find && find.time > Math.round(new Date().getTime() / 1000)) {
-              isRequest = false
-              reportArray.push(find)
+            if (this.$api.isEmpty(data.color)) {
+              data.color = '#ffffff'
             }
-            if (isRequest === true) {
-              localDataReports = localDataReports.filter(r => r.id !== element.id)
-              var data = {
-                name: element.name,
-                id: element.id,
-                value: 0,
-                icon: element.icon,
-                bgcolor: element.bgColor,
-                color: element.color,
-                intro: element.intro,
-                time: Math.round(new Date(new Date().getTime() - 600000) / 1000) // 保存10分钟后的时间
-              }
-              if (this.$api.isEmpty(data.color)) {
-                data.color = '#ffffff'
-              }
-              reportArray.push(data)
-              localDataReports.push(data)
-              this.$api.vuexLocalSet('single_data_reports', localDataReports)
-            }
+            this.viewModel.push(data)
           })
         }
         this.async = true
-        //  this.initAfter()
+        setTimeout(() => {
+          this.initAfter()
+        }, 300)
       }
     }
   }
