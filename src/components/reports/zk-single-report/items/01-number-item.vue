@@ -32,6 +32,7 @@
 </script>
 <style rel="stylesheet/scss" lang="scss">
   .number-item {
+    margin: 8px;
     font-size: 12px;
     .el-row {
       box-sizing: border-box;
@@ -40,7 +41,7 @@
       }
     }
     .item {
-      margin: 5px 10px;
+      margin: 8px;
       box-sizing: border-box;
       position: relative;
       color: #fff;

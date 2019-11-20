@@ -4,7 +4,7 @@
     <tabs-item v-if="widget.value.styleItem==2" :viewModel="viewModel" :count="widget.value.count"></tabs-item>
     <omit-item v-if="widget.value.styleItem ==3" :viewModel="viewModel" :count="widget.value.count"></omit-item>
 
-    <mount-item v-if="widget.value.styleItem==10" :viewModel="viewModel" :count="widget.value.count"></mount-item>
+    <mount-item v-if="widget.value.styleItem==4" :viewModel="viewModel" :count="widget.value.count"></mount-item>
     <general-item v-if="widget.value.styleItem==5" :viewModel="viewModel" :count="widget.value.count"></general-item>
     <growing-item v-if="widget.value.styleItem==6" :viewModel="viewModel" :count="widget.value.count"></growing-item>
     <introduce-item v-if="widget.value.styleItem==7" :viewModel="viewModel" :count="widget.value.count"></introduce-item>
@@ -21,7 +21,7 @@
 
   import numberItem from './items/01-number-item.vue'
   import tabsItem from './items/02-tabs-item.vue'
-  import mountItem from './items/10-mount-item.vue'
+  import mountItem from './items/04-mount-item.vue'
   import omitItem from './items/03-omit-item.vue'
   import amountItem from './items/amount-item.vue'
   import generalItem from './items/general-item.vue'
@@ -112,6 +112,7 @@
           }, 1000)
         }
         this.async = true
+        this.widget.value.styleItem = 4
       }
     }
   }
