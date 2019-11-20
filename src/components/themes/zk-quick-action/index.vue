@@ -1,9 +1,9 @@
 <template>
-  <div class="zk-quick-action">
-    <tab-item v-if="widget.value.styleItem===1" :widget="widget.value.quickForm"></tab-item>
-    <common-item v-if="widget.value.styleItem===2" :widget="widget.value.reportValues"></common-item>
-    <recommend-item v-if="widget.value.styleItem===3" :widget="widget.value.reportValues"></recommend-item>
-    <more-item v-if="widget.value.styleItem===4" :widget="widget.value.reportValues"></more-item>
+  <div class="zk-quick-action" style="background: #fff !important;">
+    <tab-item v-if="widget.value.quickType==1" :widget="widget.value.quickForm"></tab-item>
+    <common-item v-if="widget.value.quickType==2" :widget="widget.value.quickForm"></common-item>
+    <recommend-item v-if="widget.value.quickType==3" :widget="widget.value.quickForm"></recommend-item>
+    <more-item v-if="widget.value.quickType==4" :widget="widget.value.quickForm"></more-item>
   </div>
 </template>
 
@@ -36,8 +36,14 @@
     },
     methods: {
       async init () {
-
+        console.info('quickForm', this.widget)
       }
     }
   }
 </script>
+
+<style lang="scss" scoped>
+  .zk-quick-action {
+    background: #ffffff;
+  }
+</style>

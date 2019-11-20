@@ -66,9 +66,8 @@
         var singleData = this.widget.value
         var idList = []
         var reportArray = []
+        console.info('4444444444444444444444', singleData)
         var localDataReports = this.$api.vuexLocalGet('single_data_reports')
-
-
         if (singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
             idList.push(element.id)
