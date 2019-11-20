@@ -80,37 +80,41 @@
               reportArray.push(find)
             }
             if (isRequest === true) {
-              localDataReports = localDataReports.filter(r => r.id !== element.id)
-              var response = await this.$api.httpPost('/api/Report/GetSingleReport', element.dataCouse)
-              if (response.status === 1) {
-                var data = {
-                  name: element.name,
-                  id: element.id,
-                  value: response.result,
-                  icon: element.icon,
-                  bgcolor: element.bgColor,
-                  color: element.color,
-                  intro: element.intro,
-                  time: Math.round(new Date(new Date().getTime() + 600000) / 1000) // 保存10分钟后的时间
-                }
-                if (this.$api.isEmpty(data.color)) {
-                  data.color = '#ffffff'
-                }
-                for (let i in this.viewModel) {
-                  if (this.viewModel[i].id === element.id) {
-                    this.$set(this.viewModel[i], 'value', response.result)
+              setTimeout(async () => {
+                localDataReports = localDataReports.filter(r => r.id !== element.id)
+                var response = await this.$api.httpPost('/api/Report/GetSingleReport', element.dataCouse)
+                if (response.status === 1) {
+                  var data = {
+                    name: element.name,
+                    id: element.id,
+                    value: response.result,
+                    icon: element.icon,
+                    bgcolor: element.bgColor,
+                    color: element.color,
+                    intro: element.intro,
+                    time: Math.round(new Date(new Date().getTime() + 600000) / 1000) // 保存10分钟后的时间
                   }
+                  if (this.$api.isEmpty(data.color)) {
+                    data.color = '#ffffff'
+                  }
+                  if (this.viewModel.length > 1) {
+                    for (let i in this.viewModel) {
+                      if (this.viewModel[i].id === element.id) {
+                        this.$set(this.viewModel[i], 'value', response.result)
+                      }
+                    }
+                  }
+                  reportArray.push(data)
+                  localDataReports.push(data)
+                  this.$api.vuexLocalSet('single_data_reports', localDataReports)
                 }
-                reportArray.push(data)
-                localDataReports.push(data)
-                this.$api.vuexLocalSet('single_data_reports', localDataReports)
-              }
+              }, 300)
             }
           })
           idList.forEach(element => {
             var dataItem = reportArray.find(r => r.id === element)
             if (dataItem) {
-              // this.viewModel.push(dataItem)
+              this.viewModel.push(dataItem)
             }
           })
         }
@@ -118,7 +122,8 @@
       // 不请求Api接口
       async init () {
         var singleData = this.widget.value
-        if (singleData && singleData.singleReportForm) {
+        var localDataReports = this.$api.vuexLocalGet('single_data_reports')
+        if (!localDataReports && singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
             var data = {
               name: element.name,
@@ -137,9 +142,7 @@
           })
         }
         this.async = true
-        setTimeout(() => {
-          this.initAfter()
-        }, 300)
+        this.initAfter()
       }
     }
   }
