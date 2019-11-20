@@ -14,14 +14,6 @@
   export default {
     props: {
       widget: {}
-    },
-    mounted () {
-      this.init()
-    },
-    methods: {
-      async init () {
-        console.info('秘密', this.widget)
-      }
     }
   }
 </script>
@@ -33,8 +25,7 @@
       width: 25%;
       display: inline-block;
       vertical-align: text-top;
-      padding-right: 10px;
-      margin-top: 10px;
+      padding: 5px;
 
       .recommend-item_li-box {
         width: 100%;

@@ -5,7 +5,10 @@
         <div class="common-item_icon" :style="'background:'+item.bgColor+';'">
           <x-icon :icon="item.icon" :size="25"></x-icon>
         </div>
-        <div class="common-item_title">{{item.link.name}}</div>
+        <div class="common-item-right">
+          <div class="common-item_title">{{item.link.name}}</div>
+          <div class="common-item-intro">{{item.prompt}}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -14,13 +17,6 @@
   export default {
     props: {
       widget: {}
-    },
-    mounted () {
-      this.init()
-    },
-    methods: {
-      async init () {
-      }
     }
   }
 </script>
@@ -49,12 +45,24 @@
           line-height: 50px;
           color: #fff;
         }
-
-        .common-item_title {
-          font-size: 13px;
-          color: #030303;
-          font-weight: 500;
+        .common-item-right {
           margin-left: 10px;
+          height: 50px;
+          border-radius: 3px;
+        }
+        .common-item_title {
+          height: 25px;
+          font-size: 16px;
+          color: #575962;
+        }
+        .common-item-intro {
+          height: 25px;
+          line-height: 25px;
+          font-size: 12px;
+          color: #c0c4cc;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
         }
       }
     }

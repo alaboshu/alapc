@@ -14,20 +14,13 @@
   export default {
     props: {
       widget: {}
-    },
-    mounted () {
-      this.init()
-    },
-    methods: {
-      async init () {
-      }
     }
   }
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
   .more-item {
-    padding: 15px;
+    padding: 5px;
     .more-item_li {
       display: inline-block;
       margin: 7px;

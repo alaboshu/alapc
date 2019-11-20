@@ -12,14 +12,6 @@
   export default {
     props: {
       widget: {}
-    },
-    mounted () {
-      this.init()
-    },
-    methods: {
-      async init () {
-        console.info('widget', this.widget)
-      }
     }
   }
 </script>
