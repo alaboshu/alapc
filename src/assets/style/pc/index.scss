@@ -1,91 +1,95 @@
-// @import '../css/_index.scss';
-@import '../sass/_index.scss';
-@import '../../border/index.scss';
-@import '../theme.scss';
-@import '../variable.scss';
-body,
-html {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-  margin: 0px;
-  font-size: 12px;
-  padding: 0px;
-}
-body {
-  &::-webkit-scrollbar {
-    width: 0;
-  }
-  &.el-popup-parent--hidden {
-    padding: 0 !important;
-  }
-}
-.clearfix {
-  zoom: 1;
-}
+ @import '../css/_index.scss';
+ @import '../sass/_index.scss';
+ @import '../../border/index.scss';
+ @import '../theme.scss';
+ @import '../variable.scss';
 
-.themeColor {
-  color: $gl-themeColor !important;
-}
+ body,
+ html {
+   height: 100%;
+   width: 100%;
+   overflow-x: hidden;
+   margin: 0px;
+   font-size: 12px;
+   padding: 0px;
+ }
 
-.yellow2 {
-  color: #f39800 !important;
-}
+ body {
+   &::-webkit-scrollbar {
+     width: 0;
+   }
 
-.fl {
-  float: left;
-}
+   &.el-popup-parent--hidden {
+     padding: 0 !important;
+   }
+ }
 
-.fr {
-  float: right;
-}
+ .clearfix {
+   zoom: 1;
+ }
 
-a,
-article,
-aside,
-b,
-body,
-button,
-dd,
-div,
-dl,
-dt,
-em,
-figcaption,
-figure,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-i,
-input,
-li,
-nav,
-p,
-section,
-select,
-span,
-view,
-textarea,
-ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  text-decoration: none;
-  border: none;
-  box-sizing: border-box;
-  font-style: normal;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-font-smoothing: antialiased;
-  font-size: 12px;
-}
+ .themeColor {
+   color: $gl-themeColor !important;
+ }
 
-a {
-  color: #000;
-}
+ .yellow2 {
+   color: #f39800 !important;
+ }
 
-a:visited {
-  color: #000;
-}
+ .fl {
+   float: left;
+ }
+
+ .fr {
+   float: right;
+ }
+
+ a,
+ article,
+ aside,
+ b,
+ body,
+ button,
+ dd,
+ div,
+ dl,
+ dt,
+ em,
+ figcaption,
+ figure,
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ i,
+ input,
+ li,
+ nav,
+ p,
+ section,
+ select,
+ span,
+ view,
+ textarea,
+ ul {
+   padding: 0;
+   margin: 0;
+   list-style: none;
+   text-decoration: none;
+   border: none;
+   box-sizing: border-box;
+   font-style: normal;
+   -webkit-tap-highlight-color: transparent;
+   -webkit-font-smoothing: antialiased;
+   font-size: 12px;
+ }
+
+ a {
+   color: #000;
+ }
+
+ a:visited {
+   color: #000;
+ }
