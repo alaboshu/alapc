@@ -12,7 +12,7 @@
           </router-link>
         </div>
         <div class="wb-header_icon">
-          <el-popover placement="bottom-end" trigger="hover">
+          <el-popover placement="bottom-end" trigger="hover" popper-class="popper-class popper-class-top">
             <div class="fast-nav">
               <div class=" fast-list">
                 <div class="fast-list_title">最近访问</div>
@@ -46,7 +46,7 @@
       </div>
       <div class="site-name" v-if="site">{{site.site.companyName}}</div>
       <div class="back-stage">
-        <el-popover placement="bottom-end" trigger="hover">
+        <el-popover placement="bottom-end" trigger="hover" :popper-options="options" :popper-class="'popper-class popper-class-'+height">
           <div class="background-login-signature">
             <div class="back-stage-head" v-if="site">数据标识：{{site.sign}}</div>
             <div class="login-signature_box">
@@ -66,7 +66,7 @@
         </el-popover>
       </div>
       <div class="nav-portrait">
-        <el-popover placement="bottom-end" trigger="hover">
+        <el-popover placement="bottom-end" trigger="hover" popper-class="popper-class popper-class-top">
           <div class="popover-userinfo">
             <div class="popover-userinfo_head">
               <div class="userinfo-content">
@@ -119,7 +119,11 @@
         childMenus: [], // 所有子菜单
         allMenus: null, // 所有的菜单
         suberList: '',
-        searchModel: ''
+        searchModel: '',
+        options: {
+          positionFixed: true
+        },
+        height: '20' //
       }
     },
     props: {
@@ -130,6 +134,7 @@
     },
     mounted () {
       this.init()
+      this.scrollView()
     },
     methods: {
       async init () {
@@ -220,6 +225,15 @@
             this.to(results[0])
           }
         }
+      },
+      scrollView () {
+        var _this = this
+        window.addEventListener('scroll', (ev) => {
+          setTimeout(() => {
+            var height = document.body.scrollTop
+            _this.height = height
+          }, 500)
+        }, true)
       }
 
     }
