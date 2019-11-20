@@ -1,7 +1,7 @@
 <template>
   <div class="common-item">
     <div class="common-item_li" v-for="(item,index) in widget" :key="index">
-      <div class="common-item_li-box" @click="$router.push(item.url.value)">
+      <div class="common-item_li-box" @click="$router.push(item.link.url)">
         <div class="common-item_icon" :style="'background:'+item.bgColor+';'">
           <x-icon :icon="item.icon" :size="25"></x-icon>
         </div>

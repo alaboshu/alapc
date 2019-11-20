@@ -1,7 +1,7 @@
 <template>
   <div class="more-item">
     <div class="more-item_li" :style="'width:'+100/8+'%;'" v-for="(item,index) in widget" :key="index">
-      <div class="more-item_li-box" @click="$router.push(item.url.value)">
+      <div class="more-item_li-box" @click="$router.push(item.link.url)">
         <div class="more-item_icon" :style="'background:'+item.bgColor+';'">
           <x-icon :icon="item.icon" :size="25"></x-icon>
         </div>

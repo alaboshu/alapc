@@ -36,7 +36,6 @@
     },
     methods: {
       async init () {
-        console.info('quickForm', this.widget)
       }
     }
   }
