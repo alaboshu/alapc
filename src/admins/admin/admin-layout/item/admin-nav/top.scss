@@ -138,7 +138,6 @@
         text-align: center;
         border-right: 1px solid #f0f0f0;
         cursor: pointer;
-        position: relative;
 
         .wb-header_ibox {
           width: 55px;
@@ -451,5 +450,20 @@
         font-family: 'PingFang SC';
       }
     }
+  }
+}
+
+.popper-class {
+  position: fixed !important;
+}
+
+.popper-class-top {
+  top: 40px !important;
+}
+
+
+@for $var from 0 to 10000 {
+  .popper-class-#{$var} {
+    top: (1px*$var) !important;
   }
 }
