@@ -2,7 +2,7 @@
   <div class="zk-single-report" v-if="async">
     <number-item v-if="widget.value.styleItem==1" :viewModel="viewModel" :count="widget.value.count"></number-item>
     <tabs-item v-if="widget.value.styleItem==2" :viewModel="viewModel" :count="widget.value.count"></tabs-item>
-    <omit-item :viewModel="viewModel" v-if="widget.value.styleItem ==3" :count="widget.value.count"></omit-item>
+    <omit-item v-if="widget.value.styleItem ==3" :viewModel="viewModel" :count="widget.value.count"></omit-item>
 
     <mount-item v-if="widget.value.styleItem==10" :viewModel="viewModel" :count="widget.value.count"></mount-item>
     <general-item v-if="widget.value.styleItem==5" :viewModel="viewModel" :count="widget.value.count"></general-item>

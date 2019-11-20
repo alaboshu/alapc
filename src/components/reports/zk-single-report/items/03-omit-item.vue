@@ -6,8 +6,7 @@
           <div class="omit-item_title">{{item.name}}</div>
           <div class="omit-item_intro">{{item.intro}}</div>
         </div>
-        <!-- {{getDate(item.value)}} -->
-        <div class="omit-item_right" :style="'color:' +item.bgcolor +';'"> - {{viewNum}}</div>
+        <div class="omit-item_right" :style="'color:' +item.bgcolor +';'">{{item.value}}</div>
       </div>
     </div>
   </div>
@@ -19,8 +18,7 @@
     data () {
       return {
         widgetModel: '',
-        viewNum: null,
-        span: 6
+        viewNum: null
       }
     },
     props: {
