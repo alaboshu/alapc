@@ -1,6 +1,6 @@
 <template>
   <div class="mount-item">
-    <div class="mount-item_list" v-for="(item,index) in viewModel" :key="index" :style="'width:'+100/8+'%;'+'display: inline-block;'">
+    <div class="mount-item_list" v-for="(item,index) in viewModel" :key="index" :style="'width:188px;display: inline-block;'">
       <div class="item">
         <div class="item-icon" :style="{background:item.bgcolor}">
           <i class="icon iconfont" :class="item.icon.name"></i>
@@ -39,9 +39,9 @@
       box-sizing: border-box;
     }
     .item {
-      padding: 0 10px;
+      padding: 0px;
       margin: 5px;
-      padding: 10px;
+      height: 60px;
       font-size: 12px;
       color: #666;
       display: flex;
@@ -49,7 +49,6 @@
       flex: 1;
       overflow: hidden;
       background-color: #f7f8fa;
-      border-radius: 10px;
       .item-icon {
         width: 60px;
         height: 60px;
