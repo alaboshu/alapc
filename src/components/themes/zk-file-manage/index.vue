@@ -145,7 +145,8 @@
         if (res.status === 1) {
           this.$message.success('上传成功')
           this.uploadingImages.push(res.result.path)
-          this.init()
+          // this.init()
+          this.search(1)
         } else {
           this.$message.error('上传失败，请重新上传')
         }
