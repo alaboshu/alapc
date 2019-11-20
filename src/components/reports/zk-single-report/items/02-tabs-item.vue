@@ -48,6 +48,7 @@
 </script>
 <style rel="stylesheet/scss" lang="scss">
   .tabs-item {
+    margin: 8px;
     .el-row {
       box-sizing: border-box;
       .el-col-md-8 {
