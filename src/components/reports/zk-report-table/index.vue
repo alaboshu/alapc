@@ -59,8 +59,7 @@
         if (this.widget && this.widget.value) {
           this.widgetModel = this.widget.value.countReportForm
         }
-        console.info(this.widgetModel, json)
-        if (this.widgetModel.reportTypeRadio === 'sumReport') {
+        if (this.widgetModel.reportTypeRadio === 'countTotalReport') {
           this.tabsList = this.links
         } else {
           this.tabsList = this.links.filter(r => r.show)
