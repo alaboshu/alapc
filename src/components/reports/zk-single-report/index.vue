@@ -112,7 +112,6 @@
           }, 1000)
         }
         this.async = true
-        this.widget.value.styleItem = 4
       }
     }
   }
