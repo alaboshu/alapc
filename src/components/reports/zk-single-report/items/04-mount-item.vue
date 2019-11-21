@@ -6,7 +6,9 @@
           <i class="icon iconfont" :class="item.icon.name"></i>
         </div>
         <div class="item-info">
-          <span class="item-count" :style="{color:item.bgcolor}">{{item.value}}</span>
+          <span class="item-count" :style="{color:item.bgcolor}">
+            <x-count-up v-model="item.value" class="item-count" :style="{color:item.bgcolor}"></x-count-up>
+          </span>
           <div class="item-title">{{item.name}}</div>
         </div>
       </div>

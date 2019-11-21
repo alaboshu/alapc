@@ -157,6 +157,7 @@ import xCityPicker from '@/elements/x-city-picker/index.vue'
 import xClass from '@/elements/x-class/index.vue'
 import xCode from '@/elements/x-code/index.vue'
 import xCol from '@/elements/x-col/index.vue'
+import xCountUp from '@/elements/x-count-up/index.vue'
 import xDataSelect from '@/elements/x-data-select/index.vue'
 import xEditor from '@/elements/x-editor/index.vue'
 import xEnum from '@/elements/x-enum/index.vue'
@@ -394,6 +395,7 @@ Vue.component('x-city-picker', xCityPicker)
 Vue.component('x-class', xClass)
 Vue.component('x-code', xCode)
 Vue.component('x-col', xCol)
+Vue.component('x-count-up', xCountUp)
 Vue.component('x-data-select', xDataSelect)
 Vue.component('x-editor', xEditor)
 Vue.component('x-enum', xEnum)

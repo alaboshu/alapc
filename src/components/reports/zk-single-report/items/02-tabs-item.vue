@@ -7,7 +7,9 @@
 
           </div>
           <div class="item-body">
-            <span :style="'color:' +item.color +';'">{{getDate(item.value)}} {{viewNum}}</span>
+            <span :style="'color:' +item.color +';'">
+              <x-count-up class="item-class" v-model="item.value" :style="'color:' +item.color +';'"></x-count-up>
+            </span>
           </div>
           <div class="item-footer">
             <span :style="'color:' +item.color +';'">{{item.name}}</span>
@@ -21,13 +23,10 @@
   </div>
 </template>
 <script>  
-  import minx from './minx/index'
   export default {
-    mixins: [minx],
     data () {
       return {
-        widgetModel: '',
-        viewNum: null
+        widgetModel: ''
       }
     },
     props: {
@@ -96,6 +95,9 @@
       span {
         font-size: 24px;
         color: #ffffff;
+      }
+      .item-class {
+        font-size: 24px;
       }
     }
     .item-footer {

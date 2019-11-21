@@ -6,19 +6,18 @@
           <div class="omit-item_title">{{item.name}}</div>
           <div class="omit-item_intro">{{item.intro}}</div>
         </div>
-        <div class="omit-item_right" :style="'color:' +item.bgcolor +';'">{{getDate(item.value)}} {{viewNum}}</div>
+        <div class="omit-item_right" :style="'color:' +item.bgcolor +';'">
+          <x-count-up v-model="item.value" class="omit-item_right" :style="'color:' +item.bgcolor +';'"></x-count-up>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-  import minx from './minx/index'
   export default {
-    mixins: [minx],
     data () {
       return {
-        widgetModel: '',
-        viewNum: null
+        widgetModel: ''
       }
     },
     props: {
