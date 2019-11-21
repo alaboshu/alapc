@@ -1,6 +1,6 @@
 <template>
   <div class="mount-item">
-    <div class="mount-item_list" v-for="(item,index) in viewModel" :key="index" :style="'width:188px;display: inline-block;'">
+    <div class="mount-item_list" v-for="(item,index) in viewModel" :key="index" :style="'width:200px;display: inline-block;'">
       <div class="item">
         <div class="item-icon" :style="{background:item.bgcolor}">
           <i class="icon iconfont" :class="item.icon.name"></i>
