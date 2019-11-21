@@ -24,6 +24,11 @@
     .admin-vdata-image {
       width: 100%;
       height: 160px;
+      border-radius: 5px 0 5px 0;
+      -webkit-border-radius: 5px 5px 0 0;
+      -moz-border-radius: 5px 0 5px 0;
+      -ms-border-radius: 5px 0 5px 0;
+      -o-border-radius: 5px 0 5px 0;
     }
 
     .admin-vdata-cont {
@@ -53,6 +58,11 @@
         text-align: center;
         line-height: 25px;
         cursor: pointer;
+        border-radius: 0 5px 0 0;
+        -webkit-border-radius: 0 5px 0 0;
+        -moz-border-radius: 0 5px 0 0;
+        -ms-border-radius: 0 5px 0 0;
+        -o-border-radius: 0 5px 0 0;
       }
 
       .admin-layout-cont {
@@ -105,9 +115,4 @@
       }
     }
   }
-
-  // .admin-vdata-list:hover {
-  //   background: red;
-
-  // }
 }
