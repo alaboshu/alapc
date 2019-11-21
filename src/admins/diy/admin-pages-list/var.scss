@@ -18,6 +18,10 @@
     .outset-layer {
       display: block !important;
     }
+
+    .outset-show {
+      display: none;
+    }
   }
 
 
@@ -149,5 +153,17 @@
         border-radius: 100%;
       }
     }
+  }
+
+  .outset-test {
+    width: 70px;
+    height: 20px;
+    line-height: 20px;
+    color: #ffffff;
+    text-align: center;
+    background: #449284;
+    position: absolute;
+    right: 0;
+    top: 0;
   }
 }

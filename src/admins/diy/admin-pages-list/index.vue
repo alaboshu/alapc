@@ -4,6 +4,9 @@
       <div class="theme-item_outset theme-item-list">
         <div class="outset-img">
           <img :src="widget.image" />
+          <div class="outset-show">
+            <div class="outset-test">默认模板</div>
+          </div>
           <div class="outset-layer">
             <div class="them_text">{{widget.id}}</div>
             <div class="outset-layer_but">
@@ -16,14 +19,14 @@
         <div class="item_outset-text">
           <div class="outset-text_left">
             <p class="text_p1">{{widget.name}}</p>
-            <p class="text_them">平台：<x-code :title="widget.siteName">{{widget.siteName}}</x-code>
+            <!-- <p class="text_them">平台：<x-code :title="widget.siteName">{{widget.siteName}}</x-code>
             </p>
             <p class="text_p2">适用：
-            </p>
+            </p> -->
           </div>
-          <div class="outset-text_right">
+          <!-- <div class="outset-text_right">
             <img :src="widget.avator" />
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
