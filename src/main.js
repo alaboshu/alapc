@@ -186,6 +186,7 @@ import adminLayout from '@/admins/admin/admin-layout/index.vue'
 import adminMessage from '@/admins/admin/admin-message/index.vue'
 import adminSmartHand from '@/admins/admin/admin-smart-hand/index.vue'
 import adminUserTree from '@/admins/admin/admin-user-tree/index.vue'
+import adminVdata from '@/admins/admin/admin-vdata/index.vue'
 import adminAutoAction from '@/admins/auto/admin-auto-action/index.vue'
 import adminAutoArticle from '@/admins/auto/admin-auto-article/index.vue'
 import adminAutoClass from '@/admins/auto/admin-auto-class/index.vue'
@@ -422,6 +423,7 @@ Vue.component('admin-layout', adminLayout)
 Vue.component('admin-message', adminMessage)
 Vue.component('admin-smart-hand', adminSmartHand)
 Vue.component('admin-user-tree', adminUserTree)
+Vue.component('admin-vdata', adminVdata)
 Vue.component('admin-auto-action', adminAutoAction)
 Vue.component('admin-auto-article', adminAutoArticle)
 Vue.component('admin-auto-class', adminAutoClass)
