@@ -217,6 +217,7 @@ import adminCouponEdit from '@/admins/coupon/admin-coupon-edit/index.vue'
 import adminCouponSend from '@/admins/coupon/admin-coupon-send/index.vue'
 import adminDiyAdmin from '@/admins/diy/admin-diy-admin/index.vue'
 import adminDiyH5 from '@/admins/diy/admin-diy-h5/index.vue'
+import adminPagesList from '@/admins/diy/admin-pages-list/index.vue'
 import adminPublishWechatlite from '@/admins/diy/admin-publish-wechatlite/index.vue'
 import adminAccountEdit from '@/admins/finance/admin-account-edit/index.vue'
 import adminAccountRecharge from '@/admins/finance/admin-account-recharge/index.vue'
@@ -451,6 +452,7 @@ Vue.component('admin-coupon-edit', adminCouponEdit)
 Vue.component('admin-coupon-send', adminCouponSend)
 Vue.component('admin-diy-admin', adminDiyAdmin)
 Vue.component('admin-diy-h5', adminDiyH5)
+Vue.component('admin-pages-list', adminPagesList)
 Vue.component('admin-publish-wechatlite', adminPublishWechatlite)
 Vue.component('admin-account-edit', adminAccountEdit)
 Vue.component('admin-account-recharge', adminAccountRecharge)

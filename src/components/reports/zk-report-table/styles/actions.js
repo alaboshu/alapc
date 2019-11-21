@@ -60,6 +60,7 @@ export default {
 
 
   chartType (type) {
+    console.info('aaaaaaaaaaa', type)
     switch (type) {
       case 0:
         return 'line'
@@ -74,7 +75,7 @@ export default {
       case 11:
         return 'scatter'
       default:
-        return 'line'
+        return 'candle'
     }
   }
 }

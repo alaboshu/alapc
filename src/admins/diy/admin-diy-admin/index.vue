@@ -1,15 +1,16 @@
 <template>
-  <view class="admin-diy-admin">{{widgetModel}}</view>
+  <div class="admin-diy-admin">
+    <admin-pages-list :widgetModel="viewModel"></admin-pages-list>
+  </div>
 </template>
 
 <script>
   import './var.scss'
-
-
   export default {
     data () {
       return {
-        widgetModel: {}
+        widgetModel: {},
+        viewModel: []
       }
     },
     props: {
@@ -20,7 +21,15 @@
     },
     methods: {
       async init () {
-
+        var response = await this.$api.httpGet('/api/theme/querylist')
+        if (response.status === 1) {
+          response.result.forEach(element => {
+            var dataItem = response.result.find(t => t.clientType === 2)
+            if (dataItem) {
+              this.viewModel.push(dataItem)
+            }
+          })
+        }
       }
     }
   }
