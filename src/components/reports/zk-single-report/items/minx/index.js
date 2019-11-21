@@ -5,7 +5,7 @@ export default {
         if (this.viewNum === null) {
           this.viewNum = Number(num) + 1000
         }
-        if (Number(this.viewNum) === Number(num)) {
+        if (Number(this.viewNum) === Number(num) || Number(this.viewNum) < Number(num)) {
           clearInterval(timer)
         } else {
           this.viewNum--
