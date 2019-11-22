@@ -41,6 +41,8 @@
     "vue-ueditor-wrap": "^2.4.0",
     "vuedraggable": "^2.18.1",
     "vuex": "3.0.1",
+    "@jiaminghi/charts": "*",
+    "@babel/runtime": "^7.5.5",
     "yarn": "^1.15.2"
   },
   "devDependencies": {

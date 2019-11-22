@@ -152,6 +152,26 @@ import zkUserBase from '@/components/user/zk-user-base/index.vue'
 import zkUserNav from '@/components/user/zk-user-nav/index.vue'
 import zkUserView from '@/components/user/zk-user-view/index.vue'
 import zkUsersIndex from '@/components/user/zk-users-index/index.vue'
+import vBorder1 from '@/elements/v-data-borders/v-border-1/index.vue'
+import vBorder10 from '@/elements/v-data-borders/v-border-10/index.vue'
+import vBorder2 from '@/elements/v-data-borders/v-border-2/index.vue'
+import vBorder3 from '@/elements/v-data-borders/v-border-3/index.vue'
+import vBorder4 from '@/elements/v-data-borders/v-border-4/index.vue'
+import vBorder5 from '@/elements/v-data-borders/v-border-5/index.vue'
+import vBorder6 from '@/elements/v-data-borders/v-border-6/index.vue'
+import vBorder7 from '@/elements/v-data-borders/v-border-7/index.vue'
+import vBorder8 from '@/elements/v-data-borders/v-border-8/index.vue'
+import vBorder9 from '@/elements/v-data-borders/v-border-9/index.vue'
+import vDecoration1 from '@/elements/v-data-decoration/v-decoration-1/index.vue'
+import vDecoration10 from '@/elements/v-data-decoration/v-decoration-10/index.vue'
+import vDecoration2 from '@/elements/v-data-decoration/v-decoration-2/index.vue'
+import vDecoration3 from '@/elements/v-data-decoration/v-decoration-3/index.vue'
+import vDecoration4 from '@/elements/v-data-decoration/v-decoration-4/index.vue'
+import vDecoration5 from '@/elements/v-data-decoration/v-decoration-5/index.vue'
+import vDecoration6 from '@/elements/v-data-decoration/v-decoration-6/index.vue'
+import vDecoration7 from '@/elements/v-data-decoration/v-decoration-7/index.vue'
+import vDecoration8 from '@/elements/v-data-decoration/v-decoration-8/index.vue'
+import vDecoration9 from '@/elements/v-data-decoration/v-decoration-9/index.vue'
 import xAutoconfig from '@/elements/x-autoconfig/index.vue'
 import xBadge from '@/elements/x-badge/index.vue'
 import xBorder from '@/elements/x-border/index.vue'
@@ -186,6 +206,7 @@ import xWidget from '@/elements/x-widget/index.vue'
 import adminActivitySet from '@/admins/activity/admin-activity-set/index.vue'
 import adminAppPublish from '@/admins/admin/admin-app-publish/index.vue'
 import adminApp from '@/admins/admin/admin-app/index.vue'
+import adminDiy from '@/admins/admin/admin-diy/index.vue'
 import adminLayout from '@/admins/admin/admin-layout/index.vue'
 import adminMessage from '@/admins/admin/admin-message/index.vue'
 import adminSmartHand from '@/admins/admin/admin-smart-hand/index.vue'
@@ -257,6 +278,7 @@ import adminSupplierOrder from '@/admins/store/admin-supplier-order/index.vue'
 import adminRoleEdit from '@/admins/user/admin-role-edit/index.vue'
 import adminRoleOpen from '@/admins/user/admin-role-open/index.vue'
 import adminUserEdit from '@/admins/user/admin-user-edit/index.vue'
+import vSingleData from '@/v-data/reports/v-single-data/index.vue'
 Vue.component('zk-groupbuy', zkGroupbuy)
 Vue.component('zk-aritcle-detail', zkAritcleDetail)
 Vue.component('zk-ariticle-image-list', zkAriticleImageList)
@@ -390,6 +412,26 @@ Vue.component('zk-user-base', zkUserBase)
 Vue.component('zk-user-nav', zkUserNav)
 Vue.component('zk-user-view', zkUserView)
 Vue.component('zk-users-index', zkUsersIndex)
+Vue.component('v-border-1', vBorder1)
+Vue.component('v-border-10', vBorder10)
+Vue.component('v-border-2', vBorder2)
+Vue.component('v-border-3', vBorder3)
+Vue.component('v-border-4', vBorder4)
+Vue.component('v-border-5', vBorder5)
+Vue.component('v-border-6', vBorder6)
+Vue.component('v-border-7', vBorder7)
+Vue.component('v-border-8', vBorder8)
+Vue.component('v-border-9', vBorder9)
+Vue.component('v-decoration-1', vDecoration1)
+Vue.component('v-decoration-10', vDecoration10)
+Vue.component('v-decoration-2', vDecoration2)
+Vue.component('v-decoration-3', vDecoration3)
+Vue.component('v-decoration-4', vDecoration4)
+Vue.component('v-decoration-5', vDecoration5)
+Vue.component('v-decoration-6', vDecoration6)
+Vue.component('v-decoration-7', vDecoration7)
+Vue.component('v-decoration-8', vDecoration8)
+Vue.component('v-decoration-9', vDecoration9)
 Vue.component('x-autoconfig', xAutoconfig)
 Vue.component('x-badge', xBadge)
 Vue.component('x-border', xBorder)
@@ -424,6 +466,7 @@ Vue.component('x-widget', xWidget)
 Vue.component('admin-activity-set', adminActivitySet)
 Vue.component('admin-app-publish', adminAppPublish)
 Vue.component('admin-app', adminApp)
+Vue.component('admin-diy', adminDiy)
 Vue.component('admin-layout', adminLayout)
 Vue.component('admin-message', adminMessage)
 Vue.component('admin-smart-hand', adminSmartHand)
@@ -495,6 +538,7 @@ Vue.component('admin-supplier-order', adminSupplierOrder)
 Vue.component('admin-role-edit', adminRoleEdit)
 Vue.component('admin-role-open', adminRoleOpen)
 Vue.component('admin-user-edit', adminUserEdit)
+Vue.component('v-single-data', vSingleData)
 
 
 Vue.component('vue-draggable-resizable', VueDraggableResizable)
