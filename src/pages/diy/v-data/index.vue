@@ -1,19 +1,17 @@
 <template>
   <div class="vdata_index">
-    <vuedraggable element="div" class="vdata_class" :options="{group:'people', ghostClass: 'ghost'}" @add="handleWidgetAdd($event)" @end="dragend($event)" :move="handleMove">
-      就是你了a
-    </vuedraggable>
+    <vue-draggable-resizable :w="100" :h="100">
+      <div>付款了第三方反倒是拉福利费</div>
+    </vue-draggable-resizable>
   </div>
 </template>
 
 <script>
-  import vuedraggable from 'vuedraggable'
   export default {
-    components: {
-      vuedraggable
-    },
     data () {
-      return {}
+      return {
+        admin: 'fsdfa'
+      }
     },
     mounted () {
     },
@@ -34,10 +32,9 @@
 
 <style lang="scss">
   .vdata_index {
-    .vdata_class {
-      width: 1000px;
-      height: 200px;
-      background: yellow;
-    }
+    width: 1000px;
+    height: 200px;
+    background: yellow;
+    position: relative;
   }
 </style>

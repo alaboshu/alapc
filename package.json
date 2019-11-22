@@ -31,6 +31,7 @@
     "v-charts": "^1.19.0",
     "vue": "^2.5.22",
     "vue-draggable": "^2.0.0-beta.1",
+    "vue-draggable-resizable": "^2.0.1",
     "vue-grid-layout": "^2.3.3",
     "vue-lazyload": "^1.2.6",
     "vue-piczoom": "^1.0.6",
