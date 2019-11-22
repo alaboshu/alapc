@@ -1,18 +1,28 @@
 <template>
   <x-border title="酷屏" type="focus" icon="icon-5333-sudu">
-    <div class="admin-vdata" v-if="viewModel">
-      <div class="admin-vdata-list" v-for="item in viewModel" :key="item">
-        <img class="admin-vdata-image" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2934232835,3423836292&fm=26&gp=0.jpg" alt="" />
-        <div class="admin-vdata-cont">{{item.name}}</div>
-        <div class="admin-layout">
-          <div class="admin-layout-delete" title="删除模板" v-if="false">删除模板</div>
-          <div class="admin-layout-cont">
-            <div class="admin-layout-button left-background" :href="'/admin/vdata/preview?path='+item.path" target="_blank">编辑</div>
-            <a class="admin-layout-button right-background" :href="'/admin/vdata/preview?path='+item.path" target="_blank">预览</a>
+    <div class="admin-pages-list">
+      <div v-for="(widget, index) in viewModel" :key="index">
+        <div class="theme-item_outset theme-item-list">
+          <div class="outset-img">
+            <img :src="widget.setting.popImage" v-if="widget.setting && widget.setting.popImage" />
+            <img v-else src="http://ui.5ug.com/static/vdata/vdata.png" />
+            <div class="outset-layer">
+              <div class="outset-layer_but">
+                <a target="_blank" :href="'/diy?themeId='+widget.id">编辑</a>
+                <a target="_blank" class="layer_but1" :href="'/admin/vdata/preview?path='+widget.path">预览</a>
+              </div>
+              <a target="_blank" class="outset-layer_a" @click="getRemove(widget)" v-if="false">删除酷屏</a>
+            </div>
+          </div>
+          <div class="item_outset-text">
+            <div class="outset-text_left">
+              <p class="text_p1">{{widget.name}}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
   </x-border>
 </template>
 
@@ -33,7 +43,10 @@
         if (response.status === 1) {
           this.viewModel = response.result
         }
-        console.info('response', this.viewModel)
+        console.info(this.viewModel)
+      },
+      async getRemove () {
+
       }
     }
   }
