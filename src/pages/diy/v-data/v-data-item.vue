@@ -3,7 +3,7 @@
   <vuedraggable>
     <div class="diy-widget-wrap" :id="widget.widgetTheme" :style="widget.style && widget.style.css" :class="widget.border.class+ ' '+ widget.blockList" @click.stop="handleCheck(widget)">
       <template v-if="widget.status !== 'small'">
-        <div v-if="widget.border.show">
+        <!-- <div v-if="widget.border.show">
           <div class="border-header">
             <x-icon class="border-header-icon" :color="widget.border.fontColor" v-if="widget.border.icon" :icon="widget.border.icon"></x-icon>
             <div class="border-header-title" :style="'color:'+widget.border.fontColor">{{widget.border.title}}</div>
@@ -13,8 +13,8 @@
           <div class="border-body">
             <component :is="widget.name" :widget="widget" :title="widget.title" ref="moduleId" />
           </div>
-        </div>
-        <component v-else :is="widget.name" :widget="widget" :title="widget.title" ref="moduleId" />
+        </div> -->
+        <component :is="widget.name" :widget="widget" :title="widget.title" ref="moduleId" />
       </template>
       <div v-else class="diy-widget-small">{{widget.title}}</div>
       <div class="diy-dottedbox" />
@@ -22,7 +22,7 @@
       <div class="diy-masker" v-if="showChecked" />
       <div class="diy-widget-actions">
         <span class="diy-widget-actions-span">{{widget.title}}({{widget.name}})</span>
-        <span class="diy-widget-actions-span" @click="switchWidget(widget)">切换</span>
+        <span class="diy-widget-actions-span" v-if="false" @click="switchWidget(widget)">切换</span>
         <span class="diy-widget-actions-span" @click="editWidget(widget)">编辑</span>
         <span class="diy-widget-actions-span" @click="removeWidget(widget,removeIndex)">删除</span>
       </div>

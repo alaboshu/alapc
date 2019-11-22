@@ -42,9 +42,9 @@
           r.layout = {
             w: 500,
             h: 500,
-            x:(index+1)*10,
-            y:(index+1)*100,
-            i:index
+            x: (index + 1) * 10,
+            y: (index + 1) * 100,
+            i: index
           }
           console.info('widget', r, index)
         })
@@ -56,10 +56,10 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss">
-.v-data-container{
-  position: absolute; 
-  .v-data-widget{
-    position: absolute; 
+  .v-data-container {
+    position: absolute;
+    .v-data-widget {
+      position: absolute;
+    }
   }
-}
 </style>
