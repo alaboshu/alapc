@@ -24,7 +24,7 @@
       return {
         async: false,
         widgetItem: '',
-        viewModel:[]
+        viewModel: []
       }
     },
     mounted () {
@@ -39,10 +39,10 @@
         }
         this.viewModel = theme.filerPageInfo(this.viewModel)
         console.info('weism ', this.viewModel)
-        if(this.viewModel && this.viewModel.widgets) {
-          for(let i of this.viewModel.widgets) {
-            if(!i.layout) {
-               var para = {
+        if (this.viewModel && this.viewModel.widgets) {
+          for (let i of this.viewModel.widgets) {
+            if (!i.layout) {
+              var para = {
                 y: 500,
                 x: 500,
                 w: 500,
@@ -68,8 +68,21 @@
             case 'removeWidget':
               this.removeWidgetAndSave(data)
               break
+            case 'widgetList':
+              this.widgetList()
+              break
           }
         })
+      },
+      // 保存事件
+      widgetList () {
+        console.info('进来不', this.viewModel.widgets)
+        for (let i of this.viewModel.widgets) {
+          if (i.layout) {
+            i.layout = null
+          }
+        }
+        this.postMessage('widgetList', this.viewModel.widgets)
       },
       onDragging (data, widget) {
         var para = {
