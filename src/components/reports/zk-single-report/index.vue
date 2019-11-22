@@ -74,7 +74,7 @@
             this.idList.push(element.id)
             var value = 0
             var isRequest = true
-            var find = this.getFind(localDataReports, element.id, 'init')
+            var find = this.getFind(localDataReports, element.id)
             if (find) {
               value = find.value
               isRequest = false
@@ -82,6 +82,9 @@
             var data = this.setdata(element, value)
             data.dataCouse = element.dataCouse
             data.isRequest = isRequest
+            if (!isRequest) {
+              data.time = find.time
+            }
             this.viewModel.push(data)
             localDataReports = localDataReports.filter(r => r.id !== data.id)
             localDataReports.push(data)
@@ -104,7 +107,6 @@
               element.value = response.result
               element.time = Math.round(new Date(new Date().getTime() + 600000) / 1000) // 保存10分钟后的时间
               this.$set(this.viewModel[index], 'value', element.value)
-
               localDataReports.push(element)
               this.$api.vuexLocalSet('single_data_reports', localDataReports)
             }

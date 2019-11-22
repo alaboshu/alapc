@@ -206,6 +206,7 @@ import xWidget from '@/elements/x-widget/index.vue'
 import adminActivitySet from '@/admins/activity/admin-activity-set/index.vue'
 import adminAppPublish from '@/admins/admin/admin-app-publish/index.vue'
 import adminApp from '@/admins/admin/admin-app/index.vue'
+import adminDiy from '@/admins/admin/admin-diy/index.vue'
 import adminLayout from '@/admins/admin/admin-layout/index.vue'
 import adminMessage from '@/admins/admin/admin-message/index.vue'
 import adminSmartHand from '@/admins/admin/admin-smart-hand/index.vue'
@@ -465,6 +466,7 @@ Vue.component('x-widget', xWidget)
 Vue.component('admin-activity-set', adminActivitySet)
 Vue.component('admin-app-publish', adminAppPublish)
 Vue.component('admin-app', adminApp)
+Vue.component('admin-diy', adminDiy)
 Vue.component('admin-layout', adminLayout)
 Vue.component('admin-message', adminMessage)
 Vue.component('admin-smart-hand', adminSmartHand)
