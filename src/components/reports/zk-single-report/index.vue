@@ -62,62 +62,13 @@
       this.init()
     },
     methods: {
-      // 数据完成以后请求
-      async initAfter () {
-        var singleData = this.widget.value
-        var reportArray = []
-        var localDataReports = this.$api.vuexLocalGet('single_data_reports')
-        if (singleData && singleData.singleReportForm) {
-          singleData.singleReportForm.forEach(async (element, index) => {
-
-            if (!localDataReports) {
-              localDataReports = []
-            }
-            var isRequest = true
-            var find = localDataReports.find(r => r.id === element.id)
-            if (find && find.time > Math.round(new Date().getTime() / 1000)) {
-              isRequest = false
-              reportArray.push(find)
-            }
-            if (isRequest === true) {
-              setTimeout(async () => {
-                localDataReports = localDataReports.filter(r => r.id !== element.id)
-                var response = await this.$api.httpPost('/api/Report/GetSingleReport', element.dataCouse)
-                if (response.status === 1) {
-                  var data = {
-                    name: element.name,
-                    id: element.id,
-                    value: response.result,
-                    icon: element.icon,
-                    bgcolor: element.bgColor,
-                    color: element.color,
-                    intro: element.intro,
-                    time: Math.round(new Date(new Date().getTime() + 600000) / 1000) // 保存10分钟后的时间
-                  }
-                  if (this.$api.isEmpty(data.color)) {
-                    data.color = '#ffffff'
-                  }
-                  if (this.viewModel.length > 1) {
-                    for (let i in this.viewModel) {
-                      if (this.viewModel[i].id === element.id) {
-                        this.$set(this.viewModel[i], 'value', response.result)
-                      }
-                    }
-                  }
-                  reportArray.push(data)
-                  localDataReports.push(data)
-                  this.$api.vuexLocalSet('single_data_reports', localDataReports)
-                }
-              }, 300)
-            }
-          })
-
-        }
-      },
       // 不请求Api接口
       async init () {
         var singleData = this.widget.value
         var localDataReports = this.$api.vuexLocalGet('single_data_reports')
+        if (!localDataReports) {
+          localDataReports = []
+        }
         if (singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
             this.idList.push(element.id)
@@ -127,15 +78,42 @@
               value = find.value
             }
             var data = this.setdata(element, value)
+            data.dataCouse = element.dataCouse
             this.viewModel.push(data)
           })
         }
         this.viewModel = this.sort(this.viewModel)
         this.async = true
-        // this.initAfter()
 
-        console.info('sssss', this.viewModel)
+        setTimeout(async () => {
+          await this.initAfter()
+        }, 10000)
       },
+      // 数据完成以后请求
+      async initAfter () {
+        var localDataReports = this.$api.vuexLocalGet('single_data_reports')
+        if (!localDataReports) {
+          localDataReports = []
+        }
+        this.viewModel.forEach(async (element, index) => {
+          var find = this.getFind(localDataReports, element.id)
+          if (!find) {
+            localDataReports = localDataReports.filter(r => r.id !== element.id)
+            var response = await this.$api.httpPost('/api/Report/GetSingleReport', element.dataCouse)
+            if (response.status === 1) {
+              element.value = response.result
+              element.time = Math.round(new Date(new Date().getTime() + 600000) / 1000) // 保存10分钟后的时间
+              if (element.value > 0) {
+                this.$set(this.viewModel[index], 'value', element.value)
+                console.info('this.viewModel[index]', this.viewModel[index])
+              }
+            }
+            localDataReports.push(element)
+          }
+        })
+        this.$api.vuexLocalSet('single_data_reports', localDataReports)
+      },
+      // 排序
       sort (reportArray) {
         var newArray = []
         this.idList.forEach(element => {
@@ -152,7 +130,6 @@
           // 读取缓存中的值
           var find = localReports.find(r => r.id === id)
           if (find && find.time > Math.round(new Date().getTime() / 1000)) {
-            console.info('找到了元素', find)
             return find
           }
         }

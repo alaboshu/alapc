@@ -25,6 +25,20 @@
       count: {
         default: 3
       }
+    },
+    watch: {
+      viewModel: {
+        deep: true,
+        handler (val) {
+          if (this.viewModel) {
+            this.viewModel.forEach((element, index) => {
+              console.info('循环', index, element.value)
+              this.$set(this.viewModel[index], 'value', 100)
+            })
+          }
+          console.info('外面修改了值', this.viewModel)
+        }
+      }
     }
   }
 </script>
