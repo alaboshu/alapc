@@ -23,9 +23,15 @@
     methods: {
       init () {
         this.viewModel = this.dataModel + 50
+        var count = 0
         var timer = setInterval(() => {
           this.viewModel--
+          count++
           if (Number(this.viewModel) === Number(this.dataModel)) {
+            clearInterval(timer)
+          }
+          if (count > 100) {
+            this.viewModel = this.dataModel
             clearInterval(timer)
           }
         }, 30)

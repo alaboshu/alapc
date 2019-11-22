@@ -103,11 +103,13 @@
               element.value = response.result
               element.time = Math.round(new Date(new Date().getTime() + 600000) / 1000) // 保存10分钟后的时间
               this.$set(this.viewModel[index], 'value', element.value)
+              localDataReports.push(element)
             }
-            localDataReports.push(element)
           }
         })
-        this.$api.vuexLocalSet('single_data_reports', localDataReports)
+        setTimeout(async () => {
+          this.$api.vuexLocalSet('single_data_reports', localDataReports)
+        }, 5000)
       },
       // 排序
       sort (reportArray) {
