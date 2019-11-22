@@ -3,20 +3,17 @@ import Router from 'vue-router'
 import api from '@/service/prototypes/api'
 Vue.use(Router)
 
-export const constantRouterMap = [
-  {
+export const constantRouterMap = [{
     path: '/diy',
     component: () => import('@/pages/diy/default'),
-    children: [
-      {
-        path: '',
-        name: 'index_diy',
-        meta: {
-          title: 'DIY编辑'
-        },
-        component: () => import('@/pages/diy/index')
-      }
-    ]
+    children: [{
+      path: '',
+      name: 'index_diy',
+      meta: {
+        title: 'DIY编辑'
+      },
+      component: () => import('@/pages/diy/index')
+    }]
   },
   {
     path: '/auto',
@@ -31,99 +28,87 @@ export const constantRouterMap = [
   {
     path: '/admin',
     component: () => import('@/admins/admin/admin-layout/index'),
-    children: [
-      {
-        path: '*',
-        meta: {
-          title: '后台管理',
-          filter: 3 // 后台过滤权限
-        },
-        params: {},
-        component: () => import('@/pages/admin/index')
-      }
-    ]
+    children: [{
+      path: '*',
+      meta: {
+        title: '后台管理',
+        filter: 3 // 后台过滤权限
+      },
+      params: {},
+      component: () => import('@/pages/admin/index')
+    }]
   },
   {
     path: '/admin-city',
     component: () => import('@/admins/admin/admin-layout/index'),
-    children: [
-      {
-        path: '*',
-        meta: {
-          title: 'DIY编辑'
-        },
-        params: {
-          filter: 6
-        },
-        component: () => import('@/pages/admin/city/index')
-      }
-    ]
+    children: [{
+      path: '*',
+      meta: {
+        title: 'DIY编辑'
+      },
+      params: {
+        filter: 6
+      },
+      component: () => import('@/pages/admin/city/index')
+    }]
   },
   {
     path: '/admin-store',
     component: () => import('@/admins/admin/admin-layout/index'),
-    children: [
-      {
-        path: '*',
-        meta: {
-          title: 'DIY编辑'
-        },
-        params: {
-          filter: 4
-        },
-        component: () => import('@/pages/admin/store/index')
-      }
-    ]
+    children: [{
+      path: '*',
+      meta: {
+        title: 'DIY编辑'
+      },
+      params: {
+        filter: 4
+      },
+      component: () => import('@/pages/admin/store/index')
+    }]
   },
   {
     path: '/admin-market',
     component: () => import('@/admins/admin/admin-layout/index'),
-    children: [
-      {
-        path: '*',
-        meta: {
-          title: 'DIY编辑'
-        },
-        params: {
-          filter: 6
-        },
-        component: () => import('@/pages/admin/market/index')
-      }
-    ]
+    children: [{
+      path: '*',
+      meta: {
+        title: 'DIY编辑'
+      },
+      params: {
+        filter: 6
+      },
+      component: () => import('@/pages/admin/market/index')
+    }]
   },
   {
     path: '/diy-admin/',
     component: () => import('@/pages/diy/admin-diy'),
-    children: [
-      {
-        path: 'diy',
-        name: 'admin_diy',
-        meta: {
-          title: '后台diy编辑'
-        },
-        params: {
-          filter: 3
-        },
-        component: () => import('@/pages/diy/index')
-      }
-    ]
+    children: [{
+      path: 'diy',
+      name: 'admin_diy',
+      meta: {
+        title: '后台diy编辑'
+      },
+      params: {
+        filter: 3
+      },
+      component: () => import('@/pages/diy/index')
+    }]
   },
   {
     path: '/diy-admin-data/',
-    component: () => import('@/pages/diy/admin-diy'),
-    children: [
-      {
-        path: 'diy',
-        name: 'data_diy',
-        meta: {
-          title: '后台diy编辑'
-        },
-        params: {
-          filter: 3
-        },
-        component: () => import('@/pages/diy/v-data/index')
-      }
-    ]
+    component: () => import('@/pages/diy/v-data/index'),
+    children: [{
+      path: 'diy',
+      name: 'data_diy',
+      meta: {
+        title: '后台diy编辑'
+      },
+      params: {
+        filter: 3
+      },
+      component: () => import('@/pages/diy/v-data/index')
+    }]
   },
   {
     path: '/diy-user/*',
