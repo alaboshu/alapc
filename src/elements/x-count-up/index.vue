@@ -30,6 +30,14 @@
           }
         }, 30)
       }
+    },
+    watch: {
+      dataModel: {
+        deep: true,
+        handler (val) {
+          this.viewModel = this.dataModel
+        }
+      }
     }
   }
 </script>

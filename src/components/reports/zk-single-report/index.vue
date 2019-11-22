@@ -87,7 +87,7 @@
 
         setTimeout(async () => {
           await this.initAfter()
-        }, 10000)
+        }, 5000)
       },
       // 数据完成以后请求
       async initAfter () {
@@ -103,10 +103,7 @@
             if (response.status === 1) {
               element.value = response.result
               element.time = Math.round(new Date(new Date().getTime() + 600000) / 1000) // 保存10分钟后的时间
-              if (element.value > 0) {
-                this.$set(this.viewModel[index], 'value', element.value)
-                console.info('this.viewModel[index]', this.viewModel[index])
-              }
+              this.$set(this.viewModel[index], 'value', element.value)
             }
             localDataReports.push(element)
           }
