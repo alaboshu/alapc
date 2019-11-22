@@ -60,7 +60,6 @@ export default {
 
 
   chartType (type) {
-    console.info('aaaaaaaaaaa', type)
     switch (type) {
       case 0:
         return 'line'
