@@ -1,5 +1,6 @@
 <template>
   <div>
+    <v-decoration-7></v-decoration-7>
     <v-border-6 style="width:500px; height:50px;" :reverse="true">
       <div>边框数据</div>
     </v-border-6>

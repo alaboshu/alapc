@@ -162,6 +162,16 @@ import vBorder6 from '@/elements/v-data-borders/v-border-6/index.vue'
 import vBorder7 from '@/elements/v-data-borders/v-border-7/index.vue'
 import vBorder8 from '@/elements/v-data-borders/v-border-8/index.vue'
 import vBorder9 from '@/elements/v-data-borders/v-border-9/index.vue'
+import vDecoration1 from '@/elements/v-data-decoration/v-decoration-1/index.vue'
+import vDecoration10 from '@/elements/v-data-decoration/v-decoration-10/index.vue'
+import vDecoration2 from '@/elements/v-data-decoration/v-decoration-2/index.vue'
+import vDecoration3 from '@/elements/v-data-decoration/v-decoration-3/index.vue'
+import vDecoration4 from '@/elements/v-data-decoration/v-decoration-4/index.vue'
+import vDecoration5 from '@/elements/v-data-decoration/v-decoration-5/index.vue'
+import vDecoration6 from '@/elements/v-data-decoration/v-decoration-6/index.vue'
+import vDecoration7 from '@/elements/v-data-decoration/v-decoration-7/index.vue'
+import vDecoration8 from '@/elements/v-data-decoration/v-decoration-8/index.vue'
+import vDecoration9 from '@/elements/v-data-decoration/v-decoration-9/index.vue'
 import xAutoconfig from '@/elements/x-autoconfig/index.vue'
 import xBadge from '@/elements/x-badge/index.vue'
 import xBorder from '@/elements/x-border/index.vue'
@@ -411,6 +421,16 @@ Vue.component('v-border-6', vBorder6)
 Vue.component('v-border-7', vBorder7)
 Vue.component('v-border-8', vBorder8)
 Vue.component('v-border-9', vBorder9)
+Vue.component('v-decoration-1', vDecoration1)
+Vue.component('v-decoration-10', vDecoration10)
+Vue.component('v-decoration-2', vDecoration2)
+Vue.component('v-decoration-3', vDecoration3)
+Vue.component('v-decoration-4', vDecoration4)
+Vue.component('v-decoration-5', vDecoration5)
+Vue.component('v-decoration-6', vDecoration6)
+Vue.component('v-decoration-7', vDecoration7)
+Vue.component('v-decoration-8', vDecoration8)
+Vue.component('v-decoration-9', vDecoration9)
 Vue.component('x-autoconfig', xAutoconfig)
 Vue.component('x-badge', xBadge)
 Vue.component('x-border', xBorder)

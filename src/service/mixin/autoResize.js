@@ -1,4 +1,4 @@
-import { debounce, observerDomResize } from '../util/index'
+import { debounce, observerDomResize } from '../utils/v-data'
 
 export default {
   data () {
