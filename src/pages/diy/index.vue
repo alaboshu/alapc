@@ -71,7 +71,6 @@
   import theme from '@/service/core/theme'
   import draggable from 'vuedraggable'
   import layoutItem from './layout-item'
-
   export default {
     name: 'diy',
     components: {

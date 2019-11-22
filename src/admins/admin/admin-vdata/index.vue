@@ -20,9 +20,16 @@
   export default {
     data () {
       return {
-        adminVData: {
-
-        }
+        adminVData: {}
+      }
+    },
+    mounted () {
+      this.init()
+    },
+    methods: {
+      async init () {
+        var response = await this.$api.httpGet('/api/themepage/querylist?isVDataPage=true')
+        console.info('response', response)
       }
     }
   }

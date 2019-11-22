@@ -109,6 +109,23 @@ export const constantRouterMap = [
     ]
   },
   {
+    path: '/diy-admin-data/',
+    component: () => import('@/pages/diy/admin-diy'),
+    children: [
+      {
+        path: 'diy',
+        name: 'data_diy',
+        meta: {
+          title: '后台diy编辑'
+        },
+        params: {
+          filter: 3
+        },
+        component: () => import('@/pages/diy/v-data/index')
+      }
+    ]
+  },
+  {
     path: '/diy-user/*',
     component: () => import('@/pages/diy/index'),
     name: 'user-diy'
