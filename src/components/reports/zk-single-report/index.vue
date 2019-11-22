@@ -123,17 +123,25 @@
       async init () {
         var singleData = this.widget.value
         var localDataReports = this.$api.vuexLocalGet('single_data_reports')
-        if (!localDataReports && singleData && singleData.singleReportForm) {
+        if (singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
+            var value = 0
+            if (localDataReports) {
+              // 读取缓存中的值
+              var find = localDataReports.find(r => r.id === element.id)
+              if (find && find.time > Math.round(new Date().getTime() / 1000)) {
+                value = find.value
+              }
+            }
+
             var data = {
               name: element.name,
               id: element.id,
-              value: 0,
+              value: value,
               icon: element.icon,
               bgcolor: element.bgColor,
               color: element.color,
-              intro: element.intro,
-              time: Math.round(new Date(new Date().getTime() + 600000) / 1000) // 保存10分钟后的时间
+              intro: element.intro
             }
             if (this.$api.isEmpty(data.color)) {
               data.color = '#ffffff'
@@ -142,7 +150,7 @@
           })
         }
         this.async = true
-        this.initAfter()
+        //   this.initAfter()
       }
     }
   }
