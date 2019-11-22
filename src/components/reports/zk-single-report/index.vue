@@ -150,7 +150,7 @@
           })
         }
         this.async = true
-        //   this.initAfter()
+           this.initAfter()
       }
     }
   }
