@@ -126,31 +126,46 @@
         if (singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
             var value = 0
-            if (localDataReports) {
-              // 读取缓存中的值
-              var find = localDataReports.find(r => r.id === element.id)
-              if (find && find.time > Math.round(new Date().getTime() / 1000)) {
-                value = find.value
-              }
+            var find = this.getFind(localDataReports, element.id)
+            if (find) {
+              value = find.value
             }
-
-            var data = {
-              name: element.name,
-              id: element.id,
-              value: value,
-              icon: element.icon,
-              bgcolor: element.bgColor,
-              color: element.color,
-              intro: element.intro
-            }
-            if (this.$api.isEmpty(data.color)) {
-              data.color = '#ffffff'
-            }
+            var data = this.setdata(element, value)
             this.viewModel.push(data)
           })
         }
         this.async = true
-           this.initAfter()
+        // this.initAfter()
+
+        console.info('sssss', this.viewModel)
+      },
+
+      // 根据id查找缓存中的元素
+      getFind (localReports, id) {
+        if (localReports && id) {
+          // 读取缓存中的值
+          var find = localReports.find(r => r.id === id)
+          if (find && find.time > Math.round(new Date().getTime() / 1000)) {
+            console.info('找到了元素', find)
+            return find
+          }
+        }
+      },
+      // 设置元素值
+      setdata (element, value) {
+        var data = {
+          name: element.name,
+          id: element.id,
+          value: value,
+          icon: element.icon,
+          bgcolor: element.bgColor,
+          color: element.color,
+          intro: element.intro
+        }
+        if (this.$api.isEmpty(data.color)) {
+          data.color = '#ffffff'
+        }
+        return data
       }
     }
   }
