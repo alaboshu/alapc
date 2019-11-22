@@ -84,10 +84,9 @@
         }
         this.viewModel = this.sort(this.viewModel)
         this.async = true
-
         setTimeout(async () => {
           await this.initAfter()
-        }, 5000)
+        }, 500)
       },
       // 数据完成以后请求
       async initAfter () {
