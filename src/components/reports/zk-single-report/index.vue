@@ -51,6 +51,7 @@
         widgetModel: {},
         async: false,
         viewModel: [],
+        idList: [], // Id顺序排序用
         styleType: ''
       }
     },
@@ -64,12 +65,11 @@
       // 数据完成以后请求
       async initAfter () {
         var singleData = this.widget.value
-        var idList = []
         var reportArray = []
         var localDataReports = this.$api.vuexLocalGet('single_data_reports')
         if (singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
-            idList.push(element.id)
+
             if (!localDataReports) {
               localDataReports = []
             }
@@ -111,12 +111,7 @@
               }, 300)
             }
           })
-          idList.forEach(element => {
-            var dataItem = reportArray.find(r => r.id === element)
-            if (dataItem) {
-              this.viewModel.push(dataItem)
-            }
-          })
+
         }
       },
       // 不请求Api接口
@@ -125,6 +120,7 @@
         var localDataReports = this.$api.vuexLocalGet('single_data_reports')
         if (singleData && singleData.singleReportForm) {
           singleData.singleReportForm.forEach(async (element, index) => {
+            this.idList.push(element.id)
             var value = 0
             var find = this.getFind(localDataReports, element.id)
             if (find) {
@@ -134,12 +130,22 @@
             this.viewModel.push(data)
           })
         }
+        this.viewModel = this.sort(this.viewModel)
         this.async = true
         // this.initAfter()
 
         console.info('sssss', this.viewModel)
       },
-
+      sort (reportArray) {
+        var newArray = []
+        this.idList.forEach(element => {
+          var dataItem = reportArray.find(r => r.id === element)
+          if (dataItem) {
+            newArray.push(dataItem)
+          }
+        })
+        return newArray
+      },
       // 根据id查找缓存中的元素
       getFind (localReports, id) {
         if (localReports && id) {
