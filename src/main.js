@@ -149,6 +149,7 @@ import zkUserBase from '@/components/user/zk-user-base/index.vue'
 import zkUserNav from '@/components/user/zk-user-nav/index.vue'
 import zkUserView from '@/components/user/zk-user-view/index.vue'
 import zkUsersIndex from '@/components/user/zk-users-index/index.vue'
+import vBorder1 from '@/elements/v-border-1/index.vue'
 import xAutoconfig from '@/elements/x-autoconfig/index.vue'
 import xBadge from '@/elements/x-badge/index.vue'
 import xBorder from '@/elements/x-border/index.vue'
@@ -254,6 +255,7 @@ import adminSupplierOrder from '@/admins/store/admin-supplier-order/index.vue'
 import adminRoleEdit from '@/admins/user/admin-role-edit/index.vue'
 import adminRoleOpen from '@/admins/user/admin-role-open/index.vue'
 import adminUserEdit from '@/admins/user/admin-user-edit/index.vue'
+import vSingleData from '@/v-data/reports/v-single-data/index.vue'
 Vue.component('zk-groupbuy', zkGroupbuy)
 Vue.component('zk-aritcle-detail', zkAritcleDetail)
 Vue.component('zk-ariticle-image-list', zkAriticleImageList)
@@ -387,6 +389,7 @@ Vue.component('zk-user-base', zkUserBase)
 Vue.component('zk-user-nav', zkUserNav)
 Vue.component('zk-user-view', zkUserView)
 Vue.component('zk-users-index', zkUsersIndex)
+Vue.component('v-border-1', vBorder1)
 Vue.component('x-autoconfig', xAutoconfig)
 Vue.component('x-badge', xBadge)
 Vue.component('x-border', xBorder)
@@ -492,6 +495,7 @@ Vue.component('admin-supplier-order', adminSupplierOrder)
 Vue.component('admin-role-edit', adminRoleEdit)
 Vue.component('admin-role-open', adminRoleOpen)
 Vue.component('admin-user-edit', adminUserEdit)
+Vue.component('v-single-data', vSingleData)
 
 
 Vue.use(mavonEditor)
