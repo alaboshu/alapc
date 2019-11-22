@@ -153,6 +153,15 @@ import zkUserNav from '@/components/user/zk-user-nav/index.vue'
 import zkUserView from '@/components/user/zk-user-view/index.vue'
 import zkUsersIndex from '@/components/user/zk-users-index/index.vue'
 import vBorder1 from '@/elements/v-data-borders/v-border-1/index.vue'
+import vBorder10 from '@/elements/v-data-borders/v-border-10/index.vue'
+import vBorder2 from '@/elements/v-data-borders/v-border-2/index.vue'
+import vBorder3 from '@/elements/v-data-borders/v-border-3/index.vue'
+import vBorder4 from '@/elements/v-data-borders/v-border-4/index.vue'
+import vBorder5 from '@/elements/v-data-borders/v-border-5/index.vue'
+import vBorder6 from '@/elements/v-data-borders/v-border-6/index.vue'
+import vBorder7 from '@/elements/v-data-borders/v-border-7/index.vue'
+import vBorder8 from '@/elements/v-data-borders/v-border-8/index.vue'
+import vBorder9 from '@/elements/v-data-borders/v-border-9/index.vue'
 import xAutoconfig from '@/elements/x-autoconfig/index.vue'
 import xBadge from '@/elements/x-badge/index.vue'
 import xBorder from '@/elements/x-border/index.vue'
@@ -393,6 +402,15 @@ Vue.component('zk-user-nav', zkUserNav)
 Vue.component('zk-user-view', zkUserView)
 Vue.component('zk-users-index', zkUsersIndex)
 Vue.component('v-border-1', vBorder1)
+Vue.component('v-border-10', vBorder10)
+Vue.component('v-border-2', vBorder2)
+Vue.component('v-border-3', vBorder3)
+Vue.component('v-border-4', vBorder4)
+Vue.component('v-border-5', vBorder5)
+Vue.component('v-border-6', vBorder6)
+Vue.component('v-border-7', vBorder7)
+Vue.component('v-border-8', vBorder8)
+Vue.component('v-border-9', vBorder9)
 Vue.component('x-autoconfig', xAutoconfig)
 Vue.component('x-badge', xBadge)
 Vue.component('x-border', xBorder)

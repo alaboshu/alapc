@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-border-1 style="width:100px; height:100px;">
+    <v-border-6 style="width:500px; height:50px;" :reverse="true">
       <div>边框数据</div>
-    </v-border-1>
+    </v-border-6>
     <div v-if="async" class="v-data-container">
       <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{left: widget.layout.x + 'px', top: widget.layout.y + 'px', zIndex: viewModel.widgets.length - index,width: widget.layout.w+'px', height:  widget.layout.h+'px'}" :class="widget.border?widget.border.class:''+ '   '+ widget.blockList" class="v-data-widget">
         <v-border-1>
