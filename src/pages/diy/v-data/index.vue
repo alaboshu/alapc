@@ -78,11 +78,11 @@
       // 保存事件
       widgetList () {
         console.info('进来不', this.viewModel.widgets)
-        for (let i of this.viewModel.widgets) {
-          if (i.layout) {
-            i.layout = null
-          }
-        }
+        // for (let i of this.viewModel.widgets) {
+        //   if (i.layout) {
+        //     i.layout = null
+        //   }
+        // }
         this.postMessage('widgetList', this.viewModel.widgets)
       },
       onDragging (data, widget) {
