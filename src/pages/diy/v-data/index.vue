@@ -1,10 +1,9 @@
 <template>
   <div class="vdata_index">
-    <div v-if="async" class="v-data-container">
-      <!-- ,width: widget.resizeLayout.w+'px', height:  widget.resizeLayout.h+'px' -->
-      <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{left: widget.resizeLayout.x + 'px', top: widget.resizeLayout.y + 'px', zIndex: viewModel.widgets.length - index}" :class="widget.border?widget.border.class:''+ '   '+ widget.blockList" class="v-data-widget">
-        <template v-if="widget.status !== 'small'">
-          <vue-draggable-resizable @dragging="onDragging(arguments, widget)" @resizing="resiziData(arguments, widget)" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
+    <div v-if="async" class="v-data-container" style="width:1920px;height=1024px;">
+      <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{left: widget.resizeLayout.x + 'px', top: widget.resizeLayout.y + 'px',width: widget.resizeLayout.w+'px', height:  widget.resizeLayout.h+'px', zIndex: viewModel.widgets.length - index}" :class="widget.border?widget.border.class:''+ '   '+ widget.blockList" class="v-data-widget">
+        <template v-if="widget.status !== 'small'" style="background:red;">
+          <vue-draggable-resizable @dragging="onDragging(arguments, widget)" @resizing="resiziData(arguments, widget)" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
             <data-item :widget="widget" @removeWidget="removeWidget" @editWidget="editWidget" @handleCheck="handleCheck" :removeIndex="{'widgetIndex':index,'tablayout':index,'tabWidgetIndex':index}"></data-item>
           </vue-draggable-resizable>
         </template>
@@ -41,14 +40,14 @@
         if (this.viewModel && this.viewModel.widgets) {
           for (let i of this.viewModel.widgets) {
             if (!i.resizeLayout) {
-              // var para = {
-              //   y: 500,
-              //   x: 500,
-              //   w: 500,
-              //   h: 500,
-              //   zIndex: 1
-              // }
-              // i.resizeLayout = para
+              var para = {
+                y: 0,
+                x: 0,
+                w: 500,
+                h: 500,
+                zIndex: 1
+              }
+              i.resizeLayout = para
             }
           }
         }
@@ -79,23 +78,16 @@
         this.postMessage('widgetList', this.viewModel.widgets)
       },
       onDragging (data, widget) {
-        var para = {
-          x: data[0],
-          y: data[1],
-          widget
-        }
-
-        this.postMessage('v-data-mouse-axis', para)
+        widget.resizeLayout.x = data[0]
+        widget.resizeLayout.y = data[1]
+        this.postMessage('v-data-mouse-axis', widget)
       },
       resiziData (data, widget) {
-        var para = {
-          x: data[0],
-          y: data[1],
-          width: data[2],
-          height: data[3],
-          widget
-        }
-        this.postMessage('v-data-mouse-axis', para)
+        widget.resizeLayout.x = data[0]
+        widget.resizeLayout.y = data[1]
+        widget.resizeLayout.w = data[2]
+        widget.resizeLayout.h = data[3]
+        this.postMessage('v-data-mouse-axis', widget)
       },
       // 删除
       removeWidget (removeData) {
@@ -132,10 +124,15 @@
 
 
 <style lang="scss">
-  .v-data-container {
-    position: absolute;
-    .v-data-widget {
+  .vdata_index {
+    position: relative;
+    .v-data-container {
+      width: 100%;
       position: absolute;
+      .v-data-widget {
+        width: 100%;
+        position: absolute;
+      }
     }
   }
 </style>
