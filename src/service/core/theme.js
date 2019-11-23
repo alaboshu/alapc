@@ -50,48 +50,9 @@ export default {
   },
 
   // 模块信息,para 为附加参数
-  async widget (widget, config, appendPara) {
-    var parameter = {}
-    if (config !== null && config !== undefined) {
-      parameter = {
-        path: config.path,
-        widgetId: config.widgetId,
-        dataId: config.dataId,
-        defaultDataId: config.DataId,
-        apiUrl: config.apiUrl,
-        value: null
-      }
-    }
-    if (widget !== null && widget !== undefined) {
-      parameter.apiUrl = widget.apiUrl
-      parameter.dataId = widget.dataId
-      parameter.widgetId = widget.widgetId
-      parameter.value = widget.value
-    }
-    var para = {
-      dataId: parameter.dataId,
-      widgetId: parameter.widgetId,
-      ...appendPara
-    }
-    // 从api 接口中获取值
-    if (config && config.type === 'api') {
-      parameter = await this.getWidgetValueByApiUrl(parameter, para)
-      return parameter
-    } else {
-      // widget.value 不为空时，发起请求
-      if (widget && widget.isApiRequest && widget.value) {
-        parameter = await this.getWidgetValueByApiUrl(parameter, para)
-        return parameter
-      }
-      // config.type !== api 时直接发起请求
-      parameter = await this.getWidgetValueByApiUrl(parameter, para)
-      if (parameter.value === null || parameter.value === undefined) {
-        // 从数据库中获取数据
-        if (parameter.apiUrl === null) {} else {
-          parameter = await this.getWidgetValueByApiUrl(parameter, para)
-        }
-      }
-      return parameter
+  async widget (widget, appendPara) {
+    if (widget) {
+      return widget.value
     }
   },
   // 处理widgets

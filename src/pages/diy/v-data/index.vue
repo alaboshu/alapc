@@ -37,7 +37,6 @@
           masterPageIndex: this.masterPageIndex
         }
         this.viewModel = theme.filerPageInfo(this.viewModel)
-        this.postMessage('v-data-set-viewModel')
         if (this.viewModel && this.viewModel.widgets) {
           for (let i of this.viewModel.widgets) {
             if (!i.resizeLayout) {
