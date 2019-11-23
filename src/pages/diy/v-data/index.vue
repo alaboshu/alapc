@@ -76,16 +76,6 @@
       },
       // 保存事件
       widgetList () {
-<<<<<<< HEAD
-        console.info('保存的模块', this.viewModel.widgets)
-=======
-        console.info('进来不', this.viewModel.widgets)
-        // for (let i of this.viewModel.widgets) {
-        //   if (i.layout) {
-        //     i.layout = null
-        //   }
-        // }
->>>>>>> 1b84b827721ecc043363ef87bcc44ca9d9b990a8
         this.postMessage('widgetList', this.viewModel.widgets)
       },
       onDragging (data, widget) {
