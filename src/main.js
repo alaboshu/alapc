@@ -152,6 +152,17 @@ import zkUserBase from '@/components/user/zk-user-base/index.vue'
 import zkUserNav from '@/components/user/zk-user-nav/index.vue'
 import zkUserView from '@/components/user/zk-user-view/index.vue'
 import zkUsersIndex from '@/components/user/zk-users-index/index.vue'
+import vBackground from '@/components/v-data/v-background/index.vue'
+import vChartsTable from '@/components/v-data/v-charts-table/index.vue'
+import vCharts from '@/components/v-data/v-charts/index.vue'
+import vCountUp from '@/components/v-data/v-count-up/index.vue'
+import vDecoration from '@/components/v-data/v-decoration/index.vue'
+import vImage from '@/components/v-data/v-image/index.vue'
+import vMap from '@/components/v-data/v-map/index.vue'
+import vRank from '@/components/v-data/v-rank/index.vue'
+import vTable from '@/components/v-data/v-table/index.vue'
+import vText from '@/components/v-data/v-text/index.vue'
+import vTime from '@/components/v-data/v-time/index.vue'
 import vBorder1 from '@/elements/v-data-borders/v-border-1/index.vue'
 import vBorder10 from '@/elements/v-data-borders/v-border-10/index.vue'
 import vBorder2 from '@/elements/v-data-borders/v-border-2/index.vue'
@@ -412,6 +423,17 @@ Vue.component('zk-user-base', zkUserBase)
 Vue.component('zk-user-nav', zkUserNav)
 Vue.component('zk-user-view', zkUserView)
 Vue.component('zk-users-index', zkUsersIndex)
+Vue.component('v-background', vBackground)
+Vue.component('v-charts-table', vChartsTable)
+Vue.component('v-charts', vCharts)
+Vue.component('v-count-up', vCountUp)
+Vue.component('v-decoration', vDecoration)
+Vue.component('v-image', vImage)
+Vue.component('v-map', vMap)
+Vue.component('v-rank', vRank)
+Vue.component('v-table', vTable)
+Vue.component('v-text', vText)
+Vue.component('v-time', vTime)
 Vue.component('v-border-1', vBorder1)
 Vue.component('v-border-10', vBorder10)
 Vue.component('v-border-2', vBorder2)
