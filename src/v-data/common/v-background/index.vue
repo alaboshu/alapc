@@ -1,12 +1,13 @@
 <template>
-  <view class="v-background">{{widgetModel}}</view>
+  <div class="v-background" :style="css"></div>
 </template>
 
 <script>
   export default {
     data () {
       return {
-        widgetModel: {}
+        widgetModel: {},
+        css: {}
       }
     },
     props: {
@@ -17,7 +18,19 @@
     },
     methods: {
       async init () {
-        this.widgetModel = await this.$api.themeWidget(this.widget)
+        if (this.widget && this.widget.value) {
+          this.widgetModel = this.widget.value
+        }
+        if (this.widgetModel.image) {
+          this.css = `background-image:url(${this.widgetModel.image});`
+          if (this.widgetModel.repeat === true) {
+            this.css = this.css + 'background-repeat: repeat;'
+          }
+          if (this.widgetModel.transparent) {
+            var opacity = this.widgetModel.transparent / 100
+            this.css = this.css + `opacity: ${opacity};`
+          }
+        }
       }
     }
   }
