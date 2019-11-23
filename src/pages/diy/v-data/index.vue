@@ -91,10 +91,12 @@
       },
       // 删除
       removeWidget (removeData) {
+        console.info('删除', removeData)
         this.postMessage('deleteWidgetAndSave', removeData)
       },
       // 删除容器或者模块
       removeWidgetAndSave (removeData) {
+        console.info('删除 index.vue')
         if (typeof (removeData) === 'number') {
           this.viewModel.widgets.splice(removeData, 1)
         }
