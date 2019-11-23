@@ -1,10 +1,7 @@
 <template>
   <div>
-    <div v-for="item in viewModel" :key="item">
-      {{item.id}}--- {{item.value}}<br />
-    </div>
+    <div style="background-image: url(http://retail_v13.api.5ug.com//wwwroot/uploads/api/375-431-798/2019-11-23/5dd900acf00ad91a38998b52.png);"> asfasdf </div>
   </div>
-
 </template>
 <script>
   export default {
