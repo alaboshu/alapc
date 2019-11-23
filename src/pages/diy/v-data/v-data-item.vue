@@ -78,7 +78,7 @@
       removeWidget (widget, removeIndex) {
         let removeData = {
           widget: widget,
-          removeIndex: removeIndex
+          removeIndex: removeIndex.widgetIndex
         }
         this.$emit('removeWidget', removeData)
       },
