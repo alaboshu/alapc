@@ -1,10 +1,10 @@
 <template>
   <div class="vdata_index">
     <div v-if="async" class="v-data-container">
-      <!-- ,width: widget.layout.w+'px', height:  widget.layout.h+'px' -->
-      <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{left: widget.layout.x + 'px', top: widget.layout.y + 'px', zIndex: viewModel.widgets.length - index}" :class="widget.border?widget.border.class:''+ '   '+ widget.blockList" class="v-data-widget">
+      <!-- ,width: widget.resizeLayout.w+'px', height:  widget.resizeLayout.h+'px' -->
+      <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{left: widget.resizeLayout.x + 'px', top: widget.resizeLayout.y + 'px', zIndex: viewModel.widgets.length - index}" :class="widget.border?widget.border.class:''+ '   '+ widget.blockList" class="v-data-widget">
         <template v-if="widget.status !== 'small'">
-          <vue-draggable-resizable @dragging="onDragging(arguments, widget)" @resizing="resiziData(arguments, widget)" :w="widget.layout.w" :h="widget.layout.h">
+          <vue-draggable-resizable @dragging="onDragging(arguments, widget)" @resizing="resiziData(arguments, widget)" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
             <data-item :widget="widget" @removeWidget="removeWidget" @editWidget="editWidget" @handleCheck="handleCheck" :removeIndex="{'widgetIndex':index,'tablayout':index,'tabWidgetIndex':index}"></data-item>
           </vue-draggable-resizable>
         </template>
@@ -38,18 +38,17 @@
           masterPageIndex: this.masterPageIndex
         }
         this.viewModel = theme.filerPageInfo(this.viewModel)
-        console.info('weism ', this.viewModel)
         if (this.viewModel && this.viewModel.widgets) {
           for (let i of this.viewModel.widgets) {
-            if (!i.layout) {
-              var para = {
-                y: 500,
-                x: 500,
-                w: 500,
-                h: 500,
-                zIndex: 1
-              }
-              i.layout = para
+            if (!i.resizeLayout) {
+              // var para = {
+              //   y: 500,
+              //   x: 500,
+              //   w: 500,
+              //   h: 500,
+              //   zIndex: 1
+              // }
+              // i.resizeLayout = para
             }
           }
         }
@@ -77,7 +76,6 @@
       },
       // 保存事件
       widgetList () {
-        console.info('进来不', this.viewModel.widgets)
         this.postMessage('widgetList', this.viewModel.widgets)
       },
       onDragging (data, widget) {
