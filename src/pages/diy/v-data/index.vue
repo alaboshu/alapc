@@ -46,7 +46,8 @@
                 y: 500,
                 x: 500,
                 w: 500,
-                h: 500
+                h: 500,
+                zIndex: 1
               }
               i.layout = para
             }
