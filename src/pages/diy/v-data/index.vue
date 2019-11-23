@@ -38,7 +38,6 @@
           masterPageIndex: this.masterPageIndex
         }
         this.viewModel = theme.filerPageInfo(this.viewModel)
-        console.info('weism ', this.viewModel)
         if (this.viewModel && this.viewModel.widgets) {
           for (let i of this.viewModel.widgets) {
             if (!i.layout) {
@@ -77,12 +76,7 @@
       },
       // 保存事件
       widgetList () {
-        console.info('进来不', this.viewModel.widgets)
-        for (let i of this.viewModel.widgets) {
-          if (i.layout) {
-            i.layout = null
-          }
-        }
+        console.info('保存的模块', this.viewModel.widgets)
         this.postMessage('widgetList', this.viewModel.widgets)
       },
       onDragging (data, widget) {
