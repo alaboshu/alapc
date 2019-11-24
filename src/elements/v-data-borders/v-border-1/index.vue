@@ -11,7 +11,6 @@
         <animate attributeName="fill" values="#4fd2dd;#235fa7;transparent" dur="1s" begin="0s" repeatCount="indefinite" />
       </polygon>
     </svg>
-
     <div class="border-box-content">
       <slot></slot>
     </div>
