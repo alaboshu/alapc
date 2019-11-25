@@ -100,7 +100,6 @@
       },
       // 删除
       removeWidget (removeData) {
-        console.info('删除', removeData)
         this.postMessage('deleteWidgetAndSave', removeData)
       },
       // 删除容器或者模块

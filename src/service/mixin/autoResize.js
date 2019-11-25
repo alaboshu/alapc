@@ -1,6 +1,17 @@
-import { debounce, observerDomResize } from '../utils/v-data'
+import {
+  debounce,
+  observerDomResize
+} from '../utils/v-data'
 
 export default {
+  props: {
+    docHeight: {
+      default: 150
+    },
+    docWidth: {
+      default: 150
+    }
+  },
   data () {
     return {
       dom: '',
@@ -15,7 +26,12 @@ export default {
   },
   methods: {
     async autoResizeMixinInit () {
-      const { initWH, getDebounceInitWHFun, bindDomResizeCallback, afterAutoResizeMixinInit } = this
+      const {
+        initWH,
+        getDebounceInitWHFun,
+        bindDomResizeCallback,
+        afterAutoResizeMixinInit
+      } = this
 
       await initWH(false)
 
@@ -26,15 +42,23 @@ export default {
       if (typeof afterAutoResizeMixinInit === 'function') afterAutoResizeMixinInit()
     },
     initWH (resize = true) {
-      const { $nextTick, $refs, ref, onResize } = this
+      const {
+        $nextTick,
+        $refs,
+        ref,
+        onResize
+      } = this
 
       return new Promise(resolve => {
         $nextTick(e => {
-          const dom = this.dom = $refs[ref]
-
-          this.width = dom.clientWidth
-          this.height = dom.clientHeight
-
+          if (this.docHeight) {
+            this.width = this.docWidth
+            this.height = this.docHeight
+          } else {
+            const dom = this.dom = $refs[ref]
+            this.width = dom.clientWidth
+            this.height = dom.clientHeight
+          }
           if (typeof onResize === 'function' && resize) onResize()
 
           resolve()
@@ -42,19 +66,27 @@ export default {
       })
     },
     getDebounceInitWHFun () {
-      const { initWH } = this
+      const {
+        initWH
+      } = this
 
       this.debounceInitWHFun = debounce(100, initWH)
     },
     bindDomResizeCallback () {
-      const { dom, debounceInitWHFun } = this
+      const {
+        dom,
+        debounceInitWHFun
+      } = this
 
       this.domObserver = observerDomResize(dom, debounceInitWHFun)
 
       window.addEventListener('resize', debounceInitWHFun)
     },
     unbindDomResizeCallback () {
-      let { domObserver, debounceInitWHFun } = this
+      let {
+        domObserver,
+        debounceInitWHFun
+      } = this
 
       domObserver.disconnect()
       domObserver.takeRecords()
@@ -64,12 +96,16 @@ export default {
     }
   },
   mounted () {
-    const { autoResizeMixinInit } = this
+    const {
+      autoResizeMixinInit
+    } = this
 
     autoResizeMixinInit()
   },
   beforeDestroy () {
-    const { unbindDomResizeCallback } = this
+    const {
+      unbindDomResizeCallback
+    } = this
 
     unbindDomResizeCallback()
   }
