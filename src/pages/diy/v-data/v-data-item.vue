@@ -3,8 +3,8 @@
   <vuedraggable>
     <div class="diy-widget-wrap" :id="widget.widgetTheme" :style="widget.style && widget.style.css" :class="widget.border.class+ ' '+ widget.blockList" @click.stop="handleCheck(widget)">
       <template v-if="widget.status !== 'small'">
-        <div style="width: 300px;height: 300px">
-          <component :is="'v-border-2'" :docWidth="200" :docHeight="500">
+        <div :style="getStyle(widget)">
+          <component :is="'v-border-1'" :docWidth="widget.resizeLayout.w" :docHeight="widget.resizeLayout.h">
             <component :is="widget.name" :widget="widget" :title="widget.title" ref="moduleId" />
           </component>
         </div>
@@ -78,6 +78,13 @@
       },
       editWidget (widget) {
         this.$emit('editWidget', widget)
+      },
+      // 动态修改样式
+      getStyle (widget) {
+        var css = widget.resizeLayout
+        var boxCss = `width: ${css.w}px; height: ${css.h}px;`
+        var bgCss = `background: #30445F url(https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1027226132,3015755721&fm=26&gp=0.jpg) no-repeat;`
+        return boxCss + bgCss
       }
     }
   }
