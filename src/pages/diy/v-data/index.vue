@@ -2,7 +2,7 @@
   <div v-if="async" class="v-data-container" :style="pageSetting.style">
     <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{left: widget.resizeLayout.x + 'px', top: widget.resizeLayout.y + 'px',width: widget.resizeLayout.w+'px', height:  widget.resizeLayout.h+'px', zIndex: viewModel.widgets.length - index}" :class="widget.border?widget.border.class:''+ '   '+ widget.blockList" class="v-data-widget">
       <template v-if="widget.status !== 'small'" style="background:red;">
-        <vue-draggable-resizable @dragging="onDragging(arguments, widget)" @resizing="resiziData(arguments, widget)" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
+        <vue-draggable-resizable @dragging="onDragging(arguments, widget,index)" @resizing="resizeData(arguments, widget,index)" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
           <data-item :widget="widget" @removeWidget="removeWidget" @editWidget="editWidget" @handleCheck="handleCheck" :removeIndex="{'widgetIndex':index}"></data-item>
         </vue-draggable-resizable>
       </template>
@@ -86,17 +86,17 @@
       widgetList () {
         this.postMessage('widgetList', this.viewModel.widgets)
       },
-      onDragging (data, widget) {
+      onDragging (data, widget, index) {
         widget.resizeLayout.x = data[0]
         widget.resizeLayout.y = data[1]
-        this.postMessage('v-data-mouse-axis', widget)
+        this.postMessage('v-data-layout-real-time-sync', widget, index)
       },
-      resiziData (data, widget) {
+      resizeData (data, widget, index) {
         widget.resizeLayout.x = data[0]
         widget.resizeLayout.y = data[1]
         widget.resizeLayout.w = data[2]
         widget.resizeLayout.h = data[3]
-        this.postMessage('v-data-mouse-axis', widget)
+        this.postMessage('v-data-layout-real-time-sync', widget, index)
       },
       // 删除
       removeWidget (removeData) {
@@ -126,7 +126,7 @@
       // 点击模块生效
       handleCheck (value) {
         this.$bus.$emit('layoutItemCheck', value.index)
-        this.postMessage('selectWidget', value)
+        this.postMessage('selectWidget', value.widget, value.index)
       }
     }
   }
