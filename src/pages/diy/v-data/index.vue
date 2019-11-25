@@ -1,13 +1,11 @@
 <template>
-  <div class="vdata_index">
-    <div v-if="async" class="v-data-container" style="width:1920px;height=1024px;">
-      <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{left: widget.resizeLayout.x + 'px', top: widget.resizeLayout.y + 'px',width: widget.resizeLayout.w+'px', height:  widget.resizeLayout.h+'px', zIndex: viewModel.widgets.length - index}" :class="widget.border?widget.border.class:''+ '   '+ widget.blockList" class="v-data-widget">
-        <template v-if="widget.status !== 'small'" style="background:red;">
-          <vue-draggable-resizable @dragging="onDragging(arguments, widget)" @resizing="resiziData(arguments, widget)" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
-            <data-item :widget="widget" @removeWidget="removeWidget" @editWidget="editWidget" @handleCheck="handleCheck" :removeIndex="{'widgetIndex':index}"></data-item>
-          </vue-draggable-resizable>
-        </template>
-      </div>
+  <div v-if="async" class="v-data-container" :style="pageSetting.style">
+    <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{left: widget.resizeLayout.x + 'px', top: widget.resizeLayout.y + 'px',width: widget.resizeLayout.w+'px', height:  widget.resizeLayout.h+'px', zIndex: viewModel.widgets.length - index}" :class="widget.border?widget.border.class:''+ '   '+ widget.blockList" class="v-data-widget">
+      <template v-if="widget.status !== 'small'" style="background:red;">
+        <vue-draggable-resizable @dragging="onDragging(arguments, widget)" @resizing="resiziData(arguments, widget)" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
+          <data-item :widget="widget" @removeWidget="removeWidget" @editWidget="editWidget" @handleCheck="handleCheck" :removeIndex="{'widgetIndex':index}"></data-item>
+        </vue-draggable-resizable>
+      </template>
     </div>
   </div>
 </template>
@@ -23,15 +21,17 @@
       return {
         async: false,
         widgetItem: '',
+        pageSetting: {},
         viewModel: []
       }
     },
     mounted () {
       this.initListener()
-      this.postMessage('clientIframeLoadRequest', 'wfsbpc')
+      this.postMessage('clientIframeLoadRequest', 'alapc')
     },
     methods: {
       async initWidget (data) {
+        this.pageSet(data)
         this.viewModel = {
           ...data,
           masterPageIndex: this.masterPageIndex
@@ -54,6 +54,16 @@
         this.async = true
         this.postMessage('clientIframeLoadSuccessful', true)
       },
+      // 设置页面背景或颜色
+      async pageSet (data) {
+        if (data.setting && data.setting.tabBarSetting) {
+          this.pageSetting = JSON.parse(data.setting.tabBarSetting)
+        }
+        // var style = `width:${this.pageSetting.width}px;height:${this.pageSetting.height}px;`
+        var style = `background-image:url("${this.pageSetting.bgImage}"); background-color: ${this.pageSetting.bgColor};`
+        this.$set(this.pageSetting, 'style', style)
+        console.info('pageSetting', this.pageSetting)
+      },
       postMessage (type, data) {
         parent.postMessage({ type, data }, '*')
       },
@@ -75,7 +85,6 @@
       },
       // 保存事件
       widgetList () {
-        console.info('vccccc', this.viewModel)
         this.postMessage('widgetList', this.viewModel.widgets)
       },
       onDragging (data, widget) {
@@ -127,16 +136,14 @@
 
 
 <style lang="scss">
-  .vdata_index {
-    position: relative;
-    .v-data-container {
+  .v-data-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    .v-data-widget {
       width: 100%;
       position: absolute;
-      .v-data-widget {
-        width: 100%;
-        position: absolute;
-        cursor: pointer;
-      }
+      cursor: pointer;
     }
   }
 </style>
