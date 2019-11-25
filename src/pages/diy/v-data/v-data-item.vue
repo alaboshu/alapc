@@ -1,22 +1,16 @@
 
 <template>
   <vuedraggable>
-    <div class="diy-widget-wrap" :id="widget.widgetTheme" :style="widget.style && widget.style.css" :class="widget.border.class+ ' '+ widget.blockList" @click.stop="handleCheck(widget)">
-      <template v-if="widget.status !== 'small'">
-        <div :style="getStyle(widget)">
-          <component :is="getBorderStyle(widget)" :docWidth="widget.resizeLayout.w" :docHeight="widget.resizeLayout.h">
-            <component :is="widget.name" :widget="widget" :title="widget.title" ref="moduleId" />
-          </component>
-        </div>
-
-      </template>
-      <div v-else class="diy-widget-small">{{widget.title}}</div>
+    <div class="diy-widget-wrap" @click.stop="handleCheck(widget)" :style="getBorderStyle(widget)">
+       <component v-if="borderStyle" :is="borderStyle" :docWidth="widget.resizeLayout.w" :docHeight="widget.resizeLayout.h">
+            <component :is="widget.name" :widget="widget" :title="widget.title"/>
+        </component>
+      <component  v-else :is="widget.name" :widget="widget" :title="widget.title"/>
       <div class="diy-dottedbox" />
       <div class="redact-buttom" @click="editWidget(widget)">设置数据源</div>
       <div class="diy-masker" v-if="showChecked" />
       <div class="diy-widget-actions">
         <span class="diy-widget-actions-span">{{widget.title}}({{widget.name}})</span>
-        <span class="diy-widget-actions-span" v-if="false" @click="switchWidget(widget)">切换</span>
         <span class="diy-widget-actions-span" @click="editWidget(widget)">编辑</span>
         <span class="diy-widget-actions-span" @click="removeWidget(widget,removeIndex)">删除</span>
       </div>
@@ -32,7 +26,7 @@
     data () {
       return {
         showChecked: false,
-        checkedWidgetIndex: -1
+        borderStyle: null
       }
     },
     props: {
@@ -41,33 +35,14 @@
       testType: {}
     },
     mounted () {
-      this.$nextTick(() => {
-        this.$bus.$on('layoutItemCheck', (index) => {
-          if (index === this.removeIndex) {
-            this.showChecked = true
-          } else {
-            this.showChecked = false
-          }
-        })
-      })
     },
     methods: {
       handleCheck (widget) {
-        if (this.$refs.moduleId.$el && widget.style) {
-          widget.style.styleId = this.$refs.moduleId.$el.id
-        }
         let value = {
           widget: widget,
           index: this.removeIndex
         }
         this.$emit('handleCheck', value)
-      },
-      switchWidget (widget) {
-        if (widget.status !== 'small') {
-          this.$set(widget, 'status', 'small')
-        } else {
-          this.$set(widget, 'status', 'normal')
-        }
       },
       removeWidget (widget, removeIndex) {
         let removeData = {
@@ -79,16 +54,11 @@
       editWidget (widget) {
         this.$emit('editWidget', widget)
       },
-      // 动态修改样式
-      getStyle (widget) {
-        var css = widget.resizeLayout
-        var modelCss = JSON.parse(widget.style.css)
-        var boxCss = `width: ${css.w}px; height: ${css.h}px;`
-        var bgCss = `background: ${modelCss.bgColor} url(${modelCss.bgImage}) no-repeat`
-        return boxCss + bgCss
-      },
+      // 获取边框样式
       getBorderStyle (widget) {
-        return JSON.parse(widget.style.border).borderStyle
+        if (widget.style && widget.style.border) {
+          this.borderStyle = JSON.parse(widget.style.border).borderStyle
+        }
       }
     }
   }
@@ -97,81 +67,6 @@
 
 <style lang="scss">
   @import "@/assets/style/variable.scss";
-
-  .diy-new-block {
-    width: 100%;
-    text-align: center;
-    margin: 10px 0;
-    color: #999;
-  }
-
-  .diy-widget-wrap {
-    position: relative;
-  }
-  .diy-widget-wrap .checked {
-    outline: 1px solid #ffcc66;
-    background: #ffcc66;
-  }
-  .redact-buttom {
-    font-size: 14px;
-    background: #716aca;
-    color: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 5;
-    border-radius: 4px;
-    padding: 8px 14px;
-    cursor: pointer;
-    display: none;
-  }
-  .diy-widget-wrap:hover .diy-dottedbox {
-    display: block;
-  }
-  .diy-widget-wrap:hover .diy-widget-actions {
-    display: block;
-  }
-  .diy-widget-wrap:hover .redact-buttom {
-    display: block;
-  }
-  .diy-widget-small {
-    line-height: 32px;
-    background: #666;
-    color: #fff;
-    text-align: center;
-  }
-  .diy-masker {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(117, 177, 255, 0.3);
-  }
-  .diy-dottedbox {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 1.5px dashed red;
-  }
-  .diy-widget-actions {
-    display: none;
-    background: #666;
-    line-height: 16px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 5;
-  }
-  .diy-widget-actions-span {
-    display: inline-block;
-    font-size: 10px;
-    color: #fff;
-    padding: 2px 5px;
-    cursor: pointer;
-  }
+  @import "./item.scss";
+  
 </style>
