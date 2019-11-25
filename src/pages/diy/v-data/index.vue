@@ -62,7 +62,6 @@
         // var style = `width:${this.pageSetting.width}px;height:${this.pageSetting.height}px;`
         var style = `background-image:url("${this.pageSetting.bgImage}"); background-color: ${this.pageSetting.bgColor};`
         this.$set(this.pageSetting, 'style', style)
-        console.info('pageSetting', this.pageSetting)
       },
       postMessage (type, data) {
         parent.postMessage({ type, data }, '*')
