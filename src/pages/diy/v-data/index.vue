@@ -97,7 +97,7 @@
       },
       // 删除容器或者模块
       removeWidgetAndSave (removeData) {
-        console.info('删除 index.vue')
+        console.info('删除 index.vue', removeData)
         if (typeof (removeData) === 'number') {
           this.viewModel.widgets.splice(removeData, 1)
         }
@@ -110,7 +110,8 @@
             this.auxiliaryRemove = true
           }
         }
-        this.postMessage('diySave')
+        // 配置大数据屏幕时的删除功能
+        this.postMessage('v-data_save')
       },
       // 编辑
       editWidget (widget) {
