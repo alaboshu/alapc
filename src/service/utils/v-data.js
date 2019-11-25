@@ -21,13 +21,13 @@ export function debounce (delay, callback) {
 }
 
 export function observerDomResize (dom, callback) {
-  const MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver
+ const MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver
 
-  const observer = new MutationObserver(callback)
+ const observer = new MutationObserver(callback)
 
   observer.observe(dom, { attributes: true, attributeFilter: ['style'], attributeOldValue: true })
 
-  return observer
+ return observer
 }
 
 export function getPointDistance (pointOne, pointTwo) {
