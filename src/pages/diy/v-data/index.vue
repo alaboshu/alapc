@@ -97,7 +97,6 @@
       },
       // 删除容器或者模块
       removeWidgetAndSave (removeData) {
-        console.info('删除 index.vue', removeData)
         if (typeof (removeData) === 'number') {
           this.viewModel.widgets.splice(removeData, 1)
         }
