@@ -110,7 +110,7 @@
             this.auxiliaryRemove = true
           }
         }
-        //配置大数据屏幕时的删除功能
+        // 配置大数据屏幕时的删除功能
         this.postMessage('v-data_save')
       },
       // 编辑
