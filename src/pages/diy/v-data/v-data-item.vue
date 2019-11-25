@@ -3,18 +3,9 @@
   <vuedraggable>
     <div class="diy-widget-wrap" :id="widget.widgetTheme" :style="widget.style && widget.style.css" :class="widget.border.class+ ' '+ widget.blockList" @click.stop="handleCheck(widget)">
       <template v-if="widget.status !== 'small'">
-        <!-- <div v-if="widget.border.show">
-          <div class="border-header">
-            <x-icon class="border-header-icon" :color="widget.border.fontColor" v-if="widget.border.icon" :icon="widget.border.icon"></x-icon>
-            <div class="border-header-title" :style="'color:'+widget.border.fontColor">{{widget.border.title}}</div>
-            <div class="border-header-desc" :style="'color:'+widget.border.fontColor">{{widget.border.intro}}</div>
-            <div class="border-header-tools"></div>
-          </div>
-          <div class="border-body">
-            <component :is="widget.name" :widget="widget" :title="widget.title" ref="moduleId" />
-          </div>
-        </div> -->
-        <component :is="widget.name" :widget="widget" :title="widget.title" ref="moduleId" />
+        <component :is="'v-border-1'" :docWidth="200" :docHeight="200" ref="moduleId">
+          <component :is="widget.name" :widget="widget" :title="widget.title" ref="moduleId" />
+        </component>
       </template>
       <div v-else class="diy-widget-small">{{widget.title}}</div>
       <div class="diy-dottedbox" />
