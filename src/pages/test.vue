@@ -61,6 +61,7 @@
 <style rel="stylesheet/scss" lang="scss">
   .v-data-container {
     position: absolute;
+    overflow: hidden;
     .v-data-widget {
       position: absolute;
     }
