@@ -3,9 +3,12 @@
   <vuedraggable>
     <div class="diy-widget-wrap" :id="widget.widgetTheme" :style="widget.style && widget.style.css" :class="widget.border.class+ ' '+ widget.blockList" @click.stop="handleCheck(widget)">
       <template v-if="widget.status !== 'small'">
-        <component :is="'v-border-1'" :docWidth="200" :docHeight="200" ref="moduleId">
-          <component :is="widget.name" :widget="widget" :title="widget.title" ref="moduleId" />
-        </component>
+        <div style="width: 300px;height: 300px">
+          <component :is="'v-border-2'" :docWidth="200" :docHeight="500">
+            <component :is="widget.name" :widget="widget" :title="widget.title" ref="moduleId" />
+          </component>
+        </div>
+
       </template>
       <div v-else class="diy-widget-small">{{widget.title}}</div>
       <div class="diy-dottedbox" />

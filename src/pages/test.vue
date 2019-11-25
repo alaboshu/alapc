@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="height:100px;width:100px;box-sizing:border-sizing">
+    <div style="width: 400px; height: 400px">
       <v-border-1></v-border-1>
     </div>
     <div style="height:100px;width:100px;box-sizing:border-sizing;background:#000">
