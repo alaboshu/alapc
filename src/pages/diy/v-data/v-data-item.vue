@@ -2,10 +2,10 @@
 <template>
   <vuedraggable>
     <div class="diy-widget-wrap" @click.stop="handleCheck(widget)" :style="getBorderStyle(widget)">
-       <component v-if="borderStyle" :is="borderStyle" :docWidth="widget.resizeLayout.w" :docHeight="widget.resizeLayout.h">
-            <component :is="widget.name" :widget="widget" :title="widget.title"/>
-        </component>
-      <component  v-else :is="widget.name" :widget="widget" :title="widget.title"/>
+      <component v-if="borderStyle" :is="borderStyle" :docWidth="widget.resizeLayout.w" :docHeight="widget.resizeLayout.h">
+        <component :is="widget.name" :widget="widget" :title="widget.title" />
+      </component>
+      <component v-else :is="widget.name" :widget="widget" :title="widget.title" />
       <div class="diy-dottedbox" />
       <div class="redact-buttom" @click="editWidget(widget)">设置数据源</div>
       <div class="diy-masker" v-if="showChecked" />
@@ -56,9 +56,11 @@
       },
       // 获取边框样式
       getBorderStyle (widget) {
+        this.borderStyle = null
         if (widget.style && widget.style.border) {
           this.borderStyle = JSON.parse(widget.style.border).borderStyle
         }
+        console.info('widget', this.borderStyle)
       }
     }
   }
@@ -68,5 +70,4 @@
 <style lang="scss">
   @import "@/assets/style/variable.scss";
   @import "./item.scss";
-  
 </style>
