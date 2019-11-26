@@ -51,15 +51,21 @@
             this.editWidget(this.widget)
             break
           case 1:
-            console.log('上一层')
+            this.sortWidget(this.widget, 'top') // 置顶
             break
           case 2:
-            console.log('下一层')
+            this.sortWidget(this.widget, 'up') // 上一层
             break
           case 3:
-            console.log('锁定/解锁')
+            this.sortWidget(this.widget, 'down') // 下一层
             break
           case 4:
+            this.sortWidget(this.widget, 'bottom') // 置底
+            break
+          case 5:
+            this.lockOrUnLockWidget(this.widget)
+            break
+          case 6:
             this.removeWidget(this.widget, this.removeIndex)
             break
         }
@@ -78,6 +84,14 @@
           removeIndex: removeIndex.widgetIndex
         }
         this.$emit('removeWidget', removeData)
+      },
+      // 锁定或解锁模块
+      lockOrUnLockWidget (widget) {
+        this.$emit('lockOrUnLockWidget', widget)
+      },
+      // 锁定或解锁模块
+      sortWidget (widget, type) {
+        this.$emit('sortWidget', widget, type)
       },
       editWidget (widget) {
         this.$emit('editWidget', widget)

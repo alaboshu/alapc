@@ -3,11 +3,19 @@
     "icon": "el-icon-edit-outline"
   },
   {
-    "text": "上一层",
+    "text": "置顶",
     "icon": "el-icon-upload2"
   },
   {
+    "text": "上一层",
+    "icon": "el-icon-top"
+  },
+  {
     "text": "下一层",
+    "icon": "el-icon-bottom"
+  },
+  {
+    "text": "置底",
     "icon": "el-icon-download"
   },
   {

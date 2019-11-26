@@ -2,7 +2,7 @@
   <div v-if="async" class="v-data-container" :style="pageSetting.style">
     <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{zIndex: viewModel.widgets.length - index}" class="v-data-widget">
       <vue-draggable-resizable @dragging="onDragging(arguments, widget,index)" @resizing="resizeData(arguments, widget,index)" :i="1" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
-        <data-item :widget="widget" :scale="scaleWidget" @removeWidget="removeWidget" @editWidget="editWidget" @selectWidget="selectWidget" :removeIndex="{'widgetIndex':index}"></data-item>
+        <data-item :widget="widget" :scale="scaleWidget" @lockOrUnLockWidget="lockOrUnLockWidget" @sortWidget="sortWidget" @removeWidget="removeWidget" @editWidget="editWidget" @selectWidget="selectWidget" :removeIndex="{'widgetIndex':index}"></data-item>
       </vue-draggable-resizable>
     </div>
   </div>
@@ -83,33 +83,26 @@
       },
       // 删除
       removeWidget (removeData) {
-        console.info('res', removeData)
         this.postMessage('deleteWidgetAndSave', removeData)
-      },
-      // 删除容器或者模块
-      removeWidgetAndSave (removeData) {
-        if (typeof (removeData) === 'number') {
-          this.viewModel.widgets.splice(removeData, 1)
-        }
-        if (typeof (removeData) === 'object') {
-          if (typeof (removeData.removeIndex) === 'number' && this.viewModel.widgets) {
-            this.viewModel.widgets.splice(removeData.removeIndex, 1)
-          } else {
-            this.auxiliaryRemove = false
-            this.viewModel.widgets[removeData.removeIndex.widgetIndex].columns[removeData.removeIndex.tablayout].widgets.splice(removeData.removeIndex.tabWidgetIndex, 1)
-            this.auxiliaryRemove = true
-          }
-        }
-        // 配置大数据屏幕时的删除功能
-        this.postMessage('v-data_save')
       },
       // 编辑
       editWidget (widget) {
         this.postMessage('editWidget', widget)
       },
+      // 锁定或解锁模块
+      lockOrUnLockWidget (widget) {
+        this.postMessage('lockOrUnLockWidget', widget)
+      },
+      // 排序，置顶、上次，下一层等操作
+      sortWidget (widget, type) {
+        var data = {
+          widget: widget,
+          type: type
+        }
+        this.postMessage('sortWidget', data)
+      },
       // 点击模块生效
       selectWidget (value) {
-        this.$bus.$emit('layoutItemCheck', value.index)
         this.postMessage('selectWidget', value.widget, value.index)
       }
     }
