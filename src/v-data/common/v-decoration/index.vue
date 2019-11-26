@@ -1,16 +1,15 @@
 <template>
-  <div class="v-decoration">
-    测试组件的作用
-    <v-decoration-1></v-decoration-1>
-    <!-- <v-decoration-2></v-decoration-2>
-    <v-decoration-3></v-decoration-3>
-    <v-decoration-4></v-decoration-4>
-    <v-decoration-5></v-decoration-5>
-    <v-decoration-6></v-decoration-6>
-    <v-decoration-7></v-decoration-7>
-    <v-decoration-8></v-decoration-8>
-    <v-decoration-9></v-decoration-9>
-    <v-decoration-10></v-decoration-10> -->
+  <div class="v-decoration" v-if="widgetModel">
+    <v-decoration-1 v-if="widgetModel.decorationType == 1"></v-decoration-1>
+    <v-decoration-2 v-if="widgetModel.decorationType == 2"></v-decoration-2>
+    <v-decoration-3 v-if="widgetModel.decorationType == 3"></v-decoration-3>
+    <v-decoration-4 v-if="widgetModel.decorationType == 4"></v-decoration-4>
+    <v-decoration-5 v-if="widgetModel.decorationType == 5"></v-decoration-5>
+    <v-decoration-6 v-if="widgetModel.decorationType == 6"></v-decoration-6>
+    <v-decoration-7 v-if="widgetModel.decorationType == 7"></v-decoration-7>
+    <v-decoration-8 v-if="widgetModel.decorationType == 8"></v-decoration-8>
+    <v-decoration-9 v-if="widgetModel.decorationType == 9"></v-decoration-9>
+    <v-decoration-10 v-if="widgetModel.decorationType == 10"></v-decoration-10>
   </div>
 </template>
 
@@ -20,7 +19,7 @@
     mixins: [stylesWedget],
     data () {
       return {
-        widgetModel: {}
+        widgetModel: null
       }
     },
     props: {
@@ -31,7 +30,9 @@
     },
     methods: {
       async init () {
-        console.log('测试组件的作用')
+        if (this.widget && this.widget.value) {
+          this.widgetModel = this.widget.value
+        }
       }
     }
   }
@@ -39,10 +40,4 @@
 
 <style lang="scss" scoped>
   @import "./var.scss";
-  .v-decoration {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    background: #2c2355;
-  }
 </style>
