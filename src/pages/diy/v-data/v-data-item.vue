@@ -1,7 +1,7 @@
 
 <template>
   <vuedraggable>
-    <div class="diy-widget-wrap" @click.stop="selectWidget(widget)" @contextmenu="$easycm($event,$root)">
+    <div class="diy-widget-wrap" @click.stop="selectWidget(widget)" @contextmenu="showMenuIndex = removeIndex,contextmenu($event,removeIndex)">
       <component v-if="widget.border.show" :is="widget.border.name" :docWidth="widget.resizeLayout.w+widget.border.width" :docHeight="widget.resizeLayout.h+widget.border.width">
         <component :is="widget.name" :widget="widget" :title="widget.title" :style="widget.style.styleCss" />
       </component>
@@ -11,17 +11,18 @@
       <div class="diy-widget-actions">
         <span class="diy-widget-actions-span">{{widget.title}}({{widget.name}})</span>
       </div>
-      <easy-cm v-if="offset" :list="contextMenus" :offset="offset" :itemWidth="100" :itemSize="12" @ecmcb="rightClick" :style="'transform: scale('+scale+')'" :underline="true" :arrow="true">
-      </easy-cm>
+      <v-right-menu ref="vRightMenu" :scale="scale" :style="'transform: scale('+scale+');'"></v-right-menu>
     </div>
   </vuedraggable>
 </template>
 <script>
   import vuedraggable from 'vuedraggable'
   import contextMenuJson from './contextMenu.json'
+  import vRightMenu from './v-right-menu'
   export default {
     components: {
-      vuedraggable
+      vuedraggable,
+      vRightMenu
     },
     data () {
       return {
@@ -30,7 +31,7 @@
           x: 6,
           y: 10
         },
-        contextMenus: {} // 右键菜单  参考文档：https://github.com/boenfu/vue-easycm
+        contextMenus: {}// 右键菜单  参考文档：https://github.com/boenfu/vue-easycm
       }
     },
     props: {
@@ -38,6 +39,7 @@
       scale: {},
       removeIndex: {}
     },
+    // ;transform: scale(${data.scale});
     mounted () {
       this.contextMenus = contextMenuJson
       this.$set(this.offset, 'x', 6 / this.scale)
@@ -95,6 +97,11 @@
       },
       editWidget (widget) {
         this.$emit('editWidget', widget)
+      },
+      // 鼠标右键事件
+      contextmenu (ev, removeIndex) {
+        ev.preventDefault()
+        this.$refs.vRightMenu.init(ev, removeIndex.widgetIndex)
       }
     }
   }
