@@ -39,7 +39,7 @@
         if (data.setting && data.setting.tabBarSetting) {
           this.pageSetting = JSON.parse(data.setting.tabBarSetting)
         }
-        var style = `background-image:url("${this.pageSetting.bgImage}"); background-color: ${this.pageSetting.bgColor};`
+        var style = `background-image:url("${this.pageSetting.bgImage}"); background-color: ${this.pageSetting.bgColor};transform: scale(${data.scale}); transform-origin: left top;`
         this.$set(this.pageSetting, 'style', style)
       },
       postMessage (type, data) {
