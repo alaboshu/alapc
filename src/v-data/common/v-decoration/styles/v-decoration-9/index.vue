@@ -4,24 +4,18 @@
       <defs>
         <polygon :id="polygonId" points="15, 46.5, 21, 47.5, 21, 52.5, 15, 53.5" />
       </defs>
-
       <circle cx="50" cy="50" r="45" fill="transparent" stroke="rgba(3, 166, 224, 0.5)" stroke-width="10" stroke-dasharray="80, 100, 30, 100">
         <animateTransform attributeName="transform" type="rotate" values="0 50 50;360 50 50" dur="3s" repeatCount="indefinite" />
       </circle>
-
       <circle cx="50" cy="50" r="45" fill="transparent" stroke="rgba(3, 166, 224, 0.8)" stroke-width="6" stroke-dasharray="50, 66, 100, 66">
         <animateTransform attributeName="transform" type="rotate" values="0 50 50;-360 50 50" dur="3s" repeatCount="indefinite" />
       </circle>
-
       <circle cx="50" cy="50" r="38" fill="transparent" stroke="rgba(3, 166, 224, 0.2)" stroke-width="1" stroke-dasharray="5, 1" />
-
       <use v-for="(foo, i) in new Array(20).fill(0)" :key="i" :xlink:href="`#${polygonId}`" stroke="rgba(3, 166, 224, 0.6)" :fill="Math.random() > 0.4 ? 'transparent' : 'rgba(3, 166, 224, 0.8)'">
         <animateTransform attributeName="transform" type="rotate" values="0 50 50;360 50 50" dur="3s" :begin="`${i * 0.15}s`" repeatCount="indefinite" />
       </use>
-
       <circle cx="50" cy="50" r="26" fill="transparent" stroke="rgba(3, 166, 224, 0.2)" stroke-width="1" stroke-dasharray="5, 1" />
     </svg>
-
     <slot></slot>
   </div>
 </template>

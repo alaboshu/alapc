@@ -3,7 +3,7 @@
     <ul class="sinle-data-3-list">
       <li class="sinle-data-3-list-cont" v-for="(item, index) in viewModel" :key="index">
         <div class="left">
-          <i class="el-icon-orange"></i>
+          <i :class="item.icon"></i>
         </div>
         <div class="right">
           <div class="title">{{item.name}}</div>
@@ -23,14 +23,17 @@
         viewModel: [
           {
             name: '交易量',
+            icon: 'el-icon-orange',
             value: '51234789'
           },
           {
             name: '已发货',
+            icon: 'el-icon-film',
             value: '456123'
           },
           {
             name: '已完成',
+            icon: 'el-icon-school',
             value: '54123'
           }
         ]
@@ -86,6 +89,7 @@
             font-weight: normal;
             letter-spacing: 0.02em;
             border-radius: 6px;
+            font-family: "Acens";
           }
         }
       }
