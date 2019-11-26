@@ -81,6 +81,7 @@
       },
       // 删除
       removeWidget (removeData) {
+        console.info('res', removeData)
         this.postMessage('deleteWidgetAndSave', removeData)
       },
       // 删除容器或者模块
@@ -89,7 +90,7 @@
           this.viewModel.widgets.splice(removeData, 1)
         }
         if (typeof (removeData) === 'object') {
-          if (typeof (removeData.removeIndex) === 'number') {
+          if (typeof (removeData.removeIndex) === 'number' && this.viewModel.widgets) {
             this.viewModel.widgets.splice(removeData.removeIndex, 1)
           } else {
             this.auxiliaryRemove = false

@@ -64,6 +64,7 @@ export default {
       element.border = null
       if (element.style) {
         if (element.style.border) {
+          console.info('element.style.border')
           var styleBorder = JSON.parse(element.style.border)
           element.border = styleBorder
           if (element.border.name && element.border.name.length > 0) {
