@@ -2,7 +2,7 @@
   <div v-if="async" class="v-data-container" :style="pageSetting.style">
     <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{zIndex: viewModel.widgets.length - index}" class="v-data-widget">
       <vue-draggable-resizable @dragging="onDragging(arguments, widget,index)" @resizing="resizeData(arguments, widget,index)" :i="1" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
-        <data-item :widget="widget" @removeWidget="removeWidget" @editWidget="editWidget" @handleCheck="handleCheck" :removeIndex="{'widgetIndex':index}"></data-item>
+        <data-item :widget="widget" :scale="scaleWidget" @lockOrUnLockWidget="lockOrUnLockWidget" @sortWidget="sortWidget" @removeWidget="removeWidget" @editWidget="editWidget" @selectWidget="selectWidget" :removeIndex="{'widgetIndex':index}"></data-item>
       </vue-draggable-resizable>
     </div>
   </div>
@@ -19,6 +19,7 @@
       return {
         async: false,
         widgetItem: '',
+        scaleWidget: 1, // 模块还原比例
         pageSetting: {},
         viewModel: []
       }
@@ -39,7 +40,9 @@
         if (data.setting && data.setting.tabBarSetting) {
           this.pageSetting = JSON.parse(data.setting.tabBarSetting)
         }
-        var style = `background-image:url("${this.pageSetting.bgImage}"); background-color: ${this.pageSetting.bgColor};transform: scale(${data.scale}); transform-origin: left top;`
+        var style = `width:${this.pageSetting.width}px;height:${this.pageSetting.height}px;`
+        style += `background-image:url("${this.pageSetting.bgImage}"); background-color: ${this.pageSetting.bgColor};transform: scale(${data.scale}); transform-origin: left top;`
+        this.scaleWidget = 1 / data.scale
         this.$set(this.pageSetting, 'style', style)
       },
       postMessage (type, data) {
@@ -80,33 +83,27 @@
       },
       // 删除
       removeWidget (removeData) {
-        console.info('res', removeData)
         this.postMessage('deleteWidgetAndSave', removeData)
-      },
-      // 删除容器或者模块
-      removeWidgetAndSave (removeData) {
-        if (typeof (removeData) === 'number') {
-          this.viewModel.widgets.splice(removeData, 1)
-        }
-        if (typeof (removeData) === 'object') {
-          if (typeof (removeData.removeIndex) === 'number' && this.viewModel.widgets) {
-            this.viewModel.widgets.splice(removeData.removeIndex, 1)
-          } else {
-            this.auxiliaryRemove = false
-            this.viewModel.widgets[removeData.removeIndex.widgetIndex].columns[removeData.removeIndex.tablayout].widgets.splice(removeData.removeIndex.tabWidgetIndex, 1)
-            this.auxiliaryRemove = true
-          }
-        }
-        // 配置大数据屏幕时的删除功能
-        this.postMessage('v-data_save')
       },
       // 编辑
       editWidget (widget) {
         this.postMessage('editWidget', widget)
       },
+      // 锁定或解锁模块
+      lockOrUnLockWidget (widget) {
+        this.postMessage('lockOrUnLockWidget', widget)
+      },
+      // 排序，置顶、上次，下一层等操作
+      sortWidget (widget, type, index) {
+        var data = {
+          widget: widget,
+          type: type,
+          index: index
+        }
+        this.postMessage('sortWidget', data)
+      },
       // 点击模块生效
-      handleCheck (value) {
-        this.$bus.$emit('layoutItemCheck', value.index)
+      selectWidget (value) {
         this.postMessage('selectWidget', value.widget, value.index)
       }
     }

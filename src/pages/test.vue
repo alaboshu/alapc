@@ -1,45 +1,54 @@
 <template>
-  <div class="test">
-    <v-single-data></v-single-data>
+  <div id="app" @contextmenu="$easycm($event,$root)" style="border:1px solid red; width:500px;height:500px;">
+    <easy-cm :list="cmList" @ecmcb="test" :underline="true" :arrow="true">
+    </easy-cm>
   </div>
 </template>
 <script>
   export default {
+    name: 'app',
     data () {
       return {
-        viewModel: [
-          { id: 1, value: 0 },
-          { id: 2, value: 0 },
-          { id: 3, value: 0 }
-        ],
-        async: false
+        // 配置数组
+        cmList: [{
+          text: 'Play Now',
+          icon: 'iconfont icon-bofang'
+        }, {
+          text: 'Play Next',
+          icon: 'iconfont icon-xiayishou'
+        }, {
+          text: 'More',
+          children: [{
+            text: 'Download',
+            children: []
+          }, {
+            text: 'Report'
+          }, {
+            text: 'Other',
+            icon: 'iconfont icon-bofang',
+            children: [{
+              text: 'Other-1'
+            }, {
+              text: 'Other-2'
+            }, {
+              text: 'Other-3'
+            }]
+          }]
+        }]
       }
     },
-    mounted () {
-      this.init()
-    },
     methods: {
-      async init () {
-        setTimeout(async () => {
-          this.$set(this.viewModel[2], 'value', 1000)
-        }, 3000)
+      // 回调函数
+      test (indexList) {
+        switch (indexList[0]) {
+          case 0:
+            console.log('立即播放')
+            break
+          case 1:
+            console.log('下一首播放')
+            break
+        }
       }
     }
   }
 </script>
-
-<style rel="stylesheet/scss" lang="scss">
-  .v-data-container {
-    position: absolute;
-    overflow: hidden;
-    .v-data-widget {
-      position: absolute;
-    }
-  }
-  .test {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: #00060e;
-  }
-</style>
