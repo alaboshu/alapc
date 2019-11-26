@@ -1,13 +1,12 @@
 <template>
   <div v-if="async" class="v-data-container" :style="pageSetting.style">
-    <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{left: widget.resizeLayout.x + 'px', top: widget.resizeLayout.y + 'px', zIndex: viewModel.widgets.length - index}" class="v-data-widget">
-      <vue-draggable-resizable @dragging="onDragging(arguments, widget,index)" @resizing="resizeData(arguments, widget,index)" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
+    <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{zIndex: viewModel.widgets.length - index}" class="v-data-widget">
+      <vue-draggable-resizable @dragging="onDragging(arguments, widget,index)" @resizing="resizeData(arguments, widget,index)" :i="1" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
         <data-item :widget="widget" @removeWidget="removeWidget" @editWidget="editWidget" @handleCheck="handleCheck" :removeIndex="{'widgetIndex':index}"></data-item>
       </vue-draggable-resizable>
     </div>
   </div>
 </template>
-
 <script>
 
   import service from './service'
