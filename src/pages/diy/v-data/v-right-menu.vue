@@ -26,6 +26,12 @@
         menuIndex: ''
       }
     },
+    mounted () {
+      // 全局监听右键事件
+      window.addEventListener('contextmenu', () => {
+        this.async = false
+      }, true)
+    },
     methods: {
       init (ev) {
         this.positionStyle = `top: ${ev.clientY * this.scale}px; left:${(ev.clientX * this.scale)}px`
