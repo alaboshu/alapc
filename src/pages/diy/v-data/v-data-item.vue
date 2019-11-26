@@ -2,7 +2,7 @@
 <template>
   <vuedraggable>
     <div class="diy-widget-wrap" @click.stop="handleCheck(widget)">
-      <component v-if="widget.style.border&&widget.style.border.show" :is="widget.style.border.name" :docWidth="widget.resizeLayout.w+widget.style.border.width" :docHeight="widget.resizeLayout.h+widget.style.border.width">
+      <component v-if="widget.border.show" :is="widget.border.name" :docWidth="widget.resizeLayout.w+widget.border.width" :docHeight="widget.resizeLayout.h+widget.border.width">
         <component :is="widget.name" :widget="widget" :title="widget.title" :style="widget.style.css" />
       </component>
       <component v-else :is="widget.name" :widget="widget" :title="widget.title" :style="widget.style.css" />
