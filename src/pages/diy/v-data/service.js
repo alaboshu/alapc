@@ -32,7 +32,7 @@
           boxCss = boxCss + ` background-color: ${modelCss.bgColor};`
         }
         if (modelCss.bgImage) {
-          boxCss = boxCss + `background-image:url("${modelCss.bgImage}"); `
+          boxCss = boxCss + `background-image:url("${modelCss.bgImage}");no-repeat  `
         }
       }
       return boxCss
