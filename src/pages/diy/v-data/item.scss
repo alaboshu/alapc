@@ -85,7 +85,27 @@
   cursor: pointer;
 }
 
+.diy-widget-wrap {
+  .easy-cm-ul {
+    z-index: 9999;
+    background: #27343e;
+    color: #bcc9d4;
 
-.cm-ul{
+    user-select: none;
 
+    .li {
+      padding: 0 6px;
+      line-height: 28px;
+      height: 28px;
+      border-left: 2px solid transparent;
+      cursor: pointer;
+      overflow: hidden;
+      padding-right: 3em;
+      display: flex;
+
+      .context-menu-wrap .datav-icon {
+        margin-right: 3px;
+      }
+    }
+  }
 }

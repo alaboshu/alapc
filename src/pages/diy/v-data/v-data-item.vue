@@ -14,7 +14,7 @@
         <span class="diy-widget-actions-span" @click="editWidget(widget)">编辑</span>
         <span class="diy-widget-actions-span" @click="removeWidget(widget,removeIndex)">删除</span>
       </div>
-      <easy-cm v-if="offset" :list="contextMenus" :offset="offset" :itemWidth="120" @ecmcb="rightClick" :style="'transform: scale('+scale+')'" :underline="true" :arrow="true">
+      <easy-cm v-if="offset" :list="contextMenus" :offset="offset" :itemWidth="100" :itemSize="12" @ecmcb="rightClick" :style="'transform: scale('+scale+')'" :underline="true" :arrow="true">
       </easy-cm>
     </div>
   </vuedraggable>
