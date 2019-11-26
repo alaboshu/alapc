@@ -2,7 +2,7 @@
   <div v-if="async" class="v-data-container" :style="pageSetting.style">
     <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{zIndex: viewModel.widgets.length - index}" class="v-data-widget">
       <vue-draggable-resizable @dragging="onDragging(arguments, widget,index)" @resizing="resizeData(arguments, widget,index)" :i="1" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
-        <data-item :widget="widget" @removeWidget="removeWidget" @editWidget="editWidget" @handleCheck="handleCheck" :removeIndex="{'widgetIndex':index}"></data-item>
+        <data-item :widget="widget" :scale="scaleWidget" @removeWidget="removeWidget" @editWidget="editWidget" @handleCheck="handleCheck" :removeIndex="{'widgetIndex':index}"></data-item>
       </vue-draggable-resizable>
     </div>
   </div>
@@ -19,6 +19,7 @@
       return {
         async: false,
         widgetItem: '',
+        scaleWidget: 1, // 模块还原比例
         pageSetting: {},
         viewModel: []
       }
@@ -39,7 +40,9 @@
         if (data.setting && data.setting.tabBarSetting) {
           this.pageSetting = JSON.parse(data.setting.tabBarSetting)
         }
-        var style = `background-image:url("${this.pageSetting.bgImage}"); background-color: ${this.pageSetting.bgColor};transform: scale(${data.scale}); transform-origin: left top;`
+        var style = `width:${this.pageSetting.width}px;height:${this.pageSetting.height}px;`
+        style += `background-image:url("${this.pageSetting.bgImage}"); background-color: ${this.pageSetting.bgColor};transform: scale(${data.scale}); transform-origin: left top;`
+        this.scaleWidget = 1 / data.scale
         this.$set(this.pageSetting, 'style', style)
       },
       postMessage (type, data) {
