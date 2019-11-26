@@ -14,9 +14,6 @@
             }
             widget.resizeLayout = para
           }
-          if (!widget.style) {
-            widget.style = {}
-          }
           widget.style.styleCss = this.getStyleCss(widget)
         }
       }
@@ -27,14 +24,13 @@
       var resizeLayout = widget.resizeLayout
       var boxCss = `width: ${resizeLayout.w}px; height: ${resizeLayout.h}px;`
       if (widget.style && widget.style.css) {
-        //  var modelCss = JSON.parse(widget.style.css)
-        // console.info('sssss getStyleCss', widget.style.css, modelCss)
-        // if (modelCss.bgColor) {
-        //   boxCss = boxCss + ` background-color: ${modelCss.bgColor};`
-        // }
-        // if (modelCss.bgImage) {
-        //   boxCss = boxCss + `background-image:url("${modelCss.bgImage}"); `
-        // }
+        var modelCss = JSON.parse(widget.style.css)
+        if (modelCss.bgColor) {
+          boxCss = boxCss + ` background-color: ${modelCss.bgColor};`
+        }
+        if (modelCss.bgImage) {
+          boxCss = boxCss + `background-image:url("${modelCss.bgImage}"); `
+        }
       }
       return boxCss
     }
