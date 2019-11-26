@@ -51,16 +51,16 @@
             this.editWidget(this.widget)
             break
           case 1:
-            this.sortWidget(this.widget, 'top') // 置顶
+            this.sortWidget(this.widget, 'top', this.removeIndex) // 置顶
             break
           case 2:
-            this.sortWidget(this.widget, 'up') // 上一层
+            this.sortWidget(this.widget, 'up', this.removeIndex) // 上一层
             break
           case 3:
-            this.sortWidget(this.widget, 'down') // 下一层
+            this.sortWidget(this.widget, 'down', this.removeIndex) // 下一层
             break
           case 4:
-            this.sortWidget(this.widget, 'bottom') // 置底
+            this.sortWidget(this.widget, 'bottom', this.removeIndex) // 置底
             break
           case 5:
             this.lockOrUnLockWidget(this.widget)

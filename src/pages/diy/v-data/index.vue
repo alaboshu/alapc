@@ -94,10 +94,11 @@
         this.postMessage('lockOrUnLockWidget', widget)
       },
       // 排序，置顶、上次，下一层等操作
-      sortWidget (widget, type) {
+      sortWidget (widget, type, index) {
         var data = {
           widget: widget,
-          type: type
+          type: type,
+          index: index
         }
         this.postMessage('sortWidget', data)
       },
