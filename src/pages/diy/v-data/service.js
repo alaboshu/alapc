@@ -14,6 +14,9 @@
             }
             widget.resizeLayout = para
           }
+          if (!widget.style) {
+            widget.style = {}
+          }
           widget.style.styleCss = this.getStyleCss(widget)
         }
       }
