@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <v-decoration></v-decoration>
-    <!-- <div style="background-image: url(http://retail_v13.api.5ug.com//wwwroot/uploads/api/375-431-798/2019-11-23/5dd900acf00ad91a38998b52.png);"> asfasdf </div> -->
+  <div class="test">
+    <v-single-data></v-single-data>
   </div>
 </template>
 <script>
@@ -36,5 +35,11 @@
     .v-data-widget {
       position: absolute;
     }
+  }
+  .test {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #00060e;
   }
 </style>
