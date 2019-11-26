@@ -22,9 +22,11 @@
           this.widgetModel = this.widget.value
         }
         if (this.widgetModel.image) {
-          this.css = `background-image:url(${this.widgetModel.image});`
+          this.css = `background-image:url(${this.widgetModel.image}); center top;    background-size: 100% 100%;`
           if (this.widgetModel.repeat === true) {
             this.css = this.css + 'background-repeat: repeat;'
+          } else {
+            this.css = this.css + 'background-repeat:  no-repeat;'
           }
           if (this.widgetModel.transparent) {
             var opacity = this.widgetModel.transparent / 100
