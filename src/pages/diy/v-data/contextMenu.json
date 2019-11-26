@@ -1,9 +1,21 @@
 [{
-    "text": "设置数据源",
-    "icon": "flaticon-settings"
+    "text": "编辑数据源",
+    "icon": "el-icon-edit-outline"
   },
   {
-    "text": "置顶",
-    "icon": "flaticon-settings"
+    "text": "上一层",
+    "icon": "el-icon-upload2"
+  },
+  {
+    "text": "下一层",
+    "icon": "el-icon-download"
+  },
+  {
+    "text": "锁定",
+    "icon": "el-icon-lock"
+  },
+  {
+    "text": "删除",
+    "icon": "el-icon-delete"
   }
 ]

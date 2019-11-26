@@ -2,7 +2,7 @@
   <div v-if="async" class="v-data-container" :style="pageSetting.style">
     <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{zIndex: viewModel.widgets.length - index}" class="v-data-widget">
       <vue-draggable-resizable @dragging="onDragging(arguments, widget,index)" @resizing="resizeData(arguments, widget,index)" :i="1" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
-        <data-item :widget="widget" :scale="scaleWidget" @removeWidget="removeWidget" @editWidget="editWidget" @handleCheck="handleCheck" :removeIndex="{'widgetIndex':index}"></data-item>
+        <data-item :widget="widget" :scale="scaleWidget" @removeWidget="removeWidget" @editWidget="editWidget" @selectWidget="selectWidget" :removeIndex="{'widgetIndex':index}"></data-item>
       </vue-draggable-resizable>
     </div>
   </div>
@@ -108,7 +108,7 @@
         this.postMessage('editWidget', widget)
       },
       // 点击模块生效
-      handleCheck (value) {
+      selectWidget (value) {
         this.$bus.$emit('layoutItemCheck', value.index)
         this.postMessage('selectWidget', value.widget, value.index)
       }

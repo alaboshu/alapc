@@ -1,18 +1,15 @@
 
 <template>
   <vuedraggable>
-    <div class="diy-widget-wrap" @click.stop="handleCheck(widget)" @contextmenu="$easycm($event,$root)">
+    <div class="diy-widget-wrap" @click.stop="selectWidget(widget)" @contextmenu="$easycm($event,$root)">
       <component v-if="widget.border.show" :is="widget.border.name" :docWidth="widget.resizeLayout.w+widget.border.width" :docHeight="widget.resizeLayout.h+widget.border.width">
         <component :is="widget.name" :widget="widget" :title="widget.title" :style="widget.style.styleCss" />
       </component>
       <component v-else :is="widget.name" :widget="widget" :title="widget.title" :style="widget.style.styleCss" />
       <div class="diy-dottedbox" />
-      <div class="redact-buttom" @click="editWidget(widget)" :style="'transform: scale('+scale+')'">设置数据源</div>
       <div class="diy-masker" v-if="showChecked" />
-      <div class="diy-widget-actions" :style="'transform: scale('+scale+')'">
+      <div class="diy-widget-actions">
         <span class="diy-widget-actions-span">{{widget.title}}({{widget.name}})</span>
-        <span class="diy-widget-actions-span" @click="editWidget(widget)">编辑</span>
-        <span class="diy-widget-actions-span" @click="removeWidget(widget,removeIndex)">删除</span>
       </div>
       <easy-cm v-if="offset" :list="contextMenus" :offset="offset" :itemWidth="100" :itemSize="12" @ecmcb="rightClick" :style="'transform: scale('+scale+')'" :underline="true" :arrow="true">
       </easy-cm>
@@ -49,22 +46,31 @@
     methods: {
       // 回调函数
       rightClick (indexList) {
-        console.info('offset', this.offset, this.scale)
         switch (indexList[0]) {
           case 0:
-            console.log('立即播放')
+            this.editWidget(this.widget)
             break
           case 1:
-            console.log('下一首播放')
+            console.log('上一层')
+            break
+          case 2:
+            console.log('下一层')
+            break
+          case 3:
+            console.log('锁定/解锁')
+            break
+          case 4:
+            this.removeWidget(this.widget, this.removeIndex)
             break
         }
       },
-      handleCheck (widget) {
+      //  选择模块
+      selectWidget (widget) {
         let value = {
           widget: widget,
           index: this.removeIndex
         }
-        this.$emit('handleCheck', value)
+        this.$emit('selectWidget', value)
       },
       removeWidget (widget, removeIndex) {
         let removeData = {
