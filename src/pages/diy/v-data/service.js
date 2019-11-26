@@ -14,14 +14,7 @@
             }
             widget.resizeLayout = para
           }
-          if (!widget.style) {
-            widget.style = {}
-          }
-          // 处理边框
-          if (widget.style.border) {
-            widget.style.border = JSON.parse(widget.style.border)
-          }
-          widget.style.css = this.getStyleCss(widget)
+          widget.style.styleCss = this.getStyleCss(widget)
         }
       }
       return viewModel
@@ -31,9 +24,7 @@
       var resizeLayout = widget.resizeLayout
       var boxCss = `width: ${resizeLayout.w}px; height: ${resizeLayout.h}px;`
       if (widget.style && widget.style.css) {
-        console.info('sssss', widget.style.css)
-        //  var modelCss = JSON.parse(widget.style.css)
-        var modelCss = widget.style.css
+        var modelCss = JSON.parse(widget.style.css)
         if (modelCss.bgColor) {
           boxCss = boxCss + ` background-color: ${modelCss.bgColor};`
         }
