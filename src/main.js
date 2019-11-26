@@ -268,6 +268,20 @@ import adminSupplierOrder from '@/admins/store/admin-supplier-order/index.vue'
 import adminRoleEdit from '@/admins/user/admin-role-edit/index.vue'
 import adminRoleOpen from '@/admins/user/admin-role-open/index.vue'
 import adminUserEdit from '@/admins/user/admin-user-edit/index.vue'
+import vBackground from '@/v-data/common/v-background/index.vue'
+import vChartsTable from '@/v-data/common/v-charts-table/index.vue'
+import vDecoration from '@/v-data/common/v-decoration/index.vue'
+import vIcon from '@/v-data/common/v-icon/index.vue'
+import vImage from '@/v-data/common/v-image/index.vue'
+import vText from '@/v-data/common/v-text/index.vue'
+import vTime from '@/v-data/common/v-time/index.vue'
+import vCharts from '@/v-data/reports/v-charts/index.vue'
+import vCountUp from '@/v-data/reports/v-count-up/index.vue'
+import vMap from '@/v-data/reports/v-map/index.vue'
+import vPercent from '@/v-data/reports/v-percent/index.vue'
+import vRank from '@/v-data/reports/v-rank/index.vue'
+import vSingleData from '@/v-data/reports/v-single-data/index.vue'
+import vTable from '@/v-data/reports/v-table/index.vue'
 Vue.component('zk-groupbuy', zkGroupbuy)
 Vue.component('zk-aritcle-detail', zkAritcleDetail)
 Vue.component('zk-ariticle-image-list', zkAriticleImageList)
@@ -517,6 +531,20 @@ Vue.component('admin-supplier-order', adminSupplierOrder)
 Vue.component('admin-role-edit', adminRoleEdit)
 Vue.component('admin-role-open', adminRoleOpen)
 Vue.component('admin-user-edit', adminUserEdit)
+Vue.component('v-background', vBackground)
+Vue.component('v-charts-table', vChartsTable)
+Vue.component('v-decoration', vDecoration)
+Vue.component('v-icon', vIcon)
+Vue.component('v-image', vImage)
+Vue.component('v-text', vText)
+Vue.component('v-time', vTime)
+Vue.component('v-charts', vCharts)
+Vue.component('v-count-up', vCountUp)
+Vue.component('v-map', vMap)
+Vue.component('v-percent', vPercent)
+Vue.component('v-rank', vRank)
+Vue.component('v-single-data', vSingleData)
+Vue.component('v-table', vTable)
 
 
 Vue.component('vue-draggable-resizable', VueDraggableResizable)
