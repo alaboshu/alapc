@@ -1,15 +1,16 @@
 <template>
   <div v-if="async" class="v-data-container" :style="pageSetting.style">
-    <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{left: widget.resizeLayout.x + 'px', top: widget.resizeLayout.y + 'px',width: widget.resizeLayout.w+'px', height:  widget.resizeLayout.h+'px', zIndex: viewModel.widgets.length - index}"  class="v-data-widget">
-       <vue-draggable-resizable @dragging="onDragging(arguments, widget,index)" @resizing="resizeData(arguments, widget,index)" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
-          <data-item :widget="widget" @removeWidget="removeWidget" @editWidget="editWidget" @handleCheck="handleCheck" :removeIndex="{'widgetIndex':index}"></data-item>
-        </vue-draggable-resizable>
+    <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{left: widget.resizeLayout.x + 'px', top: widget.resizeLayout.y + 'px',width: widget.resizeLayout.w+'px', height:  widget.resizeLayout.h+'px', zIndex: viewModel.widgets.length - index}" class="v-data-widget">
+      <vue-draggable-resizable @dragging="onDragging(arguments, widget,index)" @resizing="resizeData(arguments, widget,index)" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
+        <data-item :widget="widget" @removeWidget="removeWidget" @editWidget="editWidget" @handleCheck="handleCheck" :removeIndex="{'widgetIndex':index}"></data-item>
+      </vue-draggable-resizable>
     </div>
   </div>
 </template>
 
 <script>
-  import theme from '@/service/core/theme'
+
+  import service from './service'
   import dataItem from './v-data-item'
   export default {
     components: {
@@ -30,25 +31,8 @@
     methods: {
       async initWidget (data) {
         this.pageSet(data)
-        this.viewModel = {
-          ...data,
-          masterPageIndex: this.masterPageIndex
-        }
-        this.viewModel = theme.filerPageInfo(this.viewModel)
-        if (this.viewModel && this.viewModel.widgets) {
-          for (let i of this.viewModel.widgets) {
-            if (!i.resizeLayout) {
-              var para = {
-                y: 0,
-                x: 0,
-                w: 500,
-                h: 500,
-                zIndex: 1
-              }
-              i.resizeLayout = para
-            }
-          }
-        }
+        this.viewModel = service.convertTo(data)
+
         this.async = true
         this.postMessage('clientIframeLoadSuccessful', true)
       },
@@ -63,7 +47,7 @@
       postMessage (type, data) {
         parent.postMessage({ type, data }, '*')
       },
-         // 动态修改样式
+      // 动态修改样式
       getStyle (widget) {
         var css = widget.resizeLayout
         var boxCss = `width: ${css.w}px; height: ${css.h}px;`
@@ -71,7 +55,6 @@
           var modelCss = JSON.parse(widget.style.css)
           var bgCss = `background: ${modelCss.bgColor} url(${modelCss.bgImage}) no-repeat`
         }
-        this.getBorderStyle(widget)
         return boxCss + bgCss
       },
       initListener () {

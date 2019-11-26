@@ -1,7 +1,7 @@
 
 <template>
   <vuedraggable>
-    <div class="diy-widget-wrap" @click.stop="handleCheck(widget)" :style="getBorderStyle(widget)">
+    <div class="diy-widget-wrap" @click.stop="handleCheck(widget)">
       <component v-if="borderStyle" :is="borderStyle" :docWidth="widget.resizeLayout.w" :docHeight="widget.resizeLayout.h">
         <component :is="widget.name" :widget="widget" :title="widget.title" />
       </component>
@@ -37,6 +37,14 @@
     mounted () {
     },
     methods: {
+      // 获取边框样式
+      getBorderStyle (widget) {
+        this.borderStyle = null
+        if (widget.style && widget.style.border) {
+          this.borderStyle = JSON.parse(widget.style.border).borderStyle
+        }
+        console.info('getBorderStyle', this.borderStyle)
+      },
       handleCheck (widget) {
         let value = {
           widget: widget,
@@ -53,14 +61,6 @@
       },
       editWidget (widget) {
         this.$emit('editWidget', widget)
-      },
-      // 获取边框样式
-      getBorderStyle (widget) {
-        this.borderStyle = null
-        if (widget.style && widget.style.border) {
-          this.borderStyle = JSON.parse(widget.style.border).borderStyle
-        }
-        console.info('widget', this.borderStyle)
       }
     }
   }
