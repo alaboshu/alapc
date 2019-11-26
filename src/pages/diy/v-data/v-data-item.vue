@@ -3,9 +3,9 @@
   <vuedraggable>
     <div class="diy-widget-wrap" @click.stop="handleCheck(widget)">
       <component v-if="widget.style.border&&widget.style.border.show" :is="widget.style.border.name" :docWidth="widget.resizeLayout.w+widget.style.border.width" :docHeight="widget.resizeLayout.h+widget.style.border.width">
-        <component :is="widget.name" :widget="widget" :title="widget.title" />
+        <component :is="widget.name" :widget="widget" :title="widget.title" :style="widget.style.css" />
       </component>
-      <component v-else :is="widget.name" :widget="widget" :title="widget.title" />
+      <component v-else :is="widget.name" :widget="widget" :title="widget.title" :style="widget.style.css" />
       <div class="diy-dottedbox" />
       <div class="redact-buttom" @click="editWidget(widget)">设置数据源</div>
       <div class="diy-masker" v-if="showChecked" />

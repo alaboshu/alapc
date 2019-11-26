@@ -14,13 +14,33 @@
             }
             widget.resizeLayout = para
           }
+          if (!widget.style) {
+            widget.style = {}
+          }
           // 处理边框
-          if (widget.style && widget.style.border) {
+          if (widget.style.border) {
             widget.style.border = JSON.parse(widget.style.border)
           }
+          widget.style.css = this.getStyleCss(widget)
         }
       }
-      console.info('i处理模块的viewModel内部', viewModel)
       return viewModel
+    },
+    // 动态修改样式
+    getStyleCss (widget) {
+      var resizeLayout = widget.resizeLayout
+      var boxCss = `width: ${resizeLayout.w}px; height: ${resizeLayout.h}px;`
+      if (widget.style && widget.style.css) {
+        console.info('sssss', widget.style.css)
+        //  var modelCss = JSON.parse(widget.style.css)
+        var modelCss = widget.style.css
+        if (modelCss.bgColor) {
+          boxCss = boxCss + ` background-color: ${modelCss.bgColor};`
+        }
+        if (modelCss.bgImage) {
+          boxCss = boxCss + `background-image:url("${modelCss.bgImage}"); `
+        }
+      }
+      return boxCss
     }
   }
