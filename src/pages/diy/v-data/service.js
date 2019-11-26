@@ -3,21 +3,24 @@
     // 模块结构处理
     convertTo (viewModel) {
       viewModel = theme.filerPageInfo(viewModel)
-      if (this.viewModel && this.viewModel.widgets) {
-        for (let i of this.viewModel.widgets) {
-          if (!i.resizeLayout) {
+      if (viewModel && viewModel.widgets) {
+        for (let widget of viewModel.widgets) {
+          if (!widget.resizeLayout) {
             var para = {
               y: 0,
               x: 0,
-              w: 500,
-              h: 500,
-              zIndex: 1
+              w: 300,
+              h: 300
             }
-            i.resizeLayout = para
+            widget.resizeLayout = para
+          }
+          // 处理边框
+          if (widget.style && widget.style.border) {
+            widget.style.border = JSON.parse(widget.style.border)
           }
         }
       }
-      console.info('处理模块的viewModel', viewModel)
+      console.info('i处理模块的viewModel内部', viewModel)
       return viewModel
     }
   }

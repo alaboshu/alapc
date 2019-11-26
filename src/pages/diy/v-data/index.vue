@@ -32,7 +32,6 @@
       async initWidget (data) {
         this.pageSet(data)
         this.viewModel = service.convertTo(data)
-
         this.async = true
         this.postMessage('clientIframeLoadSuccessful', true)
       },
