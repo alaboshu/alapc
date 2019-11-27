@@ -1,7 +1,6 @@
 
 <template>
   <vuedraggable>
-    <!-- @click.stop="selectWidget(widget)" -->
     <div class="diy-widget-wrap" @contextmenu="contextmenu($event,widget)">
       <component v-if="widget.border.show" :is="widget.border.name" :docWidth="widget.resizeLayout.w+widget.border.width" :docHeight="widget.resizeLayout.h+widget.border.width">
         <component :is="widget.name" :widget="widget" :title="widget.title" :style="widget.style.styleCss" />
