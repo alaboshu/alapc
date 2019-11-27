@@ -92,9 +92,9 @@
       lockOrUnLockWidget (widget) {
         this.$emit('lockOrUnLockWidget', widget)
       },
-      // 锁定或解锁模块
-      sortWidget (widget, type) {
-        this.$emit('sortWidget', widget, type)
+      // 层次移动
+      sortWidget (widget, type, removeIndex) {
+        this.$emit('sortWidget', widget, type, removeIndex)
       },
       editWidget (widget) {
         this.$emit('editWidget', widget)
