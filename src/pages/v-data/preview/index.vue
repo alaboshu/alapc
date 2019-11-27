@@ -8,9 +8,9 @@
 
 <script>
   import widgetService from '@/elements/x-widget/service'
-  import previewItem from './preview-item'
+  import previewItem from './items/preview-item'
   import theme from '@/service/core/theme'
-  import service from './service'
+  import service from '../service'
   export default {
     components: {
       previewItem
@@ -55,5 +55,5 @@
 
 
 <style lang="scss">
-  @import "./index.scss";
+  @import "../index.scss";
 </style>

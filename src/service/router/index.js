@@ -16,11 +16,6 @@ export const constantRouterMap = [{
     }]
   },
   {
-    path: '/auto',
-    component: () => import('@/pages/auto'),
-    name: '自动构建页面'
-  },
-  {
     path: '/admin/login',
     component: () => import('@/pages/admin/login'),
     name: 'admin-login'
@@ -97,22 +92,17 @@ export const constantRouterMap = [{
   },
   {
     path: '/diy-admin-data/',
-    component: () => import('@/pages/diy/v-data/index'),
-    children: [{
-      path: 'diy',
-      name: 'data_diy',
-      meta: {
-        title: '后台diy编辑'
-      },
-      params: {
-        filter: 3
-      },
-      component: () => import('@/pages/diy/v-data/index')
-    }]
+    component: () => import('@/pages/v-data/diy/index'),
+    meta: {
+      title: '大数据可视化编辑'
+    },
+    params: {
+      filter: 3
+    }
   },
   {
     path: '/v-data/preview',
-    component: () => import('@/pages/diy/v-data/preview'),
+    component: () => import('@/pages/v-data/preview/index'),
     meta: {
       title: '大数据视图预览'
     }

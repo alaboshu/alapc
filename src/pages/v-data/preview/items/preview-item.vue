@@ -27,6 +27,4 @@
 </script>
 
 <style lang="scss">
-  @import "@/assets/style/variable.scss";
-  @import "./item.scss";
 </style>

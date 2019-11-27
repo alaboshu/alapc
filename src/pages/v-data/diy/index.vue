@@ -9,8 +9,8 @@
 </template>
 <script>
 
-  import service from './service'
-  import dataItem from './v-data-item'
+  import service from '../service'
+  import dataItem from './items/v-data-item'
   export default {
     components: {
       dataItem
@@ -108,5 +108,5 @@
 
 
 <style lang="scss">
-  @import "./index.scss";
+  @import "../index.scss";
 </style>
