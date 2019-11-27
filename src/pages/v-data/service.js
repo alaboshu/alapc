@@ -43,7 +43,7 @@
         var pageSetting = JSON.parse(data.setting.tabBarSetting)
       }
       var style = `width:${pageSetting.width}px;height:${pageSetting.height}px;`
-      style += `background-image:url("${pageSetting.bgImage}"); background-color: ${pageSetting.bgColor};transform: scale(${data.scale}); transform-origin: left top;`
+      style += `background-image:url("${pageSetting.bgImage}");background-size:100% 100%; background-color: ${pageSetting.bgColor};transform: scale(${data.scale}); transform-origin: left top;`
       return style
     }
   }
