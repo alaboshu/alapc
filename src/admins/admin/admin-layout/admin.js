@@ -109,9 +109,16 @@ export default {
 
   // 头部菜单，快捷操作
   async topQuickMenus () {
-    var topMenus = [
-      { name: '清空缓存', icon: 'flaticon-stopwatch ', method: 'clearCache' },
-      { name: '数据初始', icon: 'flaticon-lifebuoy', method: 'init' }
+    var topMenus = [{
+        name: '清空缓存',
+        icon: 'flaticon-stopwatch ',
+        method: 'clearCache'
+      },
+      {
+        name: '数据初始',
+        icon: 'flaticon-lifebuoy',
+        method: 'init'
+      }
     ]
     return topMenus
   },
@@ -125,7 +132,6 @@ export default {
   },
   // 初始化
   async init () {
-    this.clearCache() // 初始前先清理缓存
     api.progressOpen(
       '正在进行数据初始,预计<span style="color: red;">1分钟</span>时间，请勿离开或刷新页面...'
     )

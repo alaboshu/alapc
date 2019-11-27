@@ -196,7 +196,6 @@ import xWidget from '@/elements/x-widget/index.vue'
 import adminActivitySet from '@/admins/activity/admin-activity-set/index.vue'
 import adminAppPublish from '@/admins/admin/admin-app-publish/index.vue'
 import adminApp from '@/admins/admin/admin-app/index.vue'
-import adminDiy from '@/admins/admin/admin-diy/index.vue'
 import adminLayout from '@/admins/admin/admin-layout/index.vue'
 import adminMessage from '@/admins/admin/admin-message/index.vue'
 import adminSmartHand from '@/admins/admin/admin-smart-hand/index.vue'
@@ -282,6 +281,7 @@ import vPercent from '@/v-data/reports/v-percent/index.vue'
 import vRank from '@/v-data/reports/v-rank/index.vue'
 import vSingleData from '@/v-data/reports/v-single-data/index.vue'
 import vTable from '@/v-data/reports/v-table/index.vue'
+import vRightMenu from '@/v-data/v-right-menu/index.vue'
 Vue.component('zk-groupbuy', zkGroupbuy)
 Vue.component('zk-aritcle-detail', zkAritcleDetail)
 Vue.component('zk-ariticle-image-list', zkAriticleImageList)
@@ -459,7 +459,6 @@ Vue.component('x-widget', xWidget)
 Vue.component('admin-activity-set', adminActivitySet)
 Vue.component('admin-app-publish', adminAppPublish)
 Vue.component('admin-app', adminApp)
-Vue.component('admin-diy', adminDiy)
 Vue.component('admin-layout', adminLayout)
 Vue.component('admin-message', adminMessage)
 Vue.component('admin-smart-hand', adminSmartHand)
@@ -545,6 +544,7 @@ Vue.component('v-percent', vPercent)
 Vue.component('v-rank', vRank)
 Vue.component('v-single-data', vSingleData)
 Vue.component('v-table', vTable)
+Vue.component('v-right-menu', vRightMenu)
 
 
 Vue.component('vue-draggable-resizable', VueDraggableResizable)
