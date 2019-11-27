@@ -111,6 +111,13 @@ export const constantRouterMap = [{
     }]
   },
   {
+    path: '/v-data/preview',
+    component: () => import('@/pages/diy/v-data/preview'),
+    meta: {
+      title: '大数据视图预览'
+    }
+  },
+  {
     path: '/diy-user/*',
     component: () => import('@/pages/diy/index'),
     name: 'user-diy'
