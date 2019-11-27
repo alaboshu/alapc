@@ -50,21 +50,6 @@
           removeIndex
         }
         this.$emit('meuRightClick', para)
-      },
-      // 锁定或解锁模块
-      lockOrUnLockWidget (widget) {
-        this.$emit('lockOrUnLockWidget', widget)
-      },
-      // 移动层次
-      sortWidget (widget, type) {
-        this.$emit('sortWidget', widget, type)
-      },
-      editWidget (widget) {
-        this.$emit('editWidget', widget)
-      },
-      // 删除
-      removeWidget (widget, removeIndex) {
-        this.$emit('removeWidget', widget, removeIndex)
       }
     }
   }

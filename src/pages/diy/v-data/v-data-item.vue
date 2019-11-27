@@ -1,7 +1,8 @@
 
 <template>
   <vuedraggable>
-    <div class="diy-widget-wrap" @click.stop="selectWidget(widget)" @contextmenu="contextmenu($event,widget)">
+    <!-- @click.stop="selectWidget(widget)" -->
+    <div class="diy-widget-wrap" @contextmenu="contextmenu($event,widget)">
       <component v-if="widget.border.show" :is="widget.border.name" :docWidth="widget.resizeLayout.w+widget.border.width" :docHeight="widget.resizeLayout.h+widget.border.width">
         <component :is="widget.name" :widget="widget" :title="widget.title" :style="widget.style.styleCss" />
       </component>
@@ -46,57 +47,31 @@
       this.$set(this.offset, 'y', 10 / this.scale)
     },
     methods: {
-      // 回调函数
-      rightClick (indexList) {
-        switch (indexList[0]) {
-          case 0:
-            this.editWidget(this.widget)
+      meuRightClick (data) {
+        const { widget, type, removeIndex } = data
+        switch (type) {
+          case 'dataSource':
+            this.editWidget(widget) // 数据源
             break
-          case 1:
-            this.sortWidget(this.widget, 'top', this.removeIndex) // 置顶
+          case 'delete':
+            this.removeWidget(widget, removeIndex) // 删除模块
             break
-          case 2:
-            this.sortWidget(this.widget, 'up', this.removeIndex) // 上一层
+          case 'lock':
+            this.lockOrUnLockWidget(widget) // 锁定与解锁
             break
-          case 3:
-            this.sortWidget(this.widget, 'down', this.removeIndex) // 下一层
+          case 'up':
+            this.sortWidget(widget, type, removeIndex) // 上一层
             break
-          case 4:
-            this.sortWidget(this.widget, 'bottom', this.removeIndex) // 置底
+          case 'down':
+            this.sortWidget(widget, type, removeIndex) // 下一层
             break
-          case 5:
-            this.lockOrUnLockWidget(this.widget)
+          case 'bottom':
+            this.sortWidget(widget, type, removeIndex) // 置底
             break
-          case 6:
-            this.removeWidget(this.widget, this.removeIndex)
+          case 'top':
+            this.sortWidget(widget, type, removeIndex) // 置顶
             break
         }
-      },
-      meuRightClick (widget, removeIndex) {
-        console.info('右键点击模块', widget, removeIndex)
-        // switch (type) {
-        //   case 'dataSource':
-        //     this.editWidget(widget)
-        //     break
-        //   case 'delete':
-        //     this.removeWidget(widget, this.removeIndex)
-        //     break
-        //   case 'lock':
-        //     this.lockOrUnLockWidget(widget)
-        //     break
-        //   case 'up':
-        //     this.sortWidget(widget, type)
-        //     break
-        //   case 'down':
-        //     this.sortWidget(widget, type)
-        //     break
-        //   case 'bottom':
-        //     this.sortWidget(widget, type)
-        //     break
-        //   case 'top':
-        //     this.sortWidget(widget, type)
-        //     break
-        // }
       },
       //  选择模块
       selectWidget (widget) {
