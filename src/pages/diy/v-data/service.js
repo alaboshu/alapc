@@ -36,5 +36,14 @@
         }
       }
       return boxCss
+    },
+    // 设置页面背景或颜色
+    pageSet (data) {
+      if (data.setting && data.setting.tabBarSetting) {
+        var pageSetting = JSON.parse(data.setting.tabBarSetting)
+      }
+      var style = `width:${pageSetting.width}px;height:${pageSetting.height}px;`
+      style += `background-image:url("${pageSetting.bgImage}"); background-color: ${pageSetting.bgColor};transform: scale(${data.scale}); transform-origin: left top;`
+      return style
     }
   }

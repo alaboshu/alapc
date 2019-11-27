@@ -53,7 +53,6 @@
     data () {
       return {
         viewModel: {},
-        itemModeL: {},
         tabName: 0,
         async: false
       }
