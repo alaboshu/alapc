@@ -1,29 +1,36 @@
 [{
     "text": "编辑数据源",
-    "icon": "el-icon-edit-outline"
+    "icon": "el-icon-edit-outline",
+    "type": "dataSource"
   },
   {
     "text": "置顶",
-    "icon": "el-icon-upload2"
+    "icon": "el-icon-upload2",
+    "type": "top"
   },
   {
     "text": "上一层",
-    "icon": "el-icon-top"
+    "icon": "el-icon-top",
+    "type": "up"
   },
   {
     "text": "下一层",
-    "icon": "el-icon-bottom"
+    "icon": "el-icon-bottom",
+    "type": "down"
   },
   {
     "text": "置底",
-    "icon": "el-icon-download"
+    "icon": "el-icon-download",
+    "type": "bottom"
   },
   {
     "text": "锁定",
-    "icon": "el-icon-lock"
+    "icon": "el-icon-lock",
+    "type": "lock"
   },
   {
     "text": "删除",
-    "icon": "el-icon-delete"
+    "icon": "el-icon-delete",
+    "type": "delete"
   }
 ]

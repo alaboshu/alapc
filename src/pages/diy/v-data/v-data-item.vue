@@ -1,7 +1,7 @@
 
 <template>
   <vuedraggable>
-    <div class="diy-widget-wrap" @click.stop="selectWidget(widget)" @contextmenu="showMenuIndex = removeIndex,contextmenu($event,removeIndex)">
+    <div class="diy-widget-wrap" @click.stop="selectWidget(widget)" @contextmenu="contextmenu($event,widget)">
       <component v-if="widget.border.show" :is="widget.border.name" :docWidth="widget.resizeLayout.w+widget.border.width" :docHeight="widget.resizeLayout.h+widget.border.width">
         <component :is="widget.name" :widget="widget" :title="widget.title" :style="widget.style.styleCss" />
       </component>
@@ -11,7 +11,7 @@
       <div class="diy-widget-actions">
         <span class="diy-widget-actions-span">{{widget.title}}({{widget.name}})</span>
       </div>
-      <v-right-menu ref="vRightMenu" :scale="scale" :style="'transform: scale('+scale+');'"></v-right-menu>
+      <v-right-menu ref="vRightMenu" @meuRightClick="meuRightClick" :removeIndex="removeIndex" :scale="scale" :style="'transform: scale('+scale+');'"></v-right-menu>
     </div>
   </vuedraggable>
 </template>
@@ -72,6 +72,32 @@
             break
         }
       },
+      meuRightClick (widget, removeIndex) {
+        console.info('右键点击模块', widget, removeIndex)
+        // switch (type) {
+        //   case 'dataSource':
+        //     this.editWidget(widget)
+        //     break
+        //   case 'delete':
+        //     this.removeWidget(widget, this.removeIndex)
+        //     break
+        //   case 'lock':
+        //     this.lockOrUnLockWidget(widget)
+        //     break
+        //   case 'up':
+        //     this.sortWidget(widget, type)
+        //     break
+        //   case 'down':
+        //     this.sortWidget(widget, type)
+        //     break
+        //   case 'bottom':
+        //     this.sortWidget(widget, type)
+        //     break
+        //   case 'top':
+        //     this.sortWidget(widget, type)
+        //     break
+        // }
+      },
       //  选择模块
       selectWidget (widget) {
         let value = {
@@ -99,9 +125,9 @@
         this.$emit('editWidget', widget)
       },
       // 鼠标右键事件
-      contextmenu (ev, removeIndex) {
+      contextmenu (ev, widget) {
         ev.preventDefault()
-        this.$refs.vRightMenu.init(ev, removeIndex.widgetIndex)
+        this.$refs.vRightMenu.init(ev, widget)
       }
     }
   }

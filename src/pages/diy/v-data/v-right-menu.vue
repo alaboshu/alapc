@@ -1,7 +1,7 @@
 <template>
   <div class="v-right-menu" :style="positionStyle" v-if="async">
     <ul>
-      <li class="v-right-menu-list" v-for="(item, index) in list" :key="index">
+      <li class="v-right-menu-list" @click="changeClick(widget,item.type, removeIndex)" v-for="(item, index) in list" :key="index">
         <div class="vRight-icon">
           <i :class="item.icon"></i>
         </div>
@@ -16,14 +16,15 @@
   import contextMenuJson from './contextMenu.json'
   export default {
     props: {
-      scale: {}
+      scale: {},
+      removeIndex: {}
     },
     data () {
       return {
         async: false,
         positionStyle: null,
         list: contextMenuJson,
-        menuIndex: ''
+        widget: null
       }
     },
     mounted () {
@@ -33,13 +34,37 @@
       }, true)
     },
     methods: {
-      init (ev) {
+      init (ev, widget) {
+        this.widget = widget
         this.positionStyle = `top: ${ev.clientY * this.scale}px; left:${(ev.clientX * this.scale)}px`
         this.async = true
         // 全局监听点击事件
         window.addEventListener('click', () => {
           this.async = false
         }, true)
+      },
+      changeClick (widget, type, removeIndex) {
+        var para = {
+          widget,
+          type,
+          removeIndex
+        }
+        this.$emit('meuRightClick', para)
+      },
+      // 锁定或解锁模块
+      lockOrUnLockWidget (widget) {
+        this.$emit('lockOrUnLockWidget', widget)
+      },
+      // 移动层次
+      sortWidget (widget, type) {
+        this.$emit('sortWidget', widget, type)
+      },
+      editWidget (widget) {
+        this.$emit('editWidget', widget)
+      },
+      // 删除
+      removeWidget (widget, removeIndex) {
+        this.$emit('removeWidget', widget, removeIndex)
       }
     }
   }
