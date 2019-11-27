@@ -54,7 +54,9 @@
             this.editWidget(widget) // 数据源
             break
           case 'delete':
-            this.removeWidget(widget, removeIndex) // 删除模块
+            if (!widget.isLock) {
+              this.removeWidget(widget, removeIndex) // 删除模块
+            }
             break
           case 'lock':
             this.lockOrUnLockWidget(widget) // 锁定与解锁
