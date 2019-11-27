@@ -36,6 +36,12 @@
     methods: {
       init (ev, widget) {
         this.widget = widget
+        var dataItem = this.list.find(r => r.type === 'lock')
+        if (widget.isLock) {
+          dataItem.text = '解锁'
+        } else {
+          dataItem.text = '锁定'
+        }
         this.positionStyle = `top: ${ev.clientY * this.scale}px; left:${(ev.clientX * this.scale)}px`
         this.async = true
         // 全局监听点击事件

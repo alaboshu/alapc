@@ -1,9 +1,12 @@
 <template>
-  <div v-if="async" class="v-data-container" :style="pageSetting.style">
-    <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{zIndex: viewModel.widgets.length - index}" class="v-data-widget">
-      <vue-draggable-resizable @dragging="onDragging(arguments, widget,index)" @resizing="resizeData(arguments, widget,index)" :i="1" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
-        <data-item :widget="widget" :scale="scaleWidget" @lockOrUnLockWidget="lockOrUnLockWidget" @sortWidget="sortWidget" @removeWidget="removeWidget" @editWidget="editWidget" @selectWidget="selectWidget" :removeIndex="{'widgetIndex':index}"></data-item>
-      </vue-draggable-resizable>
+  <div>
+    <div v-if="async" class="v-data-container" :style="pageSetting.style">
+      <div v-for="(widget,index) in viewModel.widgets" :key="index" :style="{zIndex: viewModel.widgets.length - index}" class="v-data-widget">
+        <data-item v-if="widget.isLock" :widget="widget" :scale="scaleWidget" @lockOrUnLockWidget="lockOrUnLockWidget" @sortWidget="sortWidget" :style="getStyle(widget)" @removeWidget="removeWidget" @editWidget="editWidget" @selectWidget="selectWidget" :removeIndex="{'widgetIndex':index}"></data-item>
+        <vue-draggable-resizable v-else @dragging="onDragging(arguments, widget,index)" @resizing="resizeData(arguments, widget,index)" :i="1" :x="widget.resizeLayout.x" :y="widget.resizeLayout.y" :w="widget.resizeLayout.w" :h="widget.resizeLayout.h">
+          <data-item :widget="widget" :scale="scaleWidget" @lockOrUnLockWidget="lockOrUnLockWidget" @sortWidget="sortWidget" @removeWidget="removeWidget" @editWidget="editWidget" @selectWidget="selectWidget" :removeIndex="{'widgetIndex':index}"></data-item>
+        </vue-draggable-resizable>
+      </div>
     </div>
   </div>
 </template>
@@ -11,6 +14,7 @@
 
   import service from '../service'
   import dataItem from './items/v-data-item'
+  import styleCss from './styleCss'
   export default {
     components: {
       dataItem
@@ -21,7 +25,8 @@
         widgetItem: '',
         scaleWidget: 1, // 模块还原比例
         pageSetting: {},
-        viewModel: []
+        viewModel: [],
+        loading: true
       }
     },
     mounted () {
@@ -101,6 +106,9 @@
       // 点击模块生效
       selectWidget (value) {
         this.postMessage('selectWidget', value.widget, value.index)
+      },
+      getStyle (widget) {
+        return styleCss.getStyle(this, widget)
       }
     }
   }
