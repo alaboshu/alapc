@@ -37,11 +37,7 @@
       },
       // 设置页面背景或颜色
       async pageSet (data) {
-        if (data.setting && data.setting.tabBarSetting) {
-          this.pageSetting = JSON.parse(data.setting.tabBarSetting)
-        }
-        var style = `width:${this.pageSetting.width}px;height:${this.pageSetting.height}px;`
-        style += `background-image:url("${this.pageSetting.bgImage}"); background-color: ${this.pageSetting.bgColor};transform: scale(${data.scale}); transform-origin: left top;`
+        var style = service.pageSet(data)
         this.scaleWidget = 1 / data.scale
         this.$set(this.pageSetting, 'style', style)
       },
@@ -112,14 +108,5 @@
 
 
 <style lang="scss">
-  .v-data-container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    .v-data-widget {
-      width: 100%;
-      position: absolute;
-      cursor: pointer;
-    }
-  }
+  @import "./index.scss";
 </style>
