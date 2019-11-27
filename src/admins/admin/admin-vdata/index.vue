@@ -8,7 +8,7 @@
             <img v-else src="http://ui.5ug.com/static/vdata/vdata.png" />
             <div class="outset-layer">
               <div class="outset-layer_but">
-                <a target="_blank" :href="'/diy?themeId='+widget.id">编辑</a>
+                <a target="_blank" :href="'/admin/diy?themeId='+widget.id+'&pageId='+widget.id">编辑</a>
                 <a target="_blank" class="layer_but1" :href="'/v-data/preview?path='+widget.path">预览</a>
               </div>
               <a target="_blank" class="outset-layer_a" @click="getRemove(widget)" v-if="false">删除酷屏</a>
