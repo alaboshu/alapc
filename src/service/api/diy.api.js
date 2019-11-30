@@ -4,9 +4,14 @@ export default {
   // 跳转到diy页面
   async redirectTo (themeId, pageId) {
     api.progressOpen(
-      '正在进行数据初始,预计<span style="color: red;">1分钟</span>时间，请勿离开或刷新页面...'
+      '正在授权登录中,请稍后...'
     )
-    var res = await api.httpGet('Api/Admin/Init')
+    var para = {
+      themeId: themeId,
+      pageId: pageId
+    }
+    console.info('惨', para)
+    var res = await api.httpGet('Api/Theme/GetLoginUrl', para)
     setTimeout(() => {
       api.progressClose()
       if (res.status === 1) {
@@ -14,7 +19,8 @@ export default {
           message: '恭喜您，数据初始成功',
           type: 'success'
         })
+        console.info('res', res.result, para)
       }
-    }, 2000)
+    }, 500)
   }
 }
