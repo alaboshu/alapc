@@ -8,6 +8,7 @@
         </vue-draggable-resizable>
       </div>
     </div>
+    <vLoading v-if="loading"></vLoading>
   </div>
 </template>
 <script>
@@ -15,9 +16,11 @@
   import service from '../service'
   import dataItem from './items/v-data-item'
   import styleCss from './styleCss'
+  import vLoading from './items/v-loading'
   export default {
     components: {
-      dataItem
+      dataItem,
+      vLoading
     },
     data () {
       return {
@@ -39,6 +42,7 @@
         this.viewModel = service.convertTo(data)
         this.async = true
         this.postMessage('clientIframeLoadSuccessful', true)
+        this.loading = false
       },
       // 设置页面背景或颜色
       async pageSet (data) {
