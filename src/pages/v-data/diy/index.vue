@@ -113,6 +113,22 @@
       },
       getStyle (widget) {
         return styleCss.getStyle(this, widget)
+      },
+      // 删除容器或模块
+      removeWidgetAndSave (removeData) {
+        if (typeof (removeData) === 'number') {
+          this.viewModel.widgets.splice(removeData, 1)
+        }
+        if (typeof (removeData) === 'object') {
+          if (typeof (removeData.removeIndex) === 'number') {
+            this.viewModel.widgets.splice(removeData.removeIndex, 1)
+          } else {
+            this.auxiliaryRemove = false
+            this.viewModel.widgets[removeData.removeIndex.widgetIndex].columns[removeData.removeIndex.tablayout].widgets.splice(removeData.removeIndex.tabWidgetIndex, 1)
+            this.auxiliaryRemove = true
+          }
+        }
+        this.postMessage('diySave')
       }
     }
   }
