@@ -162,6 +162,7 @@ import vBorder6 from '@/elements/v-data-borders/v-border-6/index.vue'
 import vBorder7 from '@/elements/v-data-borders/v-border-7/index.vue'
 import vBorder8 from '@/elements/v-data-borders/v-border-8/index.vue'
 import vBorder9 from '@/elements/v-data-borders/v-border-9/index.vue'
+import vBorder11 from '@/elements/v-data-borders/v-border-11/index.vue'
 import xAutoconfig from '@/elements/x-autoconfig/index.vue'
 import xBadge from '@/elements/x-badge/index.vue'
 import xBorder from '@/elements/x-border/index.vue'
@@ -425,6 +426,7 @@ Vue.component('v-border-6', vBorder6)
 Vue.component('v-border-7', vBorder7)
 Vue.component('v-border-8', vBorder8)
 Vue.component('v-border-9', vBorder9)
+Vue.component('v-border-11', vBorder11)
 Vue.component('x-autoconfig', xAutoconfig)
 Vue.component('x-badge', xBadge)
 Vue.component('x-border', xBorder)
