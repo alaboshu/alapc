@@ -1,7 +1,7 @@
 
 <template>
   <vuedraggable>
-    <div class="diy-widget-wrap" @contextmenu="contextmenu($event,widget)">
+    <div class="diy-widget-wrap" @contextmenu="contextmenu($event,widget)" @click="selectWidget(widget)">
       <component v-if="widget.border.show" :is="widget.border.name" :docWidth="widget.resizeLayout.w+widget.border.width" :docHeight="widget.resizeLayout.h+widget.border.width">
         <component :is="widget.name" :widget="widget" :title="widget.title" :style="widget.style.styleCss" />
       </component>
@@ -78,7 +78,7 @@
       selectWidget (widget) {
         let value = {
           widget: widget,
-          index: this.removeIndex
+          index: this.removeIndex.widgetIndex
         }
         this.$emit('selectWidget', value)
       },
