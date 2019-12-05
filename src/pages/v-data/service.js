@@ -45,5 +45,12 @@
       var style = `width:${pageSetting.width}px;height:${pageSetting.height}px;`
       style += `background-image:url("${pageSetting.bgImage}");background-size:100% 100%; background-color: ${pageSetting.bgColor};transform: scale(${data.scale}); transform-origin: left top;`
       return style
+    },
+    pagesWidget (jsThis, data) {
+      jsThis.viewModel.widgets.forEach((element, index) => {
+        if (element.dataId === data.widgets[index].dataId) {
+          jsThis.$set(jsThis.viewModel.widgets[index], 'value', data.widgets[index].value)
+        }
+      })
     }
   }

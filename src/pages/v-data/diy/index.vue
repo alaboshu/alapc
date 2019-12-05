@@ -40,6 +40,8 @@
       async initWidget (data) {
         this.pageSet(data)
         this.viewModel = service.convertTo(data)
+        // service.pagesWidget(this, data)
+        this.$set(this.viewModel)
         this.async = true
         this.postMessage('clientIframeLoadSuccessful', true)
         this.loading = false
@@ -77,14 +79,22 @@
       onDragging (data, widget, index) {
         widget.resizeLayout.x = data[0]
         widget.resizeLayout.y = data[1]
-        this.postMessage('v-data-layout-real-time-sync', widget, index)
+        var para = {
+          widget,
+          index: index
+        }
+        this.postMessage('v-data-layout-real-time-sync', para)
       },
       resizeData (data, widget, index) {
         widget.resizeLayout.x = data[0]
         widget.resizeLayout.y = data[1]
         widget.resizeLayout.w = data[2]
         widget.resizeLayout.h = data[3]
-        this.postMessage('v-data-layout-real-time-sync', widget, index)
+        var para = {
+          widget,
+          index: index
+        }
+        this.postMessage('v-data-layout-real-time-sync', para)
       },
       // 删除
       removeWidget (removeData) {
@@ -109,7 +119,8 @@
       },
       // 点击模块生效
       selectWidget (value) {
-        this.postMessage('selectWidget', value.widget, value.index)
+        console.info(value)
+        this.postMessage('selectWidget', value)
       },
       getStyle (widget) {
         return styleCss.getStyle(this, widget)
