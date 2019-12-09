@@ -43,7 +43,6 @@
         }
         this.init()
         this.$nextTick(() => {
-          console.info('watchRoute')
           this.$refs.xTable.init(this.type)
         })
       }

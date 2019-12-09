@@ -119,7 +119,6 @@ export default {
   },
   // 列表页删除事件
   async columnDeleteMethod (intance, action, rowScope) {
-    console.info('action', action.url)
     if (api.isEmpty(action.url)) {
       intance.$alert('删除接口ApiUrl不能为空，请配置ApiUrl', 'ApiUrl不能为空', {
         confirmButtonText: '确定'
@@ -164,9 +163,15 @@ export default {
       loginUserId: intance.$user.id(),
       ...intance.$crud.routeToObject()
     }
+    console.info('rowScope', rowScope, intance.type)
     if (parament.type === undefined) {
       if (intance.$route.query.key !== undefined) {
         parament.type = intance.$route.query.key
+      }
+    }
+    if (parament.type === undefined) {
+      if (intance.type) {
+        parament.type = intance.type
       }
     }
     return new Promise((resolve, reject) => {
