@@ -1,9 +1,9 @@
 <template>
-  <div class="zk-quick-action" style="background: #fff !important;">
-    <tab-item v-if="widget.value.quickType==1" :widget="widget.value.quickForm"></tab-item>
-    <common-item v-if="widget.value.quickType==2" :widget="widget.value.quickForm"></common-item>
-    <recommend-item v-if="widget.value.quickType==3" :widget="widget.value.quickForm"></recommend-item>
-    <more-item v-if="widget.value.quickType==4" :widget="widget.value.quickForm"></more-item>
+  <div class="zk-quick-action" style="background: #fff !important;" v-if="quickForm">
+    <tab-item v-if="widget.value.quickType==1" :widget="quickForm"></tab-item>
+    <common-item v-if="widget.value.quickType==2" :widget="quickForm"></common-item>
+    <recommend-item v-if="widget.value.quickType==3" :widget="quickForm"></recommend-item>
+    <more-item v-if="widget.value.quickType==4" :widget="quickForm"></more-item>
   </div>
 </template>
 
@@ -25,7 +25,8 @@
     },
     data () {
       return {
-        widgetModel: {}
+        widgetModel: {},
+        quickForm: null
       }
     },
     props: {
@@ -36,6 +37,15 @@
     },
     methods: {
       async init () {
+        if (this.widget && this.widget.value) {
+          var data = []
+          this.widget.value.quickForm.forEach(element => {
+            if (element.isEnable) {
+              data.push(element)
+            }
+          })
+          this.quickForm = data
+        }
       }
     }
   }
