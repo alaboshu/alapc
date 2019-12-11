@@ -1,4 +1,5 @@
-   const apiBaseUrl = 'http://api.zhongsheng319.com/'
+const apiBaseUrl = 'http://api.zhongsheng319.com/'
+   const admin = 'fdsa'
    //  const apiBaseUrl = 'http://localhost:1800'
 
    const key =
