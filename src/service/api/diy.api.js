@@ -10,7 +10,6 @@ export default {
       themeId: themeId,
       pageId: pageId
     }
-    console.info('惨', para)
     var res = await api.httpGet('Api/Theme/GetLoginUrl', para)
     setTimeout(() => {
       api.progressClose()
