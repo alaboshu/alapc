@@ -1,6 +1,6 @@
 <template>
   <x-border :title="borderTitle" v-loading="fullscreenLoading" v-if="async">
-    <x-table :widgetData="widgetData" :isTemplate="true" :showTable="false" ref="xTable">
+    <x-table :widgetData="widgetData" type="PlatformApiOrderList" :isTemplate="true" :showTable="false" ref="xTable">
       <template slot-scope="user">
         <div class="order_list" v-for="(item,itemIndex) in user.data.result.result" :key="itemIndex">
           <div class="order_list_top">

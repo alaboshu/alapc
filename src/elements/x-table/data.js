@@ -72,7 +72,6 @@ export default {
       ...crud.routeToObject()
     }
     var response = await api.httpGet(apiUrl, fetchHandlersPara)
-    console.info('表格参数结果：', fetchHandlersPara, response)
     if (jsThis.$base.isBuild() === false) {
       console.info('表格参数结果：', fetchHandlersPara, response)
     }
