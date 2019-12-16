@@ -1,4 +1,3 @@
 @import "@/assets/style/theme.scss";
-@import '../theme.scss';
 $theme-colors: ('brand': (base: $gl-brand, font: $gl-text1), 'primary': (base: $gl-brand, font: $gl-text1), 'metal': (base: $gl-metal, font: $gl-text1), 'success': (base: $gl-success, font: $gl-text1), 'warning': (base: $gl-warning, font: $gl-text1), 'info': (base: $gl-info, font: $gl-text1), 'focus': (base: $gl-focus, font: $gl-text1), 'accent': (base: $gl-accent, font: $gl-text1), 'light': (base: $gl-light, font: $gl-text2), 'danger': (base: $gl-danger, font: $gl-text1));
 $component-colors: ('white': (base: #ffffff, font: #666));
