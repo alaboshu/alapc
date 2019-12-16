@@ -23,12 +23,6 @@ module.exports = {
         _js: `@/service/utils`
       }
     },
-    module: {
-      rules: [{
-        test: /\.scss$/,
-        loader: './lib/variable-loader'
-      }]
-    },
     devServer: {
       host: '0.0.0.0',
       port: '2008',
