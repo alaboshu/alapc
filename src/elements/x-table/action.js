@@ -163,7 +163,6 @@ export default {
       loginUserId: intance.$user.id(),
       ...intance.$crud.routeToObject()
     }
-    console.info('rowScope', rowScope, intance.type)
     if (parament.type === undefined) {
       if (intance.$route.query.key !== undefined) {
         parament.type = intance.$route.query.key

@@ -99,7 +99,6 @@
           this.$api.alert(res.message)
         }
         this.loading = false
-        console.info('this.viewModel', this.viewModel)
       },
       changeTemplateText (val) {
         if (val === 0) {

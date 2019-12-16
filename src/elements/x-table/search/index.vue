@@ -123,7 +123,6 @@
       },
 
       searchHandler (type) {
-        console.info('this.formWidgets', this.formWidget)
         this.submitLoading = true
         var paramenter = {
           pageIndex: 1

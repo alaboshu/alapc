@@ -32,7 +32,6 @@ export default {
           type: 'success'
         })
         .then(() => {
-          console.info('')
         })
         .catch(() => {
           window.history.back(-1)

@@ -114,7 +114,6 @@
       'viewModel.orderUserTypeId': {
         deep: true,
         handler (val) {
-          console.info('就是男方了撒', val)
         }
       }
     }

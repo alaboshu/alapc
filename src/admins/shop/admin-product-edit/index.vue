@@ -98,7 +98,6 @@
             }
             this.$refs.xBorder.init(border)
           })
-          console.info('商品ViewModel', this.viewModel)
         }
         this.loading = false
       },

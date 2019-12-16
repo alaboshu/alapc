@@ -67,7 +67,6 @@
           this.activity.dataTime.push(this.viewModel.activity.endTime)
           this.async = true
         }
-        console.info('表单结构', this.viewModel.autoForm)
       },
       async saveForm (model) {
         this.viewModel.activity.createTime = this.activity.dataTime[0]

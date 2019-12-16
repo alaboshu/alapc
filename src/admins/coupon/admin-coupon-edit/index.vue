@@ -142,7 +142,6 @@
               this.BetweenDay[1] = this.widgetModel.endPeriodOfValidity
               this.changData()
             }
-            console.info('时间', this.BetweenDay)
           }
         } else {
           this.$notify({
@@ -153,10 +152,9 @@
         this.async = true
       },
       showData () {
-        console.info('2222222222222', event)
       },
       changData () {
-        console.info(event)
+
       },
       async onSubmit () {
         this.loading = true

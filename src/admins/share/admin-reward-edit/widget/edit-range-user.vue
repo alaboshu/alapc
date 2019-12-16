@@ -36,7 +36,6 @@
       }
     },
     mounted () {
-      console.info('就是你了', this.viewModel)
       this.init()
     },
     methods: {

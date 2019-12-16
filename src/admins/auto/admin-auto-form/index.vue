@@ -53,7 +53,6 @@
           this.$refs.xBorder.init(border)
         })
         this.firstLoad = false
-        console.info('auto Form 表格结构', this.viewModel)
       },
       async saveForm (models) {
         if (this.$route.query.id) {

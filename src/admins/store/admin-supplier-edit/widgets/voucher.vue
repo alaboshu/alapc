@@ -25,7 +25,6 @@
       viewModel: {}
     },
     mounted () {
-      console.info('viewModel', this.viewModel.order.orderExtension.payGoods)
       this.imageCount = this.viewModel.order.orderExtension.payGoods.icertificate.length
       this.payGoods = this.viewModel.order.orderExtension.payGoods
       this.async = true

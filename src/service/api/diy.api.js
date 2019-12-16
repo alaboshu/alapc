@@ -18,7 +18,6 @@ export default {
           message: '恭喜您，数据初始成功',
           type: 'success'
         })
-        console.info('res', res.result, para)
       }
     }, 500)
   }

@@ -44,7 +44,6 @@
         if (response.status === 1) {
           this.viewModel = response.result
         }
-        console.info(this.viewModel)
       },
       async click (page) {
         await diy.redirectTo(page.themeId, page.id)
