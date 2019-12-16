@@ -212,7 +212,6 @@ import adminLightappTable from '@/admins/auto/admin-lightapp-table/index.vue'
 import autoAutoconfigList from '@/admins/auto/auto-autoconfig-list/index.vue'
 import adminCmsForm from '@/admins/cms/admin-cms-form/index.vue'
 import adminCmsList from '@/admins/cms/admin-cms-list/index.vue'
-import adminLoginLight from '@/admins/common/admin-login-light/index.vue'
 import adminLogin from '@/admins/common/admin-login/index.vue'
 import adminRelationClass from '@/admins/common/admin-relation-class/index.vue'
 import adminRelationTag from '@/admins/common/admin-relation-tag/index.vue'
@@ -450,7 +449,6 @@ Vue.component('admin-lightapp-table', adminLightappTable)
 Vue.component('auto-autoconfig-list', autoAutoconfigList)
 Vue.component('admin-cms-form', adminCmsForm)
 Vue.component('admin-cms-list', adminCmsList)
-Vue.component('admin-login-light', adminLoginLight)
 Vue.component('admin-login', adminLogin)
 Vue.component('admin-relation-class', adminRelationClass)
 Vue.component('admin-relation-tag', adminRelationTag)
