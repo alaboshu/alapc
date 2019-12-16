@@ -7,7 +7,7 @@ import VCharts from 'v-charts'
 import GlobalUtils from '@/service/prototypes/prototype'
 import VueLazyload from 'vue-lazyload'
 import mavonEditor from 'mavon-editor'
-import VueEasyCm from 'vue-easycm'
+
 
 import 'mavon-editor/dist/css/index.css'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -15,13 +15,9 @@ import '@/assets/style/element-variables.scss'
 import '@/assets/style/index.scss'
 import '@/assets/style/flaticon/css/flaticon.css'
 import '@/assets/style/iconall/css/iconfount.css'
-import 'vue-draggable-resizable/dist/VueDraggableResizable.css'
 
-import VueDraggableResizable from 'vue-draggable-resizable'
 /* 5ug auto-import */
 
-Vue.component('vue-draggable-resizable', VueDraggableResizable)
-Vue.use(VueEasyCm)
 Vue.use(mavonEditor)
 Vue.use(ElementUI)
 Vue.use(VCharts)
