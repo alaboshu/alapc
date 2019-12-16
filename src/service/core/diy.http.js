@@ -1,29 +1,39 @@
-import Fly from 'flyio'
-import api from '@/service/prototypes/api'
-import user from '@/service/prototypes/user'
-import base from '@/service/prototypes/base'
 import token from '@/service/core/token'
+import api from '@/service/prototypes/api'
+import base from '@/service/prototypes/base'
+import user from '@/service/prototypes/user'
+import axios from 'axios'
+const apiBaseUrl = 'http://diyapi.5ug.com'
 
 export default {
-  //  Get方法：查
   async get (apiUrl, data) {
-    const response = await this.getRequest(apiUrl, data).get(apiUrl, data)
-    return response
+    var axiosApi = this.axiosCore()
+    this.getAxios(apiUrl)
+    var para = {
+      params: data
+    }
+    if (api.client() === 'WeChatLite') {
+      para = data
+    }
+    var response = await axiosApi.get(apiBaseUrl + apiUrl, para)
+    return response.data
   },
-  //  Post方法 :增
   async post (apiUrl, data) {
-    var response = await this.getRequest(apiUrl, data).post(apiUrl, data)
-    return response
+    var axiosApi = this.axiosCore()
+    this.getAxios(apiUrl)
+    var response = await axiosApi.post(apiBaseUrl + apiUrl, data)
+    return response.data
   },
   //  Put方法：改
   async put (apiUrl, data) {
     var response = await this.getRequest(apiUrl).put(apiUrl, data)
     return response
   },
-  //  delete方法：删
   async delete (apiUrl, data) {
-    var response = await this.getRequest(apiUrl).delete(apiUrl, data)
-    return response
+    var axiosApi = this.axiosCore()
+    var para = this.parseParams(data)
+    var response = await axiosApi.delete(apiBaseUrl + apiUrl + '?' + para)
+    return response.data
   },
   parseParams (data) {
     try {
@@ -39,32 +49,27 @@ export default {
       return ''
     }
   },
-  getRequest (apiUrl) {
-    const request = new Fly()
-    request.interceptors.request.use((config, promise) => {
-      config.headers['zk-token'] = token.getToken(apiUrl)
-      config.headers['zk-user-id'] = user.id()
-      config.headers['zk-filter'] = base.filter()
-      config.headers['zk-user-token'] = token.getUserToken(apiUrl)
-      config.headers['zk-tenant'] = api.tenant()
-      config.headers['zk-timestamp'] = token.timestamp()
+  axiosCore () {
+    return axios
+  },
+  getAxios (apiUrl) {
+    axios.interceptors.request.use((config) => {
+      config.headers = {
+        ...config.headers,
+        ...this.getHead(apiUrl)
+      }
       return config
     })
-    request.config.baseURL = 'http://localhost:6800'
-    //  request.config.baseURL = 'http://localhost:6800'
-    request.interceptors.response.use(
-      (response, promise) => {
-        return promise.resolve(response.data)
-      },
-      (err, promise) => {
-        if (err) {
-          if (!base.isBuild()) {
-            console.error(`网络请求错误:${apiUrl},`, err.response)
-          }
-        }
-        return promise.resolve(err.response.data)
-      }
-    )
-    return request
+  },
+  getHead (apiUrl) {
+    var headObj = {
+      'zk-token': token.getToken(apiUrl),
+      'zk-user-id': user.id(),
+      'zk-filter': base.filter(),
+      'zk-user-token': token.getUserToken(apiUrl),
+      'zk-tenant': api.tenant(),
+      'zk-timestamp': token.timestamp()
+    }
+    return headObj
   }
 }

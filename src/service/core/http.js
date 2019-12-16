@@ -1,5 +1,6 @@
 import token from '@/service/core/token'
 import api from '@/service/prototypes/api'
+import base from '@/service/prototypes/base'
 import user from '@/service/prototypes/user'
 import globalConfig from '@/service/config'
 import axios from 'axios'
@@ -65,6 +66,7 @@ export default {
     var headObj = {
       'zk-token': token.getToken(apiUrl),
       'zk-user-id': user.id(),
+      'zk-filter': base.filter(),
       'zk-user-token': token.getUserToken(apiUrl),
       'zk-tenant': api.tenant(),
       'zk-timestamp': token.timestamp()
