@@ -1,8 +1,8 @@
- @import '../css/_index.scss';
- @import '../sass/_index.scss';
- @import '../../border/index.scss';
- @import '../theme.scss';
- @import '../variable.scss';
+ @import './css/_index.scss';
+ @import './sass/_index.scss';
+ @import './../border/index.scss';
+ @import './theme.scss';
+ @import './variable.scss';
 
  body,
  html {
