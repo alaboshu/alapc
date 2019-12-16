@@ -47,6 +47,5 @@
 
 <style lang="scss" scoped>
   @import "./var.scss";
-  @import "./fonts/var.scss";
 </style>
 
