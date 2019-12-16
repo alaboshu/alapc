@@ -1,11 +1,5 @@
-const ThemePlugin = require('./lib/plugin')
-
-const { ZK_DIY } = process.env
 
 module.exports = {
-  // css: {
-  //   extract: !!ZK_DIY
-  // },
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
@@ -16,6 +10,7 @@ module.exports = {
       ]
     }
   },
+  productionSourceMap: false,
   runtimeCompiler: true,
   configureWebpack: {
     resolve: {
@@ -29,12 +24,10 @@ module.exports = {
       }
     },
     module: {
-      rules: [
-        {
-          test: /\.scss$/,
-          loader: './lib/variable-loader'
-        }
-      ]
+      rules: [{
+        test: /\.scss$/,
+        loader: './lib/variable-loader'
+      }]
     },
     devServer: {
       host: '0.0.0.0',
@@ -43,10 +36,6 @@ module.exports = {
     }
   },
   chainWebpack (config) {
-    if (ZK_DIY) {
-      config.plugin('theme').use(ThemePlugin)
 
-      config.resolveLoader.alias.set('less-loader', './lib/loader')
-    }
   }
 }
