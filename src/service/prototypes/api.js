@@ -50,10 +50,7 @@ export default {
   async httpDelete (apiUrl, data) {
     return http.delete(apiUrl, data)
   },
-  //  延时加载数据到缓存
-  async httpLazy (apiUrl, para, cacheKey) {
-    return http.delete(apiUrl, cacheKey, para)
-  },
+
   /** local 缓存   */
   // 获取缓存
   localGet (name, isEncrypt) {
@@ -119,31 +116,12 @@ export default {
       return store.state[name]
     } else {
       var data = this.localGet(name, isEncrypt)
-      if (!this.isEmpty(data)) {
+      if (data) {
         this.vuexSet(name, data)
         return data
       } else {
         return null
       }
     }
-  },
-  // 判断是否使用diy接口请求数据，并返回请求结果
-  async isApiReqGet (widget, url, data) {
-    var response
-    if (widget.isApiRequest) {
-      response = await this.themeWidget(widget)
-      return response.value.result.productItems
-    }
-    response = await this.httpGet(url, data)
-    return response
-  },
-  async isApiReqGet2 (widget, url, data) {
-    var response
-    if (widget.isApiRequest) {
-      response = await this.themeWidget(widget)
-      return response.value.result
-    }
-    response = await this.httpGet(url, data)
-    return response
   }
 }
