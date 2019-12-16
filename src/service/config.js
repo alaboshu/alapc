@@ -1,5 +1,5 @@
-const apiBaseUrl = 'http://api.zhongsheng319.com/'
-// const apiBaseUrl = 'http://retail_v13.api.5ug.com/'
+// const apiBaseUrl = 'http://api.zhongsheng319.com/'
+const apiBaseUrl = 'http://retail_v13.api.5ug.com/'
 // const apiBaseUrl = 'http://localhost:1800'
 
 const key =
