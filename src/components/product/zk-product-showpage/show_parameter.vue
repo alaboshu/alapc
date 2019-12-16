@@ -45,7 +45,7 @@
     }
   }
 </script>
-<style lang="scss">
+<style  lang="scss" scoped>
   @import "~_style_all/theme.scss";
   .show_paramenter {
     border: 1px solid #e5e5e5;

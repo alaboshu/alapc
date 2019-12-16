@@ -51,7 +51,7 @@
     }
   }
 </script>
-<style lang="scss">
+<style  lang="scss" scoped>
   .user-basic {
     .el-radio:last-child {
       margin-right: 15px;

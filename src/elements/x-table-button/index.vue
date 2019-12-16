@@ -73,7 +73,7 @@
     }
   }
 </script>
-<style lang="scss">
+<style  lang="scss" scoped>
   .x-table-button {
     .el-button {
       padding: 5px 10px;

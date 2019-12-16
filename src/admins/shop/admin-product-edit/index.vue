@@ -139,7 +139,7 @@
     }
   }
 </script>
-<style lang="scss">
+<style  lang="scss" scoped>
   @import "./widgets/style/_index.scss";
 </style>
 

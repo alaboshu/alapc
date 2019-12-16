@@ -69,7 +69,7 @@
   }
 </script>
 
-<style lang="scss">
+<style  lang="scss" scoped>
   @import "src/assets/style/variable.scss";
   @import "src/assets/style/mixins.scss";
 

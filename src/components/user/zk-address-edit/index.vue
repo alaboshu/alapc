@@ -101,6 +101,6 @@
 
 
 
-<style lang="scss">
+<style  lang="scss" scoped>
   @import "./var.scss";
 </style>

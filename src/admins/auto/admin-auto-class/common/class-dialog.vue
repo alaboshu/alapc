@@ -110,7 +110,7 @@
 
 
 
-<style lang="scss">
+<style  lang="scss" scoped>
   .formData-img {
     .el-upload--picture-card i {
       position: absolute;

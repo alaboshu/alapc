@@ -122,7 +122,7 @@
   }
 </script>
 
-<style lang="scss">
+<style  lang="scss" scoped>
   @import "~_style/index.scss";
   .pc-x-head {
     position: relative;

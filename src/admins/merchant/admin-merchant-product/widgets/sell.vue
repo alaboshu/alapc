@@ -170,7 +170,7 @@
 </style>
 
 
-<style lang="scss">
+<style  lang="scss" scoped>
   .Specifications-cont {
     .el-input__inner {
       height: 30px !important;

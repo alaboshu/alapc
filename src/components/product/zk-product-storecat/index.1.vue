@@ -176,7 +176,7 @@
   }
 </script>
 
-<style lang="scss">
+<style  lang="scss" scoped>
    @import "~_style/index.scss";
   @font-face {
     font-family: "iconfont";

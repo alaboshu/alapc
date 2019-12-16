@@ -57,7 +57,7 @@
     }
   }
 </script>
-<style lang="scss">
+<style  lang="scss" scoped>
   @import '~_style_all/variable.scss';
     .side-navigation {
     }

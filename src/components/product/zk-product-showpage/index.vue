@@ -133,7 +133,7 @@
 
 </script>
 
-<style lang="scss">
+<style  lang="scss" scoped>
   @import "~_style_all/theme.scss";
   .data_model {
     width: 60%;

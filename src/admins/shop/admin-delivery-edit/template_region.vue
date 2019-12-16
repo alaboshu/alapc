@@ -46,7 +46,7 @@
     }
   }
 </script>
-<style lang="scss">
+<style  lang="scss" scoped>
   .template_region {
     .region-head {
       padding: 10px 25px;

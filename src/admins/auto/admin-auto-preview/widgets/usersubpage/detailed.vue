@@ -104,7 +104,7 @@
   @import "./styles/detailed.scss";
 </style>
 
-<style lang="scss">
+<style  lang="scss" scoped>
   .detailed {
     .el-textarea__inner {
       height: 70px;

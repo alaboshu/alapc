@@ -54,7 +54,7 @@
     }
   }
 </script>
-<style lang="scss">
+<style  lang="scss" scoped>
   @import "~_style/index.scss";
   .pc-p-news-show {
     font-size: $gl-size-base;

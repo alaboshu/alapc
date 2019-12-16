@@ -37,7 +37,7 @@
 
 
 
-<style lang="scss">
+<style  lang="scss" scoped>
   .voucher {
     .el-form-item__label {
       margin-right: 20px;

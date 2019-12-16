@@ -83,7 +83,7 @@
   }
 </script>
 
-<style lang="scss">
+<style  lang="scss" scoped>
   .admin-list {
     padding: 5px;
     padding-left: 15px;

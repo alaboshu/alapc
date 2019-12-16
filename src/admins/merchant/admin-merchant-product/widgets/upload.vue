@@ -47,7 +47,7 @@
 </script>
 
 
-<style lang="scss">
+<style  lang="scss" scoped>
   .upload {
     display: flex;
     .el-upload--picture-card i {

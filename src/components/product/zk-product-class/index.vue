@@ -104,7 +104,7 @@
   }
 </script>
 
-<style lang="scss">
+<style  lang="scss" scoped>
   @import "~_style_all/theme.scss";
   @import "~_style_all/variable.scss";
   .pc-x-product-class {

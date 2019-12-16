@@ -182,7 +182,7 @@
   }
 </script>
 
-<style lang="scss">
+<style  lang="scss" scoped>
   @import "~_style_all/theme.scss";
   @import "~./index.scss";
 </style>

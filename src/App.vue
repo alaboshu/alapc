@@ -11,7 +11,7 @@
   }
 </script>
 
-<style lang="scss">
+<style  lang="scss" scoped>
   @import "~_style/index.scss";
   @import "~_style_all/theme.scss";
   img[lazy="loading"] {
