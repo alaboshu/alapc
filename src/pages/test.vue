@@ -1,7 +1,7 @@
 
 <template>
   <div>
-    <div class="cont"></div>
+    <admin-auto-faq></admin-auto-faq>
   </div>
 </template>
 

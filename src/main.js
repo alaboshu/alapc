@@ -190,19 +190,11 @@ import adminMessage from '@/admins/admin/admin-message/index.vue'
 import adminSmartHand from '@/admins/admin/admin-smart-hand/index.vue'
 import adminUserTree from '@/admins/admin/admin-user-tree/index.vue'
 import adminVdata from '@/admins/admin/admin-vdata/index.vue'
-import adminAutoAction from '@/admins/auto/admin-auto-action/index.vue'
 import adminAutoArticle from '@/admins/auto/admin-auto-article/index.vue'
-import adminAutoClass from '@/admins/auto/admin-auto-class/index.vue'
 import adminAutoFaq from '@/admins/auto/admin-auto-faq/index.vue'
 import adminAutoForm from '@/admins/auto/admin-auto-form/index.vue'
-import adminAutoImage from '@/admins/auto/admin-auto-image/index.vue'
-import adminAutoIndex from '@/admins/auto/admin-auto-index/index.vue'
-import adminAutoIntro from '@/admins/auto/admin-auto-intro/index.vue'
-import adminAutoNews from '@/admins/auto/admin-auto-news/index.vue'
 import adminAutoPreview from '@/admins/auto/admin-auto-preview/index.vue'
-import adminAutoReport from '@/admins/auto/admin-auto-report/index.vue'
 import adminAutoTable from '@/admins/auto/admin-auto-table/index.vue'
-import adminAutoTag from '@/admins/auto/admin-auto-tag/index.vue'
 import adminAutoTask from '@/admins/auto/admin-auto-task/index.vue'
 import adminAutoVideo from '@/admins/auto/admin-auto-video/index.vue'
 import adminAutoconfigForm from '@/admins/auto/admin-autoconfig-form/index.vue'
@@ -248,7 +240,6 @@ import adminProductList from '@/admins/shop/admin-product-list/index.vue'
 import adminSmsRecharge from '@/admins/sms/admin-sms-recharge/index.vue'
 import adminSmsSend from '@/admins/sms/admin-sms-send/index.vue'
 import adminSmsSendgroup from '@/admins/sms/admin-sms-sendgroup/index.vue'
-import adminStoreSettings from '@/admins/store/admin-store-settings/index.vue'
 import adminSupplierEdit from '@/admins/store/admin-supplier-edit/index.vue'
 import adminSupplierEidt from '@/admins/store/admin-supplier-eidt/index.vue'
 import adminSupplierOrder from '@/admins/store/admin-supplier-order/index.vue'
@@ -427,19 +418,11 @@ Vue.component('admin-message', adminMessage)
 Vue.component('admin-smart-hand', adminSmartHand)
 Vue.component('admin-user-tree', adminUserTree)
 Vue.component('admin-vdata', adminVdata)
-Vue.component('admin-auto-action', adminAutoAction)
 Vue.component('admin-auto-article', adminAutoArticle)
-Vue.component('admin-auto-class', adminAutoClass)
 Vue.component('admin-auto-faq', adminAutoFaq)
 Vue.component('admin-auto-form', adminAutoForm)
-Vue.component('admin-auto-image', adminAutoImage)
-Vue.component('admin-auto-index', adminAutoIndex)
-Vue.component('admin-auto-intro', adminAutoIntro)
-Vue.component('admin-auto-news', adminAutoNews)
 Vue.component('admin-auto-preview', adminAutoPreview)
-Vue.component('admin-auto-report', adminAutoReport)
 Vue.component('admin-auto-table', adminAutoTable)
-Vue.component('admin-auto-tag', adminAutoTag)
 Vue.component('admin-auto-task', adminAutoTask)
 Vue.component('admin-auto-video', adminAutoVideo)
 Vue.component('admin-autoconfig-form', adminAutoconfigForm)
@@ -485,7 +468,6 @@ Vue.component('admin-product-list', adminProductList)
 Vue.component('admin-sms-recharge', adminSmsRecharge)
 Vue.component('admin-sms-send', adminSmsSend)
 Vue.component('admin-sms-sendgroup', adminSmsSendgroup)
-Vue.component('admin-store-settings', adminStoreSettings)
 Vue.component('admin-supplier-edit', adminSupplierEdit)
 Vue.component('admin-supplier-eidt', adminSupplierEidt)
 Vue.component('admin-supplier-order', adminSupplierOrder)
