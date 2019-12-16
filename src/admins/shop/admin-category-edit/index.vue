@@ -44,7 +44,6 @@
           categoryId: this.$route.query.id
         }
         var response = await this.$api.httpGet('Api/Category/GetView', para)
-        console.log(response)
         if (response.status === 1) {
           this.viewModel = response.result
         }

@@ -107,7 +107,6 @@
         this.tableList.values.splice(index, 1)
       },
       handleDeletes (index, val) {
-        console.log(this.displayPropertys, index, val)
       },
       commodityEdit () {
         this.dialogVisible = true
