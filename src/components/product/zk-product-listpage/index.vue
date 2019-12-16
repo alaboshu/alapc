@@ -250,8 +250,8 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~_style_all/theme.scss";
-  @import "~_style_all/theme.scss";
+  @import "~_style/theme.scss";
+  @import "~_style/theme.scss";
   .pc-x-product-class {
     font-size: $gl-size-base;
     width: 1200px;

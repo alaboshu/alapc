@@ -48,7 +48,7 @@
 
 
 <style lang="scss" scoped>
-  @import "~_style_all/theme.scss";
+  @import "~_style/theme.scss";
   .showRight {
     width: 100%;
     .showRightTop {

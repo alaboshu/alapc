@@ -46,7 +46,7 @@
   }
 </script>
 <style  lang="scss" scoped>
-  @import "~_style_all/theme.scss";
+  @import "~_style/theme.scss";
   .show_paramenter {
     border: 1px solid #e5e5e5;
     .title {

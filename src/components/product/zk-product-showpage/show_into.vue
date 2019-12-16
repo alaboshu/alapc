@@ -274,7 +274,7 @@
   }
 </script>
 <style  lang="scss" scoped>
-  @import "~_style_all/theme.scss";
+  @import "~_style/theme.scss";
   .product_show {
     float: left;
     color: #666;

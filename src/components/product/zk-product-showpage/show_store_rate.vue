@@ -94,7 +94,7 @@
   }
 </script>
 <style  lang="scss" scoped>
-  @import "~_style_all/theme.scss";
+  @import "~_style/theme.scss";
   .store_all_box {
     width: 210px;
     border: 1px solid #dcdcdc;

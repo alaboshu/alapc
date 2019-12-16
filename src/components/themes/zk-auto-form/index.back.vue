@@ -265,5 +265,5 @@
 
 <style rel="stylesheet/scss" lang="scss">
   @import "./style.scss";
-  @import "~_style_all/autoform.scss";
+  @import "~_style/autoform.scss";
 </style>

@@ -13,7 +13,7 @@
 
 <style  lang="scss" scoped>
   @import "~_style/index.scss";
-  @import "~_style_all/theme.scss";
+  @import "~_style/theme.scss";
   img[lazy="loading"] {
     width: 120px !important;
     height: 120px !important;

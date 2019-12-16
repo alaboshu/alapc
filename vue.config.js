@@ -14,10 +14,7 @@ module.exports = {
       alias: {
         flyio: 'flyio/dist/npm/fly',
         wx: `@/src/service/prototypes/api/wx`,
-        _style: `@/assets/style`,
-        _style_all: '@/assets/style',
-        _router: '@/service/router/routers.js',
-        _js: `@/service/utils`
+        _style: `@/assets/style`
       }
     },
     devServer: {

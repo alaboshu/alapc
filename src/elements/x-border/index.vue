@@ -67,6 +67,6 @@
   }
 </script>
 <style lang="scss" rel="stylesheet/scss">
-  @import "~_style_all/theme.scss";
+  @import "~_style/theme.scss";
   @import "./style.scss";
 </style>

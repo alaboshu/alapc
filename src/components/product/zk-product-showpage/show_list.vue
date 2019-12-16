@@ -164,7 +164,7 @@
 
 
 <style lang="scss" scoped>
-  @import "~_style_all/theme.scss";
+  @import "~_style/theme.scss";
   .show_list {
     h3 {
       font-size: 16px;
