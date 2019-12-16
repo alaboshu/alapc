@@ -3,8 +3,7 @@ module.exports = {
     'style-resources-loader': {
       preProcessor: 'scss',
       patterns: [
-        'src/assets/style/theme.scss',
-        'src/assets/style/sass/_index.scss'
+        'src/assets/style/theme.scss'
       ]
     }
   },
