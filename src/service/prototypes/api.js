@@ -1,7 +1,6 @@
 import theme from '@/service/core/theme'
 import http from '@/service/core/http'
 import local from '../utils/local'
-import loading from '../utils/loading'
 import store from '@/service/store/index'
 import help from '@/service/utils/helper'
 import config from '@/service/config'
@@ -54,13 +53,6 @@ export default {
   //  延时加载数据到缓存
   async httpLazy (apiUrl, para, cacheKey) {
     return http.delete(apiUrl, cacheKey, para)
-  },
-  /** loading   */
-  loadingOpen () {
-    return loading.open()
-  },
-  loadingClose () {
-    return loading.close()
   },
   /** local 缓存   */
   // 获取缓存
