@@ -32,6 +32,7 @@
   </div>
 </template>
 <script>
+  import theme from '@/service/core/theme'
   export default {
     data () {
       return {
@@ -53,6 +54,9 @@
         if (this.$user.isAdmin()) {
           this.$router.push('/Admin/index')
         }
+        setTimeout(async () => {
+          await theme.getAllPageList('admin')
+        }, 3000)
       },
       async subimt () {
         this.loading = true
