@@ -99,7 +99,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .zk-backtop {
     font-size: $gl-size-base;
     height: 100%;

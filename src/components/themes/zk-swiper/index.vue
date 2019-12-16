@@ -81,7 +81,7 @@
 </script>
 
 <style  lang="scss" scoped>
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .pc-x-swiper {
     font-size: $gl-size-base;
     text-align: center;

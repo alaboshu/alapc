@@ -35,7 +35,7 @@
 </script>
 
 <style  lang="scss" scoped>
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .zk-head-user {
     height: 110px;
     line-height: 110px;

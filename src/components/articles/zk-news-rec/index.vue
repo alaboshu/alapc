@@ -63,7 +63,7 @@
 
 
 <style scoped lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .zk-news-rec {
     width: 100%;
     border-top: 2px solid red;

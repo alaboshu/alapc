@@ -123,7 +123,7 @@
 </script>
 
 <style  lang="scss" scoped>
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .pc-x-head {
     position: relative;
     background-color: #fff;

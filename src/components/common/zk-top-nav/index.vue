@@ -278,7 +278,7 @@
 </script>
 
 <style   lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
 
   .zk-top-nav {
     width: 100%;

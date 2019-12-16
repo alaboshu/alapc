@@ -43,7 +43,7 @@
 </script>
 
 <style  lang="scss" scoped>
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .pc-x-buy-address {
     font-size: $gl-size-base;
   }

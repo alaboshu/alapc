@@ -53,7 +53,7 @@
 
 
 <style scoped lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .zk-news-product {
     width: 100%;
     border-top: 2px solid $gl-brand;

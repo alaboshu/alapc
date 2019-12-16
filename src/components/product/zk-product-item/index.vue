@@ -193,7 +193,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .pc-x-product-item {
     font-size: $gl-size-base;
     width: 1200px;

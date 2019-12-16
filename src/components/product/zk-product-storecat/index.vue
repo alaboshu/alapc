@@ -97,6 +97,6 @@
 </script>
 
 <style  lang="scss" scoped>
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
 </style>
 

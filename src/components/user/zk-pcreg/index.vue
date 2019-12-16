@@ -178,7 +178,7 @@
   }
 </script>
 <style  lang="scss" scoped>
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .pc-p-pcreg {
     font-size: $gl-size-base;
     .border {

@@ -49,7 +49,7 @@
 
 
 <style  lang="scss" scoped>
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .zk-image {
     font-size: $gl-size-base;
     a {

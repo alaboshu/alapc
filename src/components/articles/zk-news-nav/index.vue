@@ -83,7 +83,7 @@
 
 
 <style scoped lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .zk-news-nav {
     width: 1200px;
     margin: 0 auto;

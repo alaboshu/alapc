@@ -177,7 +177,7 @@
 </script>
 
 <style  lang="scss" scoped>
-   @import "~_style/index.scss";
+   @import "~_style/theme.scss";
   @font-face {
     font-family: "iconfont";
     src: url("iconfont.eot?t=1536808746819"); /* IE9*/

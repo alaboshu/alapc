@@ -81,7 +81,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .pc-p-news-item {
     font-size: $gl-size-base;
     width: 1200px;

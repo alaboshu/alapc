@@ -68,7 +68,7 @@
   }
 </script>
 <style scoped lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .zk-cell {
     background-color: #f8f8f8;
     border-top: 1px solid transparent;

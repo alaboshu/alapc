@@ -98,7 +98,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .pc-p-pclogin {
     font-size: $gl-size-base;
     height: 500px;

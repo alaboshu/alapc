@@ -56,7 +56,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .zk-nav {
     width: 1200px;
     margin: 27px auto 0 auto;

@@ -277,7 +277,7 @@
   }
 </script>
 <style  lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
 
   .pc-x-cart_box {
     width: 1200px;

@@ -91,7 +91,7 @@
   }
 </script>
 <style   lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .zk-order-list {
     font-size: $gl-size-base;
     overflow: hidden;

@@ -12,7 +12,6 @@
 </script>
 
 <style  lang="scss" scoped>
-  @import "~_style/index.scss";
   @import "~_style/theme.scss";
   img[lazy="loading"] {
     width: 120px !important;

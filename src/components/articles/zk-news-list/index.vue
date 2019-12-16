@@ -63,7 +63,7 @@
 
 
 <style rel="stylesheet/scss" lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .zk-news-list {
     width: 100%;
     .top-list {

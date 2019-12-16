@@ -46,7 +46,7 @@
   }
 </script>
 <style scoped lang="scss">
-  @import "~_style/index.scss";
+  @import "~_style/theme.scss";
   .zk-grid_bottom {
     width: 100%;
     height: 10px;
