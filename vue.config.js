@@ -12,8 +12,6 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        flyio: 'flyio/dist/npm/fly',
-        wx: `@/src/service/prototypes/api/wx`,
         _style: `@/assets/style`
       }
     },
