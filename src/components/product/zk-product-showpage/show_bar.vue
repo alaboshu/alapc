@@ -1,12 +1,12 @@
 <template>
-    <div class="side-navigation">
-      <div class="side_top">
-        <div class="top_left"></div>
-        <div class="top_middle"></div>
+  <div class="side-navigation">
+    <div class="side_top">
+      <div class="top_left"></div>
+      <div class="top_middle"></div>
 
-      </div>
     </div>
-    <!-- <ul class="side-navigation_ul">
+  </div>
+  <!-- <ul class="side-navigation_ul">
       <li>
         <router-link @click="onBlock(1)">
           <i class="guige_i"></i>
@@ -58,8 +58,8 @@
   }
 </script>
 <style  lang="scss" scoped>
-  @import '~_style_all/variable.scss';
-    .side-navigation {
-    }
+  @import "~_style_all/theme.scss";
+  .side-navigation {
+  }
 </style>
 

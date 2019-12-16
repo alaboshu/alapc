@@ -1,11 +1,9 @@
-
 module.exports = {
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
       patterns: [
         'src/assets/style/theme.scss',
-        'src/assets/style/variable.scss',
         'src/assets/style/sass/_index.scss'
       ]
     }
@@ -29,7 +27,7 @@ module.exports = {
       disableHostCheck: true
     }
   },
-  chainWebpack (config) {
+  chainWebpack(config) {
 
   }
 }

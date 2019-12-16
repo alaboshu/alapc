@@ -70,7 +70,7 @@
 </script>
 
 <style  lang="scss" scoped>
-  @import "src/assets/style/variable.scss";
+  @import "src/assets/style/theme.scss";
   @import "src/assets/style/mixins.scss";
 
   .upload_box {
