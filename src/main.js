@@ -61,6 +61,7 @@ import zkTable from '@/components/themes/zk-table/index.vue'
 import zkText from '@/components/themes/zk-text/index.vue'
 import zkTitle from '@/components/themes/zk-title/index.vue'
 import zkTop from '@/components/themes/zk-top/index.vue'
+import zkTreetable from '@/components/themes/zk-treetable/index.vue'
 import zkVideo from '@/components/themes/zk-video/index.vue'
 import zkAddressEdit from '@/components/user/zk-address-edit/index.vue'
 import zkHeadUser from '@/components/user/zk-head-user/index.vue'
@@ -206,6 +207,7 @@ Vue.component('zk-table', zkTable)
 Vue.component('zk-text', zkText)
 Vue.component('zk-title', zkTitle)
 Vue.component('zk-top', zkTop)
+Vue.component('zk-treetable', zkTreetable)
 Vue.component('zk-video', zkVideo)
 Vue.component('zk-address-edit', zkAddressEdit)
 Vue.component('zk-head-user', zkHeadUser)
