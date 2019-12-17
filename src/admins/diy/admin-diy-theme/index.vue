@@ -1,12 +1,16 @@
 <template>
   <div class="admin-diy-admin">
-    <admin-pages-list :widgetModel="viewModel"></admin-pages-list>
+    <theme-item :widgetModel="viewModel"></theme-item>
   </div>
 </template>
 
 <script>
+  import themeItem from './style/item'
   import './var.scss'
   export default {
+    components: {
+      themeItem
+    },
     data () {
       return {
         widgetModel: {},
@@ -21,7 +25,7 @@
     },
     methods: {
       async init () {
-        var response = await this.$api.httpGet('/api/theme/querylist')
+        var response = await this.$api.httpGet('/api/theme/GetAdminTheme', this.widget.value)
         if (response.status === 1) {
           response.result.forEach(element => {
             var dataItem = response.result.find(t => t.clientType === 2)
