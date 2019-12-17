@@ -1,6 +1,8 @@
 .admin-pages-list {
   display: flex;
   flex-wrap: wrap;
+  margin: 8px;
+  min-height: 650px;
 
   .theme-item_outset {
     cursor: pointer;
@@ -27,7 +29,7 @@
 
   .theme-item-list {
     margin: 10px;
-    width: 210px;
+    width: 240px;
     display: inline-block;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -50,7 +52,7 @@
         position: absolute;
         top: 0px;
         left: 0px;
-        width: 210px;
+        width: 240px;
         height: 350px;
         background: rgba(0, 0, 0, 0.5);
 
@@ -125,6 +127,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+
     }
 
     .text_p2 {
@@ -143,7 +146,7 @@
     }
 
     .outset-text_right {
-      width: 35px;
+      width: 70px;
       height: 35px;
       border-radius: 100%;
 

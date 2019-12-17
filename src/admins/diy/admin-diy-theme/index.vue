@@ -1,6 +1,6 @@
 <template>
   <div class="admin-diy-admin">
-    <theme-item :widgetModel="viewModel"></theme-item>
+    <theme-item :widgetModel="widgetModel" v-if="widgetModel"></theme-item>
   </div>
 </template>
 
@@ -13,8 +13,7 @@
     },
     data () {
       return {
-        widgetModel: {},
-        viewModel: []
+        widgetModel: null
       }
     },
     props: {
@@ -27,12 +26,8 @@
       async init () {
         var response = await this.$api.httpGet('/api/theme/GetAdminTheme', this.widget.value)
         if (response.status === 1) {
-          response.result.forEach(element => {
-            var dataItem = response.result.find(t => t.clientType === 2)
-            if (dataItem) {
-              this.viewModel.push(dataItem)
-            }
-          })
+          this.widgetModel = response.result
+          console.info('theme', response.result, this.widgetModel)
         }
       }
     }
