@@ -10,7 +10,7 @@
           <div class="outset-layer">
             <div class="them_text">{{ widget.id }}</div>
             <div class="outset-layer_but">
-              <a target="_blank" :href="'/diy?themeId=' + widget.id">编辑</a>
+              <span class="layer_but" @click="diy(widget)">编辑</span>
               <a target="_blank" class="layer_but1" :href="'/preview?themeId=' + widget.id">预览</a>
             </div>
           </div>
@@ -31,6 +31,17 @@
   export default {
     props: {
       widgetModel: {}
+    },
+    methods: {
+      async diy (theme) {
+        var para = {
+          themeId: theme.id
+        }
+        var response = await this.$api.httpGet('/api/theme/GetLoginUrl', para)
+        if (response.status === 1) {
+          window.open(response.message, '_blank')
+        }
+      }
     }
   }
 </script>
