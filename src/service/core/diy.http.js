@@ -3,7 +3,8 @@ import api from '@/service/prototypes/api'
 import base from '@/service/prototypes/base'
 import user from '@/service/prototypes/user'
 import axios from 'axios'
-const apiBaseUrl = 'http://diyapi.5ug.com'
+// const apiBaseUrl = 'http://diyapi.5ug.com'
+const apiBaseUrl = 'http://localhost:6800'
 
 export default {
   async get (apiUrl, data) {
