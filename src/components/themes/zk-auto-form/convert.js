@@ -10,7 +10,38 @@ export default {
     } else {
       config = this.toNoTabConfig(config)
     }
+    config = this.setRules(config)
     return config
+  },
+  // 设置验证规格
+  setRules (config) {
+    config.rules = {}
+    if (config.columns) {
+      config.columns.forEach(r => {
+        if (r.type === 'tab') {
+          r.columns.forEach(c => {
+            config.rules[c.field] = this.getRuleData(c)
+          })
+        } else {
+          config.rules[r.field] = this.getRuleData(r)
+        }
+      })
+    }
+    console.info('config')
+    return config
+  },
+  getRuleData (column) {
+    var array = []
+    var data = {
+      required: false,
+      message: `请输入${column.name},${column.name}不能为空`,
+      trigger: 'blur'
+    }
+    if (column.required) {
+      data.required = true
+    }
+    array.push(data)
+    return array
   },
   toTabConfig (autoFormConfig) {
     var formConfig = autoFormConfig
@@ -31,7 +62,7 @@ export default {
     return formConfig
   },
   toNoTabConfig (autoFormConfig) {
-    if (autoFormConfig && autoFormConfig.groups.length > 0) {
+    if (autoFormConfig && autoFormConfig.groups && autoFormConfig.groups.length > 0) {
       autoFormConfig.columns = autoFormConfig.groups[0].items
     }
     autoFormConfig.groups = null

@@ -1,5 +1,5 @@
 <template>
-  <el-form-item :label="column.name" :prop="column.model" class="from-item" v-if="async&&column.type !== 'hidden'">
+  <el-form-item :label="column.name" :prop="column.field" class="from-item" v-if="async&&column.type !== 'hidden'">
     <template v-if="column.type == 'label'">
       <label>{{dataModel}}</label>
     </template>

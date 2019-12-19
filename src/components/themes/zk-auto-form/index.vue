@@ -2,7 +2,7 @@
   <div class="zk-auto-form" v-if="autoForm&&async">
     <div v-if="serviceConfig.fromMessage==null">
       <el-alert v-if="autoForm.tooltip && autoForm.tooltip.alertText" :title="autoForm.tooltip.alertText" show-icon type="success" :closable="false"></el-alert>
-      <el-form ref="generateForm" :model="viewModel">
+      <el-form ref="generateForm" :model="viewModel" :rules="autoForm.rules">
         <div v-if="autoForm.type==='tab'">
           <el-tabs v-model="tabActiveName">
             <el-tab-pane v-for="(column,index) in autoForm.columns" :key="index">
