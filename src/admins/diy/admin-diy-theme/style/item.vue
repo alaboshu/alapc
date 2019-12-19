@@ -12,7 +12,7 @@
           <span class="layer_but1" @click="make(theme)">制 作</span>
           <br /><br />
           <span class="layer_but3" @click="setDefault(theme)" v-if="theme.isPublic===false">设置默认</span>
-          <span class="layer_but2" @click="del(theme)" v-if="theme.isPublic===false">删除默认</span>
+          <span class="layer_but2" @click="deleteTheme(theme)" v-if="theme.isPublic===false">删除默认</span>
         </div>
       </div>
     </div>
@@ -23,17 +23,16 @@
         </p>
       </div>
     </div>
-    <delete-theme name="模板" ref="zkRootDelete" rootType="5"></delete-theme>
+
   </div>
 </template>
 
 <script>
   import service from './service'
-  import deleteTheme from './delete'
+
   export default {
-    components: {
-      deleteTheme
-    },
+
+
     props: {
       theme: {},
       defautTheme: {}
@@ -70,10 +69,8 @@
           })
         })
       },
-      async del (theme) {
-        console.info('删除')
-        this.$refs.zkRootDelete.dialogFormVisible = true
-        this.$refs.zkRootDelete.paraForm.themeId = theme.id
+      async deleteTheme (theme) {
+        this.$emit('deleteTheme', theme)
       },
       async make (theme) {
         await service.make(this, theme)
