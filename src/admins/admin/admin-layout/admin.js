@@ -110,15 +110,25 @@ export default {
   // 头部菜单，快捷操作
   async topQuickMenus () {
     var topMenus = [{
-        name: '清空缓存',
-        icon: 'flaticon-stopwatch ',
-        method: 'clearCache'
-      },
-      {
-        name: '数据初始',
-        icon: 'flaticon-lifebuoy',
-        method: 'init'
-      }
+      name: '清空缓存',
+      icon: 'flaticon-layers ',
+      method: 'clearCache'
+    },
+    {
+      name: '数据初始',
+      icon: 'flaticon-mark',
+      method: 'init'
+    },
+    {
+      name: 'DIY编辑',
+      icon: 'flaticon-visible',
+      method: 'diy'
+    },
+    {
+      name: 'H5前端',
+      icon: 'flaticon-location  ',
+      method: 'h5'
+    }
     ]
     return topMenus
   },
