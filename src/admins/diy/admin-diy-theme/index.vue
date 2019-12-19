@@ -43,7 +43,6 @@
         var response = await diyHttp.post('/api/DiyClient/GetAdminTheme', para)
         if (response.status === 1) {
           this.diyThemes = response.result.result
-          console.info('云端模板', response.result, this.diyThemes)
         }
       }
     }

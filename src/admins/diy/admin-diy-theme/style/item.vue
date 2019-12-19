@@ -47,13 +47,16 @@
       },
       async setDefault (theme) {
         var para = {
-          themeId: theme.id
+          id: theme.id
         }
-        this.$api.progressOpen('正在登录中,预计时间<span style="color: red;">1分钟</span>，请勿离开或刷新页面...')
-        var response = await this.$api.httpGet('/api/theme/GetLoginUrl', para)
+        this.$api.progressOpen('正在设置默认模板，请勿离开或刷新页面...')
+        var response = await this.$api.httpGet('/api/theme/SetDefaultTheme', para)
         this.$api.progressClose()
+        console.info('response', response)
         if (response.status === 1) {
-          window.open(response.message, '_blank')
+          this.$api.alert('默认模板修改成功')
+        } else {
+          this.$api.alert(response.message)
         }
       },
       async del (theme) {
