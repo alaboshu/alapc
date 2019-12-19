@@ -2,7 +2,7 @@
   <div class="zk-auto-form" v-if="autoForm&&async">
     <div v-if="serviceConfig.fromMessage==null">
       <el-alert v-if="autoForm.tooltip && autoForm.tooltip.alertText" :title="autoForm.tooltip.alertText" show-icon type="success" :closable="false"></el-alert>
-      <el-form ref="generateForm" :model="viewModel" :rules="rules">
+      <el-form ref="generateForm" :model="viewModel">
         <div v-if="autoForm.type==='tab'">
           <el-tabs v-model="tabActiveName">
             <el-tab-pane v-for="(column,index) in autoForm.columns" :key="index">
@@ -70,9 +70,6 @@
       return {
         viewModel: {},
         autoForm: null,
-        rules: {},
-        formLabelWidth: 100,
-        parament: null,
         tabActiveName: 0,
         loading: false,
         async: false
@@ -88,17 +85,19 @@
     },
     methods: {
       async init (newWidget) {
-        var widgetData = this.serviceConfig
-        if (this.notConvert) {
-          this.autoForm = widgetData
-        } else {
-          if (!this.$api.isEmpty(newWidget)) {
-            widgetData = newWidget
-          }
-          if (!this.$api.isEmpty(widgetData)) {
-            this.autoForm = await convert.toConfig(widgetData)
-          }
+        var configData = this.serviceConfig
+        if (!newWidget) {
+          configData = newWidget
         }
+        if (!configData) {
+          return
+        }
+        if (this.notConvert) {
+          this.autoForm = configData
+        } else {
+          this.autoForm = await convert.toConfig(configData)
+        }
+
         this.viewModel = service.getModel(this.autoForm, this.dataModel)
         this.async = true
         this.$emit('formLoad', this.async)

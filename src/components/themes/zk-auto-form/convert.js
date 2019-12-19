@@ -4,7 +4,8 @@ export default {
     if (!config.tooltip) {
       config.tooltip = {}
     }
-    if (config && config.groups.length > 1) {
+    console.info('config', config)
+    if (config && config.groups && config.groups.length > 1) {
       config = this.toTabConfig(config)
     } else {
       config = this.toNoTabConfig(config)
@@ -27,7 +28,6 @@ export default {
     }
     formConfig.type = 'tab'
     formConfig.groups = null
-    console.info('标签类型', formConfig)
     return formConfig
   },
   toNoTabConfig (autoFormConfig) {

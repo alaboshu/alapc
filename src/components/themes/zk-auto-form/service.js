@@ -16,16 +16,7 @@ export default {
         }
       })
     }
-    // 从
-    if (autoFormConfig && autoFormConfig.columns) {
-      autoFormConfig.columns.forEach(group => {
-        if (group.field === 'parentUserName') {
-          formModel[group.field] = group.value
-        }
-      })
-    }
-
-
+    console.info('数据', autoFormConfig, formModel)
     // 从URL中获取的数据
     if (dataModel) {
       if (autoFormConfig && autoFormConfig.columns) {
