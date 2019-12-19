@@ -1,7 +1,6 @@
 import globalConfig from '@/service/config'
 import crypto from '@/service/utils/crypto'
 import user from '../prototypes/user'
-import api from '../prototypes/api'
 var { projectId, key, privateKey } = globalConfig
 export default {
   // 头部传入token机制,算法和后台匹配，管理员可以在后台随时修改
@@ -11,11 +10,9 @@ export default {
     token = crypto.md5(token.toLowerCase())
     return token
   },
-  getDiyToken (apiUrl) {
-    apiUrl = this.getUrl(apiUrl)
-    var site = api.localGet('site_default').site
-    var token = apiUrl + this.timestamp() + site.id + site.projectNum
-    console.info('toekn', token)
+  getDiyToken (apiUrl, site) {
+    //   apiUrl = this.getUrl(apiUrl)
+    var token = this.timestamp() + site.id + site.projectNum
     token = crypto.md5(token.toLowerCase())
     return token
   },

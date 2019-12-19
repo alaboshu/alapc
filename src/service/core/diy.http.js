@@ -63,7 +63,7 @@ export default {
   getHead (apiUrl) {
     var site = api.vuexLocalGet('site_default').site
     var headObj = {
-      'zk-site-token': token.getDiyToken(apiUrl),
+      'zk-site-token': token.getDiyToken(apiUrl, site),
       'zk-site-id': site.id,
       'zk-site-user-id': site.userId,
       'zk-timestamp': token.timestamp()

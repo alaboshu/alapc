@@ -27,7 +27,8 @@
 </template>
 
 <script>
-  import diyHttp from '@/service/core/diy.http'
+  import service from './service'
+
   export default {
     props: {
       theme: {},
@@ -102,40 +103,7 @@
         })
       },
       async make (theme) {
-        this.$confirm('是否制作该模板' + theme.name, '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(async () => {
-          var site = await this.$base.site()
-          this.$api.progressOpen('模板正在制作中,预计时间<span style="color: red;">1分钟</span>，请勿离开或刷新页面...')
-          var makeInput = {
-            siteId: site.id,
-            themeId: theme.id,
-            userId: site.userId,
-            name: theme.name,
-            intro: theme.intro
-          }
-          console.info('保存参数', makeInput)
-          var response = await diyHttp.httpPost('/Api/DiyClient/Make', makeInput)
-          this.$api.progressClose()
-          if (response.status === 1) {
-            this.$message({
-              type: 'success',
-              message: '制作成功!'
-            })
-          } else {
-            this.$message({
-              type: 'info',
-              message: response.message
-            })
-          }
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消制作'
-          })
-        })
+        service.make(this, theme)
       }
     }
   }

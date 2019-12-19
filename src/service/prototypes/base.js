@@ -146,7 +146,7 @@ export default {
         api.vuexLocalSet('site_default', site)
       }
     }
-    return site
+    return site.site
   },
   // 设置标题
   async setTitle (title) {
@@ -155,6 +155,6 @@ export default {
     if (title) {
       name = title
     }
-    document.title = `${name}--${site.site.companyName}  阿拉博数提供技术支持`
+    document.title = `${name}--${site.companyName}  阿拉博数提供技术支持`
   }
 }

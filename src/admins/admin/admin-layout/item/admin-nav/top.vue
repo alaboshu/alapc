@@ -44,7 +44,7 @@
           </div>
         </div>
       </div>
-      <div class="site-name" v-if="site">{{site.site.companyName}}</div>
+      <div class="site-name" v-if="site">{{site.companyName}}</div>
       <div class="back-stage">
         <el-popover placement="bottom-end" trigger="hover" :popper-options="options" :popper-class="'popper-class popper-class-'+height">
           <div class="background-login-signature">
