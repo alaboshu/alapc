@@ -1,19 +1,18 @@
 <template>
   <div class="zk-root-delete">
-    <el-dialog :title="`删除${name}`" width="750px" :visible.sync="dialogFormVisible">
+    <el-dialog :title="`制作${name}`" width="750px" :visible.sync="dialogFormVisible">
       <div class="delete-dialog">
-        <el-alert title="删除模板提示" type="error" description="模板删除后，将彻底的删除所有的数据，并且不能恢复，请谨慎删除" :closable="false" show-icon>
+        <el-alert title="制作模板" type="success" description="每个用户最多可制作20个模板，模板制作成功后，可在云端操作设计、设置、发布等" :closable="false" show-icon>
         </el-alert>
         <el-form ref="form" style="margin-top:15px">
-          <el-form-item :label="`确认${name}Id`" :required="true">
-            <el-input v-model="paraForm.ConfirmId"></el-input>
-            <div class="form-intro">请输入确认{{name}}Id,{{name}}ID <x-code>{{paraForm.themeId}}</x-code>
+          <el-form-item label="模板名称" :required="true">
+            <el-input v-model="paraForm.name"></el-input>
+            <div class="form-intro">输入模板名称，长度不能超过60个字符
             </div>
           </el-form-item>
-          <el-form-item label="云平台手机号" :required="true">
-            <el-input v-model="paraForm.mobile"></el-input>
-            <div class="form-intro">您在阿拉博数平台预留的手机号码,请输入手机号码:<x-code>{{$base.site().phone}}</x-code>
-            </div>
+          <el-form-item label="模板简介" :required="true">
+            <el-input type="textarea" :rows="3" v-model="paraForm.intro"></el-input>
+            <div class="form-intro">输入模板的简介,长度不能超过500个字符 </div>
           </el-form-item>
           <el-form-item label="云平台支付密码" :required="true">
             <el-input v-model="paraForm.payPassword" type="password"></el-input>
@@ -23,7 +22,7 @@
       </div>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false" type="default">取 消</el-button>
-        <el-button type="danger" @click="deleteTheme">确定删除该{{name}}所有的数据，不可恢复!</el-button>
+        <el-button type="danger" @click="primary">开始制作模板</el-button>
       </div>
     </el-dialog>
   </div>
@@ -40,10 +39,8 @@
       return {
         dialogFormVisible: false,
         paraForm: {
-          themeId: '',
-          payPassword: '', // 手动输入
-          mobile: '',
-          confirmId: '' // 手动输入
+          name: '',
+          intro: ''
         }
       }
     },

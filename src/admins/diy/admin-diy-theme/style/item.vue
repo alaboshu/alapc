@@ -73,7 +73,8 @@
         this.$emit('deleteTheme', theme)
       },
       async make (theme) {
-        await service.make(this, theme)
+        this.$emit('makeTheme', theme)
+        //  await service.make(this, theme)
       }
     }
   }

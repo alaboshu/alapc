@@ -1,21 +1,24 @@
 <template>
   <div class="admin-diy-admin">
     <div class="admin-pages-list" v-loading="!diyThemes">
-      <theme-item @deleteTheme="deleteTheme" v-for="(theme,index) in diyThemes" :defautTheme="defaultTheme" :theme="theme" :key="index"></theme-item>
+      <theme-item @deleteTheme="deleteTheme" @makeTheme="makeTheme" v-for="(theme,index) in diyThemes" :defautTheme="defaultTheme" :theme="theme" :key="index"></theme-item>
     </div>
     <delete-theme name="模板" ref="zkRootDelete" rootType="5"></delete-theme>
+    <make-theme name="模板" ref="zkRootMake" rootType="5"></make-theme>
   </div>
 </template>
 
 <script>
   import themeItem from './style/item'
   import deleteTheme from './style/delete'
+  import makeTheme from './style/make'
   import diyHttp from '@/service/core/diy.http'
   import './var.scss'
   export default {
     components: {
       themeItem,
-      deleteTheme
+      deleteTheme,
+      makeTheme
     },
     data () {
       return {
@@ -49,6 +52,11 @@
         } else {
           this.$api.alert(response.message)
         }
+      },
+      async makeTheme (theme) {
+        console.info('制作模板', theme)
+        this.$refs.zkRootMake.dialogFormVisible = true
+        this.$refs.zkRootMake.paraForm.themeId = theme.id
       },
       async deleteTheme (theme) {
         console.info('删除模板', theme)
