@@ -27,6 +27,7 @@
 </template>
 
 <script>
+  import diyHttp from '@/service/core/diy.http'
   export default {
     props: {
       theme: {},
@@ -116,7 +117,7 @@
             intro: theme.intro
           }
           console.info('保存参数', makeInput)
-          var response = await this.$api.httpPost('/Api/DiyClient/Make', makeInput)
+          var response = await diyHttp.httpPost('/Api/DiyClient/Make', makeInput)
           this.$api.progressClose()
           if (response.status === 1) {
             this.$message({

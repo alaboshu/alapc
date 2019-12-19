@@ -15,6 +15,7 @@ export default {
     apiUrl = this.getUrl(apiUrl)
     var site = api.localGet('site_default').site
     var token = apiUrl + this.timestamp() + site.id + site.projectNum
+    console.info('toekn', token)
     token = crypto.md5(token.toLowerCase())
     return token
   },
