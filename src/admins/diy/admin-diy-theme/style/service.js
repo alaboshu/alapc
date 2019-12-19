@@ -5,7 +5,6 @@ export default {
     var para = {
       themeId: theme.id
     }
-    console.info('参数', para)
     jsThis.$api.progressOpen('正在登录中,预计时间<span style="color: red;">1分钟</span>，请勿离开或刷新页面...')
     var response = await jsThis.$api.httpGet('/api/theme/GetLoginUrl', para)
     jsThis.$api.progressClose()

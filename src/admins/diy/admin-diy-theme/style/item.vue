@@ -95,8 +95,7 @@
         })
       },
       async make (theme) {
-         await service.make(this, theme)
-        
+        await service.make(this, theme)
       }
     }
   }
