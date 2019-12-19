@@ -1,9 +1,8 @@
 import token from '@/service/core/token'
 import api from '@/service/prototypes/api'
-import base from '@/service/prototypes/base'
-import user from '@/service/prototypes/user'
 import axios from 'axios'
-const apiBaseUrl = 'http://diyapi.5ug.com'
+// const apiBaseUrl = 'http://diyapi.5ug.com'
+const apiBaseUrl = 'http://localhost:6800'
 
 export default {
   async get (apiUrl, data) {
@@ -62,12 +61,11 @@ export default {
     })
   },
   getHead (apiUrl) {
+    var site = api.vuexLocalGet('site_default').site
     var headObj = {
-      'zk-token': token.getToken(apiUrl),
-      'zk-user-id': user.id(),
-      'zk-filter': base.filter(),
-      'zk-user-token': token.getUserToken(apiUrl),
-      'zk-tenant': api.tenant(),
+      'zk-site-token': token.getDiyToken(apiUrl, site),
+      'zk-site-id': site.id,
+      'zk-site-user-id': site.userId,
       'zk-timestamp': token.timestamp()
     }
     return headObj

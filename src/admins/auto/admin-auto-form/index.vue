@@ -30,6 +30,7 @@
           type = this.widgetData.value.form.type
           this.widgetModel = this.widgetData.value.form.border
         }
+
         var para = {
           type: type,
           userId: this.$user.id(),

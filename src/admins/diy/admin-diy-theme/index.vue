@@ -1,16 +1,23 @@
 <template>
   <div class="admin-diy-admin">
-    <admin-pages-list :widgetModel="viewModel"></admin-pages-list>
+    <div class="admin-pages-list" v-loading="!diyThemes">
+      <theme-item v-for="(theme,index) in diyThemes" :defautTheme="defaultTheme" :theme="theme" :key="index"></theme-item>
+    </div>
   </div>
 </template>
 
 <script>
+  import themeItem from './style/item'
+  import diyHttp from '@/service/core/diy.http'
   import './var.scss'
   export default {
+    components: {
+      themeItem
+    },
     data () {
       return {
-        widgetModel: {},
-        viewModel: []
+        defaultTheme: null,
+        diyThemes: null // 远程模板
       }
     },
     props: {
@@ -21,14 +28,22 @@
     },
     methods: {
       async init () {
-        var response = await this.$api.httpGet('/api/theme/querylist')
+        var response = await this.$api.httpGet('/api/theme/getDefaultTheme', this.widget.value)
         if (response.status === 1) {
-          response.result.forEach(element => {
-            var dataItem = response.result.find(t => t.clientType === 2)
-            if (dataItem) {
-              this.viewModel.push(dataItem)
-            }
-          })
+          this.defaultTheme = response.result
+        }
+        await this.getDiyThemes()
+      },
+      // 获取远程模板
+      async getDiyThemes () {
+        var para = {
+          ...this.widget.value
+        }
+        var response = await diyHttp.post('/api/DiyClient/GetAdminTheme', para)
+        if (response.status === 1) {
+          this.diyThemes = response.result.result
+        } else {
+          this.$api.alert(response.message)
         }
       }
     }

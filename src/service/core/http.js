@@ -13,9 +13,6 @@ export default {
     var para = {
       params: data
     }
-    if (api.client() === 'WeChatLite') {
-      para = data
-    }
     var response = await axiosApi.get(globalConfig.apiBaseUrl + apiUrl, para)
     return response.data
   },

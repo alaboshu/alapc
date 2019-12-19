@@ -1,9 +1,8 @@
-.admin-pages-list {
-  display: flex;
-  flex-wrap: wrap;
+
 
   .theme-item_outset {
     cursor: pointer;
+    height: 400px;
   }
 
   .theme-item_outset {
@@ -27,7 +26,7 @@
 
   .theme-item-list {
     margin: 10px;
-    width: 210px;
+    width: 240px;
     display: inline-block;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -50,9 +49,9 @@
         position: absolute;
         top: 0px;
         left: 0px;
-        width: 210px;
+        width: 240px;
         height: 350px;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.64);
 
         .them_text {
           font-size: 10px;
@@ -67,7 +66,7 @@
           text-align: center;
           position: relative;
           top: 50%;
-          transform: translateY(-50%);
+          transform: translateY(-90%);
 
           span,
           a {
@@ -75,7 +74,7 @@
             font-size: 13px;
             font-weight: 400;
             color: #ffffff;
-            background: #34bfa3;
+             background: #9816f4;
             margin-left: 10px;
             padding: 8px 20px;
             border-radius: 20px;
@@ -83,6 +82,16 @@
 
           .layer_but1 {
             background: #1593ff;
+          }
+           .layer_but2 {
+            background: #f4516c;
+             font-size: 12px;
+               padding: 3px 10px;
+          }
+          .layer_but3{
+            background: #00c5dc;
+             font-size: 12px;
+               padding: 3px 10px;
           }
         }
 
@@ -125,6 +134,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+
     }
 
     .text_p2 {
@@ -143,7 +153,7 @@
     }
 
     .outset-text_right {
-      width: 35px;
+      width: 70px;
       height: 35px;
       border-radius: 100%;
 
@@ -156,14 +166,15 @@
   }
 
   .outset-test {
-    width: 70px;
-    height: 20px;
-    line-height: 20px;
+    width: 100%;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
     color: #ffffff;
     text-align: center;
-    background: #449284;
+     background: #f4516c;
     position: absolute;
     right: 0;
     top: 0;
   }
-}
+

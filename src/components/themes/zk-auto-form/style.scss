@@ -6,6 +6,13 @@ $menuHover: #001528;
 $HeadHeight: 55px;
 
 .zk-auto-form {
+  .el-tabs--top{
+    margin: 0px;
+    margin-top:-18px;
+    .el-tabs__item span{
+      font-size: 14px;
+    }
+  }
   font-size: 12px;
   padding: 20px;
 
