@@ -23,12 +23,17 @@
         </p>
       </div>
     </div>
+    <delete-theme name="模板" ref="zkRootDelete" rootType="5"></delete-theme>
   </div>
 </template>
 
 <script>
   import service from './service'
+  import deleteTheme from './delete'
   export default {
+    components: {
+      deleteTheme
+    },
     props: {
       theme: {},
       defautTheme: {}
@@ -66,32 +71,9 @@
         })
       },
       async del (theme) {
-        this.$confirm('是否删除模板：' + theme.name, '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(async () => {
-          var para = {
-            id: theme.id
-          }
-          var response = await this.$api.httpGet('/api/theme/SetDefaultTheme', para)
-          if (response.status === 1) {
-            this.$message({
-              type: 'success',
-              message: '删除成功!'
-            })
-          } else {
-            this.$message({
-              type: 'info',
-              message: response.message
-            })
-          }
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消删除'
-          })
-        })
+        console.info('删除')
+        this.$refs.zkRootDelete.dialogFormVisible = true
+        this.$refs.zkRootDelete.paraForm.themeId = theme.id
       },
       async make (theme) {
         await service.make(this, theme)

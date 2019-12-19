@@ -8,6 +8,7 @@
 
 <script>
   import themeItem from './style/item'
+
   import diyHttp from '@/service/core/diy.http'
   import './var.scss'
   export default {
