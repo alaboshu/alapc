@@ -1,102 +1,40 @@
 export default {
   // 将服务器数据格式转换成zk-auto-form所需要的格式
-  async toConfig (serviceConfig) {
-    var config
-    if (serviceConfig.groups.length > 1) {
-      config = await this.toTabConfig(serviceConfig)
+  toConfig (config) {
+    if (!config.tooltip) {
+      config.tooltip = {}
+    }
+    if (config && config.groups.length > 1) {
+      config = this.toTabConfig(config)
     } else {
-      config = await this.toNoTabConfig(serviceConfig)
+      config = this.toNoTabConfig(config)
     }
     return config
   },
-  async toTabConfig (serviceConfig) {
-    var formConfig = {}
-    formConfig.config = {
-      name: serviceConfig.border.title,
-      title: serviceConfig.border.title,
-      bottonText: serviceConfig.tooltip.bottonText,
-      apiUrl: '/api/auto/save'
-      // successReturn: serviceConfig.service.successReturn
-    }
-    formConfig.list = []
-    var tab = {
-      type: 'tab',
-      name: '标签',
-      columns: [],
-      icon: '',
-      options: {},
-      key: 590,
-      model: 'tab_599',
-      rules: ''
-    }
-    serviceConfig.groups.forEach(colunms => {
-      var colunmsList = {
-        name: colunms.groupName,
-        list: []
-      }
-      colunms.items.forEach(items => {
-        var item = {}
-        item.dataSource = items.dataSource
-        item.value = items.value
-        item.name = items.name
-        item.type = items.type
-        item.icon = items.icon
-        item.helpBlock = items.helpBlock
-        item.model = items.field
-        item.options = {
-          placeholder: items.placeHolder
+  toTabConfig (autoFormConfig) {
+    var formConfig = autoFormConfig
+    formConfig.columns = []
+    if (autoFormConfig && autoFormConfig.groups) {
+      autoFormConfig.groups.forEach(group => {
+        var tab = {
+          type: 'tab',
+          name: group.groupName,
+          columns: group.items
         }
-        if (serviceConfig.isCms !== undefined && serviceConfig.isCms === true) {
-          item.isCms = true
-        }
-        item.rules = items.rules
-        item.required = items.required
-        colunmsList.list.push(item)
+        formConfig.columns.push(tab)
       })
-      tab.columns.push(colunmsList)
-    })
-    //   formConfig.config.name’
-    formConfig.list.push(tab)
+    }
+    formConfig.type = 'tab'
+    formConfig.groups = null
+    console.info('标签类型', formConfig)
     return formConfig
   },
-  async toNoTabConfig (serviceConfig) {
-    var autoConfig = {}
-    autoConfig.config = {
-      bottonText: serviceConfig.bottonText,
-      name: serviceConfig.name,
-      title: serviceConfig.title,
-      alertText: serviceConfig.alertText,
-      buttomHelpText: serviceConfig.buttomHelpText
+  toNoTabConfig (autoFormConfig) {
+    if (autoFormConfig && autoFormConfig.groups.length > 0) {
+      autoFormConfig.columns = autoFormConfig.groups[0].items
     }
-    autoConfig.list = []
-    serviceConfig.groups[0].items.forEach((item, itemIndex) => {
-      var objectItem = {
-        type: item.type,
-        name: item.name,
-        dataSource: item.dataSource,
-        model: item.field,
-        helpBlock: item.helpBlock,
-        rules: item.rules,
-        icon: item.icon,
-        value: item.value,
-        jsonItems: item.jsonItems,
-        options: {
-          placeholder: item.placeHolder,
-          sortOrder: item.sortOrder,
-          editShow: item.editShow,
-          listShow: item.listShow,
-          required: item.required,
-          validType: item.validType,
-          width: item.width,
-          maxlength: item.maxlength,
-          minLength: item.minLength
-        },
-        required: item.required
-      }
-      autoConfig.list.push(objectItem)
-    })
-
-    return autoConfig
+    autoFormConfig.groups = null
+    return autoFormConfig
   },
   // 获取图标
   geIcon () {

@@ -1,53 +1,26 @@
 <template>
   <div class="zk-auto-form" v-if="formConfig&&async">
     <div v-if="serviceConfig.fromMessage==null">
-      <el-alert v-if="formConfig.config && formConfig.config.alertText" :title="formConfig.config.alertText" show-icon type="success" :closable="false"></el-alert>
+      <el-alert v-if="formConfig.tooltip && formConfig.tooltip.alertText" :title="formConfig.tooltip.alertText" show-icon type="success" :closable="false"></el-alert>
       <el-form ref="generateForm" :model="models" :rules="rules">
-        <template v-for="item in formConfig.list">
-          <template v-if="item.type == 'grid'">
-            <el-row :key="item.key" type="flex" :gutter="item.options.gutter ? item.options.gutter : 0" :justify="item.options.justify" :align="item.options.align">
-              <el-col v-for="(col, colIndex) in item.columns" :key="colIndex" :span="col.span">
-                <template v-for="citem in col.list">
-                  <el-form-item v-if="citem.type=='blank'" @viewForm="viewForm" :label="citem.name" :prop="citem.model" :key="citem.key">
-                    <slot :name="citem.model" :model="models"></slot>
-                  </el-form-item>
-                  <form-item v-else :key="citem.key" @viewForm="viewForm" :models.sync="models" :rules="rules" :widgets="citem"></form-item>
-                </template>
-              </el-col>
-            </el-row>
-          </template>
-          <template v-else-if="item.type == 'tab'">
-            <el-tabs class="auto-form-tabs" :key="item.key+1" v-model="tabActiveName">
-              <el-tab-pane v-for="(col, colIndex) in item.columns" :key="colIndex" :label="col.name" :name="col.name">
-                <span slot="label" class="tab-list"><i class="glyph-icon" :class="tabIconList[colIndex]"></i> {{col.name}}</span>
-                <template v-for="citem in col.list">
-                  <el-form-item v-if="citem.type=='blank'" @viewForm="viewForm" :prop="citem.model" :key="citem.key">
-                    <slot :name="citem.model" :model="models"></slot>
-                  </el-form-item>
-                  <form-item :saveForm="saveForm" v-else :key="citem.key" :models.sync="models" :rules="rules" :widgets="citem"></form-item>
-                </template>
-              </el-tab-pane>
-            </el-tabs>
-          </template>
-          <template v-else-if="item.type == 'blank'">
-            <el-form-item :label="item.name" :prop="item.model" :key="item.key">
-              <slot :name="item.model" :model="models"></slot>
-            </el-form-item>
-          </template>
-          <template v-if="item.type=='table'">
-            <div :key="item.name" class="title">
-              <h3>{{item.name}}</h3>
-            </div>
-            <x-table :autoFormId="item.options.autoFormId" :key="item.options.autoFormId"></x-table>
-          </template>
-          <template v-else>
+        <div v-if="formConfig.type==='tab'">
+          <el-tabs v-model="tabActiveName">
+            <el-tab-pane v-for="(column,index) in formConfig.columns" :key="index" :name="index">
+              <span slot="label"><i :class="tabIconList[Number(index+1)]"></i> {{column.name}}</span>
+              <form-item :saveForm="saveForm" :key="column.key" :models.sync="models" :rules="rules" :widgets="column"></form-item>
+            </el-tab-pane>
+          </el-tabs>
+        </div>
+        <div v-for="(item,index) in formConfig.columns" :key="index">
+
+          <template>
             <form-item :key="item.key" :models.sync="models" @viewForm="viewForm" :rules="rules" :widgets="item" :parament="parament"></form-item>
           </template>
-        </template>
-        <template v-if="formConfig.config&&formConfig.config.buttomHelpText!==undefined &&formConfig.config.buttomHelpText!==null&&formConfig.config.buttomHelpText.length > 0">
+        </div>
+        <template v-if="formConfig.tooltip&&formConfig.tooltip.buttomHelpText!==undefined &&formConfig.tooltip.buttomHelpText!==null&&formConfig.tooltip.buttomHelpText.length > 0">
           <x-line :border="true" title="温馨提示">
             <ul class="zkAutoFormUl">
-              <li class="zkAutoFormList" v-for="(item, index) in formConfig.config.buttomHelpText" :key="index">{{index+1}}、 {{item}}</li>
+              <li class="zkAutoFormList" v-for="(item, index) in formConfig.tooltip.buttomHelpText" :key="index">{{index+1}}、 {{item}}</li>
             </ul>
           </x-line>
         </template>
@@ -97,7 +70,7 @@
         tabIconList: [],
         formLabelWidth: 100,
         parament: null,
-        tabActiveName: '',
+        tabActiveName: 0,
         loading: false,
         async: false
       }
@@ -132,15 +105,10 @@
         this.tabIconList = convert.geIcon()
         // 表单校验
         this.getFormUrl()
-        for (var i = 0; i < this.formConfig.list.length; i++) {
-          if (this.formConfig.list[i].type === 'tab') {
-            this.tabActiveName = this.formConfig.list[i].columns[0].name
-          }
-        }
       },
       async saveForm () {
         this.loading = true
-        for (let item of this.formConfig.list) {
+        for (let item of this.formConfig.columns) {
           for (let i in this.models) {
             if (item.type === 'tab' || item.type === 'grid') {
               for (let list of item.columns) {
@@ -182,7 +150,7 @@
       },
       // 映射表格的值
       async mapTableData () {
-        this.formConfig.list.forEach(element => {
+        this.formConfig.columns.forEach(element => {
           if (element.type === 'table') {
             element.dataList = this.models[element.model]
             if (this.$api.isEmpty(element.dataList)) {
@@ -190,13 +158,13 @@
             }
           }
         })
-        this.$set(this.formConfig, 'list', this.formConfig.list)
-        this.generateModle(this.formConfig.list)
+        this.$set(this.formConfig, 'list', this.formConfig.columns)
+        this.generateModle(this.formConfig.columns)
       },
 
       getFormUrl () {
-        if (this.formConfig.list) {
-          this.formConfig.list.forEach((item, index) => {
+        if (this.formConfig.columns) {
+          this.formConfig.columns.forEach((item, index) => {
             if (item.required) {
               var data = {
                 required: true,
