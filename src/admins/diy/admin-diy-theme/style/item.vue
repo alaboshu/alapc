@@ -46,40 +46,96 @@
         }
       },
       async setDefault (theme) {
-        var para = {
-          id: theme.id
-        }
-        this.$api.progressOpen('正在设置默认模板，请勿离开或刷新页面...')
-        var response = await this.$api.httpGet('/api/theme/SetDefaultTheme', para)
-        this.$api.progressClose()
-        console.info('response', response)
-        if (response.status === 1) {
-          this.$api.alert('默认模板修改成功')
-        } else {
-          this.$api.alert(response.message)
-        }
+        this.$confirm('是否设置模板：' + theme.name + ' 为默认模板?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(async () => {
+          var para = {
+            id: theme.id
+          }
+          var response = await this.$api.httpGet('/api/theme/SetDefaultTheme', para)
+          if (response.status === 1) {
+            this.$message({
+              type: 'success',
+              message: '设置成功!'
+            })
+          } else {
+            this.$message({
+              type: 'info',
+              message: response.message
+            })
+          }
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消设置默认模板'
+          })
+        })
       },
       async del (theme) {
-        var para = {
-          themeId: theme.id
-        }
-        this.$api.progressOpen('正在登录中,预计时间<span style="color: red;">1分钟</span>，请勿离开或刷新页面...')
-        var response = await this.$api.httpGet('/api/theme/GetLoginUrl', para)
-        this.$api.progressClose()
-        if (response.status === 1) {
-          window.open(response.message, '_blank')
-        }
+        this.$confirm('是否删除模板：' + theme.name, '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(async () => {
+          var para = {
+            id: theme.id
+          }
+          var response = await this.$api.httpGet('/api/theme/SetDefaultTheme', para)
+          if (response.status === 1) {
+            this.$message({
+              type: 'success',
+              message: '删除成功!'
+            })
+          } else {
+            this.$message({
+              type: 'info',
+              message: response.message
+            })
+          }
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })
+        })
       },
       async make (theme) {
-        var para = {
-          themeId: theme.id
-        }
-        this.$api.progressOpen('正在登录中,预计时间<span style="color: red;">1分钟</span>，请勿离开或刷新页面...')
-        var response = await this.$api.httpGet('/api/theme/GetLoginUrl', para)
-        this.$api.progressClose()
-        if (response.status === 1) {
-          window.open(response.message, '_blank')
-        }
+        this.$confirm('是否制作该模板' + theme.name, '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(async () => {
+          var site =await this.$base.site()
+          this.$api.progressOpen('模板正在制作中,预计时间<span style="color: red;">1分钟</span>，请勿离开或刷新页面...')
+          var makeInput = {
+            siteId: site.id,
+            themeId: theme.id,
+            userId: site.userId,
+            name: theme.name,
+            intro: theme.intro
+          }
+          console.info('保存参数', makeInput)
+          var response = await this.$api.httpPost('/Api/DiyClient/Make', makeInput)
+          this.$api.progressClose()
+          if (response.status === 1) {
+            this.$message({
+              type: 'success',
+              message: '制作成功!'
+            })
+          } else {
+            this.$message({
+              type: 'info',
+              message: response.message
+            })
+          }
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消制作'
+          })
+        })
       }
     }
   }
