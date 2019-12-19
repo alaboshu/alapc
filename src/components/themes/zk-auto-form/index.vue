@@ -1,26 +1,23 @@
 <template>
-  <div class="zk-auto-form" v-if="formConfig&&async">
+  <div class="zk-auto-form" v-if="autoForm&&async">
     <div v-if="serviceConfig.fromMessage==null">
-      <el-alert v-if="formConfig.tooltip && formConfig.tooltip.alertText" :title="formConfig.tooltip.alertText" show-icon type="success" :closable="false"></el-alert>
+      <el-alert v-if="autoForm.tooltip && autoForm.tooltip.alertText" :title="autoForm.tooltip.alertText" show-icon type="success" :closable="false"></el-alert>
       <el-form ref="generateForm" :model="viewModel" :rules="rules">
-        <div v-if="formConfig.type==='tab'">
+        <div v-if="autoForm.type==='tab'">
           <el-tabs v-model="tabActiveName">
-            <el-tab-pane v-for="(column,index) in formConfig.columns" :key="index" :name="index">
+            <el-tab-pane v-for="(column,index) in autoForm.columns" :key="index" :name="index">
               <span slot="label"><i :class="tabIconList[Number(index+1)]"></i> {{column.name}}</span>
-              <!-- <form-item v-model="viewModel[tabColumn.field]" :column="tabColumn" :currentModel="viewModel"></form-item> -->
+              <form-item v-for="(tabColumn,tabIndex) in column.columns" :key="tabIndex" v-model="viewModel[tabColumn.field]" :column="tabColumn" :currentModel="viewModel"></form-item>
             </el-tab-pane>
           </el-tabs>
         </div>
-        <div v-for="(item,index) in formConfig.columns" :key="index">
-
-          <template>
-            <form-item :key="item.key" :viewModel.sync="viewModel" :rules="rules" :widgets="item" :parament="parament"></form-item>
-          </template>
+        <div v-else>
+          <form-item v-for="(column,index) in autoForm.columns" :key="index" v-model="viewModel[column.field]" :column="column" :currentModel="viewModel"></form-item>
         </div>
-        <template v-if="formConfig.tooltip&&formConfig.tooltip.buttomHelpText!==undefined &&formConfig.tooltip.buttomHelpText!==null&&formConfig.tooltip.buttomHelpText.length > 0">
+        <template v-if="autoForm.tooltip&&autoForm.tooltip.buttomHelpText!==undefined &&autoForm.tooltip.buttomHelpText!==null&&autoForm.tooltip.buttomHelpText.length > 0">
           <x-line :border="true" title="温馨提示">
             <ul class="zkAutoFormUl">
-              <li class="zkAutoFormList" v-for="(item, index) in formConfig.tooltip.buttomHelpText" :key="index">{{index+1}}、 {{item}}</li>
+              <li class="zkAutoFormList" v-for="(item, index) in autoForm.tooltip.buttomHelpText" :key="index">{{index+1}}、 {{item}}</li>
             </ul>
           </x-line>
         </template>
@@ -72,8 +69,7 @@
     data () {
       return {
         viewModel: {},
-        formConfig: null,
-        autoForm: {},
+        autoForm: null,
         rules: {},
         tabIconList: [],
         formLabelWidth: 100,
@@ -93,7 +89,6 @@
     },
     methods: {
       async init (newWidget) {
-        console.info('wdigetdata', this.serviceConfig, this.type)
         var widgetData = this.serviceConfig
         if (this.notConvert) {
           this.autoForm = widgetData
@@ -109,6 +104,7 @@
         this.async = true
         this.$emit('formLoad', this.async)
         this.tabIconList = convert.geIcon()
+        console.info('wdigetdata', this.autoForm, this.viewModel)
       },
       async saveForm () {
         this.$emit('saveForm', this.viewModel)
