@@ -26,7 +26,6 @@
     methods: {
       async  init () {
         var type = this.$crud.getType()
-        console.info('type', this.widgetData.value)
         if (this.widgetData.value !== undefined && this.widgetData.value !== null && this.widgetData.value.form.type !== undefined) {
           type = this.widgetData.value.form.type
           this.widgetModel = this.widgetData.value.form.border
@@ -39,7 +38,6 @@
           ...this.$crud.routeToObject()
         }
         var response = await this.$api.httpGet('/Api/Auto/Form', para)
-        console.info('response', response.result)
         if (response.status !== 1) {
           this.$notify({
             title: '操作失败',

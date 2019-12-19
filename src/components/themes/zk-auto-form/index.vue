@@ -86,22 +86,22 @@
     methods: {
       async init (newWidget) {
         var configData = this.serviceConfig
-        if (!newWidget) {
+        if (newWidget) {
           configData = newWidget
         }
         if (!configData) {
           return
         }
-        if (this.notConvert) {
+
+        if (this.notConvert === true) {
           this.autoForm = configData
         } else {
           this.autoForm = await convert.toConfig(configData)
         }
-
+        console.info('wdigetdata', this.autoForm, this.viewModel)
         this.viewModel = service.getModel(this.autoForm, this.dataModel)
         this.async = true
         this.$emit('formLoad', this.async)
-        console.info('wdigetdata', this.autoForm, this.viewModel)
       },
       async saveForm () {
         this.$emit('saveForm', this.viewModel)
