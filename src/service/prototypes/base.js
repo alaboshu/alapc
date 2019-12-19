@@ -137,7 +137,7 @@ export default {
     return apiUrl
   },
   // 基本信息
-  async site () {
+  async siteAsync () {
     var site = api.vuexLocalGet('site_default')
     if (!site) {
       var response = await api.httpGet('/Api/Tenant/QueryDefault')
@@ -146,6 +146,11 @@ export default {
         api.vuexLocalSet('site_default', site)
       }
     }
+    return site.site
+  },
+  // 基本信息
+  site () {
+    var site = api.vuexLocalGet('site_default')
     return site.site
   },
   // 设置标题

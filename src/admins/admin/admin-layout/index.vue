@@ -49,7 +49,7 @@
           this.$router.push('/admin/login')
         }
         if (this.site == null) {
-          this.site = await this.$base.site()
+          this.site = await this.$base.siteAsync()
         }
         this.async = true
         if (this.$route.fullPath === '/admin') {

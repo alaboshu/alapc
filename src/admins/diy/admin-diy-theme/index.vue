@@ -31,6 +31,7 @@
     },
     methods: {
       async init () {
+        console.info('this.$base.site().phone', this.$base.site())
         var response = await this.$api.httpGet('/api/theme/getDefaultTheme', this.widget.value)
         if (response.status === 1) {
           this.defaultTheme = response.result

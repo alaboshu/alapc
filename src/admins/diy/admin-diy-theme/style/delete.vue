@@ -2,15 +2,17 @@
   <div class="zk-root-delete">
     <el-dialog :title="`删除${name}`" width="750px" :visible.sync="dialogFormVisible">
       <div class="delete-dialog">
-        <el-form ref="form">
-          <el-form-item label="手机号" :required="true">
-            <el-input v-model="paraForm.mobile"></el-input>
-            <div class="form-intro">请输入手机号,输入您账号的手机号码</div>
-          </el-form-item>
+        <el-alert title="删除模板提示" type="error" description="模板删除后，将彻底的删除所有的数据，并且不能恢复，请谨慎删除" :closable="false" show-icon>
+        </el-alert>
+        <el-form ref="form" style="margin-top:15px">
           <el-form-item :label="`确认${name}Id`" :required="true">
             <el-input v-model="paraForm.ConfirmId"></el-input>
             <div class="form-intro">请输入确认{{name}}Id,{{name}}ID <x-code>{{paraForm.themeId}}</x-code>
             </div>
+          </el-form-item>
+          <el-form-item label="登录手机号" :required="true">
+            <el-input v-model="paraForm.mobile"></el-input>
+            <div class="form-intro">您在阿拉博数平台预留的手机号码,请输入手机号码:{{$base.site().phone}}</div>
           </el-form-item>
           <el-form-item label="支付密码" :required="true">
             <el-input v-model="paraForm.payPassword" type="password"></el-input>
@@ -33,14 +35,13 @@
       name: {},
       rootType: {}
     },
-
     data () {
       return {
         dialogFormVisible: false,
         paraForm: {
           themeId: '',
           payPassword: '', // 手动输入
-          mobile: '', // 手动输入
+          mobile: '',
           confirmId: '' // 手动输入
         }
       }

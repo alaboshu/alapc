@@ -19,7 +19,7 @@ export default {
       cancelButtonText: '取消',
       type: 'warning'
     }).then(async () => {
-      var site = await jsThis.$base.site()
+      var site = await jsThis.$base.siteAsync()
       jsThis.$api.progressOpen('模板正在制作中,预计时间<span style="color: red;">1分钟</span>，请勿离开或刷新页面...')
       var makeInput = {
         SiteId: site.id,
