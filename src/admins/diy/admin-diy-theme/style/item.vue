@@ -1,22 +1,26 @@
 <template>
   <div class="theme-item_outset theme-item-list">
     <div class="outset-img">
-      <img :src="widget.image" />
-      <div class="outset-show" v-if="widget.isDefault">
+      <img :src="theme.image" />
+      <div class="outset-show" v-if="theme.isDefault">
         <div class="outset-test">默认模板</div>
       </div>
       <div class="outset-layer">
-        <div class="them_text">{{ widget.id }}</div>
+        <div class="them_text">{{ theme.id }}</div>
         <div class="outset-layer_but">
-          <span class="layer_but" @click="diy(widget)">编辑</span>
-          <a target="_blank" class="layer_but1" :href="'/preview?themeId=' + widget.id">预览</a>
+          <span class="layer_but" @click="diy(theme)" v-if="remote===false">编 辑</span>
+          <span class="layer_but1" @click="diy(theme)">制 作</span>
+          <br /><br />
+          <span class="layer_but3" @click="diy(theme)" v-if="remote===false">设置默认</span>
+          <span class="layer_but2" @click="del(theme)" v-if="remote===false">删 除</span>
+
         </div>
       </div>
     </div>
     <div class="item_outset-text">
       <div class="outset-text_left">
         <p class="text_p1">
-          <x-code>{{type}}</x-code>{{ widget.name }}
+          <x-code>{{type}}</x-code>{{ theme.name }}
         </p>
       </div>
     </div>
@@ -26,7 +30,8 @@
 <script>
   export default {
     props: {
-      widget: {},
+      theme: {},
+      remote: {},
       type: {}
     },
     methods: {

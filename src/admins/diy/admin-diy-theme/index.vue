@@ -1,8 +1,8 @@
 <template>
   <div class="admin-diy-admin">
     <div class="admin-pages-list">
-      <theme-item v-for="(widget,index) in widgetModel" :widget="widget" :key="index" type="本地模板"></theme-item>
-      <theme-item v-for="(widget,index) in diyThemes" :widget="widget" :key="index+100" type="远程模板"></theme-item>
+      <theme-item v-for="(theme,index) in widgetModel" :theme="theme" :key="index" type="本地模板" :remote="false"></theme-item>
+      <theme-item v-for="(theme,index) in diyThemes" :theme="theme" :key="index+100" type="远程模板" :remote="true"></theme-item>
     </div>
   </div>
 </template>

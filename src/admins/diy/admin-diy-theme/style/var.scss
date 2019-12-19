@@ -51,7 +51,7 @@
         left: 0px;
         width: 240px;
         height: 350px;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.64);
 
         .them_text {
           font-size: 10px;
@@ -66,7 +66,7 @@
           text-align: center;
           position: relative;
           top: 50%;
-          transform: translateY(-50%);
+          transform: translateY(-90%);
 
           span,
           a {
@@ -74,7 +74,7 @@
             font-size: 13px;
             font-weight: 400;
             color: #ffffff;
-           background: #f4516c;
+             background: #9816f4;
             margin-left: 10px;
             padding: 8px 20px;
             border-radius: 20px;
@@ -82,6 +82,16 @@
 
           .layer_but1 {
             background: #1593ff;
+          }
+           .layer_but2 {
+            background: #f4516c;
+             font-size: 12px;
+               padding: 3px 10px;
+          }
+          .layer_but3{
+            background: #00c5dc;
+             font-size: 12px;
+               padding: 3px 10px;
           }
         }
 
