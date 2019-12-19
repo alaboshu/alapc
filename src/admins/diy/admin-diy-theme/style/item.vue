@@ -28,7 +28,6 @@
 
 <script>
   import service from './service'
-
   export default {
     props: {
       theme: {},
