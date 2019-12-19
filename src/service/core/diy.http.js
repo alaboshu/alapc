@@ -1,6 +1,5 @@
 import token from '@/service/core/token'
 import api from '@/service/prototypes/api'
-import base from '@/service/prototypes/base'
 import axios from 'axios'
 // const apiBaseUrl = 'http://diyapi.5ug.com'
 const apiBaseUrl = 'http://localhost:6800'
@@ -62,7 +61,7 @@ export default {
     })
   },
   getHead (apiUrl) {
-    var site = api.vuexLocalGet('site_default')
+    var site = api.vuexLocalGet('site_default').site
     var headObj = {
       'zk-site-token': token.getDiyToken(apiUrl),
       'zk-site-id': site.id,

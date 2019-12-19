@@ -8,18 +8,18 @@
       <div class="outset-layer">
         <div class="them_text">{{ theme.id }}</div>
         <div class="outset-layer_but">
-          <span class="layer_but" @click="diy(theme)" v-if="remote===false">编 辑</span>
+          <span class="layer_but" @click="diy(theme)" v-if="theme.isPublic===false">编 辑</span>
           <span class="layer_but1" @click="make(theme)">制 作</span>
           <br /><br />
-          <span class="layer_but3" @click="setDefault(theme)" v-if="remote===false">设置默认</span>
-          <span class="layer_but2" @click="del(theme)" v-if="remote===false">删 除</span>
+          <span class="layer_but3" @click="setDefault(theme)" v-if="theme.isPublic===false">设置默认</span>
+          <span class="layer_but2" @click="del(theme)" v-if="theme.isPublic===false">删 除</span>
         </div>
       </div>
     </div>
     <div class="item_outset-text">
       <div class="outset-text_left">
         <p class="text_p1">
-          <x-code>{{type}}</x-code>{{ theme.name }}
+          <x-code>{{theme.sign}}</x-code>{{ theme.name }}
         </p>
       </div>
     </div>
@@ -107,7 +107,7 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(async () => {
-          var site =await this.$base.site()
+          var site = await this.$base.site()
           this.$api.progressOpen('模板正在制作中,预计时间<span style="color: red;">1分钟</span>，请勿离开或刷新页面...')
           var makeInput = {
             siteId: site.id,
