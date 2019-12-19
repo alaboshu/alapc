@@ -1,7 +1,9 @@
 <template>
   <div class="admin-diy-admin">
-    <theme-item :widgetModel="widgetModel" v-if="widgetModel"></theme-item>
-    <theme-item :widgetModel="diyThemes" v-if="diyThemes"></theme-item>
+    <div class="admin-pages-list">
+      <theme-item v-for="(widget,index) in widgetModel" :widget="widget" :key="index" type="本地模板"></theme-item>
+      <theme-item v-for="(widget,index) in diyThemes" :widget="widget" :key="index+100" type="远程模板"></theme-item>
+    </div>
   </div>
 </template>
 
@@ -30,9 +32,8 @@
         var response = await this.$api.httpGet('/api/theme/GetAdminTheme', this.widget.value)
         if (response.status === 1) {
           this.widgetModel = response.result
-          console.info('theme', response.result, this.widgetModel)
         }
-        this.getDiyThemes()
+        await this.getDiyThemes()
       },
       // 获取远程模板
       async getDiyThemes () {
@@ -41,8 +42,8 @@
         }
         var response = await diyHttp.post('/api/DiyClient/GetAdminTheme', para)
         if (response.status === 1) {
-          this.widgetModel = response.result
-          console.info('theme', response.result, this.widgetModel)
+          this.diyThemes = response.result.result
+          console.info('云端模板', response.result, this.diyThemes)
         }
       }
     }

@@ -37,6 +37,7 @@
           ...this.$crud.routeToObject()
         }
         var response = await this.$api.httpGet('/Api/Auto/Form', para)
+        console.info('response', response.result)
         if (response.status !== 1) {
           this.$notify({
             title: '操作失败',

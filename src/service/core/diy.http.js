@@ -1,6 +1,5 @@
 import token from '@/service/core/token'
 import api from '@/service/prototypes/api'
-import user from '@/service/prototypes/user'
 import axios from 'axios'
 // const apiBaseUrl = 'http://diyapi.5ug.com'
 const apiBaseUrl = 'http://localhost:6800'
