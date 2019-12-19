@@ -1,8 +1,7 @@
 <template>
   <div class="admin-diy-admin">
-    <div class="admin-pages-list">
-      <!-- <theme-item v-for="(theme,index) in widgetModel" :theme="theme" :key="index" type="本地模板" :remote="false"></theme-item> -->
-      <theme-item v-for="(theme,index) in diyThemes" :theme="theme" :key="index"></theme-item>
+    <div class="admin-pages-list" v-loading="!diyThemes">
+      <theme-item v-for="(theme,index) in diyThemes" :defautTheme="defaultTheme" :theme="theme" :key="index"></theme-item>
     </div>
   </div>
 </template>
@@ -17,7 +16,7 @@
     },
     data () {
       return {
-        widgetModel: null,
+        defaultTheme: null,
         diyThemes: null // 远程模板
       }
     },
@@ -29,9 +28,9 @@
     },
     methods: {
       async init () {
-        var response = await this.$api.httpGet('/api/theme/GetAdminTheme', this.widget.value)
+        var response = await this.$api.httpGet('/api/theme/getDefaultTheme', this.widget.value)
         if (response.status === 1) {
-          this.widgetModel = response.result
+          this.defaultTheme = response.result
         }
         await this.getDiyThemes()
       },

@@ -1,8 +1,8 @@
 <template>
   <div class="theme-item_outset theme-item-list">
     <div class="outset-img">
-      <img :src="theme.image" />
-      <div class="outset-show" v-if="theme.isDefault">
+      <img v-lazy="theme.image" />
+      <div class="outset-show" v-if="theme.id===defautTheme.id">
         <div class="outset-test">默认模板</div>
       </div>
       <div class="outset-layer">
@@ -30,8 +30,7 @@
   export default {
     props: {
       theme: {},
-      remote: {},
-      type: {}
+      defautTheme: {}
     },
     methods: {
       async diy (theme) {
