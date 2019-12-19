@@ -64,12 +64,9 @@ export default {
   getHead (apiUrl) {
     var site = api.localGet('site_default').site
     var headObj = {
-      'zk-token': token.getToken(apiUrl),
       'zk-site-token': token.getDiyToken(apiUrl),
-      'zk-user-id': user.id(),
-      'zk-site-id': site.id(),
-      'zk-user-token': token.getUserToken(apiUrl),
-      'zk-tenant': api.tenant(),
+      'zk-site-id': site.id,
+      'zk-site-user-id': site.userId,
       'zk-timestamp': token.timestamp()
     }
     return headObj
