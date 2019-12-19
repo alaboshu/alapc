@@ -36,15 +36,7 @@
     },
     methods: {
       async diy (theme) {
-        var para = {
-          themeId: theme.id
-        }
-        this.$api.progressOpen('正在登录中,预计时间<span style="color: red;">1分钟</span>，请勿离开或刷新页面...')
-        var response = await this.$api.httpGet('/api/theme/GetLoginUrl', para)
-        this.$api.progressClose()
-        if (response.status === 1) {
-          window.open(response.message, '_blank')
-        }
+        await service.diy(this, theme)
       },
       async setDefault (theme) {
         this.$confirm('是否设置模板：' + theme.name + ' 为默认模板?', '提示', {
@@ -103,7 +95,8 @@
         })
       },
       async make (theme) {
-        service.make(this, theme)
+         await service.make(this, theme)
+        
       }
     }
   }
