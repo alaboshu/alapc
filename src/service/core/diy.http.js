@@ -1,6 +1,5 @@
 import token from '@/service/core/token'
 import api from '@/service/prototypes/api'
-import base from '@/service/prototypes/base'
 import user from '@/service/prototypes/user'
 import axios from 'axios'
 // const apiBaseUrl = 'http://diyapi.5ug.com'
@@ -63,12 +62,12 @@ export default {
     })
   },
   getHead (apiUrl) {
+    var site = api.localGet('site_default').site
     var headObj = {
       'zk-token': token.getToken(apiUrl),
-      'zk-site-token': token.getDiyToken(),
+      'zk-site-token': token.getDiyToken(apiUrl),
       'zk-user-id': user.id(),
-      'zk-site-id': user.id(),
-      'zk-filter': base.filter(),
+      'zk-site-id': site.id(),
       'zk-user-token': token.getUserToken(apiUrl),
       'zk-tenant': api.tenant(),
       'zk-timestamp': token.timestamp()

@@ -6,28 +6,17 @@ var { projectId, key, privateKey } = globalConfig
 export default {
   // 头部传入token机制,算法和后台匹配，管理员可以在后台随时修改
   getToken (apiUrl) {
-    if (apiUrl) {
-      var index = apiUrl.indexOf('?')
-      if (index > 0) {
-        apiUrl = apiUrl.substring(0, index)
-      }
-      apiUrl = apiUrl
-        .toLowerCase()
-        .replace('///', '/')
-        .replace('//', '/')
-        .replace('/api/', 'api/')
-        .replace('//', '/')
-      var token = apiUrl + this.timestamp() + projectId + key + privateKey
-      token = crypto.md5(token.toLowerCase())
-      return token
-    }
+    apiUrl = this.getUrl(apiUrl)
+    var token = apiUrl + this.timestamp() + projectId + key + privateKey
+    token = crypto.md5(token.toLowerCase())
+    return token
   },
-  getDiyToken () {
-    var site = api.localGet('default_site')
-    var token = this.timestamp() + site.site.id + site.projectNum
-    console.info('token ', token)
-      token = crypto.md5(token.toLowerCase())
-      return token
+  getDiyToken (apiUrl) {
+    apiUrl = this.getUrl(apiUrl)
+    var site = api.localGet('site_default').site
+    var token = apiUrl + this.timestamp() + site.id + site.projectNum
+    token = crypto.md5(token.toLowerCase())
+    return token
   },
   // 时间戳
   timestamp () {
@@ -42,5 +31,18 @@ export default {
       return token
     }
     return ''
+  },
+  getUrl (apiUrl) {
+    var index = apiUrl.indexOf('?')
+    if (index > 0) {
+      apiUrl = apiUrl.substring(0, index)
+    }
+    apiUrl = apiUrl
+      .toLowerCase()
+      .replace('///', '/')
+      .replace('//', '/')
+      .replace('/api/', 'api/')
+      .replace('//', '/')
+    return apiUrl
   }
 }
