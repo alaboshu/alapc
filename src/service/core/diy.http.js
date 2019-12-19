@@ -65,7 +65,9 @@ export default {
   getHead (apiUrl) {
     var headObj = {
       'zk-token': token.getToken(apiUrl),
+      'zk-site-token': token.getDiyToken(),
       'zk-user-id': user.id(),
+      'zk-site-id': user.id(),
       'zk-filter': base.filter(),
       'zk-user-token': token.getUserToken(apiUrl),
       'zk-tenant': api.tenant(),

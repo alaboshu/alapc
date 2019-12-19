@@ -37,10 +37,9 @@
       // 获取远程模板
       async getDiyThemes () {
         var para = {
-          ...this.widget.value,
-          site: this.$api.localGet('site_default').site
+          ...this.widget.value
         }
-        var response = await diyHttp.post('/api/root/GetAdminTheme', para)
+        var response = await diyHttp.post('/api/DiyClient/GetAdminTheme', para)
         if (response.status === 1) {
           this.widgetModel = response.result
           console.info('theme', response.result, this.widgetModel)
