@@ -98,7 +98,6 @@
         } else {
           this.autoForm = await convert.toConfig(configData)
         }
-        console.info('wdigetdata', this.autoForm, this.viewModel)
         this.viewModel = service.getModel(this.autoForm, this.dataModel)
         this.async = true
         this.$emit('formLoad', this.async)

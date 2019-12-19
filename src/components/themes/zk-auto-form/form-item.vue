@@ -92,20 +92,6 @@
       <el-date-picker v-model="viewModel" type="date" placeholder="选择日期时间">
       </el-date-picker>
     </template>
-    <template v-if="column.type == 'tags'||column.model == 'tags'">
-      <x-tags v-model="viewModel" :widget="widget"></x-tags>
-      <div class="help-back">
-        一条记录可以设置多个标签-
-        <span @click="CmdJump('tag')" class="help-back-jump">{{widgetName}}管理</span>
-      </div>
-    </template>
-    <template v-if="column.model == 'classes'">
-      <x-class :widget="widget" v-model="viewModel"></x-class>
-      <div class="help-back">
-        一条记录可以设置多个分类-
-        <span @click="CmdJump('class')" class="help-back-jump">{{widgetName}}管理</span>
-      </div>
-    </template>
     <div class="help-back" v-html="column.helpBlock" v-if="column.type !== 'x-Json'&&column.type !== 'area'"></div>
   </el-form-item>
 </template>
