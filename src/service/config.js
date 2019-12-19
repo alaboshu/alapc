@@ -1,6 +1,6 @@
 // const apiBaseUrl = 'http://api.zhongsheng319.com/'
-// const apiBaseUrl = 'http://retail_v13.api.5ug.com/'
-const apiBaseUrl = 'http://localhost:6800/'
+const apiBaseUrl = 'http://retail_v13.api.5ug.com/'
+// const apiBaseUrl = 'http://localhost:6800/'
 
 const key =
   'LUPGHODKYFWYO0YARAWNTKMA9WKWIO4ABXPYZAAFLKVIMWHKL2RAYBVAIPGKDGMJKV71L9BQA0LTZEYMOKVP6DMABP0K3PBF7M8QZQ8L1BA7ZMLEAE53V6NQS7ZWJ1WU'

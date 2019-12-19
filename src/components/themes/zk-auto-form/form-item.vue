@@ -27,10 +27,10 @@
       </el-switch>
     </template>
     <template v-if="widget.type == 'numberic'" x-verify="已验证">
-      <el-input-number v-model="dataModel" :min="0" @change="handleChange" :step="widget.step" controls-position="right"></el-input-number>
+      <el-input-number v-model="dataModel" :min="0" :step="widget.step" controls-position="right"></el-input-number>
     </template>
     <template v-if="widget.type == 'decimal'" x-verify="已验证">
-      <el-input-number v-model="dataModel" :min="0" :precision="2" :step="0.1" @change="handleChange" controls-position="right"></el-input-number>
+      <el-input-number v-model="dataModel" :min="0" :precision="2" :step="0.1" controls-position="right"></el-input-number>
     </template>
     <template v-if="widget.type=='image'">
       <x-select-image v-model="dataModel" :count="Number(widget.mark)"></x-select-image>
@@ -62,15 +62,9 @@
     </template>
 
     <template v-if="widget.type=='icon'">
-      <x-icon-input :icondata="dataModel" @itemForm="formiconmanagement"></x-icon-input>
+      <x-icon-input :icondata="dataModel"></x-icon-input>
     </template>
 
-    <template v-if="widget.type == 'link'">
-      <div class="item_box-input">
-        <el-input :type="widget.dataType" v-model="dataModel.value" :placeholder="widget.placeholder"></el-input>
-        <div class="item_box-btn" @click="selectTrigger">选择</div>
-      </div>
-    </template>
     <template v-if="widget.type == 'fileuploder'">
       <x-upload v-model="dataModel"></x-upload>
     </template>
@@ -115,149 +109,42 @@
         <span @click="CmdJump('class')" class="help-back-jump">{{widgetName}}管理</span>
       </div>
     </template>
-    <template v-if="widget.type==='x-select-table'">
-      <xSelectTable v-model="dataModel" :widget="widget"></xSelectTable>
-    </template>
     <div class="help-back" v-html="widget.helpBlock" v-if="widget.type !== 'x-Json'&&widget.type !== 'area'"></div>
   </el-form-item>
 </template>
 
 <script>
-  import xSelectTable from './table/x-select-table'
+
   export default {
-    props: ['widgets', 'models', 'rules', 'remote', 'parament'],
-    data () {
-      return {
-        async: false,
-        dataModel: this.models[this.widgets.model],
-        fileList: [],
-        widgetName: '',
-        widget: this.widgets,
-        rulesInput: {
-          required: true,
-          message: ' '
-        }
-      }
+
+    model: {
+      prop: 'dataModel',
+      event: 'change'
     },
-    components: {
-      xSelectTable
+    props: {
+      column: {},
+      currentModel: {}, // 当前输入的ViewModel，监听客户输入
+      value: {},
+      dataModel: {},
+      usercode: {}
     },
     mounted () {
-      this.init()
+      this.init().then(() => {
+        this.async = true
+      })
     },
     methods: {
-      async   init () {
-        if (this.widget.type !== 'tab') {
-          this.widgetName = this.widget.name
+      async init () {
+        if (this.dataModel) {
+          this.viewModel = this.dataModel
         }
-        if (!this.$api.isEmpty(this.widget.value)) {
-          this.dataModel = this.widget.value
-        }
-        if (this.widget.type === 'switch') {
-          if (this.widgets.value !== null || this.widgets.value !== undefined) {
-            this.dataModel = this.widgets.value
-          } else {
-            this.dataModel = false
-          }
-        }
-        this.rulesInput.required = this.widget.required
-        if (this.widget.isCms === true) {
-          var channelResponse
-          if (this.widget.model === 'tags') {
-            channelResponse = await this.$api.httpGet('api/Channel/ViewById', { Id: this.$route.query.ChannelId })
-            if (channelResponse.status === 1) {
-              this.widgetName = channelResponse.result.name + this.widgetName
-            }
-          }
-          if (this.widget.model === 'classes') {
-            channelResponse = await this.$api.httpGet('api/Channel/ViewById', { Id: this.$route.query.ChannelId })
-            if (channelResponse.status === 1) {
-              this.widgetName = channelResponse.result.name + this.widgetName
-            }
-          }
-        }
-        this.async = true
-      },
-      async CmdJump (type) {
-        var getTypeResponse
-        var api
-        var url
-        if (type === 'tag') {
-          api = '/Api/Channel/GetChannelTagType'
-          url = '/Admin/Tag?Type='
-        } else {
-          api = '/Api/Channel/GetChannelClassType'
-          url = '/Admin/Class?Type='
-        }
-        getTypeResponse = await this.$api.httpGet(api, { channelId: this.$route.query.ChannelId })
-        if (getTypeResponse.status === 1) {
-          this.$router.push(url + getTypeResponse.message)
-        }
-      },
-      formiconmanagement (fromvisarray) {
-        var iconList = {
-          name: fromvisarray.iconDesign,
-          size: fromvisarray.iconFontsize,
-          color: fromvisarray.colorName,
-          colournumber: fromvisarray.iconColor
-        }
-        this.models[fromvisarray.fromvis] = iconList
-        this.dataModel = this.models[fromvisarray.fromvis]
-      },
-      onlinkmana (type, conter) {
-        var linkpram = {
-          type: 'url',
-          value: conter.url
-        }
-        this.models[type] = linkpram
-        this.dataModel = this.models[type]
-      },
-      selectTrigger () {
-        this.$refs.formitem_dialog.show()
-      },
-      handleChange (ev) {
-        this.models.height = ev
-      },
-      watchWidgets (n, o) {
-        this.widget = n
-        this.init()
-      }
-    },
-    created () {
-      this.widget = this.widgets
-      if (this.widget.remote && this.remote[this.widget.remoteFunc]) {
-        this.remote[this.widget.remoteFunc]((data) => {
-          this.widget.remoteOptions = data.map(item => {
-            return {
-              value: item[this.widget.props.value],
-              label: item[this.widget.props.label]
-            }
-          })
-        })
       }
     },
     watch: {
-      widgets: 'watchWidgets',
-      parament: {
+      viewModel: {
         deep: true,
         handler (val) {
-        }
-      },
-      dataModel: {
-        deep: true,
-        handler (val) {
-          this.models[this.widget.model] = val
-          this.$emit('update:models', {
-            ...this.models,
-            [this.widget.model]: val
-          })
-        }
-      },
-      models: {
-        deep: true,
-        handler (val) {
-          this.dataModel = val[this.widget.model]
-          this.$emit('viewForm', val)
+          this.$emit('change', this.viewModel)
         }
       }
     }
