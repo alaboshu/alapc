@@ -10,13 +10,14 @@
             <div class="form-intro">请输入确认{{name}}Id,{{name}}ID <x-code>{{paraForm.themeId}}</x-code>
             </div>
           </el-form-item>
-          <el-form-item label="登录手机号" :required="true">
+          <el-form-item label="云平台手机号" :required="true">
             <el-input v-model="paraForm.mobile"></el-input>
-            <div class="form-intro">您在阿拉博数平台预留的手机号码,请输入手机号码:{{$base.site().phone}}</div>
+            <div class="form-intro">您在阿拉博数平台预留的手机号码,请输入手机号码:<x-code>{{$base.site().phone}}</x-code>
+            </div>
           </el-form-item>
-          <el-form-item label="支付密码" :required="true">
+          <el-form-item label="云平台支付密码" :required="true">
             <el-input v-model="paraForm.payPassword" type="password"></el-input>
-            <div class="form-intro">请输入您的支付密码</div>
+            <div class="form-intro">您在阿拉博数平台(www.5ug.com)的支付密码，非当前管理员密码，非平台的登录密码</div>
           </el-form-item>
         </el-form>
       </div>
@@ -85,7 +86,7 @@
       }
     }
     .el-form-item .el-form-item__label {
-      width: 120px;
+      width: 130px;
     }
     .dialog-footer {
       padding: 0px !important;
