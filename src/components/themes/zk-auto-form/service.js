@@ -7,16 +7,18 @@ export default {
     // 优先从数据库中赋值
     if (autoFormConfig && autoFormConfig.columns) {
       autoFormConfig.columns.forEach(group => {
+        if (group.value) {
+          formModel[group.field] = group.value
+        }
         if (group.columns) {
           group.columns.forEach(element => {
-            if (!api.isEmpty(element.value)) {
+            if (element.value) {
               formModel[element.field] = element.value
             }
           })
         }
       })
     }
-    console.info('数据', autoFormConfig, formModel)
     // 从URL中获取的数据
     if (dataModel) {
       if (autoFormConfig && autoFormConfig.columns) {

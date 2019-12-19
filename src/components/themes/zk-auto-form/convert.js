@@ -27,7 +27,6 @@ export default {
         }
       })
     }
-    console.info('config')
     return config
   },
   getRuleData (column) {
