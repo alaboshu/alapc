@@ -5,8 +5,8 @@
       <el-form ref="generateForm" :model="viewModel" :rules="rules">
         <div v-if="autoForm.type==='tab'">
           <el-tabs v-model="tabActiveName">
-            <el-tab-pane v-for="(column,index) in autoForm.columns" :key="index" :name="index">
-              <span slot="label"><i :class="tabIconList[Number(index+1)]"></i> {{column.name}}</span>
+            <el-tab-pane v-for="(column,index) in autoForm.columns" :key="index">
+              <span slot="label"><i :class="column.icon"></i> {{column.name}}</span>
               <form-item v-for="(tabColumn,tabIndex) in column.columns" :key="tabIndex" v-model="viewModel[tabColumn.field]" :column="tabColumn" :currentModel="viewModel"></form-item>
             </el-tab-pane>
           </el-tabs>
@@ -71,7 +71,6 @@
         viewModel: {},
         autoForm: null,
         rules: {},
-        tabIconList: [],
         formLabelWidth: 100,
         parament: null,
         tabActiveName: 0,
@@ -103,7 +102,6 @@
         this.viewModel = service.getModel(this.autoForm, this.dataModel)
         this.async = true
         this.$emit('formLoad', this.async)
-        this.tabIconList = convert.geIcon()
         console.info('wdigetdata', this.autoForm, this.viewModel)
       },
       async saveForm () {

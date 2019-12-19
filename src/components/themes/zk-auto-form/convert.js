@@ -15,9 +15,10 @@ export default {
     var formConfig = autoFormConfig
     formConfig.columns = []
     if (autoFormConfig && autoFormConfig.groups) {
-      autoFormConfig.groups.forEach(group => {
+      autoFormConfig.groups.forEach((group, index) => {
         var tab = {
           type: 'tab',
+          icon: this.geIcon()[index],
           name: group.groupName,
           columns: group.items
         }
