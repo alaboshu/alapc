@@ -39,32 +39,7 @@
         await service.diy(this, theme)
       },
       async setDefault (theme) {
-        this.$confirm('是否设置模板：' + theme.name + ' 为默认模板?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(async () => {
-          var para = {
-            id: theme.id
-          }
-          var response = await this.$api.httpGet('/api/theme/SetDefaultTheme', para)
-          if (response.status === 1) {
-            this.$message({
-              type: 'success',
-              message: '设置成功!'
-            })
-          } else {
-            this.$message({
-              type: 'info',
-              message: response.message
-            })
-          }
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消设置默认模板'
-          })
-        })
+        this.$emit('setDefault', theme)
       },
       async deleteTheme (theme) {
         this.$emit('deleteTheme', theme)

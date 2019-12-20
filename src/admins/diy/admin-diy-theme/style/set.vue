@@ -1,8 +1,8 @@
 <template>
   <div class="zk-root-delete">
-    <el-dialog :title="`复制模板`" width="750px" :visible.sync="dialogFormVisible">
+    <el-dialog title="设置默认模板" width="750px" :visible.sync="dialogFormVisible">
       <div class="delete-dialog">
-        <el-alert title="复制模板" type="success" description="每个用户最多可复制20个模板，模板复制成功后，可在云端操作设计、设置、发布等" :closable="false" show-icon>
+        <el-alert title="复制模板" type="error" description="每个用户最多可复制20个模板，模板复制成功后，可在云端操作设计、设置、发布等" :closable="false" show-icon>
         </el-alert>
         <el-form ref="form" style="margin-top:15px">
           <el-form-item label="模板名称" :required="true">
@@ -32,6 +32,9 @@
 <script>
   import diyHttp from '@/service/core/diy.http'
   export default {
+    props: {
+      defaultTheme: null
+    },
     data () {
       return {
         dialogFormVisible: false,
