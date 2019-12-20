@@ -71,17 +71,19 @@
         this.leftCurrentMenu = threeMenu
         this.secondMenus = this.roleOutput.menus[this.leftCurrentMenu.oneIndex].menus
         var menuData = this.$api.localGet('adminRoleOutput')
-        menuData.menus.forEach(element => {
-          if (element.url === '/Admin/App') {
-            this.isAdminItem(threeMenu, element)
-          }
-        })
+        if (menuData && menuData.menus) {
+          menuData.menus.forEach(element => {
+            if (element.url === '/Admin/App') {
+              this.isAdminItem(threeMenu, element)
+            }
+          })
+        }
       },
       secondMenuClick (item) {
         this.$set(item, 'open', !item.open)
       },
       isAdminItem (threeMenu, menuData) {
-        if (menuData) {
+        if (menuData && menuData.menus) {
           menuData.menus.forEach((element, index) => {
             if (element.url === threeMenu.url) {
               // 如果url等于三级菜单的url 则往上推一级
