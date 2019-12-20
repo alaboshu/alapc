@@ -1,8 +1,8 @@
 <template>
   <div class="aside-left">
-    <div class="stair-navigation" v-if="roleOutput">
+    <div class="stair-navigation">
       <div class="stair-navigation-list">
-        <ul class="stair-ul">
+        <ul class="stair-ul" v-if="roleOutput">
           <li class="stair-li" :class="{'stair_active':leftCurrentMenu &&index===leftCurrentMenu.oneIndex}" v-for="(item,index) in roleOutput.menus" :key="index" @click="to(item)" v-show="item.isEnable">
             <div class="stair-box">
               <i :class="item.icon"></i>
