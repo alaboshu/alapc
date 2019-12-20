@@ -2,7 +2,7 @@
   <div class="zk-root-delete">
     <el-dialog :title="`删除 ${name} 模板`" width="750px" :visible.sync="dialogFormVisible">
       <div class="delete-dialog">
-        <el-alert :title="`删除${name}提示`" type="error" description="模板删除后，将彻底的删除所有的数据，并且不能恢复，请谨慎删除" :closable="false" show-icon>
+        <el-alert :title="`删除${name}提示`" type="error" description="模板删除后，将彻底的删除所有的数据，并且不能恢复，请谨慎删除，默认模板不能删除" :closable="false" show-icon>
         </el-alert>
         <el-form ref="form" style="margin-top:15px">
           <el-form-item :label="`确认模板Id`" :required="true">

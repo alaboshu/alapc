@@ -12,7 +12,7 @@
           <span class="layer_but1" @click="make(theme)">复 制</span>
           <br /><br />
           <span class="layer_but3" @click="setDefault(theme)" v-if="theme.isPublic===false">设置默认</span>
-          <span class="layer_but2" @click="deleteTheme(theme)" v-if="theme.isPublic===false">删除默认</span>
+          <span class="layer_but2" @click="deleteTheme(theme)" v-if="theme.isPublic===false &&theme.id!==defautTheme.id">删除默认</span>
         </div>
       </div>
     </div>
