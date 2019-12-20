@@ -65,7 +65,7 @@
         await this.init()
       },
       async afterMake (theme) {
-        console.info('模板制作成功', theme)
+        console.info('模板复制成功', theme)
         this.reload()
         service.diy(this, theme)
       }

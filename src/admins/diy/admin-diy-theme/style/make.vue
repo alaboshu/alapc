@@ -1,8 +1,8 @@
 <template>
   <div class="zk-root-delete">
-    <el-dialog :title="`制作${name}`" width="750px" :visible.sync="dialogFormVisible">
+    <el-dialog :title="`复制${name}`" width="750px" :visible.sync="dialogFormVisible">
       <div class="delete-dialog">
-        <el-alert title="制作模板" type="success" description="每个用户最多可制作20个模板，模板制作成功后，可在云端操作设计、设置、发布等" :closable="false" show-icon>
+        <el-alert title="复制模板" type="success" description="每个用户最多可复制20个模板，模板复制成功后，可在云端操作设计、设置、发布等" :closable="false" show-icon>
         </el-alert>
         <el-form ref="form" style="margin-top:15px">
           <el-form-item label="模板名称" :required="true">
@@ -22,7 +22,7 @@
       </div>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false" type="default">取 消</el-button>
-        <el-button type="danger" @click="makeTheme" :loading="loading">开始制作模板</el-button>
+        <el-button type="danger" @click="makeTheme" :loading="loading">开始复制模板</el-button>
       </div>
     </el-dialog>
   </div>
@@ -62,7 +62,7 @@
         this.loading = false
         if (response.status === 1) {
           this.dialogFormVisible = false
-          this.$alert('恭喜,模板复制成功,点击确定开始制作模板', '复制成功', {
+          this.$alert('恭喜,模板复制成功,点击确定开始复制模板', '复制成功', {
             confirmButtonText: '确定',
             callback: async action => {
               await this.$emit('afterMake', response.result)

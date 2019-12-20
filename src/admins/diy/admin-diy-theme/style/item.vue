@@ -9,7 +9,7 @@
         <div class="them_text">{{ theme.id }}</div>
         <div class="outset-layer_but">
           <span class="layer_but" @click="diy(theme)" v-if="theme.isPublic===false">编 辑</span>
-          <span class="layer_but1" @click="make(theme)">制 作</span>
+          <span class="layer_but1" @click="make(theme)">复 制</span>
           <br /><br />
           <span class="layer_but3" @click="setDefault(theme)" v-if="theme.isPublic===false">设置默认</span>
           <span class="layer_but2" @click="deleteTheme(theme)" v-if="theme.isPublic===false">删除默认</span>

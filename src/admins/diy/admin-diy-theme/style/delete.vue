@@ -56,10 +56,12 @@
           ...this.viewModel,
           id: this.viewModel.themeId
         }
-        console.info('参数', par)
+        // 删除云端模板
         var response = await diyHttp.post('/Api/DiyClient/UserDelete', par)
         this.loading = false
         if (response.status === 1) {
+          // 删除本地模板
+          response = await this.$api.httpDelete('Api/Theme/Delete', par)
           this.viewModel = {}
           this.dialogFormVisible = false
           this.$notify({
