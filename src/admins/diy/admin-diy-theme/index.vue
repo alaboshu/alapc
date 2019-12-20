@@ -4,7 +4,7 @@
       <theme-item @deleteTheme="deleteTheme" @makeTheme="makeTheme" v-for="(theme,index) in diyThemes" :defautTheme="defaultTheme" :theme="theme" :key="index"></theme-item>
     </div>
     <delete-theme name="模板" ref="zkRootDelete" @afterDelete="reload"></delete-theme>
-    <make-theme name="模板" ref="zkRootMake" @afterMake="reload"></make-theme>
+    <make-theme name="模板" ref="zkRootMake" @afterMake="afterMake"></make-theme>
   </div>
 </template>
 
@@ -13,6 +13,7 @@
   import deleteTheme from './style/delete'
   import makeTheme from './style/make'
   import diyHttp from '@/service/core/diy.http'
+  import service from './style/service'
   import './var.scss'
   export default {
     components: {
@@ -62,6 +63,11 @@
       // 重新加载
       async reload () {
         await this.init()
+      },
+      async afterMake (theme) {
+        console.info('模板制作成功', theme)
+        this.reload()
+        service.diy(this, theme)
       }
     }
   }

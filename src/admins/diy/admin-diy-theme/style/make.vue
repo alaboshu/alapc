@@ -65,7 +65,7 @@
           this.$alert('恭喜,模板复制成功,点击确定开始制作模板', '复制成功', {
             confirmButtonText: '确定',
             callback: async action => {
-              await this.$emit('afterLoad', response.result)
+              await this.$emit('afterMake', response.result)
             }
           })
         } else {
