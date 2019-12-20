@@ -33,13 +33,11 @@
 <script>
   import diyHttp from '@/service/core/diy.http'
   export default {
-    props: {
-      name: {}
-    },
     data () {
       return {
         dialogFormVisible: false,
         loading: false,
+        name: '',
         viewModel: {}
       }
     },
