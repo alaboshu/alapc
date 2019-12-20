@@ -6,23 +6,23 @@
         </el-alert>
         <el-form ref="form" style="margin-top:15px">
           <el-form-item label="模板名称" :required="true">
-            <el-input v-model="paraForm.name"></el-input>
+            <el-input v-model="viewModel.name"></el-input>
             <div class="form-intro">输入模板名称，长度不能超过60个字符
             </div>
           </el-form-item>
           <el-form-item label="模板简介" :required="true">
-            <el-input type="textarea" :rows="3" v-model="paraForm.intro"></el-input>
+            <el-input type="textarea" :rows="3" v-model="viewModel.intro"></el-input>
             <div class="form-intro">输入模板的简介,长度不能超过500个字符 </div>
           </el-form-item>
           <el-form-item label="云平台支付密码" :required="true">
-            <el-input v-model="paraForm.payPassword" type="password"></el-input>
+            <el-input v-model="viewModel.payPassword" type="password"></el-input>
             <div class="form-intro">您在阿拉博数平台(www.5ug.com)的支付密码，非当前管理员密码，非平台的登录密码</div>
           </el-form-item>
         </el-form>
       </div>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false" type="default">取 消</el-button>
-        <el-button type="danger" @click="primary">开始制作模板</el-button>
+        <el-button type="danger" @click="makeTheme" :loading="loading">开始制作模板</el-button>
       </div>
     </el-dialog>
   </div>
@@ -30,37 +30,46 @@
 
 
 <script>
+  import diyHttp from '@/service/core/diy.http'
   export default {
     props: {
-      name: {},
-      rootType: {}
+      name: {}
     },
     data () {
       return {
         dialogFormVisible: false,
-        paraForm: {
-          name: '',
-          intro: ''
-        }
+        loading: false,
+        viewModel: {}
       }
     },
     methods: {
-      async deleteTheme () {
-        var par = {
-          ...this.paraForm,
-          id: this.paraForm.themeId
+      init (theme) {
+        this.viewModel = theme
+        this.dialogFormVisible = true
+      },
+      async makeTheme () {
+        this.loading = true
+        var site = await this.$base.siteAsync()
+        var makeInput = {
+          SiteId: site.id,
+          themeId: this.viewModel.id,
+          userId: site.userId,
+          payPassword: this.viewModel.payPassword,
+          name: this.viewModel.name,
+          intro: this.viewModel.intro
         }
-        var reponese = await this.$api.httpPost('Api/Root/UserDelete', par)
-        console.info('reponese', reponese)
-        if (reponese.status === 1) {
+        var response = await diyHttp.post('/Api/DiyClient/Make', makeInput)
+        this.loading = false
+        if (response.status === 1) {
           this.dialogFormVisible = false
-          this.$notify({
-            title: '成功',
-            message: '模板已删除成功',
-            type: 'success',
-            position: 'bottom-right'
+          this.$alert('恭喜,模板复制成功,点击确定开始制作模板', '复制成功', {
+            confirmButtonText: '确定',
+            callback: async action => {
+              await this.$emit('afterLoad', response.result)
+            }
           })
-          this.$emit('getInit')
+        } else {
+          this.$api.alert(response.message)
         }
       }
     }

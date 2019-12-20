@@ -74,7 +74,6 @@
       },
       async make (theme) {
         this.$emit('makeTheme', theme)
-        //  await service.make(this, theme)
       }
     }
   }

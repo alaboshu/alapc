@@ -4,7 +4,7 @@
       <theme-item @deleteTheme="deleteTheme" @makeTheme="makeTheme" v-for="(theme,index) in diyThemes" :defautTheme="defaultTheme" :theme="theme" :key="index"></theme-item>
     </div>
     <delete-theme name="模板" ref="zkRootDelete" rootType="5"></delete-theme>
-    <make-theme name="模板" ref="zkRootMake" rootType="5"></make-theme>
+    <make-theme name="模板" ref="zkRootMake" rootType="5" @afterMake="afterMake"></make-theme>
   </div>
 </template>
 
@@ -34,7 +34,6 @@
     },
     methods: {
       async init () {
-        console.info('this.$base.site().phone', this.$base.site())
         var response = await this.$api.httpGet('/api/theme/getDefaultTheme', this.widget.value)
         if (response.status === 1) {
           this.defaultTheme = response.result
@@ -54,9 +53,10 @@
         }
       },
       async makeTheme (theme) {
-        console.info('制作模板', theme)
-        this.$refs.zkRootMake.dialogFormVisible = true
-        this.$refs.zkRootMake.paraForm.themeId = theme.id
+        this.$refs.zkRootMake.init(theme)
+      },
+      async afterMake (theme) {
+        this.init()
       },
       async deleteTheme (theme) {
         console.info('删除模板', theme)
