@@ -1,7 +1,6 @@
 import api from '@/service/prototypes/api'
 import base from '@/service/prototypes/base'
 import user from '@/service/prototypes/user'
-
 import Vue from 'vue'
 export default {
   // 员工登录，验证权限的同时访问菜单

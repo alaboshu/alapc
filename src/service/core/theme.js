@@ -140,7 +140,6 @@ export default {
       allPageCacheKey = 'allPageInfo_' + type + '__' + api.client()
     }
     var allPageInfo = api.vuexLocalGet(allPageCacheKey)
-    console.info('allPageInfo', allPageInfo)
     var isRequest = true // 是否重新请求
     if (allPageInfo) {
       let timestamp = Math.round(new Date().getTime() / 1000)

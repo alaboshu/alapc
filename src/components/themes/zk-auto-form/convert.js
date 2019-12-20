@@ -4,7 +4,6 @@ export default {
     if (!config.tooltip) {
       config.tooltip = {}
     }
-    console.info('config', config)
     if (config && config.groups && config.groups.length > 1) {
       config = this.toTabConfig(config)
     } else {

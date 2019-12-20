@@ -35,6 +35,10 @@
       }
     },
     async mounted () {
+      this.$bus.$on('global_loading_theme', async () => {
+        this.roleOutput = null
+        await this.init()
+      })
       this.init()
     },
     methods: {

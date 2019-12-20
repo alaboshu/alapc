@@ -7,7 +7,7 @@
     <div class="wb-header">
       <div class="wb-header_left">
         <div class="wb-header_icon">
-          <router-link class="wb-header_ibox" :to="'/'+roleOutput.prefix+'index'">
+          <router-link v-if="roleOutput" class="wb-header_ibox" :to="'/'+roleOutput.prefix+'index'">
             <i class="icon-5333-zhuye"></i>
           </router-link>
         </div>
@@ -22,7 +22,7 @@
               </div>
               <div class="fast-list">
                 <div class="fast-list_title">全部导航</div>
-                <div class="recent-visit">
+                <div class="recent-visit" v-if="roleOutput">
                   <p class="fast-list_p" v-for="(item,index) in roleOutput.menus" :key="index" :class="{'fast-list_p-active':topMenuActive===index}" v-show="item.isEnable &&item.menus" @click="changeChildMenu(index)">{{item.name}}</p>
                 </div>
               </div>

@@ -93,8 +93,9 @@
           this.$api.localRemove('allPageInfo_admin__PcWeb')
           this.$api.vuexRemove('allPageInfo_admin__PcWeb')
           this.$api.localRemove('adminRoleOutput')
+          this.$api.vuexRemove('adminRoleOutput')
           await theme.getAllPageList('admin')
-          console.info('模板信息', this.$api.localGet('allPageInfo_admin__PcWeb'))
+          await this.$bus.$emit('global_loading_theme')
         }
       }
     }
