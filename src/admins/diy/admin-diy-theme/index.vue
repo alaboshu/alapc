@@ -3,8 +3,8 @@
     <div class="admin-pages-list" v-loading="!diyThemes">
       <theme-item @deleteTheme="deleteTheme" @makeTheme="makeTheme" v-for="(theme,index) in diyThemes" :defautTheme="defaultTheme" :theme="theme" :key="index"></theme-item>
     </div>
-    <delete-theme name="模板" ref="zkRootDelete" rootType="5"></delete-theme>
-    <make-theme name="模板" ref="zkRootMake" rootType="5" @afterMake="afterMake"></make-theme>
+    <delete-theme name="模板" ref="zkRootDelete" @afterDelete="afterDelete"></delete-theme>
+    <make-theme name="模板" ref="zkRootMake" @afterMake="afterMake"></make-theme>
   </div>
 </template>
 
@@ -59,9 +59,11 @@
         this.init()
       },
       async deleteTheme (theme) {
-        console.info('删除模板', theme)
-        this.$refs.zkRootDelete.dialogFormVisible = true
-        this.$refs.zkRootDelete.paraForm.themeId = theme.id
+        this.$refs.zkRootDelete.init(theme)
+      },
+      async afterDelete () {
+        console.info('模板删除成功')
+        await this.init()
       }
     }
   }
