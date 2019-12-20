@@ -5,58 +5,20 @@ import Vue from 'vue'
 
 export default {
   // 员工登录，验证权限的同时访问菜单
-  async employeeLogin () {
+  async employeeLogin (isDiy) {
     if (user.loginUser() === null) {
       window.location.href = '/admin/login'
     }
     var result = api.vuexLocalGet('adminRoleOutput')
-    this.appEnums('cache', result)
     if (result) {
+      this.appEnums('cache', result)
       return result
     }
     var response = await api.httpPost('Api/Employee/Login', user.loginUser())
     if (response.status === 1) {
-      var roleOutput = response.result
+      var roleOutput = this.convertToMenus(response.result)
       // 处理菜单索引，以及是否显示左侧菜单
       this.appEnums('cache', roleOutput)
-      roleOutput.menus.forEach((element, index) => {
-        var showChildMenu = false
-        var asideWidth = '92px'
-        if (element.menus && element.menus.length > 0) {
-          showChildMenu = true
-          asideWidth = '200px'
-        }
-        element.oneIndex = index
-        element.twoIndex = 0
-        element.threeIndex = 0
-        element.showChildMenu = showChildMenu
-        element.asideWidth = asideWidth
-        element.level = 1
-        if (element.menus) {
-          element.menus.forEach((twoMenu, twoIndex) => {
-            twoMenu.oneIndex = index
-            twoMenu.twoIndex = twoIndex
-            twoMenu.threeIndex = 0
-            twoMenu.level = 2
-            twoMenu.open = false
-            if (twoIndex === 0) {
-              twoMenu.open = true
-            }
-            twoMenu.showChildMenu = showChildMenu
-            twoMenu.asideWidth = asideWidth
-            if (twoMenu.menus) {
-              twoMenu.menus.forEach((threeMenu, threeIndex) => {
-                threeMenu.oneIndex = index
-                threeMenu.twoIndex = twoIndex
-                threeMenu.threeIndex = threeIndex
-                threeMenu.showChildMenu = showChildMenu
-                threeMenu.asideWidth = asideWidth
-                threeMenu.level = 3
-              })
-            }
-          })
-        }
-      })
       api.vuexLocalSet('adminRoleOutput', roleOutput)
       return roleOutput
     } else {
@@ -69,6 +31,50 @@ export default {
       user.loginOut()
       return null
     }
+  },
+  // 转换菜单
+  convertToMenus (roleOutput) {
+    // 处理菜单索引，以及是否显示左侧菜单
+    this.appEnums('cache', roleOutput)
+    roleOutput.menus.forEach((element, index) => {
+      var showChildMenu = false
+      var asideWidth = '92px'
+      if (element.menus && element.menus.length > 0) {
+        showChildMenu = true
+        asideWidth = '200px'
+      }
+      element.oneIndex = index
+      element.twoIndex = 0
+      element.threeIndex = 0
+      element.showChildMenu = showChildMenu
+      element.asideWidth = asideWidth
+      element.level = 1
+      if (element.menus) {
+        element.menus.forEach((twoMenu, twoIndex) => {
+          twoMenu.oneIndex = index
+          twoMenu.twoIndex = twoIndex
+          twoMenu.threeIndex = 0
+          twoMenu.level = 2
+          twoMenu.open = false
+          if (twoIndex === 0) {
+            twoMenu.open = true
+          }
+          twoMenu.showChildMenu = showChildMenu
+          twoMenu.asideWidth = asideWidth
+          if (twoMenu.menus) {
+            twoMenu.menus.forEach((threeMenu, threeIndex) => {
+              threeMenu.oneIndex = index
+              threeMenu.twoIndex = twoIndex
+              threeMenu.threeIndex = threeIndex
+              threeMenu.showChildMenu = showChildMenu
+              threeMenu.asideWidth = asideWidth
+              threeMenu.level = 3
+            })
+          }
+        })
+      }
+    })
+    return roleOutput
   },
   // 后台管理提示
   message (message, type, title) {

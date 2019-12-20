@@ -45,7 +45,7 @@
       async init () {
         await admin.loginByToken()
         if (this.roleOutput == null) {
-          this.roleOutput = await this.$admin.employeeLogin()
+          this.roleOutput = await this.$admin.employeeLogin(this.isDiy)
         }
         if (this.roleOutput === null) {
           this.$user.loginOut()
