@@ -27,7 +27,8 @@
 
 <script>
   import service from './service'
-  import theme from '@/service/core/theme'
+  import admin from '@/admins/admin/admin-layout/admin.js'
+
   export default {
     data () {
       return {
@@ -90,12 +91,7 @@
       async  deleteAdminCache () {
         // 后台管员后，清空模板
         if (this.defaultTheme.type === 3 && this.defaultTheme.clientType === 1) {
-          this.$api.localRemove('allPageInfo_admin__PcWeb')
-          this.$api.vuexRemove('allPageInfo_admin__PcWeb')
-          this.$api.localRemove('adminRoleOutput')
-          this.$api.vuexRemove('adminRoleOutput')
-          await theme.getAllPageList('admin')
-          await this.$bus.$emit('global_loading_theme')
+          await admin.deleteAdminCache()
         }
       }
     }

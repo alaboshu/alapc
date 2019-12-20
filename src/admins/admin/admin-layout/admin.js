@@ -2,6 +2,7 @@ import user from '@/service/prototypes/user'
 import local from '@/service/utils/local'
 import api from '@/service/prototypes/api'
 import base from '@/service/prototypes/base'
+import theme from '@/service/core/theme'
 import Vue from 'vue'
 export default {
   // 根据token自动登录
@@ -158,27 +159,27 @@ export default {
   },
   // 清空缓存
   async clearCache () {
-    var list = api.vuexLocalGet('admin_browsing_history')
-    if (list) {
-      var history = list[0]
-    }
-
     api.progressOpen(
       '正在清空系统缓存,预计<span style="color: red;">1分钟</span>时间，请勿离开或刷新页面...'
     )
     var res = await api.httpGet('Api/Admin/ClearCache')
-    setTimeout(async () => {
-      api.progressClose()
-      if (res.status === 1) {
-        local.clear()
-        Vue.prototype.$message({
-          message: '恭喜您，缓存清空成功',
-          type: 'success'
-        })
-        if (history) {
-          base.push(history.url)
-        }
-      }
-    }, 100)
+    api.progressClose()
+    if (res.status === 1) {
+      local.clear()
+      Vue.prototype.$message({
+        message: '恭喜您，缓存清空成功',
+        type: 'success'
+      })
+    }
+    await this.deleteAdminCache()
+  },
+  // 清空管理后台模板
+  async  deleteAdminCache () {
+    api.localRemove('allPageInfo_admin__PcWeb')
+    api.vuexRemove('allPageInfo_admin__PcWeb')
+    api.localRemove('adminRoleOutput')
+    api.vuexRemove('adminRoleOutput')
+    await theme.getAllPageList('admin')
+    await Vue.prototype.$bus.$emit('global_loading_theme')
   }
 }
