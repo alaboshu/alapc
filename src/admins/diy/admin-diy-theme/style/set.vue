@@ -2,72 +2,81 @@
   <div class="zk-root-delete">
     <el-dialog title="设置默认模板" width="750px" :visible.sync="dialogFormVisible">
       <div class="delete-dialog">
-        <el-alert title="复制模板" type="error" description="每个用户最多可复制20个模板，模板复制成功后，可在云端操作设计、设置、发布等" :closable="false" show-icon>
+        <el-alert title="设置默认模板" type="error" description="修改默认模板时，其他用户浏览体验可能会受到影响，请谨慎选择。 模板未发布时，请先发布后再设置默认模板" :closable="false" show-icon>
         </el-alert>
         <el-form ref="form" style="margin-top:15px">
-          <el-form-item label="模板名称" :required="true">
-            <el-input v-model="viewModel.name"></el-input>
-            <div class="form-intro">输入模板名称，长度不能超过60个字符
-            </div>
+          <el-form-item label="当前默认模板" class="defaultTheme" v-if="defaultTheme">{{defaultTheme.name}}
+            <div class="form-intro">默认模板ID：{{defaultTheme.id}} </div>
           </el-form-item>
-          <el-form-item label="模板简介" :required="true">
-            <el-input type="textarea" :rows="3" v-model="viewModel.intro"></el-input>
-            <div class="form-intro">输入模板的简介,长度不能超过500个字符 </div>
+          <el-form-item label="新默认模板" class="defaultTheme" v-if="viewModel">{{viewModel.name}}
+            <div class="form-intro">新默认模板ID：{{viewModel.id}} </div>
           </el-form-item>
-          <el-form-item label="云平台支付密码" :required="true">
-            <el-input v-model="viewModel.payPassword" type="password"></el-input>
-            <div class="form-intro">您在阿拉博数平台(www.5ug.com)的支付密码，非当前管理员密码，非平台的登录密码</div>
+          <el-form-item label="发布状态" class="themeStatus" v-if="find.async">{{find.text}}
+            <div class="form-intro" v-if="!find.status">操作流程:点击发布模板按钮，在diy云平台中点击右上角发布按钮 </div>
           </el-form-item>
         </el-form>
       </div>
       <div slot="footer" class="dialog-footer">
         <el-button @click="dialogFormVisible = false" type="default">取 消</el-button>
-        <el-button type="danger" @click="makeTheme" :loading="loading">开始复制模板</el-button>
+        <el-button type="danger" @click="diyTheme" v-if="!find.status" :loading="loading">发布模板</el-button>
+        <el-button type="danger" @click="setDefault" v-else :loading="loading">设置默认模板</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 
-
 <script>
-  import diyHttp from '@/service/core/diy.http'
+  import service from './service'
   export default {
-    props: {
-      defaultTheme: null
-    },
     data () {
       return {
         dialogFormVisible: false,
+        defaultTheme: null,
         loading: false,
-        viewModel: {}
+        find: {
+          status: false,
+          async: false,
+          text: '模板未发布,请先发布再设置默认模板'
+        },
+        viewModel: null
       }
     },
     methods: {
-      init (theme) {
-        this.viewModel = theme
+      async init (theme, defaultTheme) {
         this.dialogFormVisible = true
-      },
-      async makeTheme () {
-        this.loading = true
-        var site = await this.$base.siteAsync()
-        var makeInput = {
-          SiteId: site.id,
-          themeId: this.viewModel.id,
-          userId: site.userId,
-          payPassword: this.viewModel.payPassword,
-          name: this.viewModel.name,
-          intro: this.viewModel.intro
+        this.defaultTheme = defaultTheme
+        var para = {
+          id: theme.id
         }
-        var response = await diyHttp.post('/Api/DiyClient/Make', makeInput)
-        this.loading = false
+        var response = await this.$api.httpGet('/api/theme/querysingle', para)
+        if (response.status === 1 && response.result && response.result.id) {
+          this.find.status = true
+          this.find.text = '模板已发布'
+        } else {
+          this.find.status = false
+          this.find.text = '模板未发布,请先发布再设置默认模板'
+        }
+        this.find.async = true
+        this.viewModel = theme
+      },
+      async diyTheme () {
+        await service.diy(this, this.viewModel)
+      },
+      async setDefault () {
+        this.loading = true
+        var para = {
+          id: this.viewModel.id
+        }
+        var response = await this.$api.httpGet('/Api/theme/SetDefaultTheme', para)
         if (response.status === 1) {
-          this.dialogFormVisible = false
-          this.$alert('恭喜,模板复制成功,点击确定开始复制模板', '复制成功', {
-            confirmButtonText: '确定',
-            callback: async action => {
-              await this.$emit('afterMake', response.result)
-            }
+          this.$notify({
+            title: '成功',
+            message: '默认模板已设置成功',
+            type: 'success',
+            position: 'bottom-right'
           })
+          this.loading = true
+          this.$emit('afterSetDefault')
         } else {
           this.$api.alert(response.message)
         }
@@ -77,6 +86,13 @@
 </script>
 <style rel="stylesheet/scss" lang="scss">
   .zk-root-delete {
+    .defaultTheme {
+      color: #ad5beb;
+      font-weight: 600;
+    }
+    .themeStatus {
+      color: #5867dd;
+    }
     .delete-dialog {
       padding: 20px;
       border-bottom: 1px solid #f0f0f0;

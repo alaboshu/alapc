@@ -3,9 +3,9 @@
     <div class="admin-pages-list" v-loading="!diyThemes">
       <theme-item @deleteTheme="deleteTheme" @makeTheme="makeTheme" @setDefault="setDefault" v-for="(theme,index) in diyThemes" :defautTheme="defaultTheme" :theme="theme" :key="index"></theme-item>
     </div>
-    <delete-theme ref="zkRootDelete" @afterDelete="reload"></delete-theme>
+    <delete-theme ref="zkRootDelete" @afterDelete="init"></delete-theme>
     <make-theme ref="zkRootMake" @afterMake="afterMake"></make-theme>
-    <set-Default ref="zkRootSetDefault" @afterMake="afterMake"></set-Default>
+    <set-Default ref="zkRootSetDefault" @afterSetDefault="init"></set-Default>
   </div>
 </template>
 
@@ -42,14 +42,10 @@
         if (response.status === 1) {
           this.defaultTheme = response.result
         }
-        await this.getDiyThemes()
-      },
-      // 获取远程模板
-      async getDiyThemes () {
         var para = {
           ...this.widget.value
         }
-        var response = await diyHttp.post('/api/DiyClient/GetAdminTheme', para)
+        response = await diyHttp.post('/api/DiyClient/GetAdminTheme', para)
         if (response.status === 1) {
           this.diyThemes = response.result.result
         } else {
@@ -59,19 +55,14 @@
       async makeTheme (theme) {
         this.$refs.zkRootMake.init(theme)
       },
-
       async deleteTheme (theme) {
         this.$refs.zkRootDelete.init(theme)
       },
       async setDefault (theme) {
-        this.$refs.zkRootSetDefault.init(theme, this.defaultTheme)
-      },
-      // 重新加载
-      async reload () {
-        await this.init()
+        await this.$refs.zkRootSetDefault.init(theme, this.defaultTheme)
       },
       async afterMake (theme) {
-        this.reload()
+        this.init()
         service.diy(this, theme)
       }
     }
