@@ -43,6 +43,7 @@
     },
     methods: {
       async init (theme, defaultTheme) {
+        this.loading = false
         this.dialogFormVisible = true
         this.defaultTheme = defaultTheme
         var para = {
@@ -60,6 +61,7 @@
         this.viewModel = theme
       },
       async diyTheme () {
+        this.dialogFormVisible = false
         await service.diy(this, this.viewModel)
       },
       async setDefault () {
@@ -75,11 +77,22 @@
             type: 'success',
             position: 'bottom-right'
           })
-          this.loading = true
+          this.loading = false
+          this.dialogFormVisible = false
+          this.deleteAdminCache()
           this.$emit('afterSetDefault')
         } else {
           this.$api.alert(response.message)
         }
+      },
+      // 清空管理后台模板
+      deleteAdminCache () {
+        // 后台管员后，清空模板
+        if (this.defaultTheme.type === 3 && this.defaultTheme.clientType === 1) {
+          this.$api.localRemove('allPageInfo_admin__PcWeb')
+          this.$api.localRemove('adminRoleOutput')
+        }
+        console.info('this.def', this.defaultTheme)
       }
     }
   }
