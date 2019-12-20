@@ -109,9 +109,9 @@ export default {
         var element = allPageInfo.pageList[i]
         if (
           path
-          .substring(0, 6)
-          .toLowerCase()
-          .indexOf('admin') !== -1 &&
+            .substring(0, 6)
+            .toLowerCase()
+            .indexOf('admin') !== -1 &&
           type !== undefined
         ) {
           if (path.toLowerCase() === element.path.toLowerCase()) {
@@ -140,8 +140,9 @@ export default {
       allPageCacheKey = 'allPageInfo_' + type + '__' + api.client()
     }
     var allPageInfo = api.vuexLocalGet(allPageCacheKey)
+    console.info('allPageInfo', allPageInfo)
     var isRequest = true // 是否重新请求
-    if (!api.isEmpty(allPageInfo)) {
+    if (allPageInfo) {
       let timestamp = Math.round(new Date().getTime() / 1000)
       if (allPageInfo.lastUpdate > timestamp) {
         isRequest = false

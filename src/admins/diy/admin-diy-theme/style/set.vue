@@ -27,6 +27,7 @@
 
 <script>
   import service from './service'
+  import theme from '@/service/core/theme'
   export default {
     data () {
       return {
@@ -79,20 +80,22 @@
           })
           this.loading = false
           this.dialogFormVisible = false
-          this.deleteAdminCache()
+          await this.deleteAdminCache()
           this.$emit('afterSetDefault')
         } else {
           this.$api.alert(response.message)
         }
       },
       // 清空管理后台模板
-      deleteAdminCache () {
+      async  deleteAdminCache () {
         // 后台管员后，清空模板
         if (this.defaultTheme.type === 3 && this.defaultTheme.clientType === 1) {
           this.$api.localRemove('allPageInfo_admin__PcWeb')
+          this.$api.vuexRemove('allPageInfo_admin__PcWeb')
           this.$api.localRemove('adminRoleOutput')
+          await theme.getAllPageList('admin')
+          console.info('模板信息', this.$api.localGet('allPageInfo_admin__PcWeb'))
         }
-        console.info('this.def', this.defaultTheme)
       }
     }
   }

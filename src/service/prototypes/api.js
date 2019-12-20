@@ -104,6 +104,9 @@ export default {
   vuexSet (name, value) {
     store.state[name] = value
   },
+  vuexRemove (name) {
+    store.state[name] = null
+  },
   vuexGet (name) {
     return store.state[name]
   },
