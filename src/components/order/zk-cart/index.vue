@@ -99,12 +99,11 @@
 </template>
 
 <script>
-  
+
   import './var.scss'
   import './styles'
-  import { CART_GETCART_GET, CART_REMOVECART_GET } from '@/service/core/apiUrl'
   export default {
-    
+
     data () {
       return {
         widgetModel: '',
@@ -129,7 +128,7 @@
           loginUserId: this.$user.id()
         }
         this.widgetModel = await this.$api.themeWidget(this.widget)
-        var response = await this.$api.httpGet(CART_GETCART_GET, para)
+        var response = await this.$api.httpGet('/api/CART/getcart', para)
         if (response.status === 1) {
           this.viewModel = response.result
           this.viewModel.storeItems.forEach((store, storeIndex) => {
@@ -268,7 +267,7 @@
           confirmButtonText: '确定',
           cancelButtonText: '取消'
         }).then(async () => {
-          var response = await this.$api.httpGet(CART_REMOVECART_GET, para)
+          var response = await this.$api.httpGet('/api/CART/removecart', para)
           this.$crud.message(response)
           this.init()
         }).catch(() => { })

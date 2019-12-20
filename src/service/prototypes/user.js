@@ -1,6 +1,4 @@
 import api from '@/service/prototypes/api'
-
-import { USER_LOGIN_POST, USER_REG_POST } from '@/service/core/apiUrl'
 import crypto from '@/service/utils/crypto'
 import Vue from 'vue'
 import base from './base'
@@ -116,7 +114,7 @@ export default {
       Vue.prototype.$message.warning('密码最短为六位数')
     }
     api.localRemove(this.userKey())
-    var response = await api.httpPost(USER_LOGIN_POST, model)
+    var response = await api.httpPost('/api/member/login', model)
     if (response !== undefined) {
       Vue.prototype.$crud.message(response)
       if (response.status === 1) {
@@ -157,7 +155,7 @@ export default {
     if (!api.isEmpty(model.password) && model.password.length < 6) {
       Vue.prototype.$notify.warning('密码最短为六位数')
     }
-    var response = await api.httpPost(USER_REG_POST, model)
+    var response = await api.httpPost('/api/member/reg', model)
     if (response.status === 1) {
       this.login(model)
     } else {

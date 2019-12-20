@@ -64,7 +64,6 @@
 
 <script>
 
-  import { PAY_GETLIST_GET, PAY_PAY_POST } from '@/service/core/apiUrl.js'
   import { setTimeout } from 'timers'
   export default {
 
@@ -114,7 +113,7 @@
           payId: this.payId,
           LoginUserId: this.$user.id()
         }
-        var response = await this.$api.httpGet(PAY_GETLIST_GET, paras) // 获取支付方式列表
+        var response = await this.$api.httpGet('/api/pay/getlist', paras) // 获取支付方式列表
         if (response.status === 1) {
           this.PayTypeList = response.result.payTypeList
           this.selectPayType = response.result.payTypeList[0].payType
@@ -145,7 +144,7 @@
           // openId: this.$api.localGet('wechat_openId'),
           LoginUserId: this.$user.id()
         }
-        var response = await this.$api.httpPost(PAY_PAY_POST, paras)
+        var response = await this.$api.httpPost('/api/pay/pay', paras)
         if (response.status === 1) {
           if (this.selectPayType === 7) {
 

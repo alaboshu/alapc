@@ -116,19 +116,19 @@ export default {
     },
     {
       name: '数据初始',
-      icon: 'flaticon-mark',
+      icon: 'flaticon-location',
       method: 'init'
-    },
-    {
-      name: 'DIY编辑',
-      icon: 'flaticon-visible',
-      method: 'diy'
-    },
-    {
-      name: 'H5前端',
-      icon: 'flaticon-location  ',
-      method: 'h5'
     }
+      // {
+      //   name: 'DIY编辑',
+      //   icon: 'flaticon-visible',
+      //   method: 'diy'
+      // },
+      // {
+      //   name: 'H5前端',
+      //   icon: 'flaticon-location  ',
+      //   method: 'h5'
+      // }
     ]
     return topMenus
   },

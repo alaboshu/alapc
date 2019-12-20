@@ -18,8 +18,6 @@
 </template>
 
 <script>
-
-  import { PRODUCT_LIST_GET, PRODUCT_CLASS_GET } from '@/service/core/apiUrl'
   export default {
 
     data () {
@@ -90,14 +88,14 @@
     methods: {
       async  init () {
         this.widgetModel = await this.$api.themeWidget(this.widget)
-        var response = await this.$api.httpGet(PRODUCT_CLASS_GET)
+        var response = await this.$api.httpGet('/api/product/class')
         this.viewModel = response.result
       },
       async  ceshi (name, id) {
         let params = {
           ClassIds: String(id) // 商品分类Id
         }
-        var response = await this.$api.httpGet(PRODUCT_LIST_GET, params)
+        var response = await this.$api.httpGet('/api/product/list', params)
         this.$emit('clickModel', response.result)
       }
     }

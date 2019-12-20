@@ -217,8 +217,6 @@
 </template>
 
 <script>
-
-  import { ORDER_BUYINFO_POST, ORDER_GETPRICE_POST, ORDER_BUY_POST, USERADDRESS_GET_GET, USERADDRESS_SETDEFAULT_POST } from '@/service/core/apiUrl'
   export default {
 
     data () {
@@ -273,7 +271,7 @@
           loginUserId: this.$user.id(),
           productJson: JSON.stringify(buyProductInfo)
         }
-        var initResponse = await this.$api.httpPost(ORDER_BUYINFO_POST, buyInfoInput)
+        var initResponse = await this.$api.httpPost('/api/order/buyinfo', buyInfoInput)
         if (initResponse.status === 1) {
           this.viewModel = initResponse.result
           for (var i = 0; i < this.viewModel.storeItems.length; i++) {
@@ -304,7 +302,7 @@
         let paramenter = {
           LoginUserId: this.$user.id()
         }
-        var addressList = await this.$api.httpGet(USERADDRESS_GET_GET, paramenter)
+        var addressList = await this.$api.httpGet('/api/useraddress/get', paramenter)
         this.addressList = addressList.result
       },
       newAdd () {
@@ -319,7 +317,7 @@
             userId: this.$user.id(),
             id: data.id
           }
-          var defaultMsg = await this.$api.httpPost(USERADDRESS_SETDEFAULT_POST, defaultParameter)
+          var defaultMsg = await this.$api.httpPost('/api/useraddress/SETDEFAULT', defaultParameter)
           if (defaultMsg.status === 1) {
             const loading = this.$loading({
               lock: true,
@@ -386,7 +384,7 @@
           reduceMoneysJson: JSON.stringify(reduceMoneys),
           storeExpressJson: JSON.stringify(storeDelivery)
         }
-        var priceResponse = await this.$api.httpPost(ORDER_GETPRICE_POST, priceInput)
+        var priceResponse = await this.$api.httpPost('/api/order/getprice', priceInput)
         if (priceResponse.status !== 1) {
           this.$notify.error({
             title: '错误',
@@ -460,7 +458,7 @@
           userId: this.$user.id() // 下单用户ID
           // activityRecordId: this.activityRecordId
         }
-        var response = await this.$api.httpPost(ORDER_BUY_POST, buyInput)
+        var response = await this.$api.httpPost('/api/order/buy', buyInput)
         if (response.status === 1) {
           this.$router.push(
             {

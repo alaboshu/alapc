@@ -38,10 +38,8 @@
 </template>
 
 <script>
-  import { PRODUCT_CLASS_GET, ARTICLE_USERNOTICELIST_GET } from '@/service/core/apiUrl'
-  
   export default {
-    
+
     props: {
       widget: {}
     },
@@ -68,9 +66,9 @@
       },
       async init () {
         this.widgetModel = await this.$api.themeWidget(this.widget)
-        var response = await this.$api.httpGet(PRODUCT_CLASS_GET)
+        var response = await this.$api.httpGet('/api/product/class')
         this.classModel = response.result
-        var notice = await this.$api.httpGet(ARTICLE_USERNOTICELIST_GET)
+        var notice = await this.$api.httpGet('/api/article/usernoticelist')
         this.noticeModel = notice.result
       },
       onClick (rum) {

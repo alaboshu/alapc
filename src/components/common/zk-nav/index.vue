@@ -12,7 +12,7 @@
 </template>
 <script>
 
-  import { PRODUCT_CLASS_GET } from '@/service/core/apiUrl'
+
   export default {
 
     data () {
@@ -43,9 +43,9 @@
     methods: {
       async  init () {
         this.widgetModel = await this.$api.themeWidget(this.widget)
-        var response = await this.$api.httpGet(PRODUCT_CLASS_GET)
+        var response = await this.$api.httpGet('/api/product/class')
         this.viewModel = response.result
-        var calssList = await this.$api.httpGet(PRODUCT_CLASS_GET)
+        var calssList = await this.$api.httpGet('/api/product/class')
         this.classModel = calssList.result
       },
       classChilren (model) {

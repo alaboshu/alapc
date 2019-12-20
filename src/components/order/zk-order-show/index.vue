@@ -147,7 +147,6 @@
 </template>
 
 <script>
-  import { ORDER_SHOW_GET } from '@/service/core/apiUrl'
 
   export default {
 
@@ -172,7 +171,7 @@
         let parameter = {
           id: this.$route.query.id
         }
-        var orderShowResponse = await this.$api.httpGet(ORDER_SHOW_GET, parameter)
+        var orderShowResponse = await this.$api.httpGet('/api/order/show', parameter)
         this.viewModel = orderShowResponse.result
         // this.widgetModel = await this.$api.themeWidget(this.widget)
         this.ready = true

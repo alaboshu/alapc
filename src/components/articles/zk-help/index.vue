@@ -18,8 +18,6 @@
 </template>
 
 <script>
-  
-  // import { HELP_NAV_GET, ARTICLE_ARTICLEDETAIL_GET } from '@/service/core/apiUrl'
   export default {
     
     data () {

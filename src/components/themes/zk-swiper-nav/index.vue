@@ -71,13 +71,13 @@
 </template>
 
 <script>
-  
+
   import './var.scss'
   import './styles'
-  import { PRODUCT_CLASS_GET } from '@/service/core/apiUrl'
+
 
   export default {
-    
+
     data () {
       return {
         widgetModel: {},
@@ -133,7 +133,7 @@
     methods: {
       async init () {
         this.widgetModel = await this.$api.themeWidget(this.widget)
-        var response = await this.$api.httpGet(PRODUCT_CLASS_GET)
+        var response = await this.$api.httpGet('/api/product/class')
         this.classModel = response.result
       },
       swiperNav (index) {
