@@ -5,7 +5,7 @@ import Vue from 'vue'
 
 export default {
   // 员工登录，验证权限的同时访问菜单
-  async employeeLogin (isDiy) {
+  async employeeLogin () {
     if (user.loginUser() === null) {
       window.location.href = '/admin/login'
     }
