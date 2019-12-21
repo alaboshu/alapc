@@ -50,10 +50,12 @@
         this.postMessage('editWidget', widget)
       },
       initWidget (data) {
+        this.$bus.$emit('global_diy_menus', data)
         this.widgetModel = data
       },
       sideMenu (data) {
-        this.$bus.$emit('levelNavigationLeft', data.menus)
+        console.info('sss,global_diy_menusglobal_diy_menusglobal_diy_menus')
+        this.$bus.$emit('global_diy_menus', data)
       }
     }
   }

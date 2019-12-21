@@ -32,10 +32,11 @@ export default {
       return null
     }
   },
+
   // 转换菜单
   convertToMenus (roleOutput) {
+    console.info('roleRou admin', roleOutput)
     // 处理菜单索引，以及是否显示左侧菜单
-    this.appEnums('cache', roleOutput)
     roleOutput.menus.forEach((element, index) => {
       var showChildMenu = false
       var asideWidth = '92px'

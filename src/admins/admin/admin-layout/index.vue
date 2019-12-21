@@ -36,16 +36,25 @@
     },
     async mounted () {
       this.$bus.$on('global_loading_theme', async () => {
+        console.info('mounted')
         this.roleOutput = null
         await this.init()
+      })
+      this.$bus.$on('global_diy_menus', (data) => {
+        this.init(data)
       })
       this.init()
     },
     methods: {
-      async init () {
-        await admin.loginByToken()
+      async init (diyMenus) {
+        await admin.loginByToken() // 检查是否登录
         if (this.roleOutput == null) {
-          this.roleOutput = await this.$admin.employeeLogin(this.isDiy)
+          if (this.isDiy === true) {
+            this.roleOutput = diy.diyMenus(diyMenus)
+            console.info('diy 模板', this.roleOutput)
+          } else {
+            this.roleOutput = await this.$admin.employeeLogin(this.isDiy)
+          }
         }
         if (this.roleOutput === null) {
           this.$user.loginOut()
